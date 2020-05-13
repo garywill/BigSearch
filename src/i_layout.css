@@ -1,0 +1,124 @@
+/*
+ * By Big Search / 大术专搜
+ * (acsearch.ga, acsearch.tk)
+ * 
+ * All Rights Reserved for This File
+ * If want to use this code, welcome ask original author for FLOSS license
+ * Before that, please DON'T use unauthorized code
+ * 此文件 版权所有 保留所有权利
+ * 若要使用代码，欢迎联系原作者获取 自由软件许可
+ * 在取得许可前，请勿使用未授权的代码
+ * 
+ * Source code: https://github.com/garywill/bigSearch
+ */
+
+body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Arial" , "WenQuanYi Micro Hei","文泉驿微米黑","Microsoft YaHei" ,"微软雅黑" ,"SimHei" , "黑体";}
+
+
+#header {  width: 100%;  background-color: #7895ff; padding: 5px 0px;margin-bottom: 5px;border-bottom: 1px solid;border-color: gray; box-shadow: 0px 2px 2px #ddd;}
+.header-nav-span{font-size: 20px;font-weight:bold; color: #fbfbfb; padding: 0px 30px;}
+.header-nav-span:hover {border-bottom:2px solid ;border-color:red;}
+.header-nav-span  a {color: #fbfbfb;font-weight:bold; text-decoration: none;}
+
+#newver, #curver { position:absolute;  right:0 ; font-size: 12px;}
+#newver { top: 17px; cursor:pointer; text-decoration:underline; }
+#newver, #newver_link {color:#f6f6ad; }
+#curver { top:0; color: #aaa; }
+
+#desktop_mobile_cont {text-align: right;}
+
+#intitle , #intitle a{ color:#077500; text-decoration: none;}
+#index_title  { display: inline;  margin: 10px;}
+#index_subtitle { display: inline;  margin: 10px;}
+
+#footer {clear:left; position: relative; width: 100%; color: gray; font-size: 10px; text-align: center; padding-top: 30px; }
+#wrapper {clear:left;  width: 100%; text-align:center; }
+#content {  display:inline-block; text-align:left;}
+#leftside {   }
+#rightside {  }
+
+
+
+#input_o_cont, #input_cont, #inputbox { max-width:700px; min-width:600px;}
+#input_cont {text-align: left; }
+#inputbox {  height: 30px; font-size: 18px; box-shadow: 1px 1px 2px #60a7fb; clear:left; display:block;}
+
+
+#engines_cont {display:inline-block; margin-top: 10px; box-shadow: 4px 3px 7px #a1a1a1;  }
+#engines_cont, #engines_o_cont { max-width:700px; }
+#engines_table { text-align: left; padding: 0px; /*! background-color: rgb(136, 136, 0); */   min-width:600px;  max-width:650px;}
+#engines_table tr td {vertical-align: middle;}
+.labelrow {font-size:15px; background-color: #cae4ea; color:#6c6969; font-weight:bold;}
+.labelrow td { padding-left: 50px; }
+.engine_tr {font-size:16px; height:24px;  background-color: rgb(224, 232, 246); clear: left; border-bottom: 5px solid;}
+.engine_tr:hover { background-color: rgb(0, 167, 0); }
+.enginename_td { padding:0px 10px 0px 5px; min-width:130px; white-space:nowrap; }
+.enginename_td a { text-decoration: none; color: #077500; font-weight: bold; }
+.engine_tr:hover .enginename_td a {  color: orange;  }
+
+.d_addi_html a:hover { text-decoration: underline; } 
+.engine_home_link:hover { text-decoration: none; }
+
+.engbtns_td {padding:0px;margin:0px;   font-size:105%;  }
+.gobutton {cursor: pointer; margin:0px; color: #353535; display: inline;  padding: 3px 7px;  border-color: rgb(136, 136, 0);text-align: center;  font-weight:bold;outline: none; border-top: 0px;border-left: 0px;border-right: 0px;border-bottom:3px solid transparent;  font-size:16px; background-color:transparent; }
+.engine_tr:hover .engbtns_td .gobutton {color:white;}
+#lastp {border-bottom:3px solid ;border-color:orange ;font-weight:bold; color:#c98200; text-shadow:2px 2px white; box-shadow: 1px 0px 4px blue;  }
+.gobutton:hover {  background-color: rgb(0, 255, 0); box-shadow: 0px 3px 10px black; border-bottom:3px solid ;}
+
+.engine_tr:hover .engbtns_td #lastp { color:#ffea00; text-shadow:none;box-shadow:none;}
+.engine_tr:hover .engbtns_td #lastp:hover { box-shadow:0px 3px 10px black;}
+
+.general_btn, .general_btn a {font-size: 15px; display:inline-block; margin: 0; padding: 0; color:blue; cursor: pointer; text-decoration:none; background-color:transparent; border:0px;outline: none;}
+.general_btn:hover > * {text-decoration: underline;}
+
+#catas_cont { padding-top:30px; padding-right: 20px; /* text-align: right;  */ word-break: keep-all; }
+#catabtns_header { margin-bottom: 30px; }
+.cata_btns {text-align:left; display: block; color:#737ed1; padding: 10px 0px; font-weight:bold; font-size:16px;}
+.cata_btns:hover {color:blue; background-color:#c0cbf2;  }
+.cata_btn_highlight {color:blue; background-color:#c0cbf2;}
+.cata_btn_highlight span { border-bottom:2px solid blue;}
+
+#hist_td{  padding-left: 50px;padding-top:20px; }
+#hist_ban { }
+#hist_tip { font-size: 70%; color: gray; margin-left:5px;}
+#hist { width: 250px; height: 380px; overflow-y: scroll; border: 1px solid gray; background-color: white; }
+#hist div { color:gray; font-size: 14px; padding: 5px 3px; word-wrap:break-word; position:relative; max-height:50px; overflow:hidden;}
+#hist div:hover { background-color: rgb(192, 203, 242); }
+#hist div .hist_entry_span_buttons {  cursor: pointer;color: yellow; font-size: 15px; position: absolute; right: 20px; top: 3px;  display: none; height: 28px; }
+#hist div:hover .hist_entry_span_buttons { display: block; }
+.hist_entry_button:hover { text-decoration: underline; }
+
+#clearhist { cursor: pointer; color: blue;  display: inline; }
+#clearhist:hover { text-decoration: underline; }
+
+#btns_below_input { font-size: 80%;} 
+#inputclear, #inputselect, #inputcopy{ cursor: pointer; color: blue;  display: inline; }
+#inputclear:hover, #inputselect:hover, #inputcopy:hover{ text-decoration: underline; }
+#inputpaste {display:none;}
+#openhist{display:none} 
+
+#btmbtns {display:block ; clear:left;position: relative; width:100%; margin-left:auto;margin-right:auto; text-align: center; padding-top:30px;}
+.btmbtn { margin: 5px 20px; }
+
+
+.btm_dialog  { clear:left;text-align: center;max-width:600px; margin-left:auto;margin-right:auto;display:none; margin-bottom:10px; padding-top:5px; background-color: rgba(255,255,255,0.3);}
+#ourmail {color:blue;}
+#ourmail:hover { text-decoration: underline; }
+
+.badge_cont { position: relative;  }
+.badge {  
+    position: absolute; 
+    background-color: rgba(255, 255, 0, 0.65);
+    color: black;
+    font-size: 9px;
+    top: -65%;
+    right: -20px;
+    border-radius: 3px;
+    padding: 1px;  
+}
+
+#content_mobile { display:none; text-align:left;}
+
+#floater {display:none;}
+
+.hide {display:none;}

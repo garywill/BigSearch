@@ -1,0 +1,34 @@
+{
+    "name": "Big Search",
+    "description": "Query any One or Multiple search engines via a Flexible tool. Highly customizable",
+    "manifest_version": 2,
+    "version": "2.1.2",
+    "homepage_url": "https://github.com/garywill/bigSearch",
+    "author": {
+        "name": "Garywill",
+        "url": "https://garywill.github.io"
+    },
+    "permissions": [
+        "storage",
+        "contextMenus",
+        "clipboardRead"
+    ],
+    "incognito": "split",
+    "icons": {
+        "128": "icon.png"
+    },
+ 
+    "browser_action": {
+        "default_icon": "icon_button.png",
+        "default_title": "Big Search",
+        "default_popup": "addon-popup.html"
+    },
+    "options_ui": {
+        "page": "options.html"
+    },
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "update_url": "https://gitlab.com/garywill/browseraddon-dl/-/raw/main/update-chromeaddon.xml"
+} 
