@@ -43,6 +43,10 @@ Ways to use:
 
 Solve all needs between browsers and search engines. Easily make best use of different web search engines or inquery systems. Or, use as universal web searching home, portal for people expecting good search quality & breadth.
 
+## List of engines
+
+[See list of build-in search engines](https://github.com/garywill/bigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+
 ## Similar tools comparison
 
 [Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/bigSearch/blob/list/list.md)

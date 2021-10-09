@@ -45,6 +45,10 @@
 
 解决一切浏览器与搜索引擎之间的需求。让你最充分地利用不同的网络搜索引擎或查询系统。也可以作为注重搜索质量和广度的人的网络入口。
 
+## 已收录引擎
+
+[查看收录引擎列表](https://github.com/garywill/bigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+
 ## 相似工具比较
 
 [开源的多引擎网络搜索工具比较](https://github.com/garywill/bigSearch/blob/list/list.md)
