@@ -94,7 +94,7 @@ catas = {
         ],
     }, 
     "media": {
-        label: i18n(["音视频图", "Media"]),
+        label: i18n(["音视频图", "Multimedia"]),
         engines: [
             { type:"label", lstr:"陆内" , visible_lang: "zh" },
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
