@@ -118,12 +118,25 @@
                             <div id="engines_o_cont">
                                 <div id="div_custom_json"  style="display:;"  >
                                     <div id="div_button_to_input_json" >
-                                        <button id="btn_input_json"><span class='lang lang-zh'>输入自定义JSON</span><span class='lang lang-en'>Input custom JSON</span></button>
+                                        <button id="btn_input_json"><span class='lang lang-zh'>编辑自定义引擎</span><span class='lang lang-en'>Edit custom engines</span></button>
                                         
-                                        <span class='lang lang-zh'>我们鼓励您将自定义引擎提交给我们上游源码</span><span class='lang lang-en'>We encourage users to submit custom engines data to us</span>                                    </div>
+                                                                            </div>
                                     <div id="div_json_parse">
-                                        <button id="btn_parse_json"><span class='lang lang-zh'>确定</span><span class='lang lang-en'>OK</span></button> <br>
-                                        <textarea id="textarea_json"></textarea>
+                                        <label for="textarea_json_saved">
+                                            <span class='lang lang-zh'>已保存的自定义引擎：</span><span class='lang lang-en'>Saved custom engines:</span>                                        </label>
+                                        <code><textarea id="textarea_json_saved" class="json_area" readonly="true" wrap="off" style="background: #e8e8e8;" rows="9" placeholder="Haven't added custom engines. When you need, you can find a simple tutorial from the manual at source code URL"></textarea></code>
+                                        
+                                        <button id="btn_load_json"><span class='lang lang-zh'>↓读取并编辑</span><span class='lang lang-en'>↓Load & Edit</span></button>
+                                        <button id="btn_parse_json"><span class='lang lang-zh'>↑解析并覆盖保存</span><span class='lang lang-en'>↑Parse, Save & Override</span></button>
+                                        |
+                                        <button id="btn_use_examples"><span class='lang lang-zh'>加载例子</span><span class='lang lang-en'>Use examples</span></button>
+                                        <button id="btn_use_examples_adv"><span class='lang lang-zh'>加载例子（高级）</span><span class='lang lang-en'>Use examples (advanced)</span></button>
+                                        
+                                        <br>
+                                        
+                                        <label for="textarea_json">
+                                            <span class='lang lang-zh'>在此处编辑自定义引擎：</span><span class='lang lang-en'>Edit custom engines here:</span>                                        </label>
+                                        <code><textarea id="textarea_json" class="json_area" wrap="off" rows="9" placeholder="Input in JSON format. It's easy!"></textarea></code>
                                     </div>
                                 
                                 </div>

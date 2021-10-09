@@ -43,6 +43,7 @@ body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Ar
 #input_cont {text-align: left; }
 #inputbox {  height: 30px; font-size: 18px; box-shadow: 1px 1px 2px #60a7fb; clear:left; display:block;}
 
+.json_area {width: 100%; overflow: scroll}
 
 #engines_cont {display:inline-block; margin-top: 10px; box-shadow: 4px 3px 7px #a1a1a1;  }
 #engines_cont, #engines_o_cont { max-width:700px; }

@@ -83,6 +83,21 @@ You only need to write JSON and have basic http request knowledge about GET/POST
 
 The examples provided here can be put into the "user custom" area
 
+#### Short Format
+
+```yaml
+{
+    "Google": "https://www.google.com/search?q={0}",
+    "Yahoo Search": "https://search.yahoo.com/search?q={0}"
+}
+```
+
+#### Full Format
+
+Using full format you have opportunity to use all the features of this tool.
+
+Supports mixing short formatted and full formatted elements.
+
 <details>
 
 ```yaml

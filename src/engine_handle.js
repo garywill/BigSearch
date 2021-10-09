@@ -23,6 +23,7 @@ async function read_usercustom_engines() {
     {
         if (getStor("usercustom_engines") ) {
             usercustom_engines = JSON.parse(getStor("usercustom_engines"));
+            document.getElementById("textarea_json_saved").value = getStor("usercustom_engines");
         }
     }else{
         const read_addon_settings_usercuston_engines = await get_addon_setting("usercustom_engines");
@@ -31,6 +32,7 @@ async function read_usercustom_engines() {
             
             usercustom_engines = JSON.parse( LZUTF8.decompress(read_addon_settings_usercuston_engines, {inputEncoding: "StorageBinaryString"}) );
             
+            document.getElementById("textarea_json_saved").value = LZUTF8.decompress(read_addon_settings_usercuston_engines, {inputEncoding: "StorageBinaryString"});
         }
     }
     usercustom_engines_list = engines_object_tolist(usercustom_engines);
@@ -121,10 +123,15 @@ function createEngineTr(e_name,source=null){
         engine_home_link.href = db(source).sEngines[e_name].addr;
     
     engine_home_link.setAttribute("name", e_name);
+    
     if ( !source || source == "bigsearch")
         engine_home_link.addEventListener('click', eng_link_onclick );
         //engine_home_link.addEventListener('click', function() { stati_click_e(this) ; } );
-    engine_home_link.textContent = db(source).sEngines[e_name].dname;
+    
+    if ( typeof ( db(source).sEngines[e_name] ) === "string" )
+        engine_home_link.textContent = e_name;
+    else
+        engine_home_link.textContent = db(source).sEngines[e_name].dname;
     
     if(db(source).sEngines[e_name].d_addi_html)
     {
@@ -161,12 +168,16 @@ function createEngineTr(e_name,source=null){
     tr.appendChild(td_enginebuttons);
     td_enginebuttons.title = i18n(['要进行操作（如搜索），请输入后点击相应的按钮', 'To do an action (e.g. search), input text then click a button']);
     td_enginebuttons.className = "engbtns_td";
+    
     if ( db(source).sEngines[e_name].btns === undefined )
     {
         createBtnsAndAppend(td_enginebuttons,defaultBtn);
     }else{
         createBtnsAndAppend(td_enginebuttons,db(source).sEngines[e_name].btns);
     }
+    
+    
+    
     function createBtnsAndAppend(parent,btns)
     {
         Object.keys(btns).forEach( (key) => {
@@ -267,6 +278,12 @@ function getDataForGo(engine,btn,source=null)
     
     var data = {};
     
+    if ( typeof(engine) === "string" )
+    {
+        data['full_url'] = engine;
+        return data;
+    }
+    
     data_btnOnly.forEach(function(ele){
         if (engine.btns[btn][ele]  !== undefined) {
             data[ele] = engine.btns[btn][ele];
@@ -312,7 +329,6 @@ async function goEngBtn(engine,btn,keyword,source=null)
 
         return;
     }
-    
     
     var data = getDataForGo(engine,btn, source);
     /*

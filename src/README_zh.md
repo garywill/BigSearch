@@ -85,6 +85,22 @@
 
 此处提供的例子可用于放入“用户自定”区域以供尝试
 
+#### 简短形式
+
+```yaml
+{
+    "百度": "https://www.baidu.com/s?wd={0}",
+    "Google": "https://www.google.com/search?q={0}",
+    "Yahoo Search": "https://search.yahoo.com/search?q={0}"
+}
+```
+
+#### 完整形式
+
+使用完整形式有机会发挥本工具所有功能。
+
+亦支持将 简短形式 和 完整形式 混合使用。
+
 <details>
 
 ```yaml
@@ -146,7 +162,7 @@
 
 ### 编辑引擎数据说明
 
-JSON格式
+JSON格式。
 
 <details>
 

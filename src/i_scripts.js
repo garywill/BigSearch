@@ -232,6 +232,60 @@ onrd.push(function(){
     });
 });
 
+onrd.push( function() {
+const example = `{
+  "Google": "https://www.google.com/search?q={0}",
+  "Yahoo Search": "https://search.yahoo.com/search?q={0}"
+}`;
+const example_adv = `{
+  "google": {
+    "dname": "Google",
+    "addr": "https://www.google.com",
+    "action": "https://www.google.com/search",
+    "kw_key": "q",
+    "btns": {
+      "search": {
+        "label": "Google Search"
+      },
+      "lucky": {
+        "label": "I'm Feeling Lucky",
+        "params": [
+          {"key":"btnI", "val": "1"}
+        ]
+      }
+    }
+  },
+  "itunesapps": {
+    "dname": "iTunes Apps (Google)",
+    "addr": "https://www.apple.com/itunes/charts/free-apps/",
+    "btns": {
+      "search_apps": {
+        "label": "Search Apps",
+        "use_other_engine": {
+          "engine": "google",
+          "btn": "search"
+        },
+        "kw_format": "{0} site:apple.com/*app"
+      }
+    }
+  }
+}`;
+
+    document.getElementById("btn_use_examples").addEventListener('click', add_example_to_text);
+    document.getElementById("btn_use_examples_adv").addEventListener('click', add_example_to_text);
+                                                                 
+    function add_example_to_text() {
+        var str_add = "";
+        if (this.id == "btn_use_examples")
+            str_add = example;
+        if (this.id == "btn_use_examples_adv")
+            str_add = example_adv;
+        
+        const textarea_json = document.getElementById("textarea_json");
+        textarea_json.value += "\n" + str_add;
+    }
+});
+    
 onrd.push(function(){
     document.getElementById("btn_parse_json").addEventListener('click', async function () {
         
@@ -240,13 +294,18 @@ onrd.push(function(){
         try{
             JSON.parse(textarea.value);
         }catch(err){
-            alert(err);
+            alert(
+                i18n(["错误，输入的内容无法解析为符合格式的JSON。\n", "Something in yout input is wrong. Can't be parsed as JSON format.\n"])
+                + "\n"
+                + err
+            );
             return;
         }
         
         if (window.run_env == "http_web")
         {
             setStor("usercustom_engines", textarea.value); 
+            document.getElementById("textarea_json_saved").value = textarea.value;
         }else{
             var compressed;
             //compressed = LZString.compressToUint8Array(textarea.value);
@@ -254,6 +313,7 @@ onrd.push(function(){
             //console.log("compressed data length:", compressed.length);
             try{
                 await chrome.storage.sync.set({"usercustom_engines": compressed });
+                document.getElementById("textarea_json_saved").value = textarea.value;
             }catch(err) {
                 alert(err);
                 return;
@@ -269,6 +329,12 @@ onrd.push(function(){
             document.getElementById("engines_table").parentNode.removeChild(document.getElementById("engines_table"));
         
         engines_cont.appendChild( createETableByCata( "user", "user", 'engines_table'));
+    });
+});
+
+onrd.push(function(){
+    document.getElementById("btn_load_json").addEventListener('click', function () {
+        document.getElementById("textarea_json").value = document.getElementById("textarea_json_saved").value
     });
 });
 
@@ -597,44 +663,6 @@ async function cata_onclick(btnobj)
     
     if (btnobj.getAttribute("source")=="user")
     {
-        
-        /*
-        engines_cont.textContent=i18n(["导入自定义引擎文件 ", "Choose a file for custom engines "]);
-        
-        var input_file = document.createElement("input");
-        input_file.id="input_user_file";
-        input_file.type="file";
-        engines_cont.appendChild(input_file);
-        
-        function onChange(event) {
-            var reader = new FileReader();
-            //reader.onload = onReaderLoad;
-            reader.addEventListener('load', onReaderLoad);
-            reader.readAsText(event.target.files[0]);
-        }
-
-        function onReaderLoad(event){
-            
-            engines_cont.innerHTML = "";
-        
-            usercustom_engines = JSON.parse(event.target.result);
-            usercustom_engines_list = engines_object_tolist(usercustom_engines);
-            
-            engines_cont.appendChild( createETableByCata( btnobj.getAttribute('name'), btnobj.getAttribute('source'), 'engines_table'));
-            
-            if (window.run_env == "http_web")
-            {
-                setStor("usercustom_engines", JSON.stringify(usercustom_engines)); 
-            }else{
-                console.log("saving user ustom engines to chrome.storage");
-                chrome.storage.sync.set({"usercustom_engines": JSON.stringify(usercustom_engines) });
-                //setStor("usercustom_engines", JSON.stringify(usercustom_engines) );
-            }
-            
-        }
-
-        input_file.addEventListener('change', onChange);
-        */
         
         document.getElementById("div_custom_json").style.display="";
         document.getElementById("div_button_to_input_json").style.display="";
