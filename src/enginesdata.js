@@ -99,6 +99,7 @@ catas = {
             { type:"label", lstr:"陆内" , visible_lang: "zh" },
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
             { type:"engine", name:"bilibili" , visible_lang: "zh" },
+            { type:"engine", name:"music163" , visible_lang: "zh" },
             { type:"label", lstr:"陆外" , visible_lang: "zh" },
             { type:"engine", name:"google_media"},
         ],
@@ -1494,6 +1495,34 @@ sEngines = {
             "article": {
                 "label": "专栏",
                 "action": "https://search.bilibili.com/article",
+            },
+        }
+    },
+    "music163": {
+        "dname": "网易云音乐",
+        "addr": "https://music.163.com",
+        "action": "https://music.163.com/#/search/m/",
+        "kw_key": "s",
+        "btns": {
+            "song": {
+                "label": "单曲",
+                "full_url": "https://music.163.com/#/search/m/?s={0}&type=1"
+            },
+            "singer": {
+                "label": "歌手",
+                "full_url": "https://music.163.com/#/search/m/?s={0}&type=100"
+            },
+            "album": {
+                "label": "专辑",
+                "full_url": "https://music.163.com/#/search/m/?s={0}&type=10"
+            },
+            "video": {
+                "label": "视频",
+                "full_url": "https://music.163.com/#/search/m/?s={0}&type=1014"
+            },
+            "lyrics": {
+                "label": "歌词",
+                "full_url": "https://music.163.com/#/search/m/?s={0}&type=1006"
             },
         }
     },
