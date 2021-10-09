@@ -161,6 +161,8 @@ Supports mixing short formatted and full formatted elements.
 
 In Json format.
 
+> A few years ago when I was designing this data format, I didn’t know about OpenSearch(xml) and Firefox's `search.json.mozlz4`, so I am considering how to make our format compatible with others, and at the same time retain our features, may also be one of the future development plan. Welcome discussion.
+
 <details>
 
 ```yaml

@@ -164,6 +164,8 @@
 
 JSON格式。
 
+> 数年前，我在编制这种数据格式的时候，还不知道有OpenSearch（xml）和Firefox的`search.json.mozlz4`，因此考虑如何将我们的数据格式与一些其他格式兼容，同时又要能保留我们的特色功能，可能也是未来开发点之一。欢迎讨论
+
 <details>
 
 ```yaml
