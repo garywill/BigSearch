@@ -102,6 +102,7 @@ catas = {
             { type:"engine", name:"music163" , visible_lang: "zh" },
             { type:"label", lstr:"陆外" , visible_lang: "zh" },
             { type:"engine", name:"google_media"},
+            { type:"engine", name:"youtube"},
         ],
     },
     "translate": {
@@ -1545,6 +1546,12 @@ sEngines = {
                 ]
             }
         }
+    },
+    "youtube": {
+        dname: "Youtube",
+        addr: "https://www.youtube.com/",
+        action: "https://www.youtube.com/results/",
+        kw_key: "search_query",
     },
 };
 
