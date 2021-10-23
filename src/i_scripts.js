@@ -134,9 +134,18 @@ onrd.push(function(){
 });
 
 onrd.push(function(){
-	document.getElementById("inputpaste").onclick=async function()
+	document.getElementById("inputpaste").onclick=function()
 	{
-		const clipboard = await navigator.clipboard.readText();
+        if (window.run_env != "http_web") {
+            chrome.permissions.request({
+                permissions: ["clipboardRead"]
+            });
+        }
+        
+		onPasteClick();
+	}
+	async function onPasteClick() {
+        const clipboard = await navigator.clipboard.readText();
         
         const inputbox = document.getElementById("inputbox");
         //document.getElementById("inputbox").value = c ;
@@ -155,7 +164,7 @@ onrd.push(function(){
         
         inputbox.setRangeText(clipboard, start, end, "end");
         inputbox.focus();
-	}
+    }
 });
 
 onrd.push(function(){
@@ -338,7 +347,12 @@ onrd.push(function(){
         document.getElementById("textarea_json").value = document.getElementById("textarea_json_saved").value
     });
 });
-
+onrd.push(function() {
+    document.getElementById("btn_search_permi").onclick = async function() {
+        await browser.permissions.request({ permissions: ["search"] });
+        document.getElementsByClassName("cata_btn_highlight")[0].click();
+    };
+});
 onrd.push(function(){
     if (document.getElementById("tosimp"))
     {
@@ -424,11 +438,7 @@ async function make_cata_btns() {
     document.getElementById("catas_cont").appendChild(createCataBtn("user", "user"));
     
     if (window.run_env != "http_web") {
-        try {
-            got_browser_engines = ( await browser.search.get() );
-        }catch(err) {}
-        
-        if (got_browser_engines.length > 0 )
+        if (isFirefox )
             document.getElementById("catas_cont").appendChild(createCataBtn("browser", "browser"));
     }
     
@@ -677,6 +687,20 @@ async function cata_onclick(btnobj)
         document.getElementById("div_custom_json").style.display="none";
     }
     
+    
+    if (btnobj.getAttribute("source")=="browser")
+    {
+        document.getElementById("div_search_permi").style.display = "none";
+        if ( ! await browser.permissions.contains( { permissions: ["search"] } ) )
+            document.getElementById("div_search_permi").style.display = "";
+            
+        try {
+            await fetch_browser_engines();
+        }catch(err) { }
+    }else{
+        document.getElementById("div_search_permi").style.display = "none";
+    }
+    
     engines_cont.appendChild( createETableByCata( btnobj.getAttribute('name'), btnobj.getAttribute('source'), 'engines_table'));
     
 
@@ -688,7 +712,9 @@ async function cata_onclick(btnobj)
     
     //table_cont_style();
 }
-
+async function fetch_browser_engines() {
+    got_browser_engines = ( await browser.search.get() );
+}
 
 function toggle_btm_dialog()
 {

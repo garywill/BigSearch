@@ -10,8 +10,10 @@
     },
     "permissions": [
         "storage",
-        "contextMenus",
-        "clipboardRead"
+        "contextMenus"
+    ],
+    "optional_permissions": [
+        "clipboardRead",
     ],
     "incognito": "split",
     "icons": {

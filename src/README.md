@@ -56,7 +56,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 - 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any website that supports general GET/POST request)
   > E.g: Google, DuckDuckGo, Amazon, eBay, Dictionary, Github, StackOverflow, IEEE, or the holding of the library near your home (easy to customize). Included 40+
 - 🔎 User adding custom-defined search engine (even syncronizable between devices via browser account in browser extension)
-- 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser)
+- 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
 - 🛡️ Pure client-side tool. No server transfer. No database server
 - 📁 Search engines catagory
 - 📋 Save, reuse and manage your input history (only saved locally in the browser)
@@ -65,6 +65,8 @@ Solve all needs between browsers and search engines. Easily make best use of dif
   > - Not in Firefox incognito mode. 
   > - On Chrome, after clicking context menu item, click the icon on toolbar
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
+- 🛡️ Maximum safety. No injection to web
+- 🛡️ Minimun default permissions. Won't ask for sensitive permissions until needed
 
 ## Since the browser itself has search engines which can be used on URL bar, why use this?
 

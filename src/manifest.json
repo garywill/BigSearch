@@ -10,9 +10,11 @@
     },
     "permissions": [
         "storage",
-        "contextMenus",
+        "contextMenus"
+    ],
+    "optional_permissions": [
         "search",
-        "clipboardRead"
+        "clipboardRead",
     ],
     "icons": {
         "128": "icon.svg"
