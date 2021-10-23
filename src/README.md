@@ -71,7 +71,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 ## Since the browser itself has search engines which can be used on URL bar, why use this?
 
 1. The browser ones does not support POST
-2. This provide ability to send requests to multuple different engines quickly without retyping or copy-and-paste
+2. This provide ability to **send requests to multuple different engines quickly without retyping or copy-and-paste**
 3. This is cross-browser, and the engines data can be easily migrate
 4. Catagory feature allows adding many engines without clutter
 5. The history feature makes easy to tweak and try different search terms, which is **quite essential for getting a desired searching result**
