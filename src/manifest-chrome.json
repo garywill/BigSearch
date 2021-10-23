@@ -2,7 +2,7 @@
     "name": "Big Search",
     "description": "Query any One or Multiple search engines via a Flexible tool. Highly customizable",
     "manifest_version": 2,
-    "version": "2.3.0",
+    "version": "2.3.1",
     "homepage_url": "https://github.com/garywill/bigSearch",
     "author": {
         "name": "Garywill",
@@ -13,7 +13,7 @@
         "contextMenus"
     ],
     "optional_permissions": [
-        "clipboardRead",
+        "clipboardRead"
     ],
     "incognito": "split",
     "icons": {
