@@ -130,6 +130,7 @@
         }
     },
 
+    "label1" : { "lstr": "Computer Software" },
     "flathub": {
         "dname": "Flathub",
         "addr": "https://flathub.org/apps",
@@ -140,7 +141,8 @@
             }
         }
     },
-
+    
+    "label2" : { "lstr": "Mobile App" },
     "itunesapps": {
         "dname": "iTunes Apps (Google)",
         "addr": "https://www.apple.com/itunes/charts/free-apps/",

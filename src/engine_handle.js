@@ -91,7 +91,12 @@ function engines_object_tolist(engines_obj) {
         const name = ele[0];
         const e_obj = ele[1];
         
-        list.push({type:"engine", name: name});
+        if (e_obj['lstr'] !== undefined)
+        {
+            list.push({type:"label", lstr: e_obj['lstr']});
+        }else{
+            list.push({type:"engine", name: name});
+        }
     });
     return list;
 } 
