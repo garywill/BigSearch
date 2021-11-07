@@ -52,11 +52,11 @@ catas = {
     "general": {
         label: '🌐' + i18n(["通用搜索", "General"]),
         engines: [
-            { type:"label", lstr:"陆内" , visible_lang: "zh"},
+            { type:"label", lstr:"中土五岳" , visible_lang: "zh"},
             { type:"engine", name:"baidu", visible_lang: "zh"},
             { type:"engine", name:"sogou", visible_lang: "zh"},
             { type:"engine", name:"360so", visible_lang: "zh"},
-            { type:"label", lstr:i18n(["陆外", "Global"]), visible_lang: "zh"},
+            { type:"label", lstr:"村融四海", visible_lang: "zh"},
             { type:"engine", name:"bing"},
             { type:"engine", name:"google"},
             { type:"engine", name:"yahoo"},
@@ -113,22 +113,24 @@ catas = {
             { type:"engine", name:"androidpicks"},
             { type:"engine", name:"androidapksfree"},
             { type:"engine", name:"evozi"},
+            
         ],
     }, 
     "media": {
         label: '📺' + i18n(["音视频图", "Multimedia"]),
         engines: [
-            { type:"label", lstr:"陆内" , visible_lang: "zh" },
+            { type:"label", lstr:"中音簿画" , visible_lang: "zh" },
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
             { type:"engine", name:"bilibili" , visible_lang: "zh" },
             { type:"engine", name:"music163" , visible_lang: "zh" },
-            { type:"label", lstr:"陆外" , visible_lang: "zh" },
+            { type:"label", lstr:"各处民风" , visible_lang: "zh" },
             { type:"engine", name:"google_media"},
             { type:"engine", name:"youtube"},
+
         ],
     },
     "translate": {
-        label: '🔠' + i18n(["中外译查", "Translates"]),
+        label: '🔠' + i18n(["百国语译", "Translates"]),
         engines: [
             { type:"engine", name:"youdao" , visible_lang: "zh"},
             { type:"engine", name:"baidu_translate" , visible_lang: "zh"},
@@ -140,15 +142,15 @@ catas = {
     "academy": {
         label: '📑' + i18n(["资料论文", "Knowledge"]),
         engines: [
-            { type:"label", lstr:"陆内学术", visible_lang: "zh"},
+            { type:"label", lstr:"中阁府院", visible_lang: "zh"},
             { type:"engine", name:"cnki", visible_lang: "zh"},
             { type:"engine", name:"wanfang", visible_lang: "zh"},
             { type:"engine", name:"cssci", visible_lang: "zh"},
-            { type:"label", lstr:i18n(["海外学术", "Global Academic"])},
+            { type:"label", lstr:i18n(["国际机构", "Global Academic"])},
             { type:"engine", name:"webofscience"},
             { type:"engine", name:"ei"},
             { type:"engine", name:"ieee"},
-            { type:"label", lstr:i18n(["资料搜索引擎", "Knowledge Search Engines"])},
+            { type:"label", lstr:i18n(["资料专藏", "Knowledge Search Engines"])},
             { type:"engine", name:"google_scholar"},
             { type:"engine", name:"baidu_xuesu", visible_lang: "zh"},
             { type:"engine", name:"bing_ac"},
@@ -157,30 +159,36 @@ catas = {
         ],
     },
     "han": {
-        label: "🀄漢語",
+        label: "🀄漢言華語",
         visible_lang: "zh",
         engines: [
+            { type:"label", lstr:"話辭雅字" },
             { type:"engine", name:"zdic"},
             { type:"engine", name:"ccamc"},
             { type:"engine", name:"moedict"},
+            { type:"engine", name:"works.hk"},
+            { type:"engine", name:"cantodict"},
+            { type:"label", lstr:"竹帛經卷" },
+            { type:"engine", name:"ctext"},
+            { type:"engine", name:"kanripo"},
         ],
     }, 
     "buy": {
         label: '🛒' + i18n(["网上购物", "Shopping"]),
         engines: [
-            { type:"label", lstr:i18n(["陆内", "Mainland of China"]), visible_lang: "zh"},
+            { type:"label", lstr:"博物九州", visible_lang: "zh"},
             { type:"engine", name:"taobao", visible_lang: "zh"},
             { type:"engine", name:"jd", visible_lang: "zh"},
             { type:"engine", name:"weipinhui", visible_lang: "zh"},
             { type:"engine", name:"dangdang", visible_lang: "zh"},
             { type:"engine", name:"suning", visible_lang: "zh"},
-            { type:"label", lstr:i18n(["陆外", "Global"]), visible_lang: "zh"},
+            { type:"label", lstr:"商游世界", visible_lang: "zh"},
             { type:"engine", name:"amazon"},
             { type:"engine", name:"tmall_global"},
         ],
     },
     "finance": {
-        label: '📈' + i18n(["财经", "Finance"]),
+        label: '📈' + i18n(["财经走势", "Finance"]),
         visible_lang: "zh",
         engines: [
             { type:"engine", name:"investing"},
@@ -251,10 +259,10 @@ sEngines = {
         kw_key: "q",
         btns: {
             "search": {
-                label: "Google Search"
+                label: "Search"
             },
             "lucky": {
-                label: "I'm Feeling Lucky",
+                label: "I'm Lucky",
                 params: [
                     {key:"btnI", val: "1"}
                 ]
@@ -363,7 +371,7 @@ sEngines = {
         "dname": "淘宝天猫",
         "addr": "https://www.taobao.com/",
         "action": "https://s.taobao.com/search",
-        "d_addi_html": [{ "text": "精品优惠入口", "href": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042" , "tip": "点击进入淘宝官方精品优惠主页面。要搜索精品及优惠券，输入后点击右列中的“精品优惠”" }],
+        "d_addi_html": [{ "text": "精品优惠入口", "href": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042" , "tip": "点击进入淘宝官方精品优惠主页面\n要搜索精品及优惠券，输入后点击右列中的“精品优惠”" }],
         //"d_addi_html": "<a title='点击进入淘宝官方精品优惠主页面。要搜索精品及优惠券，输入后点击右列中的“精品优惠”' href='https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042'>精品优惠入口</a>",
         "kw_key": "q",
         "allow_referer": true,
@@ -374,7 +382,7 @@ sEngines = {
                 "addr": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042",
                 "action": "https://ai.taobao.com/search/index.htm",
                 "kw_key": "key",
-                "btn_tip": "淘宝官方的精品优惠搜索，可搜索到优惠券",
+                "btn_tip": "淘宝官方的精品优惠搜索\n可搜索到优惠券",
                 "params": [
                     {
                         "key": "pid",
@@ -383,7 +391,7 @@ sEngines = {
                 ]
             },
             "sch": {
-                "label": "普通",
+                "label": "普通搜索",
                 "dname": "淘宝",
             },
             "shop": {
@@ -961,7 +969,7 @@ sEngines = {
     "fdroid": {
         "dname": "F-Droid",
         "addr": "https://f-droid.org/",
-        "tip": "专门收录开源应用的平台",
+        "tip": i18n(["著名的专门收录开源应用的平台","Well-known platform that collects only open-source apps"]),
         "action": "https://search.f-droid.org/",
         "kw_key": "q"
     },
@@ -971,7 +979,7 @@ sEngines = {
         "action": "https://apt.izzysoft.de/fdroid/index.php",
         "method": "post",
         "kw_key": "searchterm",
-        "tip": "一个兼容并收录了几个不同（官方与第三方）F-Droid格式的仓库的网站。它本身也维护一个仓库",
+        "tip": i18n(["一个兼容并收录了几个不同（官方与第三方）F-Droid格式的仓库的网站\n它本身也维护一个仓库", "An apk website that includes several F-Droid format repos (including official and third-party)\nIt maintains a repo itself also"]),
         "btns": {
             "izzyondroid": {
                 "label": "IzzyOnDroid",
@@ -1124,13 +1132,13 @@ sEngines = {
     },
     "evozi": {
         "dname": "Evozi APK Downloader",
-        "tip": "这是一个输入APK包名（如com.tencent.mm）来生成下载链接的网站",
+        "tip": i18n(["这是一个输入APK包名（如com.tencent.mm）来生成下载链接的网站","Input APK package name (e.g. org.videolan.vlc) to generate download link"]),
         "addr": "https://apps.evozi.com",
         "action": "https://apps.evozi.com/apk-downloader/",
         "btns": {
             "pkg_n": {
                 "label": "Generate Download Link",
-                "btn_tip": "输入APK包名（如com.tencent.mm），获取下载链接",
+                "btn_tip": i18n(["输入APK包名（如com.tencent.mm），获取下载链接","Input the package name of APK (e.g. org.videolan.vlc) to get download link"]),
                 "method": "get",
                 "kw_key": "id"
             }
@@ -1209,7 +1217,7 @@ sEngines = {
                 "label": "Search",
             },
             "sch_google": {
-                "label": "Search (Google)",
+                "label": " Google",
                 "kw_format": "{0} site:developer.mozilla.org/en-US",
                 "use_other_engine": {
                     "engine": "google",
@@ -1361,7 +1369,117 @@ sEngines = {
                 label: "兩岸詞典",
                 full_url: "https://www.moedict.tw/~{0}",
             },
+            "min": {
+                label: "閩南語",
+                full_url: "https://www.moedict.tw/'{0}",
+            },
+            "ke": {
+                label: "客家語",
+                full_url: "https://www.moedict.tw/:{0}",
+            },
         }
+    },
+    "works.hk": {
+        "dname": "粵典",
+        "addr": "https://words.hk/",
+        "d_addi_html": "繁",
+        "action": "https://words.hk/zidin/wan/",
+        "kw_key": "q",
+        "btns": {
+            "search": {
+                "label": "查字典"
+            }
+        }
+    },
+    "cantodict": {
+        "dname": "CantoDict",
+        "tip": "CantoDict is a unique collaborative English/Cantonese/Mandarin dictionary",
+        "addr": "http://www.cantonese.sheik.co.uk/dictionary/",
+        "action": "http://www.cantonese.sheik.co.uk/scripts/wordsearch.php",
+        "method": "post",
+        "kw_key": "TEXT",
+        "btns": {
+            "english": {
+                "label": "English Meaning",
+                "btn_tip": "输入英文，根据英文意思查中文",
+                "params": [
+                    {"key": "SEARCHTYPE", "val": "4"},
+                    {"key": "radicaldropdown", "val": "0"},
+                    {"key": "searchsubmit", "val": "search"}
+                ]
+            },
+            "chi_word": {
+                "label": "Chinese Word",
+                "btn_tip": "输入中文，查两字以上中文词",
+                "params": [
+                    {"key": "SEARCHTYPE", "val": "1"},
+                    {"key": "radicaldropdown", "val": "0"},
+                    {"key": "searchsubmit", "val": "search"}
+                ]
+            },
+            "chi_char": {
+                "label": "Chinese Character",
+                "btn_tip": "输入中文，查中文字",
+                "params": [
+                    {"key": "SEARCHTYPE", "val": "2"},
+                    {"key": "radicaldropdown", "val": "0"},
+                    {"key": "searchsubmit", "val": "search"}
+                ]
+            },
+            "sentance": {
+                "label": "Sentance",
+                "btn_tip": "输入英文，查中文句子",
+                "params": [
+                    {"key": "SEARCHTYPE", "val": "12"},
+                    {"key": "radicaldropdown", "val": "0"},
+                    {"key": "searchsubmit", "val": "search"}
+                ]
+            }
+        }
+    },
+    "ctext": {
+        dname: "中國哲學書電子化計劃",
+        tip: "線上開放電子圖書館，為中外學者提供中國歷代傳世文獻，力圖超越印刷媒體限制，通過電子科技探索新方式與古代文獻進行溝通。收藏的文本已超過三萬部著作，並有五十億字之多，故為歷代中文文獻資料庫最大者",
+        addr: "https://ctext.org/zh",
+        action: "https://ctext.org/searchbooks.pl",
+        kw_key: "searchu",
+        btns: {
+            "book": {
+                label: "書名",
+                "params": [
+                    {
+                        "key": "if", "val": "gb"
+                    },
+
+                ],
+            },
+            "pre-qin": {
+                label: "搜字詞(先秦兩漢)",
+                action: "https://ctext.org/pre-qin-and-han/zh",
+            },
+            "post-han": {
+                label: "搜字詞(漢之後)",
+                action: "https://ctext.org/post-han/zh",
+            },
+        }
+    },
+    "kanripo": {
+        dname: "漢籍（漢リポ）",
+        tip: "東瀛友人做的漢文獻收集，有掃描圖片，原始文字，無標點符號\n輸入簡體和繁體搜索出來的不同，以他們收集來的原始文字爲準",
+        "d_addi_html": "繁簡分離",
+        addr: "http://www.kanripo.org/",
+        kw_key: "query",
+        btns: {
+            "title": {
+                label: "標題",
+                action: "http://www.kanripo.org/titlesearch",
+            },
+            "text": {
+                label: "文本",
+                action: "http://www.kanripo.org/search",
+            }
+        },
+        
     },
     "choco": {
         dname: "Chocolatey",
@@ -1370,10 +1488,10 @@ sEngines = {
         kw_key: "q",
         btns: {
             "sch": {
-                label: "Search packages",
+                label: "Packages",
             },
             "sch_all": {
-                label: "Search all packages",
+                label: "All packages",
                 "params": [
                     {
                         "key": "moderationStatus",
@@ -1400,7 +1518,7 @@ sEngines = {
         kw_key: "grep",
         btns: {
             "sch64": {
-                label: "Search x86_64",
+                label: "x86_64",
                 "params": [
                     {
                         key: "arch",
@@ -1409,7 +1527,7 @@ sEngines = {
                 ],
             },
             "sch_all": {
-                label: "Search x86",
+                label: "x86",
                 params: [
                     {
                         key: "arch",
