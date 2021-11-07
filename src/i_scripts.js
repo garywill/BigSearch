@@ -264,7 +264,7 @@ const example_adv = `{
       }
     }
   },
-  "label_0": { "lstr": "Mobile App" },
+  "label_mbap": { "lstr": "Mobile App" },
   "itunesapps": {
     "dname": "iTunes Apps (Google)",
     "addr": "https://www.apple.com/itunes/charts/free-apps/",
