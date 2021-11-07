@@ -156,6 +156,7 @@ catas = {
             { type:"engine", name:"dangdang", visible_lang: "zh"},
             { type:"engine", name:"suning", visible_lang: "zh"},
             { type:"label", lstr:i18n(["陆外", "Global"]), visible_lang: "zh"},
+            { type:"engine", name:"amazon"},
             { type:"engine", name:"tmall_global"},
         ],
     },
@@ -502,6 +503,23 @@ sEngines = {
             "sch": {
                 "label": i18n(["搜索", "Search"]),
 
+            }
+        }
+    },
+    "amazon": {
+        dname: "Amazon",
+        addr: "https://www.amazon.com/",
+        action: "https://www.amazon.com/s",
+        kw_key: "k",
+        btns: {
+            "sch": {
+                label: "Search"
+            },
+            "sch_cn" : {
+                label: "搜索 .cn",
+                visible_lang: "zh",
+                action: "https://www.amazon.cn/s"
+                
             }
         }
     },
