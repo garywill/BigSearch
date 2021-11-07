@@ -76,9 +76,15 @@ catas = {
         label: '📱' + i18n(["手机应用", "Mobile Apps"]),
         engines: [
             { type:"label", lstr:"Android"},
-            { type:"engine", name:"fdroid"},
-            { type:"engine", name:"izzyondroid_fdroid"},
             { type:"engine", name:"google_play"},
+            { type:"engine", name:"fdroid"},
+            
+            { type:"label", lstr:"iOS"},
+            { type:"engine", name:"itunesapps_baidu", visible_lang: "zh"},
+            { type:"engine", name:"itunesapps"},
+            
+            { type:"label", lstr:"Third-party Apk Downloads"},
+            { type:"engine", name:"izzyondroid_fdroid"},
             { type:"engine", name:"apkdl"},
             { type:"engine", name:"apkmirror"},
             { type:"engine", name:"apk-dl"},
@@ -88,9 +94,6 @@ catas = {
             { type:"engine", name:"androidpicks"},
             { type:"engine", name:"androidapksfree"},
             { type:"engine", name:"evozi"},
-            { type:"label", lstr:"iOS"},
-            { type:"engine", name:"itunesapps_baidu", visible_lang: "zh"},
-            { type:"engine", name:"itunesapps"},
         ],
     }, 
     "media": {
