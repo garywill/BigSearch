@@ -16,7 +16,7 @@ We now can do web search efficiently and concurrently. 🚀
 
 Ways to use:
 
-1. Web: Main site https://acsearch.ga | Standby site http://acsearch.tk
+1. Web App: Main site https://acsearch.ga | Standby site http://acsearch.tk
 
    Can be used in different types of browsers. Suitable for both desktop and mobile.
    
@@ -42,7 +42,7 @@ Ways to use:
 
 | Screenshots                                                                     |                                                                                           |                                                                                   |                                                                                         |
 | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Extension UI                                                                    | Context selection search                                                                  | Use on web without install                                                        | Mobile UI (web)                                                                         |
+| Extension UI                                                                    | Context selection search                                                                  | Use web app without install                                                        | Mobile UI (web app)                                                                         |
 | ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.png) |
 
 [Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
@@ -61,9 +61,9 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 
 - 🛡️ Safety
   - 🛡️ Minimun default permissions. Won't ask for sensitive permissions until needed. (Browser extension)
-  - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (Both web and extension)
+  - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (Both extension and web app)
   - 🛡️ Hide HTTP Referrer by default to protect user privacy.
-  - 🛡️ No injection to web. (Browser extension)
+  - 🛡️ Browser extension doesn't inject anything to webs.
 - 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any website that supports general GET/POST request)
   > E.g: Google, DuckDuckGo, Amazon, eBay, Dictionary, Github, StackOverflow, IEEE, or the holding of the library near your home (easy to customize). Included 40+
 - 🔎 User adding custom-defined search engine (even syncronizable between devices via browser account in browser extension)
@@ -73,7 +73,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 - 🖱️ Quickly use user selected text on webpage as search term (browser extension, through context menu) 
   > - Not in Firefox incognito mode
   > - On Chrome, after clicking context menu item, click the icon on toolbar
-- 🖥️ Support desktop and mobile devices (web version)
+- 🖥️ Support both desktop (browser extension & web app) and mobile (web app only) devices
 
 ## Since the browser itself has search engines which can be used on URL bar, why use this?
 

@@ -112,7 +112,7 @@ catas = {
             { type:"engine", name:"appsapk"},
             { type:"engine", name:"androidpicks"},
             { type:"engine", name:"androidapksfree"},
-            { type:"engine", name:"evozi"},
+            //{ type:"engine", name:"evozi"},
             
         ],
     }, 
@@ -1464,7 +1464,7 @@ sEngines = {
         }
     },
     "kanripo": {
-        dname: "漢籍（漢リポ）",
+        dname: "漢籍(漢リポ)",
         tip: "東瀛友人做的漢文獻收集，有掃描圖片，原始文字，無標點符號\n輸入簡體和繁體搜索出來的不同，以他們收集來的原始文字爲準",
         "d_addi_html": "繁簡分離",
         addr: "http://www.kanripo.org/",
