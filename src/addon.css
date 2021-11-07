@@ -17,6 +17,7 @@ body {
     height: 600px;
 
     background-image: url(bgaddon.webp);
+    overflow-x: hidden;
 }
 
 #catas_cont { padding-top:0px; padding-right: 0px; } 
