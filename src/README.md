@@ -197,8 +197,9 @@ In Json format.
                 ],
                 "full_url": "http://www.example.com/search/{0}", // # optional, the entire url using get method
                 "use_other_engine": {   // # optional, use another engine to do the operation
-                    "engine": "engine name", "btn": "button name" ,
-                    "source": "bigsearch/user/browser"   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
+                    "source": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
+                    "engine": "engine name", 
+                    "btn": "button name"   // # Optional. Absence will make fallback to the first button
                 }
             },
         }

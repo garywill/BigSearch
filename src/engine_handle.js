@@ -289,6 +289,9 @@ function getDataForGo(engine,btn,source=null)
         return data;
     }
     
+    if ( ! btn )
+        btn = Object.keys(engine.btns)[0];
+
     data_btnOnly.forEach(function(ele){
         if (engine.btns[btn][ele]  !== undefined) {
             data[ele] = engine.btns[btn][ele];
