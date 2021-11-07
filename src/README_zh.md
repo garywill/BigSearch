@@ -199,7 +199,10 @@ JSON格式。
                     // # 则 {key: "option", val: "searchall"},
                 ],
                 "full_url": "http://www.example.com/search/{0}",   // # 可选，使用get method时的整个url
-                "use_other_engine": { "engine": "引擎名", "btn": "按钮名" }, // # 可选，使用另一个引擎来操作
+                "use_other_engine": {   // # 可选，使用另一个引擎来操作
+                    "engine": "引擎名", "btn": "按钮名" ,
+                    "source": "bigsearch/user/browser"   // # 可选，另一个引擎的数据来源（3个可能来源数据库）：大术专搜内建库（缺省）/用户自定库/浏览器内置库
+                }
             },
 
         }

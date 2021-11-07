@@ -359,7 +359,7 @@ async function goEngBtn(engine,btn,keyword,source=null)
     }
     
     if (data.use_other_engine !== undefined){
-        goEngBtn( data.use_other_engine.engine, data.use_other_engine.btn , keyword);
+        goEngBtn( data.use_other_engine.engine, data.use_other_engine.btn , keyword, data.use_other_engine.source);
         return;
     }
     

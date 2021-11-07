@@ -188,15 +188,18 @@ In Json format.
 
         "btns": { // # If there is no such item, a "search" button is displayed, and clicking the button will do the default action
             "Button name": {
-            "label": "Button display text",
-            "btn_tip": "Tip text",
-            "params":[ // # Optional, the key/value other than the keyword in the query string required for this operation
-                {"key": "key", "val": "value"},
-                // # For example, https://search-engine.com/search?q=input_content&option=searchall
-                // # so {key: "option", val: "searchall"},
-            ],
-            "full_url": "http://www.example.com/search/{0}", // # optional, the entire url using get method
-            "use_other_engine": {"engine": "engine name", "btn": "button name" }, // # optional, use another engine to do an action
+                "label": "Button display text",
+                "btn_tip": "Tip text",
+                "params":[ // # Optional, the key/value other than the keyword in the query string required for this operation
+                    {"key": "key", "val": "value"},
+                    // # For example, https://search-engine.com/search?q=input_content&option=searchall
+                    // # so {key: "option", val: "searchall"},
+                ],
+                "full_url": "http://www.example.com/search/{0}", // # optional, the entire url using get method
+                "use_other_engine": {   // # optional, use another engine to do the operation
+                    "engine": "engine name", "btn": "button name" ,
+                    "source": "bigsearch/user/browser"   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
+                }
             },
         }
 
