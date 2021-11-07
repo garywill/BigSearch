@@ -52,7 +52,7 @@ function db(source="bigsearch") {
     {
         catas_db = {
             "user": {
-                label: i18n([ "用户自定", "User Custom" ]),
+                label: '🏡' + i18n([ "用户自定", "User Custom" ]),
                 engines: usercustom_engines_list
             }
         };
@@ -72,7 +72,7 @@ function db(source="bigsearch") {
         
         catas_db = {
             "browser": {
-                label: i18n([ "浏览器带", "In-Browser" ]),
+                label: '⚓' + i18n([ "浏览器带", "In-Browser" ]),
                 engines: browser_engines_list
             }
         };

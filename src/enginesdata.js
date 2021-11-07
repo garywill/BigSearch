@@ -31,7 +31,7 @@ function init_data() {
     
 catas = {
     "general": {
-        label: i18n(["通用搜索", "General"]),
+        label: '🌐' + i18n(["通用搜索", "General"]),
         engines: [
             { type:"label", lstr:"陆内" , visible_lang: "zh"},
             { type:"engine", name:"baidu", visible_lang: "zh"},
@@ -52,7 +52,7 @@ catas = {
         ],
     },
     "program": {
-        label: i18n(["电脑程序", "Programing"]),
+        label: '💻' + i18n(["电脑程序", "Programing"]),
         engines: [
             { type:"engine", name:"github"},
             { type:"engine", name:"mdn"},
@@ -73,7 +73,7 @@ catas = {
         ],
     }, 
     "mobileapp": {
-        label: i18n(["手机应用", "Mobile Apps"]),
+        label: '📱' + i18n(["手机应用", "Mobile Apps"]),
         engines: [
             { type:"label", lstr:"Android"},
             { type:"engine", name:"fdroid"},
@@ -94,7 +94,7 @@ catas = {
         ],
     }, 
     "media": {
-        label: i18n(["音视频图", "Multimedia"]),
+        label: '📺' + i18n(["音视频图", "Multimedia"]),
         engines: [
             { type:"label", lstr:"陆内" , visible_lang: "zh" },
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
@@ -106,7 +106,7 @@ catas = {
         ],
     },
     "translate": {
-        label: i18n(["中外译查", "Translates"]),
+        label: '🔠' + i18n(["中外译查", "Translates"]),
         engines: [
             { type:"engine", name:"youdao" , visible_lang: "zh"},
             { type:"engine", name:"baidu_translate" , visible_lang: "zh"},
@@ -116,7 +116,7 @@ catas = {
         ],
     }, 
     "academy": {
-        label: i18n(["资料论文", "Knowledge"]),
+        label: '📑' + i18n(["资料论文", "Knowledge"]),
         engines: [
             { type:"label", lstr:"陆内学术", visible_lang: "zh"},
             { type:"engine", name:"cnki", visible_lang: "zh"},
@@ -135,7 +135,7 @@ catas = {
         ],
     },
     "han": {
-        label: "漢語",
+        label: "🀄漢語",
         visible_lang: "zh",
         engines: [
             { type:"engine", name:"zdic"},
@@ -144,7 +144,7 @@ catas = {
         ],
     }, 
     "buy": {
-        label: i18n(["网上购物", "Shopping"]),
+        label: '🛒' + i18n(["网上购物", "Shopping"]),
         engines: [
             { type:"label", lstr:i18n(["陆内", "Mainland of China"]), visible_lang: "zh"},
             { type:"engine", name:"taobao", visible_lang: "zh"},
@@ -157,7 +157,7 @@ catas = {
         ],
     },
     "finance": {
-        label: i18n(["财经", "Finance"]),
+        label: '📈' + i18n(["财经", "Finance"]),
         visible_lang: "zh",
         engines: [
             { type:"engine", name:"investing"},
