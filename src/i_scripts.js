@@ -1,5 +1,6 @@
 /*
  * By Big Search / 大术专搜
+ * (addons.mozilla.org/firefox/addon/big-search/)
  * (acsearch.ga, acsearch.tk)
  * 
  * All Rights Reserved for This File

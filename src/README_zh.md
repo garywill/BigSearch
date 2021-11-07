@@ -1,8 +1,12 @@
 # 大术专搜
 
-以 **灵活的方式** 往 **任何一个** 或 **多个** 搜索引擎（或任意网站、查询系统）发起搜索。
+以 **灵活**又**顺手**的方式 在 **任意一个** 或 **多个** 搜索引擎（或任意网站）进行搜索。
 
 跨浏览器工具。具有高度自定义性。
+
+曾经，使用搜索引擎，是一步步、一个个来的。 🐢
+
+现在，使用搜索引擎，是高效、可并发操作的。 🚀
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.png)
 
@@ -13,22 +17,26 @@
 使用方式有：
 
 1. 网页： 主站 https://acsearch.ga | 备用站 http://acsearch.tk
-
+   
    可在不同类型浏览器使用。适合桌面及移动设备。
    
    > 记得看主页中的小技巧
 
 2. 浏览器扩展（**推荐**）
-
-   能发挥所有功能。且更方便地连续点击，无间断地一次调用多个搜索引擎。（不会修改任何浏览器设置）
+   
+   能发挥所有功能。且更方便地连续点击，无间断地一次调用多个搜索引擎。
    
    - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
    
-   - Chrome、Brave、Vivaldi、Edge、Opera、搜狗浏览器、360浏览器 等 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)
+   - [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)  适用于：
      
-     > 现在Google要为Chrome Store的开发者账号收费\$5，我还没弄清楚如何支付。如果哪位兄台乐意帮忙
+     - Google Chrome、Microsoft Edge 等
+     - 搜狗浏览器、360浏览器 等 
+     - Brave、Vivaldi、Opera 等
+     
+     > 现在Google要为Chrome Store的开发者账号收费\$5，我还没弄清楚如何支付。如果哪位兄台乐意帮忙（用你的账号维护上架也可以）
    
-   - Microsoft Edge： 请下载.crx安装，商店无法更新（~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~）
+   - Microsoft Edge： 请下载.crx安装（同Chrome），Edge商店无法更新（~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~）
      
      > 鲜为人知的有趣事实：Microsoft禁止这种多搜索引擎的addon在Edge上架
 
@@ -55,20 +63,21 @@
 
 ## 功能
 
+- 🛡️ 安全性
+  - 🛡️ 默认最小权限，仅在需要时请求敏感权限（浏览器扩展)
+  - 🛡️ 纯客户端功能完整，不需服务器，无搜集用户搜索内容（包括网页及扩展）
+  - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
+  - 🛡️ 不向网页注入任何代码（浏览器扩展)
 - 🔎 可将任意（已将许多）搜索、查询的网站集于一处操作（任意支持普通GET/POST的网站）
   > 例如 百度、Google、淘宝、有道、Github、StackOverflow、IEEE、你家附近某图书馆（易于自定义）藏书查询 等。已收录50+个
 - 🔎 用户添加自定义搜索引擎（若在浏览器扩展中，可与同浏览器账号同步）
 - 🔎 可调用浏览器内联的搜索引擎（浏览器扩展。因此你已添加进浏览器的搜索引擎可以直接用。目前仅Firefox提供）
-- 🛡️ 纯客户端工具，无中转，无数据库服务器
-- 📁 分类卡片
-- 📋 可保存、复用和管理你的输入历史（仅保存在浏览器本地）
-- 🖥️ 支持桌面设备和移动设备（网页版）
+- 📁 引擎分类卡片
+- 📋 可保存、复用和管理你的输入历史（仅保存在浏览器本地localStorage）
 - 🖱️ 快速将选择的网页上的文本作为搜索词（浏览器扩展，通过右键菜单）
-  > - Firefox无痕模式中无。
+  > - Firefox无痕模式中无
   > - Chrome中点了右键菜单后，需再点击工具栏中的图标
-- 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
-- 🛡️ 最大的安全性，不向网页注入任何代码
-- 🛡️ 默认最小权限，仅在需要时请求敏感权限
+- 🖥️ 支持桌面设备和移动设备（网页版）
 
 ## 既然浏览器本身可添加搜索引擎在URL栏调用，为什么用这个？
 
@@ -76,7 +85,7 @@
 2. 这个可以连续点击，**向多个不同引擎快速送出request，不需要再次输入或复制粘贴**
 3. 这个可跨浏览器快速迁移引擎数据
 4. 分类功能允许用户添加很多很多引擎而不至于凌乱
-5. 历史功能方便微调搜索词，**这对于获得想要的搜索结果很关键**
+5. 历史功能方便复用、微调搜索词，**这对于获得想要的搜索结果很关键**
 6. 从其他特性也可见，这个是一个更强大的工具
 
 ## 如何编辑搜索引擎
@@ -143,7 +152,7 @@
             }
         }
     },
-    
+
     "label_mbap" : { "lstr": "Mobile App" },
     "itunesapps": {
         "dname": "iTunes Apps (Google)",
@@ -218,24 +227,6 @@ JSON格式。
 
 </details>
 
-## FAQ
-
-<details>
-
-**Q：我使用大术专搜来搜索时，输入的内容是否会被收集？**
-
-A：不会，我们不收集任何用户输入的内容。输入的内容直接发送到你点击调用的对应网站，无中转
-
-**Q：我的搜索历史储存在哪里？**
-
-A：仅储存在浏览器localStorage中
-
-**Q：你们有网页版本，也有浏览器扩展版本，那么浏览器扩展是可以“离线使用”的吗？**
-
-A: 浏览器扩展的功能是可以“离线使用”的，js等代码都在本地扩展中
-
-</details>
-
 ## 技术特色
 
 与其他同类工具相比，这个工具使用JSON格式作为引擎数据库（包括自带的及用户自定义的），因此在引擎数据方面具有强大的灵活性
@@ -282,6 +273,22 @@ A: 浏览器扩展的功能是可以“离线使用”的，js等代码都在本
 
 </details>
 
+### 采用的第三方库和组件
+
+<details>
+
+- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (compression)
+  
+  ```
+  Copyright (c) 2021, Rotem Dan
+  Released under the MIT license.
+  ```
+- [Floggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
+  
+  by Quang Nguyen Vinh
+  
+</details>
+
 ### 历史、代码状况、许可证
 
 <details>
@@ -290,7 +297,7 @@ A: 浏览器扩展的功能是可以“离线使用”的，js等代码都在本
 
 核心部分有过重构。尽管UI部分有些代码不能叫很好，但**这个东西一直很好用**。喜欢还请不吝Star🌟。
 
-已给了搜索引擎数据`enginesdata.js`AGPL自由许可（欢迎来添加引擎数据哦💚。或者，你觉得有什么比AGPL更适合这些数据的许可🤝）。若需要整个项目的自由许可，欢迎讨论🧡（open an issue）。
+已给了搜索引擎数据`enginesdata.js`AGPL自由许可（欢迎来添加引擎数据哦🌱。或者，你觉得有什么比AGPL更适合这些数据的许可🍀）。若需要整个项目的自由许可，欢迎讨论💚（open an issue）。
 
 [Change log](https://addons.mozilla.org/firefox/addon/big-search/versions/)
 

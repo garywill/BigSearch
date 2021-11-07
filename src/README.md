@@ -2,9 +2,13 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 # Big Search
 
-Query **any one** or **multiple** search engines (or any websites, inquiry systems) via a **flexible tool**.
+Handily use **any one** or **multiple** search engines (or search any websites) via a **flexible tool**.
 
 Cross-browser tool. Highly customizable.
+
+We used to do web search step by step. 🐢
+
+We now can do web search efficiently and concurrently. 🚀
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.png)
 
@@ -20,15 +24,17 @@ Ways to use:
 
 2. Browser extension (**recommended**)
 
-   Fully function. More convenient to use multiple search engines at once, without interruption, by continuously clicking. (Won't modify any browser settings)
+   Fully function. More convenient to use multiple search engines at once, without interruption, by continuously clicking.
    
    - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
    
-   - Chrome, Brave, Vivaldi, Edge, Opera etc. [download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)
+   - [Download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)  for:
+     - Google Chrome, Microsoft Edge etc.
+     - Brave, Vivaldi, Opera etc.
      
-     > Now Google is charging $5 for a Chrome Store developer account, and I haven't figured out how to pay, due to my region. It would be great if someone willing to help.
+     > Now Google is charging $5 for a Chrome Store developer account, and I haven't figured out how to pay, due to my region. It would be great if someone willing to help. 
    
-   - Microsoft Edge： Please download .crx to install. The store can't get updates (~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~)
+   - Microsoft Edge： Please download .crx to install (like Chrome). The Edge Store can't get updates (~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~)
      
      > A little-known fun fact: Microsoft bans such multi-search addon from being on Edge Store
 
@@ -53,28 +59,29 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 
 ## Features
 
+- 🛡️ Safety
+  - 🛡️ Minimun default permissions. Won't ask for sensitive permissions until needed. (Browser extension)
+  - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (Both web and extension)
+  - 🛡️ Hide HTTP Referrer by default to protect user privacy.
+  - 🛡️ No injection to web. (Browser extension)
 - 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any website that supports general GET/POST request)
   > E.g: Google, DuckDuckGo, Amazon, eBay, Dictionary, Github, StackOverflow, IEEE, or the holding of the library near your home (easy to customize). Included 40+
 - 🔎 User adding custom-defined search engine (even syncronizable between devices via browser account in browser extension)
 - 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
-- 🛡️ Pure client-side tool. No server transfer. No database server
 - 📁 Search engines catagory
-- 📋 Save, reuse and manage your input history (only saved locally in the browser)
-- 🖥️ Support desktop and mobile devices (web version)
+- 📋 Save, reuse and manage your input history (only saved locally in the browser localStorage)
 - 🖱️ Quickly use user selected text on webpage as search term (browser extension, through context menu) 
-  > - Not in Firefox incognito mode. 
+  > - Not in Firefox incognito mode
   > - On Chrome, after clicking context menu item, click the icon on toolbar
-- 🛡️ Hide HTTP Referrer by default to protect user privacy
-- 🛡️ Maximum safety. No injection to web
-- 🛡️ Minimun default permissions. Won't ask for sensitive permissions until needed
+- 🖥️ Support desktop and mobile devices (web version)
 
 ## Since the browser itself has search engines which can be used on URL bar, why use this?
 
 1. The browser ones does not support POST
-2. This provide ability to **send requests to multuple different engines quickly without retyping or copy-and-paste**
+2. This provide ability to **send requests to multuple different engines quickly without retyping or copy-paste**
 3. This is cross-browser, and the engines data can be easily migrate
 4. Catagory feature allows adding many engines without clutter
-5. The history feature makes easy to tweak and try different search terms, which is **quite essential for getting a desired searching result**
+5. The history feature makes easy to reuse, tweak and try different search terms, which is **quite essential for getting a desired searching result**
 6. From other features we can see this is a more powerful tool 
 
 ## How to edit search engines
@@ -215,24 +222,6 @@ In Json format.
 
 </details>
 
-## FAQ
-
-<details>
-
-**Q: When I use the BigSearch Homepage to search, will the inputted content be collected?**
-
-A: No, we do not collect any user input. The entered content is sent directly to the corresponding search engine you choose. No transfer
-
-**Q: Where is my search history stored?**
-
-A: Only stored in the browser localStorage
-
-**Q：You have web version and browser extension version. So, is the browser extension able to "function offline"?**
-
-A: Yes the browser extension is able to "function offline". Code like JS is in browser extension locally.
-
-</details>
-
 ## Our Special Technical Features
 
 Comparing to other similar tools, this tool uses JSON for search engines database (both built-in and user-defined), so it has strong flexibility in engine data.
@@ -279,6 +268,22 @@ If you want to add a search engine that only targets users in a certain language
 
 </details>
 
+### Third-party libraries and components used
+
+<details>
+
+- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (compression)
+  
+  ```
+  Copyright (c) 2021, Rotem Dan
+  Released under the MIT license.
+  ```
+- [Floggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
+  
+  by Quang Nguyen Vinh
+  
+</details>
+
 ### History, Code Status, and License
 
 <details>
@@ -287,7 +292,7 @@ A part of the code of this tool can be traced back to around 2008. Published to 
 
 The core part's code has been ever refactored. Although some UI code is not enough to call awesome, **this tool has always been very useful.** Please be generous giving a star 🌟 if you like it.
 
-Have given the engines data `enginesdata.js` AGPL FLOSS license (so welcome adding data 💚. Or, if you know any license properer for this data 🤝). Feel free to discuss (open an issue) if want FLOSS license for this whole project 🧡.
+Have given the engines data `enginesdata.js` AGPL FLOSS license (so welcome adding data 🌱. Or, if you know any license properer for this data 🍀). Feel free to discuss (open an issue) if want FLOSS license for this whole project 💚.
 
 [Change log](https://addons.mozilla.org/firefox/addon/big-search/versions/) 
 
