@@ -1,4 +1,4 @@
-English | [中文](https://github.com/garywill/bigSearch/blob/master/src/README_zh.md)
+English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_zh.md)
 
 # Big Search
 
@@ -45,11 +45,11 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 
 ## List of engines
 
-[See list of build-in search engines](https://github.com/garywill/bigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+[See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
 ## Similar tools comparison
 
-[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/bigSearch/blob/list/list.md)
+[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
 
 ## Features
 

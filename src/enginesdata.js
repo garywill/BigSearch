@@ -21,7 +21,7 @@
  *              非编译链接、脚本调用、URL调用、取用部分数据 等）使用了此文件或其中
  *              任意部分数据，则你使用了此文件的整个项目皆为AGPL许可。
  * 
- * Source code: https://github.com/garywill/bigSearch
+ * Source code: https://github.com/garywill/BigSearch
  */
 
 let catas;

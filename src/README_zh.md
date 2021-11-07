@@ -47,11 +47,11 @@
 
 ## 已收录引擎
 
-[查看收录引擎列表](https://github.com/garywill/bigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+[查看收录引擎列表](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
 ## 相似工具比较
 
-[开源的多引擎网络搜索工具比较](https://github.com/garywill/bigSearch/blob/list/list.md)
+[开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
 
 ## 功能
 
