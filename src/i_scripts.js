@@ -591,7 +591,7 @@ async function ebtn_onclick(obj)
     }
     
     if(!mobile) 
-        setTimeout(setf,500);
+        setTimeout(setf,1);
     
 	setTimeout( function() {
         setc_lastp( obj.getAttribute("e") , obj.getAttribute("b") ); 
