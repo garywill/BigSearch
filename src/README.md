@@ -62,7 +62,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
   - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (extension and web app)
   - 🛡️ Hide HTTP Referrer by default to protect user privacy.
   - 🛡️ Browser extension doesn't inject anything to webs. (except when using those engines with Ajax)
-- 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any websites that support general GET/POST request. And even compatible with those that don't support GET/POST)
+- 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any websites that support **general GET/POST** request. And **even compatible with** those that don't support GET/POST)
   > E.g: Google, DuckDuckGo, Amazon, eBay, Dictionary, Github, StackOverflow, IEEE, or the holding of the library near your home (easy to customize). Included 40+
 - 🔎 User adding custom-defined search engine (even syncronizable between devices via browser account in browser extension)
 - 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
@@ -76,7 +76,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 ## Since the browser itself has search engines which can be used on URL bar, why use this?
 
 1. The browser ones does not support **POST** or **Ajax**
-2. This provide ability to **send requests to multuple different engines quickly without retyping or copy-paste**
+2. This provide ability to send requests to **multuple different engines** quickly **without** retyping or copy-paste**
 3. This is cross-browser, and the engines data can be easily migrate
 4. Catagory feature allows adding many engines without clutter
 5. The history feature makes easy to reuse, tweak and try different search terms, which is **quite essential for getting a desired searching result**

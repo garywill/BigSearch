@@ -24,7 +24,7 @@
 
 body {
     width: 800px; 
-    height: 600px;
+    min-height: 600px;
 
     /*background-image: url(bgaddon.webp);*/
     overflow-x: hidden;
