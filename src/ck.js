@@ -285,4 +285,14 @@ function delCookie_my(name)
 	document.cookie= name + "=" + ";expires="+exp.toGMTString();
 }
 
-
+function removeUrlParts(s) // 'http://example.com:8888/a/b/c' --> 'http://example.com:8888/'
+{
+    try{
+        var arr = s.split("/");
+        var result = arr[0] + "//" + arr[2] + "/";
+        return result;
+    }catch(err){
+        console.error(err);
+        return s;
+    }
+}

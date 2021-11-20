@@ -121,6 +121,17 @@ body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Ar
 
 #content_mobile { display:none; text-align:left;}
 
+#permis_toast_o {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    text-align: center;
+}
+#permis_toast {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+}
+
 #floater {display:none;}
 
 .hide {display:none;}

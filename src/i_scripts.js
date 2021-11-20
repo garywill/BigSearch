@@ -164,14 +164,27 @@ onrd.push(function(){
 });
 
 onrd.push(function(){
-	Array.from( document.getElementsByClassName("btmbtn") ).forEach( function(ele) {
-        ele.onclick = toggle_btm_dialog;
-    });
+    if (window.run_env != "http_web") {
+        document.getElementById("btn_askpermis_ajax").onclick = async function() {
+            const url = document.getElementById("permis_toast_url").getAttribute("data");
+            await chrome.permissions.request({ origins: [url]  });
+            
+            document.getElementById("permis_toast_o").style.display = "none";
+        };
+    }
+});
+onrd.push(function(){
+    if (window.run_env != "http_web") {
+        document.getElementById("btn_cancel_ajax").onclick = async function() {
+            document.getElementById("permis_toast_o").style.display = "none";
+        };
+    }
 });
 
 onrd.push(function(){
-    //if (window.run_env == "http_web")
-        document.getElementById("beau_css_tag").href=beaucss;
+	Array.from( document.getElementsByClassName("btmbtn") ).forEach( function(ele) {
+        ele.onclick = toggle_btm_dialog;
+    });
 });
 
 onrd.push(function(){
@@ -571,6 +584,8 @@ function displayhist()
 
 async function ebtn_onclick(obj) 
 {
+    document.getElementById("permis_toast_o").style.display = "none";
+    
 	var inputval=document.getElementById("inputbox").value.trim();
 	if (inputval=="")
 	{

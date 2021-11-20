@@ -13,7 +13,8 @@
         "contextMenus"
     ],
     "optional_permissions": [
-        "clipboardRead"
+        "clipboardRead",
+        "*://*/*"
     ],
     "incognito": "split",
     "icons": {

@@ -274,7 +274,7 @@ function createCataBtn(cata, source=null)
 
 function getDataForGo(engine,btn,source=null)
 {
-    const data_btnOverEng = ["addr","dname","tip","action","method","charset","kw_key","kw_replace","kw_format","params","full_url","use_other_engine","allow_referer"];
+    const data_btnOverEng = ["addr","dname","tip","action","method","charset","kw_key","kw_replace","kw_format","params","full_url","use_other_engine","allow_referer","ajax"];
     const data_btnOnly = ["label","btn_tip"];
     const data_engOnly = [];
     
@@ -293,6 +293,7 @@ function getDataForGo(engine,btn,source=null)
     if ( ! btn )
         btn = Object.keys(engine.btns)[0];
 
+    
     data_btnOnly.forEach(function(ele){
         if (engine.btns[btn][ele]  !== undefined) {
             data[ele] = engine.btns[btn][ele];
@@ -343,12 +344,17 @@ async function goEngBtn(engine,btn,keyword,source=null)
     /*
      * replace
      * format
-     * ( use_other_engine | (full_url+charset+urlencode) ) ?
-     * "NO" from last step:
-     *      params
-     *      method+action+referer
+     * JUDGE UOEF : ( use_other_engine | (full_url+charset+urlencode) ) ?
+     * "NO" from UOEF:
+     *      JUDGE AJAX: ajax ? 
+     *      "NO" from AJAX:
+     *          params
+     *          method/ajax+action+referer
+     *      "YES" from AJAX: (addon only. alert if on web app.)
+     *          ajax+action
      */
 
+    // replace
     if ( data.kw_replace !== undefined ) 
     {
         for ( var i=0; i<data.kw_replace.length; i++ )
@@ -356,12 +362,14 @@ async function goEngBtn(engine,btn,keyword,source=null)
             keyword = keyword.replace( data.kw_replace[i][0], data.kw_replace[i][1]) ;
         }
     }
-
+    
+    // format
     if ( data.kw_format !== undefined  ) 
     {  
         keyword = data.kw_format.format(keyword);
     }
     
+    // ====JUDGE UOEF===begin===
     if (data.use_other_engine !== undefined){
         goEngBtn( data.use_other_engine.engine, data.use_other_engine.btn , keyword, data.use_other_engine.source);
         return;
@@ -387,16 +395,148 @@ async function goEngBtn(engine,btn,keyword,source=null)
         }
         return;
     }
+    // ====JUDGE UOEF===finish===
+    
+    
+    
+    // ====JUDGE AJAX===begin===
+    if (data.ajax !== undefined)
+    {
+        
+        if (window.run_env == "http_web") {
+            alert( i18n([ "所调用引擎需要Ajax，只能在浏览器扩展中调用", "The engine you're trying to use needs Ajax, which you need to use from browser addon"]) );
+            return;
+        }
+        
+        var permis_have;
+        if (isFirefox) {
+            permis_have = await browser.permissions.getAll();
+        }else if(isChrome) {
+            permis_have = await ( new Promise((resolve, reject) => {
+                chrome.permissions.getAll( (r) => { resolve(r); }  );
+            }) );
+        }
+        var host_permis_needed = removeUrlParts(data.action) + '*';
+        if ( ! ( permis_have['origins'].includes('*://*/*') || permis_have['origins'].includes(host_permis_needed) ) ) {
+            const permis_toast_o = document.getElementById("permis_toast_o");
+            const permis_toast_url = document.getElementById("permis_toast_url");
+            permis_toast_url.setAttribute("data", host_permis_needed);
+            permis_toast_url.textContent = host_permis_needed;
+            permis_toast_o.style.display = "";
+            
+            return;
+        }
+        
+        var newTab;
+        if (isFirefox) {
+            newTab = ( await browser.tabs.create({url:data.action, active: newTabBringFront, index: newTabIndex}) );
+        }else if (isChrome) {
+            newTab = await ( new Promise((resolve, reject) => {
+                chrome.tabs.create(
+                    {url:data.action, active: newTabBringFront, index: newTabIndex}, 
+                    (r) => { resolve(r); }
+                );
+            }) ) ;
+        }
+        
+        await chrome.tabs.executeScript( newTab.id, { 
+            matchAboutBlank: false,
+            runAt: "document_idle",
+            code: `
+                const ajax = ${JSON.stringify(data.ajax)};
+                const before_start = 100;
+                var slow = 10;
+                async function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+                async function start_go()
+                {
+                    if ( typeof(ajax) === "string" )
+                        doInput(ajax);
+                    else if ( Array.isArray(ajax) )
+                    {
+                        for (var i=0; i<ajax.length; i++)
+                        {
+                            ajax_arr_ele = ajax[i];
+                            await sleep(slow * 10);
+                            if ( typeof(ajax_arr_ele) === "string" )
+                            {
+                                var web_element = document.querySelectorAll(ajax_arr_ele)[0];
+                                if ( web_element.tagName == "INPUT" || web_element.tagName == "TEXTAREA" )
+                                {
+                                    await doInput(ajax_arr_ele);
+                                }
+                                else if ( web_element.tagName == "BUTTON" )
+                                {
+                                    web_element.click();
+                                }
+                            }
+                            else if ( typeof(ajax_arr_ele) === "number" )
+                            {
+                                await sleep(ajax_arr_ele);
+                            }
+                        }
+                    }
+                }
+                async function doInput(queryStr, index=0) 
+                {
+                    
+                    var web_inputbox;
+                    
+                    await sleep(slow * 5);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.focus();
+                    
+                    
+                    await sleep(slow * 2);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.dispatchEvent ( new Event( "input", { bubbles:true } ) );
+                    
+                    await sleep(slow * 2);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.dispatchEvent ( new Event( "change", { bubbles:true } ) );
+                    
+                    await sleep(slow * 5);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.value = ${JSON.stringify(keyword)} ;
+                    
+                    await sleep(slow * 2);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.dispatchEvent ( new Event( "input", { bubbles:true } ) );
+                    
+                    await sleep(slow * 2);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.dispatchEvent ( new Event( "change", { bubbles:true } ) );
+                    
+                    await sleep(slow * 5);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.dispatchEvent ( new KeyboardEvent( "keypress", { key: "Enter", keyCode: 13, bubbles: true } ) );
+                    
+                    await sleep(slow * 5);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.dispatchEvent ( new KeyboardEvent( "keydown", { key: "Enter", keyCode: 13, bubbles: true } ) );
+                    
+                    await sleep(slow * 1);
+                    web_inputbox = document.querySelectorAll(queryStr)[index];
+                    web_inputbox.dispatchEvent ( new KeyboardEvent( "keyup", { key: "Enter", keyCode: 13, bubbles: true } ) );
+                }
+                setTimeout(start_go, before_start);
+            `
+        } );
+        
+        return;
+    }
+    // ====JUDGE AJAX===finish===
     
     var fparams = [];
-    fparams.push({key:data.kw_key, val:keyword});
+    fparams.push( { key: data.kw_key, val: keyword } );
     if(data.params !== undefined) {
         data.params.forEach(function(ele){
             fparams.push(ele);
         });
     }
     if (window.run_env == "http_web")
-        form_submit(fparams,data.action,data.charset,data.method,use_referer);
+        form_submit(fparams, data.action, data.charset, data.method, use_referer);
     else{
         const call_function_str = 
             "form_submit(" 
@@ -424,14 +564,13 @@ async function goEngBtn(engine,btn,keyword,source=null)
             body_text = i18n([ "大术专搜 -- ..连接目标站点中.." , "Big Search -- ..Connecting to target website.." ]) ;
         }
         
-        
-        
+        var newTab;
         if (isFirefox)
         {
             var inject_js_for_text = ""
             inject_js_for_text = `document.title="${page_title}"; document.body.textContent="${body_text}" ;`
             
-            const newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
+            newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
             
             await chrome.tabs.executeScript( newTab.id, { 
                 matchAboutBlank: true,
@@ -443,32 +582,39 @@ async function goEngBtn(engine,btn,keyword,source=null)
         } 
         else if (isChrome) 
         {
-            
-            chrome.tabs.create({
-                url: 
-                    "data:text/html," + 
-                    encodeURIComponent(
-                        "<!DOCTYPE html> <head><meta charset='utf-8'>" 
-                        + "<title>" + page_title + "</title>"
-                        + "<script>" 
-                        + parse_prefunc()
-                        + func.toString()
-                        + "</script></head><body>" 
-                        + "<script>" + call_function_str  + "</script>"
-                        + body_text
-                        + "</body></html>"
-                    )
-                , 
-                active: newTabBringFront,
-                index: newTabIndex
-            });
+            newTab = await ( new Promise((resolve, reject) => {
+                chrome.tabs.create(
+                    {
+                        url: 
+                            "data:text/html," + 
+                            encodeURIComponent(
+                                "<!DOCTYPE html> <head><meta charset='utf-8'>" 
+                                + "<title>" + page_title + "</title>"
+                                + "<script>" 
+                                + parse_prefunc()
+                                + func.toString()
+                                + "</script></head><body>" 
+                                + "<script>" + call_function_str  + "</script>"
+                                + body_text
+                                + "</body></html>"
+                            )
+                        , 
+                        active: newTabBringFront,
+                        index: newTabIndex
+                    }, 
+                    (r) => { resolve(r); }
+                );
+            }) ) ;
         }
+            
         function parse_prefunc(){
             if (prefunc)
                 return prefunc.toString() + prefunc.name + "();" ;
             else 
                 return "";
         }
+        
+        
     }
 }
 
@@ -542,21 +688,23 @@ function form_submit(fparams,action,charset="UTF-8",method="get",referer=false){
 
 function isVisible(obj)
 {
-    if (!obj.visible_lang ) return true;
+    if (!obj.visible_lang ) 
+        return true;
     
     if (typeof(obj.visible_lang) === "string")
     {
-        if (window.lang == obj.visible_lang) return true;
-        else return false;
+        if (window.lang == obj.visible_lang) 
+            return true;
+        else 
+            return false;
     }
-    else
+    /*
+    else // is array
     {
-        obj.visible_lang.forEach( function(ele) {
-            if (ele == window.lang) return true
+        obj.visible_lang.forEach( function(ele) { 
+            if (ele == window.lang) return true //TODO bug, shouldn't use return here
         });
     }
-    
+    */
     return false
 }
-
-
