@@ -19,6 +19,9 @@ body {
 
     background-image: url(bgaddon.webp);
     overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #93a7d9 white;
 }
 
 #catas_cont { padding-top:0px; padding-right: 0px; } 
@@ -35,7 +38,41 @@ body {
 #input_o_cont, #input_cont, #inputbox ,
 #engines_cont, #engines_o_cont
 { min-width: 400px; width:400px; max-width:400px;}
+#engines_o_cont{
+    /* max-height: 440px; */
+    max-height: calc( 100vh - 160px );
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-color: #6d69ec #ffef068c;
+    scrollbar-width: thin;
+}
 
+#engines_o_cont::-webkit-scrollbar {
+    width: 4px;    
+}
+#engines_o_cont::-webkit-scrollbar-thumb {
+    background-color:#6d69ec;
+}
+
+#engines_o_cont::-webkit-scrollbar-track-piece {
+    background-color: #ffef068c;
+}
+
+#hist::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 4px;  
+    height: 0;
+}
+
+#hist::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background-color:#93a7d9;
+}
+
+#hist::-webkit-scrollbar-track-piece,
+body::-webkit-scrollbar-track-piece {
+    background-color:white;
+}
 
 
 #hist_td{  padding-left: 20px;padding-top:0px; }
@@ -43,7 +80,8 @@ body {
 
 #hist { 
     width: 220px;
-    height: 440px;  
+    /* max-height: 440px;  */
+    height: calc( 100vh - 160px );
 }
 #hist_tip { display:block;}
 #hist div .hist_entry_span_buttons { font-size: 10px; } 

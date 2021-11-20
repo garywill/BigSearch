@@ -12,12 +12,35 @@
  * 
  * Source code: https://github.com/garywill/BigSearch
  */
+:root {
+    --header-nav-span-font-size: 20px;
+    --header-padding-v: 5px;
+}
+body { 
+    margin: 0px; 
+    padding: 0px;  
+    font-family: "sans-serif" ,"DejaVu Sans", "Arial" , "WenQuanYi Micro Hei","文泉驿微米黑","Microsoft YaHei" ,"微软雅黑" ,"SimHei" , "黑体";
+    background-attachment:fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: url(bg.jpg);
+}
 
-body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Arial" , "WenQuanYi Micro Hei","文泉驿微米黑","Microsoft YaHei" ,"微软雅黑" ,"SimHei" , "黑体";}
-
-
-#header {  width: 100%;  background-color: #7895ff; padding: 5px 0px;margin-bottom: 5px;border-bottom: 1px solid;border-color: gray; box-shadow: 0px 2px 2px #ddd;}
-.header-nav-span{font-size: 20px;font-weight:bold; color: #fbfbfb; padding: 0px 30px;}
+#header {  
+    width: 100%; 
+    padding: var(--header-padding-v) 0px;
+    margin-bottom: 5px;
+    background-color: rgba(120, 149, 255, 0.5);
+    box-shadow: 0px 2px 2px rgba(221, 221, 221, 0.3);
+    border: none;
+}
+.header-nav-span{
+    font-size: var(--header-nav-span-font-size);
+    font-weight:bold; 
+    color: #fbfbfb; 
+    padding: 0px 30px;
+    
+}
 .header-nav-span:hover {border-bottom:2px solid ;border-color:red;}
 .header-nav-span  a {color: #fbfbfb;font-weight:bold; text-decoration: none;}
 
@@ -32,7 +55,9 @@ body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Ar
 #index_title  { display: inline;  margin: 10px;}
 #index_subtitle { display: inline;  margin: 10px;}
 
-#footer {clear:left; position: relative; width: 100%; color: gray; font-size: 10px; text-align: center; padding-top: 30px; }
+#footer {clear:left; position: relative; width: 100%;  font-size: 10px; text-align: center; padding-top: 30px; 
+    color: white;
+}
 #wrapper {clear:left;  width: 100%; text-align:center; }
 #content {  display:inline-block; text-align:left;}
 #leftside {   }
@@ -42,7 +67,46 @@ body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Ar
 
 #input_o_cont, #input_cont, #inputbox { max-width:700px; min-width:600px;}
 #input_cont {text-align: left; }
-#inputbox {  height: 30px; font-size: 18px; box-shadow: 1px 1px 2px #60a7fb; clear:left; display:block;}
+#inputbox {  
+    height: 30px; 
+    font-size: 18px; 
+    box-shadow: 1px 1px 2px #60a7fb; 
+    clear:left; 
+    display:block;
+    border-radius: 6px;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+#inputbox:focus {
+    background-color: rgba(255, 255, 255, 1);
+    /* border-color: rgb(255, 226, 140); */
+}
+
+.btns_copypaste {
+    width: 19px;
+    height: 19px;
+}
+.btns_copypaste  .span_copypaste_cont {
+    display: none;
+    position: relative;
+    width:0;
+    height:100%;
+}
+.btns_copypaste:hover  .span_copypaste_cont {
+    display: block;
+}
+.btns_copypaste .span_copypaste {
+    display: block;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    text-align: left;
+    word-break: keep-all;
+    white-space: nowrap;
+    pointer-events: none;
+    background-color: rgba(255,255,255, 0.7);
+}
+
 
 .json_area {width: 100%; overflow: scroll}
 
@@ -50,9 +114,15 @@ body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Ar
 #engines_cont, #engines_o_cont { max-width:700px; }
 #engines_table { text-align: left; padding: 0px; /*! background-color: rgb(136, 136, 0); */   min-width:600px;  max-width:650px;}
 #engines_table tr td {vertical-align: middle;}
-.labelrow {font-size:15px; background-color: #cae4ea; color:#6c6969; font-weight:bold;}
+.labelrow {
+    font-size:15px;  color:#6c6969; font-weight:bold;
+    background-color: rgba(202, 228, 234, 0.7);
+}
 .labelrow td { padding-left: 50px; }
-.engine_tr {font-size:16px; height:24px;  background-color: rgb(224, 232, 246); clear: left; border-bottom: 5px solid;}
+.engine_tr {
+    font-size:16px; height:24px;  clear: left; border-bottom: 5px solid;
+    background-color: rgba(224, 232, 246,0.3); 
+}
 .engine_tr:hover { background-color: rgb(0, 167, 0); }
 .enginename_td { padding:0px 10px 0px 5px; min-width:130px; white-space:nowrap; }
 .enginename_td a { text-decoration: none; color: #077500; font-weight: bold; }
@@ -70,21 +140,42 @@ body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Ar
 .engine_tr:hover .engbtns_td #lastp { color:#ffea00; text-shadow:none;box-shadow:none;}
 .engine_tr:hover .engbtns_td #lastp:hover { box-shadow:0px 3px 10px black;}
 
-.general_btn, .general_btn a {font-size: 15px; display:inline-block; margin: 0; padding: 0; color:blue; cursor: pointer; text-decoration:none; background-color:transparent; border:0px;outline: none;}
+.general_btn, .general_btn a {font-size: 15px; display:inline-block; margin: 0; padding: 0; color:blue; cursor: pointer; text-decoration:none; background-color:transparent; border:0px;outline: none; background-repeat: no-repeat;}
 .general_btn:hover > * {text-decoration: underline;}
 
 #catas_cont { padding-top:30px; padding-right: 20px; /* text-align: right;  */ word-break: keep-all; }
 #catabtns_header { margin-bottom: 30px; }
-.cata_btns {text-align:left; display: block; color:#737ed1; padding: 10px 0px; font-weight:bold; font-size:16px;}
-.cata_btns:hover {color:blue; background-color:#c0cbf2;  }
-.cata_btn_highlight {color:blue; background-color:#c0cbf2;}
+.cata_btns {
+    text-align:left; display: block; color:#515ebd; padding: 10px 0px; font-weight:bold; font-size:16px;
+    background-color: rgba(192, 203, 242,0.4);
+    text-shadow: 0px 0px 4px white;
+}
+.cata_btns:hover {
+    color:blue; 
+    background-color: rgba(192, 203, 242,0.7);
+}
+.cata_btn_highlight {
+    color:blue; background-color:#c0cbf2;
+    text-shadow: 5px 0px 2px #e6e8e5;
+}
 .cata_btn_highlight span { border-bottom:2px solid blue;}
 
 #hist_td{  padding-left: 50px;padding-top:20px; }
 #hist_ban { }
-#hist_tip { font-size: 70%; color: gray; margin-left:5px;}
-#hist { width: 250px; height: 380px; overflow-y: scroll; border: 1px solid gray; background-color: white; }
-#hist div { color:gray; font-size: 14px; padding: 5px 3px; word-wrap:break-word; position:relative; max-height:50px; overflow:hidden;}
+#hist_tip {
+    font-size: 70%; margin-left:5px;
+    color: #ddd;
+}
+#hist { 
+    width: 250px; height: 380px; overflow-y: scroll; border: 1px solid gray;
+    background-color: rgba(255,255,255,0.4);
+    scrollbar-width: thin;
+    scrollbar-color: #93a7d9 white;
+}
+#hist div { 
+    font-size: 14px; padding: 5px 3px; word-wrap:break-word; position:relative; max-height:52px; overflow:hidden;
+    color:#3e3d3d ; 
+}
 #hist div:hover { background-color: rgb(192, 203, 242); }
 #hist div .hist_entry_span_buttons {  cursor: pointer;color: yellow; font-size: 15px; position: absolute; right: 20px; top: 3px;  display: none; height: 28px; }
 #hist div:hover .hist_entry_span_buttons { display: block; }
@@ -93,7 +184,7 @@ body { margin: 0px; padding: 0px;  font-family: "sans-serif" ,"DejaVu Sans", "Ar
 #clearhist { cursor: pointer; color: blue;  display: inline; }
 #clearhist:hover { text-decoration: underline; }
 
-#btns_below_input { font-size: 80%;} 
+#btns_below_input { font-size: 80%; display: flex;} 
 #inputclear, #inputselect, #inputcopy{ cursor: pointer; color: blue;  display: inline; }
 #inputclear:hover, #inputselect:hover, #inputcopy:hover{ text-decoration: underline; }
 #inputpaste {display:none;}

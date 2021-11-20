@@ -80,17 +80,29 @@
                                     <input  id="inputbox" title='Input here, then click a button in the right column below to do an action (e.g. search)'  />
                                     
                                     <div id="btns_below_input" >
-                                        <button class="general_btn" id="inputclear">
-                                            <span class='lang lang-zh'>清除</span><span class='lang lang-en'>Clean</span>                                        </button>
-                                        &nbsp;&nbsp;
-                                        <button class="general_btn" id="inputselect">
-                                            <span class='lang lang-zh'>全选</span><span class='lang lang-en'>Select</span>                                        </button>
-                                        &nbsp;&nbsp;
-                                        <button class="general_btn" id="inputcopy">
-                                            <span class='lang lang-zh'>复制</span><span class='lang lang-en'>Copy</span>                                        </button>
-                                        &nbsp;&nbsp;
-                                        <button class="general_btn" id="inputpaste">
-                                            <span class='lang lang-zh'>粘贴</span><span class='lang lang-en'>Paste</span>                                        </button>
+                                        <button class="general_btn btns_copypaste" id="inputclear" style="background-image: url('icons/trash-alt.svg');" >
+                                            <span class="span_copypaste_cont">
+                                                <span class="span_copypaste"><span class='lang lang-zh'>清除</span><span class='lang lang-en'>Clean</span></span>
+                                            </span>
+                                        </button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button class="general_btn btns_copypaste" id="inputselect" style="background-image: url('icons/arrows-shrink-h.svg');" >
+                                            <span class="span_copypaste_cont">
+                                                <span class="span_copypaste"><span class='lang lang-zh'>全选</span><span class='lang lang-en'>Select All</span></span>
+                                            </span>
+                                        </button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button class="general_btn btns_copypaste" id="inputcopy" style="background-image: url('icons/file-copy-alt.svg');" >
+                                            <span class="span_copypaste_cont">
+                                                <span class="span_copypaste"><span class='lang lang-zh'>复制全部</span><span class='lang lang-en'>Copy All</span></span>
+                                            </span>
+                                        </button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button class="general_btn btns_copypaste" id="inputpaste" style="background-image: url('icons/clipboard-notes.svg');" >
+                                            <span class="span_copypaste_cont">
+                                                <span class="span_copypaste"><span class='lang lang-zh'>粘贴（在文本光标处）</span><span class='lang lang-en'>Paste (at text cursor)</span></span>
+                                            </span>
+                                        </button>
                                         <span class="lang lang-zh" style="display:none;">
                                             &nbsp;&nbsp;
                                             <button class="general_btn" id="tosimp">

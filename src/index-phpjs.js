@@ -2,8 +2,6 @@
 
 const mobilecss="i_layout_m.css"  ;
 
-const beaucss = "i_beau.css" ;
-
 
 
     //const isFirefox = chrome.runtime.getURL('').startsWith('moz-extension://');
