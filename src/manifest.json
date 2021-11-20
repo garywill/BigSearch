@@ -17,11 +17,11 @@
         "clipboardRead"
     ],
     "icons": {
-        "128": "icon.svg"
+        "128": "icon.png"
     },
  
     "browser_action": {
-        "default_icon": "icon_button.svg",
+        "default_icon": "icon_button.png",
         "default_title": "Big Search",
         "default_popup": "addon-popup.html"
     },

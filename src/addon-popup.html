@@ -26,7 +26,7 @@
         <script type='text/javascript' src='ck.js'></script><script type='text/javascript' src='i_ui.js'></script><script type='text/javascript' src='enginesdata.js'></script><script type='text/javascript' src='engine_handle.js'></script><script type='text/javascript' src='i_scripts.js'></script><script type='text/javascript' src='lzutf8.js'></script>        <link rel='stylesheet' type='text/css' href='i_layout.css'></link>        <link rel='stylesheet' type='text/css' href='' id='beau_css_tag' ></link>		
 		<link rel='stylesheet' type='text/css' href='addon.css'></link>		<link rel='stylesheet' type='text/css' href='' id='mobile_css_tag' ></link>
 
-		
+		<link rel="icon" type="image/png" href="icon.png"/>
 		
 		<!-- FOR DEBUG !! -->
 		<!--
@@ -50,9 +50,9 @@
 		</div>
 		<div id="desktop_mobile_cont" >
             <button class="general_btn" id="btn_zh"><a href="index.php?hl=zh" lang="zh">中文</a></button>&nbsp;&nbsp;
-            <button class="general_btn" id="btn_en"><a href="index.php?hl=en" lang="en">English</a></button>&nbsp;&nbsp;
-            <button class="general_btn" id="btn_desktop"><span class='lang lang-zh'>切换到桌面版</span><span class='lang lang-en'>Switch to desktop version</span></button>
-            <button class="general_btn" id="btn_mobile"><span class='lang lang-zh'>切换到移动版</span><span class='lang lang-en'>Switch to mobile version</span></button>
+            <button class="general_btn" id="btn_en"><a href="index.php?hl=en" lang="en">English</a></button>&nbsp;|&nbsp;
+            <button class="general_btn" id="btn_desktop"><span class='lang lang-zh'>切换到桌面版</span><span class='lang lang-en'>Switch to Desktop View</span> 🖥</button>
+            <button class="general_btn" id="btn_mobile"><span class='lang lang-zh'>切换到移动版</span><span class='lang lang-en'>Switch to Mobile View</span> 📱</button>
 		</div>
 
 		<div id="wrapper">
@@ -114,12 +114,12 @@
                     
                         
                             <div id="engines_o_cont">
-                                <div id="div_custom_json"  style="display:;"  >
+                                <div id="div_custom_json"  style="display:none;"  >
                                     <div id="div_button_to_input_json" >
                                         <button id="btn_input_json"><span class='lang lang-zh'>编辑自定义引擎</span><span class='lang lang-en'>Edit custom engines</span></button>
                                         
                                                                             </div>
-                                    <div id="div_json_parse">
+                                    <div id="div_json_parse" style="display:none;" >
                                         <label for="textarea_json_saved">
                                             <span class='lang lang-zh'>已保存的自定义引擎：</span><span class='lang lang-en'>Saved custom engines:</span>                                        </label>
                                         <code><textarea id="textarea_json_saved" class="json_area" readonly="true" wrap="off" style="background: #e8e8e8;" rows="9" placeholder="Haven't added custom engines. When you need, you can find a simple tutorial from the manual at source code URL"></textarea></code>
@@ -176,11 +176,11 @@
 		<div id="bottom">
             <div id="btmbtns" >
                 <button class="general_btn btmbtn" id="btn_usage" name="usage"  ><a href="#usage">
-                                            <span class='lang lang-zh'>使用说明</span><span class='lang lang-en'>Usage</span>                                        
+                                            <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                        
                 </a></button>
 
                 <button class="general_btn btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
-                    <span class='lang lang-zh'>源代码/详细说明</span><span class='lang lang-en'>Source Code / User Manual</span>                </a></button>
+                    <span class='lang lang-zh'>源代码 / 详细说明</span><span class='lang lang-en'>Source Code / User Manual</span>                </a></button>
                 <button class="general_btn btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
                     <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                    <span class="badge_cont" style="">
                         <span id="hot_badge" class="badge" style="background-color: rgba(255, 0, 0, 0.65); color: white;" >HOT</span>
@@ -196,10 +196,7 @@
         </a>
     </button>
     <button class="general_btn btmbtn" id="btn_about" name="about"  ><a href="#about" >
-        <span class='lang lang-zh'>关于</span><span class='lang lang-en'>About</span>    </a></button>
-    
-    <button class="general_btn btmbtn" id="btn_more" name="more"  ><a target="_blank" href="https://garywill.github.io/" >
-        <span class='lang lang-zh'>更多工具</span><span class='lang lang-en'>More Tools</span>    </a></button>
+        <span class='lang lang-zh'>关于 / 更多工具</span><span class='lang lang-en'>About / More Tools</span>    </a></button>
     
                 </div>
             <div class="btm_dialog" id="btn_webext_dialog">
@@ -264,12 +261,15 @@
         <a name="about" ></a>
         <h3><span class='lang lang-zh'>关于</span><span class='lang lang-en'>About</span></h3>
         
+        <span class='lang lang-zh'>更多工具 / 作者主页：</span><span class='lang lang-en'>More Tools / Author's homepage:  </span><a  target='_blank'  href='https://garywill.github.io' >garywill.github.io</a> 
+        <br> 
+        <span class='lang lang-zh'>邮箱：</span><span class='lang lang-en'>E-mail: </span> <span ><a id="ourmail" ></a></span> <br/>
+        <br>
+        
         <span class='lang lang-zh'>网页版地址：  | </span><span class='lang lang-en'>URL of web app:  | </span><a  target='_blank'  href='https://acsearch.ga' >acsearch.ga</a><span class='lang lang-zh'>（主站）</span><span class='lang lang-en'>(Main site) </span>        &nbsp;|&nbsp;
         <a  target='_blank'  href='http://acsearch.tk' >acsearch.tk</a>        |
-        <br>
-        <span class='lang lang-zh'>作者主页：</span><span class='lang lang-en'>Author's homepage:  </span><a  target='_blank'  href='https://garywill.github.io' >garywill.github.io</a><span class='lang lang-zh'> |  邮箱：</span><span class='lang lang-en'>  | E-mail: </span> <span ><a id="ourmail" ></a></span> <br/>
         
-        <br/>
+      
         
     </div>
     		

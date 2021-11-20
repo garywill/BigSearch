@@ -16,15 +16,9 @@ We now can do web search efficiently and concurrently. 🚀
 
 Ways to use:
 
-1. Web App: Main site https://acsearch.ga | Standby site http://acsearch.tk
+1. Browser extension (**recommended**)
 
-   Can be used in different types of browsers. Suitable for both desktop and mobile.
-   
-   > Remember to read the tips in homepage
-
-2. Browser extension (**recommended**)
-
-   Fully function. More convenient to use multiple search engines at once, without interruption, by continuously clicking.
+   Install extension to let it fully function
    
    - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
    
@@ -38,6 +32,10 @@ Ways to use:
      
      > A little-known fun fact: Microsoft bans such multi-search addon from being on Edge Store
 
+2. Web App: Main site https://acsearch.ga | Standby site http://acsearch.tk
+
+   Web app can't function fully like extension. Not as convenient as extension. Web app can be used on mobile browsers
+   
 ## Screenshots and Demo
 
 | Screenshots                                                                     |                                                                                           |                                                                                   |                                                                                         |
@@ -288,9 +286,9 @@ If you want to add a search engine that only targets users in a certain language
 
 <details>
 
-A part of the code of this tool can be traced back to around 2008. Published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. （Yes it's developed slowly and gently. Not full-time)
+A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently. Not full-time)
 
-The core part's code has been ever refactored. Although some UI code is not enough to call awesome, **this tool has always been very useful.** Please be generous giving a star 🌟 if you like it.
+The core part's code has been ever refactored. Although some UI code is not enough to be called awesome, **this tool has always been very useful.** Please be generous giving a star 🌟 if you like it.
 
 Have given the engines data `enginesdata.js` AGPL FLOSS license (so welcome adding data 🌱. Or, if you know any license properer for this data 🍀). Feel free to discuss (open an issue) if want FLOSS license for this whole project 💚.
 

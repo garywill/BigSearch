@@ -3,24 +3,37 @@
  * (addons.mozilla.org/firefox/addon/big-search/)
  * (acsearch.ga, acsearch.tk)
  * 
+ * Big Search / 大术专搜 is created by
+ *     garywill
+ *          (Github user github.com/garywill)
+ *          (garywill at disroot dot org mail box)
+ *          (cnblogs(博客园) blogger www.cnblogs.com/garyw)
+ * 
  * The code of this file is released under：
  *     1. GNU AGPL (GNU Affero General Public License)
  *     2. Our (Big Search) statement:
  *          1) AGPL doesn't have infect to other files of Big Search.
  *              Other files can be other license or copyright status.
- *          2) If you use this file or any part of its data in any form 
- *          (including but not limited to converting data format, 
- *          compressing code, compiling link, non-compiling link, 
- *          script call, URL-link using, using any part of data, etc.), 
- *          then your entire project using this file is AGPL licensed.
+ *             The original creator (garywill) of this file reserves
+ *              all rights to the code and data he creats or maintains
+ *          2) If any person or organization use this file or any part of
+ *           its data in any form (including but not limited to 
+ *           converting data format, compressing code, compiling link, 
+ *           non-compiling link, script call, URL-link using, 
+ *           using any part of data, etc.), then your entire project
+ *           (including but not limited to user interfaces, application 
+ *           program interfaces, underlying engine, background and related 
+ *           logic code etc.) using this file is AGPL licensed.
  * 
  * 此文件的代码在这些许可协议下发布：
  *     1. GNU AGPL (GNU Affero General Public License)
  *     2. 我们（大术专搜）的声明：
  *          1) AGPL不对大术专搜的其他文件产生作用，其他文件可以是别的许可证或版权状态。
- *          2) 如果你以任意形式（形式包括但不限于转换数据格式、压缩代码、编译链接、
+ *              此文件的原创建者（garywill）保留自己所作(及所收集）的代码和数据的所有权利。
+ *          2) 如果任何人或组织以任意形式（形式包括但不限于转换数据格式、压缩代码、编译链接、
  *              非编译链接、脚本调用、URL调用、取用部分数据 等）使用了此文件或其中
- *              任意部分数据，则你使用了此文件的整个项目皆为AGPL许可。
+ *              任意部分数据，则你使用了此文件的整个项目皆为AGPL许可（包括但不限于用户界面、
+ *              应用程序界面、底层引擎、背部及相关的逻辑代码 等）。
  * 
  * Source code: https://github.com/garywill/BigSearch
  */
@@ -168,7 +181,7 @@ catas = {
             { type:"engine", name:"moedict"},
             { type:"engine", name:"works.hk"},
             { type:"engine", name:"cantodict"},
-            { type:"label", lstr:"竹帛經卷" },
+            { type:"label", lstr:"帛竹卷經" },
             { type:"engine", name:"ctext"},
             { type:"engine", name:"kanripo"},
         ],
@@ -372,7 +385,6 @@ sEngines = {
         "addr": "https://www.taobao.com/",
         "action": "https://s.taobao.com/search",
         "d_addi_html": [{ "text": "精品优惠入口", "href": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042" , "tip": "点击进入淘宝官方精品优惠主页面\n要搜索精品及优惠券，输入后点击右列中的“精品优惠”" }],
-        //"d_addi_html": "<a title='点击进入淘宝官方精品优惠主页面。要搜索精品及优惠券，输入后点击右列中的“精品优惠”' href='https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042'>精品优惠入口</a>",
         "kw_key": "q",
         "allow_referer": true,
         "btns": {
