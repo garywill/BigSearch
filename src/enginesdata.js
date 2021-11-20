@@ -578,7 +578,7 @@ sEngines = {
         "dname": "百度翻译",
         "addr": "https://fanyi.baidu.com/",
         "btns": {
-            "trans_ch": {
+            "trans_zh": {
                 "label": "译为中文",
                 "full_url": "https://fanyi.baidu.com/#en/zh/{0}"
             },
