@@ -146,25 +146,20 @@ onrd.push(function(){
 		onPasteClick();
 	}
 	async function onPasteClick() {
-        const clipboard = await navigator.clipboard.readText();
-        
         const inputbox = document.getElementById("inputbox");
-        //document.getElementById("inputbox").value = c ;
-        //const oldvalue = inputbox.value;
         
-        const start = inputbox.selectionStart;
-        const end = inputbox.selectionEnd;
-        /*
-        var newvalue = oldvalue.substring(0, start)
-            + clipboard
-            + oldvalue.substring(end , oldvalue.length) ;
+        if (isFirefox) {
+            const clipboard = await navigator.clipboard.readText();
             
-        inputbox.value = newvalue;
-        */
-        //inputbox.setSelection
-        
-        inputbox.setRangeText(clipboard, start, end, "end");
-        inputbox.focus();
+            const start = inputbox.selectionStart;
+            const end = inputbox.selectionEnd;
+
+            inputbox.setRangeText(clipboard, start, end, "end");
+            inputbox.focus();
+        }else if (isChrome) {
+            inputbox.focus();
+            document.execCommand('paste');
+        }
     }
 });
 
