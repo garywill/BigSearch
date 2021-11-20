@@ -147,6 +147,7 @@ catas = {
         engines: [
             { type:"engine", name:"youdao" , visible_lang: "zh"},
             { type:"engine", name:"baidu_translate" , visible_lang: "zh"},
+            { type:"engine", name:"deepl"},
             { type:"engine", name:"cambridge"},
             { type:"engine", name:"google_translate"},
             { type:"engine", name:"bing_dict" , visible_lang: "zh"},
@@ -584,6 +585,21 @@ sEngines = {
             "trans_en": {
                 "label": "译为英文",
                 "full_url": "https://fanyi.baidu.com/#zh/en/{0}"
+            }
+        }
+    },
+    "deepl": {
+        dname: "DeepL Translate",
+        addr: "https://www.deepl.com/translator",
+        btns: {
+            "trans_zh": {
+                "label": "译为中文",
+                visible_lang: "zh",
+                "full_url": "https://www.deepl.com/translator#any/zh/{0}"
+            },
+            "trans_en": {
+                "label": i18n(["译为英文", "To English"]),
+                "full_url": "https://www.deepl.com/translator#any/en/{0}"
             }
         }
     },
