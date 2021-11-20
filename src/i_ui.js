@@ -30,10 +30,10 @@ function layout_init()
         //$("#content_mobile").html( $("#center_td").html() ); // lose events
         //$("#center_td").html("");
         
-        layout_refresh();
+        //layout_refresh();
         //$(".cata_btns").click(layout_refresh);
         
-        set_table_observer();
+        //set_table_observer();
         
         document.getElementById("openhist").onclick = function(){
             document.getElementById("floater").style.display="block";
@@ -51,7 +51,7 @@ function layout_init()
     }else{
         document.getElementById("btn_desktop").style.display = "none";
     }
-    set_input_width();
+    // set_input_width();
 }
 
 var table_observer = null;
@@ -104,6 +104,8 @@ function layout_refresh()
 
 function onWindowResize()
 {
+    return; // !!!!!!!!!!
+    
     window.onresize = null;
     setTimeout(function() {
         if (
@@ -117,6 +119,8 @@ function onWindowResize()
 
 function set_input_width()
 {
+    return; 
+    
     if (window.run_env != "http_web")
         return;
     

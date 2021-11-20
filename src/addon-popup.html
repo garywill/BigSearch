@@ -35,170 +35,168 @@
     </head>
     
     <body>
-        		<div id="header">
-                <span class="header-nav-span"> 
+        <div id="bghero"></div>
+                <div id="container">
+            <div id="header">
+                    <span class="header-nav-span"> 
     
             <a>
             <span class='lang lang-zh'>大术专搜</span><span class='lang lang-en'>Big Search</span>        </a>
         
     </span>
-                <span id="newver" style="display: none;" >
-                <a id="newver_link" target="_blank" >
-                </a>
-            </span>
-            <span id="curver"  ></span>
-		</div>
-		<div id="desktop_mobile_cont" >
-            <button class="general_btn" id="btn_zh"><a href="index.php?hl=zh" lang="zh">中文</a></button>&nbsp;&nbsp;
-            <button class="general_btn" id="btn_en"><a href="index.php?hl=en" lang="en">English</a></button>&nbsp;|&nbsp;
-            <button class="general_btn" id="btn_desktop"><span class='lang lang-zh'>切换到桌面版</span><span class='lang lang-en'>Switch to Desktop View</span> 🖥</button>
-            <button class="general_btn" id="btn_mobile"><span class='lang lang-zh'>切换到移动版</span><span class='lang lang-en'>Switch to Mobile View</span> 📱</button>
-		</div>
+                    <span id="newver" style="display: none;" >
+                    <a id="newver_link" target="_blank" >
+                    </a>
+                </span>
+                <span id="curver"  ></span>
+            </div>
+            <div id="desktop_mobile_cont" >
+                <button class="general_btn" id="btn_zh"><a href="index.php?hl=zh" lang="zh">中文</a></button>&nbsp;&nbsp;
+                <button class="general_btn" id="btn_en"><a href="index.php?hl=en" lang="en">English</a></button>&nbsp;|&nbsp;
+                <button class="general_btn" id="btn_desktop"><span class='lang lang-zh'>切换到桌面版</span><span class='lang lang-en'>Switch to Desktop View</span> 🖥</button>
+                <button class="general_btn" id="btn_mobile"><span class='lang lang-zh'>切换到移动版</span><span class='lang lang-en'>Switch to Mobile View</span> 📱</button>
+            </div>
 
-		<div id="wrapper">
-			<div id="content">
-                <table id="content_o_tab">
-                    <tr style="vertical-align:top;">
-                        <td>
-                            <div id="catas_cont" >
+            <div id="wrapper">
+                <div id="content">
+                    <table id="content_o_tab">
+                        <tr style="vertical-align:top;">
+                            <td>
                                 <div id="catabtns_header">
                                     <span class='lang lang-zh'>选择分类:</span><span class='lang lang-en'>Catagories:</span>                                </div>
-                            </div>
-                        </td>
-                        <td id="center_td">
-                            
-                                   
-                            <div id="intitle" >				
-                                                            </div>
-                            
-                            <div id="mobile_catasbtn_pos">
-                            
-                            </div>
-                            <!--COMMON INPUTBOX HERE-->
-                            <div id="input_o_cont">
-                                <div id="input_cont">
-                                    <input  id="inputbox" title='Input here, then click a button in the right column below to do an action (e.g. search)'  />
+                                <div id="catas_cont" > </div>
+                            </td>
+                            <td id="center_td">
+                                
                                     
-                                    <div id="btns_below_input" >
-                                        <button class="general_btn btns_copypaste" id="inputclear" style="background-image: url('icons/trash-alt.svg');" >
-                                            <span class="span_copypaste_cont">
-                                                <span class="span_copypaste"><span class='lang lang-zh'>清除</span><span class='lang lang-en'>Clean</span></span>
-                                            </span>
-                                        </button>
-                                        &nbsp;&nbsp;&nbsp;
-                                        <button class="general_btn btns_copypaste" id="inputselect" style="background-image: url('icons/arrows-shrink-h.svg');" >
-                                            <span class="span_copypaste_cont">
-                                                <span class="span_copypaste"><span class='lang lang-zh'>全选</span><span class='lang lang-en'>Select All</span></span>
-                                            </span>
-                                        </button>
-                                        &nbsp;&nbsp;&nbsp;
-                                        <button class="general_btn btns_copypaste" id="inputcopy" style="background-image: url('icons/file-copy-alt.svg');" >
-                                            <span class="span_copypaste_cont">
-                                                <span class="span_copypaste"><span class='lang lang-zh'>复制全部</span><span class='lang lang-en'>Copy All</span></span>
-                                            </span>
-                                        </button>
-                                        &nbsp;&nbsp;&nbsp;
-                                        <button class="general_btn btns_copypaste" id="inputpaste" style="background-image: url('icons/clipboard-notes.svg');" >
-                                            <span class="span_copypaste_cont">
-                                                <span class="span_copypaste"><span class='lang lang-zh'>粘贴（在文本光标处）</span><span class='lang lang-en'>Paste (at text cursor)</span></span>
-                                            </span>
-                                        </button>
-                                        <span class="lang lang-zh" style="display:none;">
-                                            &nbsp;&nbsp;
-                                            <button class="general_btn" id="tosimp">
-                                                简
+                                <div id="intitle" >				
+                                                                    </div>
+                                
+                                <div id="mobile_catasbtn_pos">
+                                
+                                </div>
+                                <!--COMMON INPUTBOX HERE-->
+                                <div id="input_o_cont">
+                                    <div id="input_cont">
+                                        <input  id="inputbox" title='Input here, then click a button in the right column below to do an action (e.g. search)'  />
+                                        
+                                        <div id="btns_below_input" >
+                                            <button class="general_btn btns_copypaste" id="inputclear" style="background-image: url('icon/trash-alt.svg');" >
+                                                <span class="span_copypaste_cont">
+                                                    <span class="span_copypaste"><span class='lang lang-zh'>清除</span><span class='lang lang-en'>Clean</span></span>
+                                                </span>
                                             </button>
-                                            &nbsp;
-                                            <button class="general_btn" id="totrad">
-                                                繁
+                                            &nbsp;&nbsp;&nbsp;
+                                            <button class="general_btn btns_copypaste" id="inputselect" style="background-image: url('icon/arrows-shrink-h.svg');" >
+                                                <span class="span_copypaste_cont">
+                                                    <span class="span_copypaste"><span class='lang lang-zh'>全选</span><span class='lang lang-en'>Select All</span></span>
+                                                </span>
                                             </button>
-                                        </span>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button class="general_btn" id="openhist">
-                                            <span class='lang lang-zh'>输入历史</span><span class='lang lang-en'>Input History</span>    
-                                        </button>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <button class="general_btn btns_copypaste" id="inputcopy" style="background-image: url('icon/file-copy-alt.svg');" >
+                                                <span class="span_copypaste_cont">
+                                                    <span class="span_copypaste"><span class='lang lang-zh'>复制全部</span><span class='lang lang-en'>Copy All</span></span>
+                                                </span>
+                                            </button>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <button class="general_btn btns_copypaste" id="inputpaste" style="background-image: url('icon/clipboard-notes.svg');" >
+                                                <span class="span_copypaste_cont">
+                                                    <span class="span_copypaste"><span class='lang lang-zh'>粘贴（在文本光标处）</span><span class='lang lang-en'>Paste (at text cursor)</span></span>
+                                                </span>
+                                            </button>
+                                            <span class="lang lang-zh" style="display:none;">
+                                                &nbsp;&nbsp;
+                                                <button class="general_btn" id="tosimp">
+                                                    简
+                                                </button>
+                                                &nbsp;
+                                                <button class="general_btn" id="totrad">
+                                                    繁
+                                                </button>
+                                            </span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button class="general_btn" id="openhist">
+                                                <span class='lang lang-zh'>输入历史</span><span class='lang lang-en'>Input History</span>    
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                           
-                    
-                    
+                            
                         
-                            <div id="engines_o_cont">
-                                <div id="div_custom_json"  style="display:none;"  >
-                                    <div id="div_button_to_input_json" >
-                                        <button id="btn_input_json"><span class='lang lang-zh'>编辑自定义引擎</span><span class='lang lang-en'>Edit custom engines</span></button>
-                                        
-                                                                            </div>
-                                    <div id="div_json_parse" style="display:none;" >
-                                        <label for="textarea_json_saved">
-                                            <span class='lang lang-zh'>已保存的自定义引擎：</span><span class='lang lang-en'>Saved custom engines:</span>                                        </label>
-                                        <code><textarea id="textarea_json_saved" class="json_area" readonly="true" wrap="off" style="background: #e8e8e8;" rows="9" placeholder="Haven't added custom engines. When you need, you can find a simple tutorial from the manual at source code URL"></textarea></code>
-                                        
-                                        <button id="btn_load_json"><span class='lang lang-zh'>↓读取并编辑</span><span class='lang lang-en'>↓Load & Edit</span></button>
-                                        <button id="btn_parse_json"><span class='lang lang-zh'>↑解析并覆盖保存</span><span class='lang lang-en'>↑Parse, Save & Override</span></button>
-                                        |
-                                        <button id="btn_use_examples"><span class='lang lang-zh'>加载例子</span><span class='lang lang-en'>Use examples</span></button>
-                                        <button id="btn_use_examples_adv"><span class='lang lang-zh'>加载例子（高级）</span><span class='lang lang-en'>Use examples (advanced)</span></button>
-                                        
-                                        <br>
-                                        
-                                        <label for="textarea_json">
-                                            <span class='lang lang-zh'>在此处编辑自定义引擎：</span><span class='lang lang-en'>Edit custom engines here:</span>                                        </label>
-                                        <code><textarea id="textarea_json" class="json_area" wrap="off" rows="9" placeholder="Input in JSON format. It's easy!"></textarea></code>
+                        
+                            
+                                <div id="engines_o_cont">
+                                    <div id="div_custom_json"  style="display:none;"  >
+                                        <div id="div_button_to_input_json" >
+                                            <button id="btn_input_json"><span class='lang lang-zh'>编辑自定义引擎</span><span class='lang lang-en'>Edit custom engines</span></button>
+                                            
+                                                                                    </div>
+                                        <div id="div_json_parse" style="display:none;" >
+                                            <label for="textarea_json_saved">
+                                                <span class='lang lang-zh'>已保存的自定义引擎：</span><span class='lang lang-en'>Saved custom engines:</span>                                            </label>
+                                            <br>
+                                            <code><textarea id="textarea_json_saved" class="json_area" readonly="true" wrap="off" style="background: #e8e8e8;" rows="9" placeholder="Haven't added custom engines. When you need, you can find a simple tutorial from the manual at source code URL"></textarea></code>
+                                            <br>
+                                            <button id="btn_load_json"><span class='lang lang-zh'>↓读取并编辑</span><span class='lang lang-en'>↓Load & Edit</span></button>
+                                            <button id="btn_parse_json"><span class='lang lang-zh'>↑解析并覆盖保存</span><span class='lang lang-en'>↑Parse, Save & Override</span></button>
+                                            |
+                                            <button id="btn_use_examples"><span class='lang lang-zh'>加载例子</span><span class='lang lang-en'>Use examples</span></button>
+                                            <button id="btn_use_examples_adv"><span class='lang lang-zh'>加载例子（高级）</span><span class='lang lang-en'>Use examples (advanced)</span></button>
+                                            
+                                            <br>
+                                            
+                                            <label for="textarea_json">
+                                                <span class='lang lang-zh'>在此处编辑自定义引擎：</span><span class='lang lang-en'>Edit custom engines here:</span>                                            </label>
+                                            <br>
+                                            <code><textarea id="textarea_json" class="json_area" wrap="off" rows="9" placeholder="Input in JSON format. It's easy!"></textarea></code>
+                                        </div>
+                                    
                                     </div>
-                                
+                                    
+                                    <div id="div_search_permi" style="display:none; " >
+                                        <button id="btn_search_permi">
+                                            <span class='lang lang-zh'>读取浏览器内的搜索引擎</span><span class='lang lang-en'>Read browser-installed search engines</span>                                        </button>
+                                    </div>
+                                    
+                                    <div id="engines_cont"> </div>
                                 </div>
-                                
-                                <div id="div_search_permi" style="display:none; " >
-                                    <button id="btn_search_permi">
-                                        <span class='lang lang-zh'>读取浏览器内的搜索引擎</span><span class='lang lang-en'>Read browser-installed search engines</span>                                    </button>
+        
+
+                            </td>
+                            <td id="hist_td">
+                                <div id="hist_cont">
+                                    <div id="hist_ban">
+                                        <span class='lang lang-zh'>输入历史</span><span class='lang lang-en'>Input History</span>                                        <span id="hist_tip">
+                                            <span class='lang lang-zh'>双击可再次使用</span><span class='lang lang-en'>Doubleclick to use again</span>                                        </span>
+                                    </div>
+
+                                    <div id="hist" ></div>
+                                    
+                                    <div id="clearhist">
+                                        <span class='lang lang-zh'>清空</span><span class='lang lang-en'>Clean All</span>                                    </div>
                                 </div>
-                                
-                                <div id="engines_cont"> </div>
-                            </div>
-    
+                            </td>
+                        </tr>
+                    </table>
+                
+                </div>
+            </div>
 
-                        </td>
-                        <td id="hist_td">
-                            <div id="hist_cont">
-                                <div id="hist_ban">
-                                    <span class='lang lang-zh'>输入历史</span><span class='lang lang-en'>Input History</span>                                    <span id="hist_tip">
-                                        <span class='lang lang-zh'>双击可再次使用</span><span class='lang lang-en'>Doubleclick to use again</span>                                    </span>
-                                </div>
+            <div id="bottom">
+                <div id="btmbtns" >
+                    <button class="general_btn btmbtn" id="btn_usage" name="usage"  ><a href="#usage">
+                                                    <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                                
+                    </a></button>
 
-                                <div id="hist" ></div>
-                                
-                                <div id="clearhist">
-                                    <span class='lang lang-zh'>清空</span><span class='lang lang-en'>Clean All</span>                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-			
-			</div>
-			<div id="content_mobile"></div>
-			<div id="leftside"></div>
-			<div id="rightside"></div>
-
-		</div>
-		<br/>
-
-		<div id="bottom">
-            <div id="btmbtns" >
-                <button class="general_btn btmbtn" id="btn_usage" name="usage"  ><a href="#usage">
-                                            <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                        
-                </a></button>
-
-                <button class="general_btn btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
-                    <span class='lang lang-zh'>源代码 / 详细说明</span><span class='lang lang-en'>Source Code / User Manual</span>                </a></button>
-                <button class="general_btn btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
-                    <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                    <span class="badge_cont" style="">
-                        <span id="hot_badge" class="badge" style="background-color: rgba(255, 0, 0, 0.65); color: white;" >HOT</span>
-                    </span>
-                </a></button>
-                    <button class="general_btn btmbtn" id=""  style="display:none;"><a target="_blank"   rel="nofollow" href="http://acsmessage.atwebpages.com/">
+                    <button class="general_btn btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
+                        <span class='lang lang-zh'>源代码 / 详细说明</span><span class='lang lang-en'>Source Code / User Manual</span>                    </a></button>
+                    <button class="general_btn btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
+                        <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                        <span class="badge_cont" style="">
+                            <span id="hot_badge" class="badge" style="background-color: rgba(255, 0, 0, 0.65); color: white;" >HOT</span>
+                        </span>
+                    </a></button>
+                        <button class="general_btn btmbtn" id=""  style="display:none;"><a target="_blank"   rel="nofollow" href="http://acsmessage.atwebpages.com/">
         <span class='lang lang-zh'>留言板/反馈问题</span><span class='lang lang-en'>Guestbook/Feedback</span>    </a></button>
     <button class="general_btn btmbtn" id="btn_donate" name="donate"  >
         <a href="#donate">
@@ -210,60 +208,60 @@
     <button class="general_btn btmbtn" id="btn_about" name="about"  ><a href="#about" >
         <span class='lang lang-zh'>关于 / 更多工具</span><span class='lang lang-en'>About / More Tools</span>    </a></button>
     
-                </div>
-            <div class="btm_dialog" id="btn_webext_dialog">
-                
-                    <a name="webext" ></a>
-                    <h3> <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span> </h3>
-                    
-                    <div style="text-align: left;">
-                                                <ul>
-                            <li><a class="webext_link" id="webext_firefox" target="_blank" href="https://addons.mozilla.org/firefox/addon/big-search/">Firefox Addon</a>
-                            <br><br></li>
-
-                            <li>
-                                <span class='lang lang-zh'>Chrome / Microsoft Edge / 搜狗 / 360 / 其余国产浏览器 等</span><span class='lang lang-en'>Chrome, Brave, Vivaldi, Edge, Opera etc.</span> :  
-                                <a class="webext_link" id="webext_crx" target="_blank" href="https://gitlab.com/garywill/releaseapps-dl/-/tree/main">Download .crx</a>
-                            <br><br></li>
-                            
-                            <li>
-                                Microsoft Edge: 
-                                <span class='lang lang-zh'>请下载.crx安装（同Chrome），商店版无法再更新</span><span class='lang lang-en'>Please download .crx to install (like Chrome). The store can't get updates</span>                                (
-                                <a style="text-decoration: line-through;" class="webext_link" id="webext_edge" target="_blank" href="https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc">Edge Store</a>
-                                )
-                                
-                            </li>
-                        </ul>
                     </div>
-            </div>
-            
-            <div class="btm_dialog" id="btn_usage_dialog">
-                <a name="usage" ></a>
-                <h3><span class='lang lang-zh'>使用说明</span><span class='lang lang-en'>Usage</span></h3>
-                <div style="text-align: left;">
-                    <span class="lang lang-zh">
-                        <ul>
-                        <li>输入后，点击表格右列中的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）,将打开新分页显示结果。<br><br></li>
-                        <li>最后点击的按钮被加亮显示，敲击回车即可再次调用。<br><br></li>
-                        <li>双击搜索历史中的条目，快速将条目移至输入框。<br><br></li>
+                <div class="btm_dialog" id="btn_webext_dialog">
+                    
+                        <a name="webext" ></a>
+                        <h3> <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span> </h3>
                         
-                                                </ul>
-                    </span>
-                    <span class="lang lang-en">
-                        <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
-                        <ul>
-                        <li>After finish inputting, click button in the right column of the table to perform an operation (e.g. search) in the corresponding website (or database). A new page will be opened to display the results. <br><br></li>
-                        <li>The last clicked button is highlighted, and it can be called again by pressing Enter. <br><br></li>
-                        <li>Double-click an entry in the history to quickly move the entry to the input box. <br><br></li> 
-                        
-                                            </span>
-                </div>
+                        <div style="text-align: left;">
+                                                        <ul>
+                                <li><a class="webext_link" id="webext_firefox" target="_blank" href="https://addons.mozilla.org/firefox/addon/big-search/">Firefox Addon</a>
+                                <br><br></li>
 
-                            </div>
-                <div class="btm_dialog" id="btn_donate_dialog" style="display:none;" >
+                                <li>
+                                    <span class='lang lang-zh'>Chrome / Microsoft Edge / 搜狗 / 360 / 其余国产浏览器 等</span><span class='lang lang-en'>Chrome, Brave, Vivaldi, Edge, Opera etc.</span> :  
+                                    <a class="webext_link" id="webext_crx" target="_blank" href="https://gitlab.com/garywill/releaseapps-dl/-/tree/main">Download .crx</a>
+                                <br><br></li>
+                                
+                                <li>
+                                    Microsoft Edge: 
+                                    <span class='lang lang-zh'>请下载.crx安装（同Chrome），商店版无法再更新</span><span class='lang lang-en'>Please download .crx to install (like Chrome). The store can't get updates</span>                                    (
+                                    <a style="text-decoration: line-through;" class="webext_link" id="webext_edge" target="_blank" href="https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc">Edge Store</a>
+                                    )
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                
+                <div class="btm_dialog" id="btn_usage_dialog">
+                    <a name="usage" ></a>
+                    <h3><span class='lang lang-zh'>使用说明</span><span class='lang lang-en'>Usage</span></h3>
+                    <div style="text-align: left;">
+                        <span class="lang lang-zh">
+                            <ul>
+                            <li>输入后，点击表格右列中的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）,将打开新分页显示结果。<br><br></li>
+                            <li>最后点击的按钮被加亮显示，敲击回车即可再次调用。<br><br></li>
+                            <li>双击搜索历史中的条目，快速将条目移至输入框。<br><br></li>
+                            
+                                                        </ul>
+                        </span>
+                        <span class="lang lang-en">
+                            <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
+                            <ul>
+                            <li>After finish inputting, click button in the right column of the table to perform an operation (e.g. search) in the corresponding website (or database). A new page will be opened to display the results. <br><br></li>
+                            <li>The last clicked button is highlighted, and it can be called again by pressing Enter. <br><br></li>
+                            <li>Double-click an entry in the history to quickly move the entry to the input box. <br><br></li> 
+                            
+                                                    </span>
+                    </div>
+
+                                    </div>
+                    <div class="btm_dialog" id="btn_donate_dialog" style="display:none;" >
         <a name="donate" ></a>
         <h3><span class='lang lang-zh'>打赏捐助</span><span class='lang lang-en'>Buy me a coffee</span></h3>
-        <span class='lang lang-zh'>建造不易，感谢支持！你们的赞赏是我们的动力！</span><span class='lang lang-en'>Thank you for recognizing and giving reward for our work! Your donation will be an impetus for us!<</span>        
+        <span class='lang lang-zh'>建造不易，感谢支持！你们的赞赏是我们的动力！</span><span class='lang lang-en'>Thank you for recognizing and giving reward for our work! Your donation will be an impetus for us!</span>        
         <br/>
         <a target="_blank"  href="https://github.com/garywill/receiving/blob/master/receiving_methods.md">
             <img alt="Donation Link" style="max-width: 100% ; min-width: 100px; min-height: 100px;" id="img_receivingcode" />
@@ -284,13 +282,18 @@
       
         
     </div>
-    		
+                
+            </div>
+            
+            
+		
 		</div>
 		
 		<div id="footer">
             <div class="lang lang-zh">版权所有  保留所有权利</div>
-			Copyright 2015-2500   All Rights Reserved.
-		</div>
+            Copyright 2015 - 2500   All Rights Reserved.
+        </div>
+		
 		<div id="floater">
             <table id="floater_table"><tr>  <td id="floater_td"> </td> </tr></table>
 		</div>

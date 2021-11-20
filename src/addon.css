@@ -12,24 +12,43 @@
  * 
  * Source code: https://github.com/garywill/BigSearch
  */
+:root {
+    --above-wrapper: calc( var(--header-nav-span-font-size) + 2 * var(--header-padding-v) + var(--header-margin-bottom) );
+    
+    --wrapper-height: calc( 100vh - ( var(--above-wrapper) + var(--bottom-padding-top) + var(--general-btn-font-size) ) - 15px );
+    
+    --engines-o-cont-height-max: calc(var(--wrapper-height) - var(--inputbox-height) - var(--btns-below-input-height) );
+    
+    --catas-head-height: 0px;
+}
 
 body {
     width: 800px; 
     height: 600px;
 
-    background-image: url(bgaddon.webp);
+    /*background-image: url(bgaddon.webp);*/
     overflow-x: hidden;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #93a7d9 white;
 }
+#bghero::before {
+    background-image: url('bgaddon.webp');
+}
 
-#catas_cont { padding-top:0px; padding-right: 0px; } 
-#catabtns_header , #desktop_mobile_cont, #intitle,
-#btn_usetip
+#catas_cont { 
+padding-top:0px; padding-right: 0px; 
+    
+} 
+
+#catabtns_header , 
+#desktop_mobile_cont, #intitle
 { display:none;}
 
-#inputpaste {display:unset;}
+#inputpaste {
+display:unset;
+    
+}
 
 
 #engines_table
@@ -38,38 +57,14 @@ body {
 #input_o_cont, #input_cont, #inputbox ,
 #engines_cont, #engines_o_cont
 { min-width: 400px; width:400px; max-width:400px;}
-#engines_o_cont{
-    /* max-height: 440px; */
-    max-height: calc( 100vh - 160px );
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-color: #6d69ec #ffef068c;
-    scrollbar-width: thin;
-}
 
-#engines_o_cont::-webkit-scrollbar {
-    width: 4px;    
-}
-#engines_o_cont::-webkit-scrollbar-thumb {
-    background-color:#6d69ec;
-}
-
-#engines_o_cont::-webkit-scrollbar-track-piece {
-    background-color: #ffef068c;
-}
-
-#hist::-webkit-scrollbar,
 body::-webkit-scrollbar {
     width: 4px;  
     height: 0;
 }
-
-#hist::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
     background-color:#93a7d9;
 }
-
-#hist::-webkit-scrollbar-track-piece,
 body::-webkit-scrollbar-track-piece {
     background-color:white;
 }
@@ -80,8 +75,6 @@ body::-webkit-scrollbar-track-piece {
 
 #hist { 
     width: 220px;
-    /* max-height: 440px;  */
-    height: calc( 100vh - 160px );
 }
 #hist_tip { display:block;}
 #hist div .hist_entry_span_buttons { font-size: 10px; } 
@@ -89,4 +82,4 @@ body::-webkit-scrollbar-track-piece {
 #btmbtns {padding-top: 0px; }
 #hot_badge { display:none; }
 
-#footer { padding-top: 20px; display:none; }
+#footer {  display:none; }
