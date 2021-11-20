@@ -1280,10 +1280,10 @@ sEngines = {
         }
     },
     "chrome_ext_dev": {
-        dname: "Chrome Extension API",
-        addr: "https://developer.chrome.com/docs/extensions/reference/",
-        action: "https://developer.chrome.com/docs/extensions/reference/",
-        ajax: ".search-box__input"
+        "dname": "Chrome Extension API",
+        "addr": "https://developer.chrome.com/docs/extensions/reference/",
+        "action": "https://developer.chrome.com/docs/extensions/reference/",
+        "ajax": ".search-box__input"
     },
     "stackexchange": {
         "dname": "StackExchange",

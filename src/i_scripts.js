@@ -287,6 +287,13 @@ const example_adv = `{
         "kw_format": "{0} site:apple.com/*app"
       }
     }
+  },
+  "label_usaj": { "lstr": "Engine with Ajax" },
+  "chrome_ext_dev": {
+    "dname": "Chrome Ext Dev Doc",
+    "addr": "https://developer.chrome.com/docs/extensions/reference/",
+    "action": "https://developer.chrome.com/docs/extensions/reference/",
+    "ajax": ".search-box__input"
   }
 }`;
 

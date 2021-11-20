@@ -59,10 +59,10 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 
 - 🛡️ Safety
   - 🛡️ Minimun default permissions. Won't ask for sensitive permissions until needed. (Browser extension)
-  - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (Both extension and web app)
+  - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (extension and web app)
   - 🛡️ Hide HTTP Referrer by default to protect user privacy.
-  - 🛡️ Browser extension doesn't inject anything to webs.
-- 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any website that supports general GET/POST request)
+  - 🛡️ Browser extension doesn't inject anything to webs. (except when using those engines with Ajax)
+- 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any websites that support general GET/POST request. And even compatible with those that don't support GET/POST)
   > E.g: Google, DuckDuckGo, Amazon, eBay, Dictionary, Github, StackOverflow, IEEE, or the holding of the library near your home (easy to customize). Included 40+
 - 🔎 User adding custom-defined search engine (even syncronizable between devices via browser account in browser extension)
 - 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
@@ -75,7 +75,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 
 ## Since the browser itself has search engines which can be used on URL bar, why use this?
 
-1. The browser ones does not support POST
+1. The browser ones does not support **POST** or **Ajax**
 2. This provide ability to **send requests to multuple different engines quickly without retyping or copy-paste**
 3. This is cross-browser, and the engines data can be easily migrate
 4. Catagory feature allows adding many engines without clutter
@@ -160,6 +160,14 @@ Supports mixing short formatted and full formatted elements.
                 "kw_format": "{0} site:apple.com/*app"
             }
         }
+    },
+    
+    "label_usaj": { "lstr": "Engine with Ajax" },
+    "chrome_ext_dev": {
+        "dname": "Chrome Ext Dev Doc",
+        "addr": "https://developer.chrome.com/docs/extensions/reference/",
+        "action": "https://developer.chrome.com/docs/extensions/reference/",
+        "ajax": ".search-box__input"
     }
 }
 ```
@@ -171,6 +179,8 @@ Supports mixing short formatted and full formatted elements.
 In Json format.
 
 > A few years ago when I was designing this data format, I didn’t know about OpenSearch(xml) and Firefox's `search.json.mozlz4`, so I am considering how to make our format compatible with others, and at the same time retain our features, may also be one of the future development plan. Welcome discussion.
+
+Engine data in full format can contain following key-values:
 
 <details>
 
@@ -205,7 +215,8 @@ In Json format.
                     "source": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
                     "engine": "engine name", 
                     "btn": "button name"   // # Optional. Absence will make fallback to the first button
-                }
+                },
+                "ajax": ......  // # Optional. Read the Ajax Instructions for detail
             },
         }
 
@@ -214,11 +225,33 @@ In Json format.
 };
 ```
 
+</details>
+
+#### Ajax Instructions
+
+Some websites doesn't accept GET or POST. Visitor need to open their page and input, then they show search results on page via Ajax.
+
+Big Search browser extension supports searching in such Ajax-only websites.
+
+<details>
+
+Eg 1: Specify the querySelector of input box. It will automatically input search term and trigger pressing Enter event.
+
+```yaml
+"ajax": "#search-box-input"
+```
+
+Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
+
+```yaml
+"ajax": [2000, "#search-box-input", 1000, "#submit-button"]
+```
+
+</details>
+
 > We encourage user to submit their customized search engines data to us after they use JSON customing. Search engines data is AGPL licensed FLOSS.
 
 > If you want some search engines to be included by us, add/submit it to `enginesdata.js`, it is the core data of Big Search.
-
-</details>
 
 ## Our Special Technical Features
 
@@ -231,6 +264,7 @@ In addition to ordinary operations on a certain search engine:
 - For one engine, different operations are supported (one engine, multiple buttons)
 - String formatting user's inputted keyword
 - Call another engine (or engine's certain action) to do the action
+- Ajax-only websites support
 
 Therefore, it is **more satisfying to technician people** comparing to similar tools. 
 
@@ -242,7 +276,6 @@ Of course, it is **also completely easy for ordinary people to use**.
 
 - Add non-search navigation feature
 - Be compatible with OpenSearch
-- Figure out Ajax based searching (browser extension)
 - Be able to be used by CLI in terminal
 
 </details>
