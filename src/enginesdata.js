@@ -88,6 +88,7 @@ catas = {
         engines: [
             { type:"engine", name:"github"},
             { type:"engine", name:"mdn"},
+            { type:"engine", name:"chrome_ext_dev"},
             { type:"engine", name:"stackexchange"},
             { type:"engine", name:"alternativeto"},
             { type:"label", lstr:"Windows"},
@@ -571,6 +572,11 @@ sEngines = {
         "btns": {
             "lookup": {
                 "label": "查询"
+            },
+            "trans": {
+                label: "翻译",
+                action: "https://fanyi.youdao.com/",
+                ajax: "#inputOriginal"
             }
         }
     },
@@ -1161,14 +1167,15 @@ sEngines = {
     "evozi": {
         "dname": "Evozi APK Downloader",
         "tip": i18n(["这是一个输入APK包名（如com.tencent.mm）来生成下载链接的网站","Input APK package name (e.g. org.videolan.vlc) to generate download link"]),
-        "addr": "https://apps.evozi.com",
+        "addr": "https://apps.evozi.com/apk-downloader",
         "action": "https://apps.evozi.com/apk-downloader/",
+        "ajax": [".input-lg", 1000, ".btn-lg" ],
         "btns": {
             "pkg_n": {
                 "label": "Generate Download Link",
-                "btn_tip": i18n(["输入APK包名（如com.tencent.mm），获取下载链接","Input the package name of APK (e.g. org.videolan.vlc) to get download link"]),
-                "method": "get",
-                "kw_key": "id"
+                "btn_tip": i18n(["输入APK包名（如com.tencent.mm），获取下载链接","Input the package name of APK (e.g. org.videolan.vlc) to get download link"])
+                //"method": "get",
+                //"kw_key": "id"
             }
         }
     },
@@ -1271,6 +1278,12 @@ sEngines = {
             },
             */
         }
+    },
+    "chrome_ext_dev": {
+        dname: "Chrome Extension API",
+        addr: "https://developer.chrome.com/docs/extensions/reference/",
+        action: "https://developer.chrome.com/docs/extensions/reference/",
+        ajax: ".search-box__input"
     },
     "stackexchange": {
         "dname": "StackExchange",
