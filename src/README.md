@@ -4,15 +4,23 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 Handily use **any one** or **multiple** search engines (or search any websites) via a **flexible tool**.
 
-<p align="center">Search everywhere 🗺️ for everything 👨‍💻, as you choose & 🖱️ click. Breadth & Depth. </p>
+<p align="center">
+Search everywhere 🗺️ for everything 👨‍💻, as you choose & 🖱️ click.<br>
+Breadth & Depth.
+</p>
 
-Cross-browser tool. Highly customizable.
+Cross-browser tool. Highly customizable on engines data.
 
-We used to do web search step by step. 🐢
-
+We used to do web search step by step. 🐢<br>
 We now can do web search efficiently and concurrently. 🚀
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.png)
+
+## Similar tools & methods comparison
+
+[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
+
+(**↑ Experienced users may prefer an intuitive horizontal comparison table than many texts and pictures below**)
 
 ## To use
 
@@ -23,15 +31,11 @@ Ways to use:
    Install extension to let it fully function
    
    - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
-   
    - [Download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)  for:
      - Google Chrome, Microsoft Edge etc.
      - Brave, Vivaldi, Opera etc.
-     
      > Now Google is charging $5 for a Chrome Store developer account, and I haven't figured out how to pay, due to my region. It would be great if someone willing to help. 
-   
    - Microsoft Edge： Please download .crx to install (like Chrome). The Edge Store can't get updates (~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~)
-     
      > A little-known fun fact: Microsoft bans such multi-search addon from being on Edge Store
 
 2. Web App: Main site https://acsearch.ga | Standby site http://acsearch.tk
@@ -40,10 +44,12 @@ Ways to use:
    
 ## Screenshots and Demo
 
-| Screenshots                                                                     |                                                                                           |                                                                                   |                                                                                         |
-| ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Extension UI                                                                    | Context selection search                                                                  | Use web app without install                                                        | Mobile UI (web app)                                                                         |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.png) |
+| Screenshots    |    |      |
+| -------------- | ------------ | ----------- |
+| Extension UI    | Context selection search   | Use web app without install  |
+| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) |
+| Mobile UI (web app) | (Feature preview) Various theme styles |  |
+| ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.png) | ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) |  |
 
 [Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
@@ -53,44 +59,34 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 
 [See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
-## Similar tools comparison
-
-[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
-
 ## Features
 
-- 🛡️ Safety
-  - 🛡️ Minimun default permissions. Won't ask for sensitive permissions until needed. (Browser extension)
-  - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (extension and web app)
-  - 🛡️ Hide HTTP Referrer by default to protect user privacy.
-  - 🛡️ Browser extension doesn't inject anything to webs. (except when using those engines requiring Ajax)
-- 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any websites that support **general GET/POST** request. And **even works with** those that don't support GET/POST)
-  > E.g: Google, DuckDuckGo, Amazon, eBay, Dictionary, Github, StackOverflow, IEEE, or the holding of the library near your home (easy to customize). Included 40+
-- 🔎 User adding custom-defined search engine (syncronizable between devices via browser account in extension)
-- 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
-- 🗂️ Search engines catagory
+### Features for use
+
+- 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. (And **even** [works with those that don't support GET/POST](#Ajax-Instructions))
+  > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc., or the holding of the library near your home (easy to customize). Included 50+
+- 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable between devices via browser account in extension)
+- 🔎 Support using **browser-installed** search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
+- 🗂️ Search engines **categorization**
 - 🖋️ Single-line or **multi-line** input and sending
-- 📋 Save, reuse and manage your input history (only saved locally in the browser localStorage)
-- 🖱️ Quickly use user selected text on webpage as search term (browser extension, through context menu) 
+- 📋 Save, **reuse** and manage your input history (only saved locally in the browser localStorage)
+- 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, through context menu) 
   > - Not in Firefox incognito mode
   > - On Chrome, after clicking context menu item, click the icon on toolbar
-- 🖥️ Support both desktop (browser extension & web app) and mobile (web app only) devices
+- 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 
-## Since the browser itself has search engines which can be used on URL bar, why use this?
+### Safety & Privacy
 
-1. The browser ones does not support **POST** or **Ajax**
-2. This provide ability to send requests to **multuple different engines** quickly **without** retyping or copy-paste
-3. This is cross-browser, and the engines data can be easily migrate
-4. Catagory feature allows adding many engines without clutter
-5. The history feature makes easy to **reuse**, tweak and try different search terms, which is quite essential for getting a desired searching result
-6. This supports **multi-line** text, making jobs like article translation efficient
-7. From other features we can see this is a more powerful tool 
+- 🛡️ Minimun default permissions. Won't ask for sensitive permissions **until** needed. (Browser extension)
+- 🛡️ Pure **client-side** tool functions fully. No necessary server. No collecting user's input. (extension and web app)
+- 🛡️ Hide HTTP Referrer by default to protect user privacy.
+- 🛡️ Browser extension **doesn't inject** anything to webs. (except when using those engines requiring Ajax)
 
 ## How to edit search engines
 
 Generally, you only need to write JSON and have basic http request knowledge about GET/POST. 
 
-The way to add or edit an engine is for both:
+The method described here to add or edit an engine is for both:
   1. Big Search build-in search engines
   1. User-defined private engines
 
@@ -109,9 +105,10 @@ The way to add or edit an engine is for both:
 
 Using full format you have opportunity to use all the features of this tool.
 
-Supports mixing short formatted and full formatted elements.
+Also, mixing short formatted and full formatted elements is supported.
 
 <details>
+<summary>Full format examples</summary>
 
 ```yaml
 {
@@ -182,13 +179,12 @@ Supports mixing short formatted and full formatted elements.
 
 ### Specification of Editing Engines Data
 
-In Json format.
-
-> A few years ago when I was designing this data format, I didn’t know about OpenSearch(xml) and Firefox's `search.json.mozlz4`, so I am considering how to make our format compatible with others, and at the same time retain our features, may also be one of the future development plan. Welcome discussion.
+In JSON format.
 
 Engine data in full format can contain following key-values:
 
 <details>
+<summary>Specifications</summary>
 
 ```yaml
 // # Some key/value ​​in the button can override the key/value in the engine name
@@ -241,6 +237,8 @@ Big Search browser extension supports searching in such Ajax-only websites.
 
 <details>
 
+<summary>Ajax instructions</summary>
+
 Eg 1: Specify the querySelector of input box. It will automatically input search term and trigger pressing Enter event.
 
 ```yaml
@@ -255,10 +253,6 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 </details>
 
-> We encourage user to submit their customized search engines data to us after they use JSON customing. Search engines data is AGPL licensed FLOSS.
-
-> If you want some search engines to be included by us, add/submit it to `enginesdata.js`, it is the core data of Big Search.
-
 ## Our Special Technical Features
 
 Comparing to other similar tools, this tool uses JSON for search engines database (both built-in and user-defined), so it has strong flexibility in engine data.
@@ -268,7 +262,7 @@ Comparing to other similar tools, this tool uses JSON for search engines databas
 In addition to ordinary operations on a certain search engine:
 
 - For one engine, different operations are supported (one engine, multiple buttons)
-- String formatting user's inputted keyword
+- String formatting user's input
 - Call another engine (or engine's certain action) to do the action
 - Ajax-only websites support
 
@@ -285,6 +279,10 @@ Of course, it is **also completely easy for ordinary people to use**.
 - Be able to be used by CLI in terminal
 
 ## For Developers
+
+> We encourage user to submit their customized search engines data to us after they use JSON customing. Search engines data is AGPL licensed FLOSS.
+
+> If you want some search engines to be included by us, add/submit it to `enginesdata.js`, it is the core data of Big Search.
 
 ### Globalization
 

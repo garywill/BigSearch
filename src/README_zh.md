@@ -4,15 +4,20 @@
 
 以 **灵活**又**顺手** 的方式 在 **任意一个** 或 **多个** 搜索引擎（或任意网站）进行搜索。
 
-跨浏览器工具。具有高度自定义性。
+跨浏览器工具。引擎数据高度可自定义。
 
-曾经，使用搜索引擎，是一步步、一个个来的。 🐢
-
+曾经，使用搜索引擎，是一步步、一个个来的。 🐢<br>
 现在，使用搜索引擎，是高效、可并发操作的。 🚀
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.png)
 
 > 图标含意：篆书的「術」（术）字 + 代表搜索/查询的放大镜
+
+## 相似工具和方法比较
+
+[开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
+
+（ **↑ 有经验的用户，看一个直观的功能横向比较表，可能胜过以下诸多图文说明**）
 
 ## 使用
 
@@ -23,17 +28,12 @@
    安装扩展以发挥所有功能
    
    - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
-   
    - [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)  适用于：
-     
      - Google Chrome、Microsoft Edge 等
      - 搜狗浏览器、360浏览器 等 
      - Brave、Vivaldi、Opera 等
-     
      > 现在Google要为Chrome Store的开发者账号收费\$5，我还没弄清楚如何支付。如果哪位兄台乐意帮忙（用你的账号维护上架也可以）
-   
    - Microsoft Edge： 请下载.crx安装（同Chrome），Edge商店无法更新（~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~）
-     
      > 鲜为人知的有趣事实：Microsoft禁止这种多搜索引擎的addon在Edge上架
 
 2. 网页版： 主站 https://acsearch.ga | 备用站 http://acsearch.tk
@@ -46,8 +46,8 @@
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | 扩展UI                                                                              | 上下文菜单搜索选择内容                                                                               | 免安装网页使用                                                                           | 移动版(web)                                                                                |
 | ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.png) |
-| 中文界面                                                                              | 汉语辞典文献类别                                                                                  |                                                                                   |                                                                                         |
-| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.png) | ![screenshotchi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.png)          |                                                                                   |                                                                                         |
+| (功能预告)多种外观主题 | 中文界面      |   汉语辞典文献类别(嘿嘿～)  |      |
+| ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) | ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.png) | ![screenshotchi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.png)  |  |
 
 [Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
@@ -57,38 +57,28 @@
 
 [查看收录引擎列表](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
-## 相似工具比较
+## 特性
 
-[开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
+### 功能
 
-## 功能
-
-- 🛡️ 安全性
-  - 🛡️ 默认最小权限，仅在需要时请求敏感权限（浏览器扩展)
-  - 🛡️ 纯客户端功能完整，不需服务器，无搜集用户搜索内容（包括网页及扩展）
-  - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
-  - 🛡️ 浏览器扩展不向网页注入任何代码（除使用需要Ajax的引擎时外）
-- 🔎 可将任意（已将许多）搜索、查询的网站集于一处操作（任意支持**普通GET/POST**的网站。**甚至兼容**那些不支持GET/POST的）
-  > 例如 百度、Google、淘宝、有道、Github、StackOverflow、IEEE、你家附近某图书馆（易于自定义）藏书查询 等。已收录50+个
-- 🔎 用户添加自定义搜索引擎（若在扩展中，可通过浏览器账号同步）
-- 🔎 可调用浏览器内联的搜索引擎（浏览器扩展。因此你已添加进浏览器的搜索引擎可以直接用。目前仅Firefox提供）
-- 🗂️ 引擎分类卡片
+- 🔎 可将任意搜索引擎、查询网站集于一处（连续）操作，任何支持**GET/POST**的网站。（**甚至**[兼容那些不支持GET/POST的](#Ajax说明)）
+  > 例如 百度、Google、哔哩哔哩、网易云音乐、淘宝、有道、Github、IEEE、你家附近某图书馆（易于自定义）藏书查询 等。已收录50+个
+- 🔎 用户添加**自定义**搜索引擎（[详情](#如何编辑搜索引擎)）（若在扩展中，可通过浏览器账号同步）
+- 🔎 可调用**浏览器内联**的搜索引擎（浏览器扩展。因此你已添加进浏览器的搜索引擎可以直接用。目前仅Firefox提供）
+- 🗂️ 引擎**分类**卡片
 - 🖋️ 单行、**多行**输入及发送
-- 📋 可保存、复用和管理你的输入历史（仅保存在浏览器本地localStorage）
-- 🖱️ 快速将选择的网页上的文本作为搜索词（浏览器扩展，通过右键菜单）
+- 📋 可保存、**复用**和管理你的输入历史（仅保存在浏览器本地localStorage）
+- 🖱️ 快速将**选择**的网页上的文本作为搜索词（浏览器扩展，通过右键菜单）
   > - Firefox无痕模式中无
   > - Chrome中点了右键菜单后，需再点击工具栏中的图标
-- 🖥️ 支持桌面设备（扩展或网页）和移动设备（仅网页）
+- 🖥️ 支持**桌面**设备（扩展或网页）和**移动**设备（仅网页）
 
-## 既然浏览器本身可添加搜索引擎在URL栏调用，为什么用这个？
+### 安全性和隐私
 
-1. 浏览器本身的搜索引擎功能不支持**POST**或**Ajax**
-2. 这个可以连续点击，向**多个不同引擎**快速送出request，**不需要**再次输入或复制粘贴
-3. 这个可跨浏览器快速迁移引擎数据
-4. 分类功能允许用户添加很多很多引擎而不至于凌乱
-5. 历史功能方便**复用**、微调搜索词，这对于获得想要的搜索结果很关键
-6. 这个支持**多行**文本，对如翻译大段文字有利
-7. 从其他特性也可见，这个是一个更强大的工具
+  - 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
+  - 🛡️ **纯客户端**功能完整，不需服务器，无搜集用户搜索内容（包括网页及扩展）
+  - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
+  - 🛡️ 浏览器扩展**不**向网页注入任何代码（除使用需要Ajax的引擎时外）
 
 ## 如何编辑搜索引擎
 
@@ -117,6 +107,7 @@
 亦支持将 简短形式 和 完整形式 混合使用。
 
 <details>
+<summary>完整形式例子</summary>
 
 ```yaml
 {
@@ -189,11 +180,10 @@
 
 JSON格式。
 
-> 数年前，我在编制这种数据格式的时候，还不知道有OpenSearch（xml）和Firefox的`search.json.mozlz4`，因此考虑如何将我们的数据格式与一些其他格式兼容，同时又要能保留我们的特色功能，可能也是未来开发点之一。欢迎讨论
-
 使用 完整形式 的引擎数据可以包含以下键值：
 
 <details>
+<summary>数据说明</summary>
 
 ```yaml
 // # 按钮之下的某些键值可覆盖引擎名下的键值
@@ -245,6 +235,7 @@ JSON格式。
 大术专搜的浏览器扩展支持这类只能通过Ajax进行的搜索。
 
 <details>
+<summary>Ajax说明</summary>
 
 例1：指定输入框的querySelector，并进行关键词输入，模拟回车动作
 
@@ -259,10 +250,6 @@ JSON格式。
 ```
 
 </details>
-
-> 用户使用了JSON自定义引擎后，我们鼓励用户也将数据提交回上游源代码。引擎数据为AGPL自由代码。
-
-> `enginesdata.js`是收录搜索引擎的数据，若要添加搜索引擎使被收录，往这里添加。
 
 ## 技术特色
 
@@ -290,6 +277,10 @@ JSON格式。
 - 在终端内调用的CLI
 
 ## For Developers
+
+> 用户使用了JSON自定义引擎后，我们鼓励用户也将数据提交回上游源代码。引擎数据为AGPL自由代码。
+
+> `enginesdata.js`是收录搜索引擎的数据，若要添加搜索引擎使被收录，往这里添加。
 
 ### 国际化
 
