@@ -33,5 +33,5 @@
         "page": "background.html",
         "persistent": true
     },
-    "update_url": "https://gitlab.com/garywill/browseraddon-dl/-/raw/main/update-chromeaddon.xml"
+    "update_url": "https://gitlab.com/garywill/releaseapps-dl/-/raw/main/update-chromeaddon.xml"
 } 
