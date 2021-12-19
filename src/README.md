@@ -4,6 +4,8 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 Handily use **any one** or **multiple** search engines (or search any websites) via a **flexible tool**.
 
+<p align="center">Search everywhere 🗺️ for everything 👨‍💻, as you choose & 🖱️ click. Breadth & Depth. </p>
+
 Cross-browser tool. Highly customizable.
 
 We used to do web search step by step. 🐢
@@ -61,12 +63,12 @@ Solve all needs between browsers and search engines. Easily make best use of dif
   - 🛡️ Minimun default permissions. Won't ask for sensitive permissions until needed. (Browser extension)
   - 🛡️ Pure client-side tool functions fully. No necessary server. No collecting user's input. (extension and web app)
   - 🛡️ Hide HTTP Referrer by default to protect user privacy.
-  - 🛡️ Browser extension doesn't inject anything to webs. (except when using those engines with Ajax)
-- 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any websites that support **general GET/POST** request. And **even compatible with** those that don't support GET/POST)
+  - 🛡️ Browser extension doesn't inject anything to webs. (except when using those engines requiring Ajax)
+- 🔎 Able to collect any (and have collected many) different searching or inquery websites and operate them on one page (any websites that support **general GET/POST** request. And **even works with** those that don't support GET/POST)
   > E.g: Google, DuckDuckGo, Amazon, eBay, Dictionary, Github, StackOverflow, IEEE, or the holding of the library near your home (easy to customize). Included 40+
-- 🔎 User adding custom-defined search engine (even syncronizable between devices via browser account in browser extension)
+- 🔎 User adding custom-defined search engine (syncronizable between devices via browser account in extension)
 - 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
-- 📁 Search engines catagory
+- 🗂️ Search engines catagory
 - 📋 Save, reuse and manage your input history (only saved locally in the browser localStorage)
 - 🖱️ Quickly use user selected text on webpage as search term (browser extension, through context menu) 
   > - Not in Firefox incognito mode
@@ -76,19 +78,21 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 ## Since the browser itself has search engines which can be used on URL bar, why use this?
 
 1. The browser ones does not support **POST** or **Ajax**
-2. This provide ability to send requests to **multuple different engines** quickly **without** retyping or copy-paste**
+2. This provide ability to send requests to **multuple different engines** quickly **without** retyping or copy-paste
 3. This is cross-browser, and the engines data can be easily migrate
 4. Catagory feature allows adding many engines without clutter
-5. The history feature makes easy to reuse, tweak and try different search terms, which is **quite essential for getting a desired searching result**
 6. From other features we can see this is a more powerful tool 
+5. The history feature makes easy to **reuse**, tweak and try different search terms, which is quite essential for getting a desired searching result
 
 ## How to edit search engines
 
-You only need to write JSON and have basic http request knowledge about GET/POST
+Generally, you only need to write JSON and have basic http request knowledge about GET/POST. 
+
+The way to add or edit an engine is for both:
+  1. Big Search build-in search engines
+  1. User-defined private engines
 
 ### Examples
-
-The examples provided here can be put into the "user custom" area
 
 #### Short Format
 
@@ -272,13 +276,11 @@ Of course, it is **also completely easy for ordinary people to use**.
 
 ## Plans
 
-<details>
-
+- Browser (native) sidebar panel (before that need to change UI. Need responsive)
+- Desktop stanalone app, opening URL with user-assigned browser
 - Add non-search navigation feature
 - Be compatible with OpenSearch
 - Be able to be used by CLI in terminal
-
-</details>
 
 ## For Developers
 
@@ -312,6 +314,10 @@ If you want to add a search engine that only targets users in a certain language
 - [Floggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
   
   by Quang Nguyen Vinh
+  
+- [Unicons icon](https://github.com/Iconscout/unicons) 
+
+  Unicons by [Iconscout](https://iconscout.com/)
   
 </details>
 
