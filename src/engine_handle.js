@@ -371,6 +371,9 @@ async function goEngBtn(engine,btn,keyword,source=null)
     
     // ====JUDGE UOEF===begin===
     if (data.use_other_engine !== undefined){
+        if ( typeof(data.use_other_engine) === "string" ) {
+            data.use_other_engine = { "engine" : data.use_other_engine };
+        }
         goEngBtn( data.use_other_engine.engine, data.use_other_engine.btn , keyword, data.use_other_engine.source);
         return;
     }
