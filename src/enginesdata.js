@@ -140,6 +140,7 @@ catas = {
             { type:"engine", name:"google_media"},
             { type:"engine", name:"youtube"},
             { type:"engine", name:"netflix"},
+            { type:"engine", name:"bing_media"},
 
         ],
     },
@@ -1885,6 +1886,43 @@ sEngines = {
         addr: "https://www.youtube.com/",
         action: "https://www.youtube.com/results/",
         kw_key: "search_query",
+    },
+    "bing_media": {
+        "dname": i18n(["必应", "Bing"]),
+        "addr": "https://www.bing.com",
+        "kw_key": "q",
+        "btns": {
+            "img_cn": {
+                "label": "图片(中国版)",
+                "visible_lang": "zh",
+                "action": "https://cn.bing.com/images/search",
+                "params": [
+                    {key:"ensearch", val:"0"}
+                ]
+            },
+            "vid_cn": {
+                "label": "视频(中国版)",
+                "visible_lang": "zh",
+                "action": "https://cn.bing.com/videos/search",
+                "params": [
+                    {key:"ensearch", val:"0"}
+                ]
+            },
+            "img": {
+                "label": "Images",
+                "action": "https://www.bing.com/images/search",
+                "params": [
+                    {key:"ensearch", val:"1"}
+                ]
+            },
+            "vid": {
+                "label": "Videos",
+                "action": "https://www.bing.com/videos/search",
+                "params": [
+                    {key:"ensearch", val:"1"}
+                ]
+            },
+        }
     },
     "netflix": {
         dname: "Netflix",
