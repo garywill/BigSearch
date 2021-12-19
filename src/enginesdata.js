@@ -199,8 +199,8 @@ catas = {
             { type:"engine", name:"suning", visible_lang: "zh"},
             { type:"label", lstr:"商游世界", visible_lang: "zh"},
             { type:"engine", name:"amazon"},
-            { type:"engine", name:"tmall_global"},
             { type:"engine", name:"ebay"},
+            { type:"engine", name:"alibaba"},
         ],
     },
     "finance": {
@@ -540,11 +540,33 @@ sEngines = {
         "addr": "https://www.tmall.hk/",
         "action": "https://list.tmall.hk/search_product.htm",
         "kw_key": "q",
-        "allow_referer": true,
+        //"allow_referer": true,
         "btns": {
             "sch": {
                 "label": i18n(["搜索", "Search"]),
 
+            }
+        }
+    },
+    "alibaba" : {
+        "dname": i18n(["阿里巴巴","Alibaba"]),
+        "addr": "https://www.aliexpress.com",
+        "kw_key": "q",
+        "btns": {
+            "aliexpress": {
+                label: "Ali Express",
+                action: "https://www.aliexpress.com/wholesale",
+                kw_key: "SearchText"
+            },
+            "alibaba.com": {
+                label: "Alibaba.com",
+                action: "https://www.alibaba.com/trade/search",
+                kw_key: "SearchText"
+            },
+            "tmall": {
+                label: i18n(["天猫国际", "TMall"]),
+                visible_lang: "zh",
+                use_other_engine: "tmall_global"
             }
         }
     },
