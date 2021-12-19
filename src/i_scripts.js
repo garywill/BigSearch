@@ -425,30 +425,7 @@ onrd.push(async function(){
 
 /////////////////////////////////
 function simp_trad_click() {
-    var use_dictsource = "";
-    if (this.id == "tosimp")
-        use_dictsource = "t2s.json";
-    else if (this.id == "totrad")
-        use_dictsource = "s2t.json";
     
-    var Input = document.getElementById("inputbox").value;
-    var Output = ""
-    
-    const { DictSource, Converter } = OpenCCWasm_
-    OpenCCWasm_.ready().then(() => {
-        // 获取s2t.json字典数据
-        const dictSource = new DictSource(use_dictsource);
-        return dictSource.get();
-    }).then((args) => {
-        const converter = new Converter(...args);
-        Output = converter.convert(Input);
-        //console.log(Output);
-        // 注意当不再需要使用converter时，请调用delete方法以释放内存
-        converter.delete();
-        document.getElementById("inputbox").value = Output;
-    });
-    
-    document.getElementById("inputbox").focus();
 }
 async function make_cata_btns() {
     
