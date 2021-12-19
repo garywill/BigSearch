@@ -432,7 +432,23 @@ sEngines = {
                         "val": "old"
                     },
                 ]
-            }
+            },
+            "ali1688": {
+                label: "1688",
+                dname: "1688",
+                addr: "https://www.1688.com/",
+                action: "https://s.1688.com/selloffer/offer_search.htm",
+                kw_key: "keywords",
+                charset: "gbk"
+            },
+            "ali1688_industry": {
+                label: "1688(工业品)",
+                dname: "1688",
+                addr: "https://www.1688.com/",
+                action: "https://s.1688.com/selloffer/imall_search.htm",
+                kw_key: "keywords",
+                charset: "gbk"
+            },
         }
     },
     "jd": {
