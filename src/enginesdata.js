@@ -139,6 +139,7 @@ catas = {
             { type:"label", lstr:"各处民风" , visible_lang: "zh" },
             { type:"engine", name:"google_media"},
             { type:"engine", name:"youtube"},
+            { type:"engine", name:"netflix"},
 
         ],
     },
@@ -1884,6 +1885,12 @@ sEngines = {
         addr: "https://www.youtube.com/",
         action: "https://www.youtube.com/results/",
         kw_key: "search_query",
+    },
+    "netflix": {
+        dname: "Netflix",
+        addr: "https://www.netflix.com/",
+        action: "https://www.netflix.com/search",
+        kw_key: "q"
     },
 };
 
