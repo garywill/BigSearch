@@ -15,11 +15,15 @@
 :root {
     --above-wrapper: calc( var(--header-nav-span-font-size) + 2 * var(--header-padding-v) + var(--header-margin-bottom) );
     
-    --wrapper-height: calc( 100vh - ( var(--above-wrapper) + var(--bottom-padding-top) + var(--general-btn-font-size) ) - 15px );
+    --intitle-height: 0px;
+
     
     --engines-o-cont-height-max: calc(var(--wrapper-height) - var(--inputbox-height) - var(--btns-below-input-height) );
     
     --catas-head-height: 0px;
+    
+    --table-width-max: 400px;
+    --table-width: var(--table-width-max);
 }
 
 body {
@@ -52,11 +56,20 @@ display:unset;
 
 
 #engines_table
-{ max-width:400px; min-width:350px;}
+{ 
+    max-width: var(--table-width); 
+    min-width: calc( var(--table-width) - 50px );
+    
+}
 
 #input_o_cont, #input_cont, #inputbox ,
 #engines_cont, #engines_o_cont
-{ min-width: 400px; width:400px; max-width:400px;}
+{ 
+    min-width: var(--table-width); 
+    width: var(--table-width); 
+    max-width: var(--table-width);
+    
+}
 
 body::-webkit-scrollbar {
     width: 4px;  
@@ -81,5 +94,3 @@ body::-webkit-scrollbar-track-piece {
 
 #btmbtns {padding-top: 0px; }
 #hot_badge { display:none; }
-
-#footer {  display:none; }

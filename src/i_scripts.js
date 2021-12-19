@@ -596,7 +596,7 @@ async function ebtn_onclick(obj)
 	var inputval=document.getElementById("inputbox").value.trim();
 	if (inputval=="")
 	{
-		alert(i18n(["搜索框内容为空！", "The inputbox is empty!"]))
+		alert(i18n(["搜索框内容为空！", "The input field is empty!"]))
 		setf();
 		return;
 	}
