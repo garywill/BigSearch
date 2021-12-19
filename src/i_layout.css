@@ -179,6 +179,7 @@ text-align: left;
     max-width: 100%;
     overflow: scroll;
     scrollbar-color: #93a7d9 white;;
+    resize: vertical;
 }
 
 #engines_o_cont{
