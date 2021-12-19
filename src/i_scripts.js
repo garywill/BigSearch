@@ -76,8 +76,6 @@ onrd.push(async function(){
     
     cata_onclick( document.getElementById("cata_btn_general") );
     
-    set_input_width();
-    
 });
 
 onrd.push(function(){
@@ -203,6 +201,7 @@ onrd.push(function(){
             this.setMlMode( this.isValueMl(str) ? true : false );
             this.setValue(str);
             this.syncMS();
+            this.setMlView();
         };
         this.isValueMl = function (val) {  // judge a string is ml or sl
             val = val.trim();
