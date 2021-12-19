@@ -143,6 +143,7 @@ catas = {
             { type:"engine", name:"bing_media"},
             { type:"engine", name:"vimeo"},
             { type:"engine", name:"dailymotion"},
+            { type:"engine", name:"dtube"},
 
         ],
     },
@@ -1955,6 +1956,11 @@ sEngines = {
                 full_url: "https://www.dailymotion.com/search/{0}/playlists",
             },
         }
+    },
+    "dtube": {
+        dname: "DTube",
+        addr: "https://d.tube/",
+        full_url: "https://d.tube/#!/s/{0}"
     },
 };
 
