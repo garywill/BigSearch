@@ -142,6 +142,7 @@ catas = {
             { type:"engine", name:"netflix"},
             { type:"engine", name:"bing_media"},
             { type:"engine", name:"vimeo"},
+            { type:"engine", name:"dailymotion"},
 
         ],
     },
@@ -1936,6 +1937,24 @@ sEngines = {
         addr: "https://www.netflix.com/",
         action: "https://www.netflix.com/search",
         kw_key: "q"
+    },
+    "dailymotion": {
+        dname: "Dailymotion",
+        addr: "https://www.dailymotion.com",
+        btns: {
+            "vid": {
+                label: "Videos",
+                full_url: "https://www.dailymotion.com/search/{0}/videos",
+            },
+            "channel": {
+                label: "Channels",
+                full_url: "https://www.dailymotion.com/search/{0}/channels",
+            },
+            "playlist": {
+                label: "Playlists",
+                full_url: "https://www.dailymotion.com/search/{0}/playlists",
+            },
+        }
     },
 };
 
