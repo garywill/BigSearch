@@ -203,6 +203,7 @@ catas = {
             { type:"engine", name:"alibaba"},
             { type:"engine", name:"walmart"},
             { type:"engine", name:"bestbuy"},
+            { type:"engine", name:"newegg"},
         ],
     },
     "finance": {
@@ -633,6 +634,22 @@ sEngines = {
         addr: "https://www.bestbuy.com/",
         action: "https://www.bestbuy.com/site/searchpage.jsp",
         kw_key: "st"
+    },
+    "newegg": {
+        dname: "Newegg",
+        addr: "https://www.newegg.com",
+        action: "https://www.newegg.com/p/pl",
+        kw_key: "d",
+        btns: {
+            "search": {
+                label: "Search"
+            },
+            "neweggbusiness": {
+                label: "NeweggBusiness",
+                action: "https://www.neweggbusiness.com/product/productlist.aspx",
+                kw_key: "Description"
+            }
+        }
     },
     "youdao": {
         "dname": "有道词典",
