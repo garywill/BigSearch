@@ -663,7 +663,7 @@ function form_submit(fparams,action,charset="UTF-8",method="get",referer=false){
     form.method=method;
     
     fparams.forEach(function(ele){
-        var inp = document.createElement("input");
+        var inp = document.createElement("textarea");
         inp.name = ele.key;
         inp.value = ele.val;
         form.appendChild(inp);
