@@ -182,6 +182,7 @@ catas = {
             { type:"engine", name:"moedict"},
             { type:"engine", name:"works.hk"},
             { type:"engine", name:"cantodict"},
+            { type:"engine", name:"voicedic"},
             { type:"label", lstr:"帛竹卷經" },
             { type:"engine", name:"ctext"},
             { type:"engine", name:"kanripo"},
@@ -1469,6 +1470,57 @@ sEngines = {
                     {"key": "radicaldropdown", "val": "0"},
                     {"key": "searchsubmit", "val": "search"}
                 ]
+            }
+        }
+    },
+    "voicedic": {
+        dname: "汉语方言发音字典",
+        addr: "https://cn.voicedic.com/",
+        action: "https://cn.voicedic.com/",
+        btns: {
+            "TraditionalChinese": {
+                "label": "广韵",
+                "ajax": ["input[type=radio][name=language][value=TraditionalChinese]",300,".s_ipt"]
+            },
+            "Taiwanese": {
+                "label": "闽南话",
+                "ajax": ["input[type=radio][name=language][value=Taiwanese]",300,".s_ipt"]
+            },
+            "Hakka": {
+                "label": "客家话",
+                "ajax": ["input[type=radio][name=language][value=Hakka]",300,".s_ipt"]
+            },
+            "Chaozhouese": {
+                "label": "潮州话",
+                "ajax": ["input[type=radio][name=language][value=Chaozhouese]",300,".s_ipt"]
+            },
+            "Cantonese": {
+                "label": "广州话",
+                "ajax": ["input[type=radio][name=language][value=Cantonese]",300,".s_ipt"]
+            },
+            "Shanghaiese": {
+                "label": "上海话",
+                "ajax": ["input[type=radio][name=language][value=Shanghaiese]",300,".s_ipt"]
+            },
+            "Suzhouese": {
+                "label": "苏州话",
+                "ajax": ["input[type=radio][name=language][value=Suzhouese]",300,".s_ipt"]
+            },
+            "Waitau": {
+                "label": "围头话",
+                "ajax": ["input[type=radio][name=language][value=Waitau]",300,".s_ipt"]
+            },
+            "Vusihlau": {
+                "label": "无锡话",
+                "ajax": ["input[type=radio][name=language][value=Vusihlau]",300,".s_ipt"]
+            },
+            "Langjin": {
+                "label": "南京话",
+                "ajax": ["input[type=radio][name=language][value=Langjin]",300,".s_ipt"]
+            },
+            "Wenzhouese": {
+                "label": "温州话",
+                "ajax": ["input[type=radio][name=language][value=Wenzhouese]",300,".s_ipt"]
             }
         }
     },
