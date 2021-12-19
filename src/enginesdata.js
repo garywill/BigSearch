@@ -201,6 +201,7 @@ catas = {
             { type:"engine", name:"amazon"},
             { type:"engine", name:"ebay"},
             { type:"engine", name:"alibaba"},
+            { type:"engine", name:"walmart"},
         ],
     },
     "finance": {
@@ -619,6 +620,12 @@ sEngines = {
                 
             }
         }
+    },
+    "walmart": {
+        dname: i18n(["沃尔玛","Walmart"]),
+        addr: "https://www.walmart.com/",
+        action: "https://www.walmart.com/search",
+        kw_key: "q",
     },
     "youdao": {
         "dname": "有道词典",
