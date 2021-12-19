@@ -141,6 +141,7 @@ catas = {
             { type:"engine", name:"youtube"},
             { type:"engine", name:"netflix"},
             { type:"engine", name:"bing_media"},
+            { type:"engine", name:"vimeo"},
 
         ],
     },
@@ -1923,6 +1924,12 @@ sEngines = {
                 ]
             },
         }
+    },
+    "vimeo": {
+        dname: "Vimeo",
+        addr: "https://vimeo.com",
+        action: "https://vimeo.com/search",
+        kw_key: "q"
     },
     "netflix": {
         dname: "Netflix",
