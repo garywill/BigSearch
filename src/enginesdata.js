@@ -202,6 +202,7 @@ catas = {
             { type:"engine", name:"ebay"},
             { type:"engine", name:"alibaba"},
             { type:"engine", name:"walmart"},
+            { type:"engine", name:"bestbuy"},
         ],
     },
     "finance": {
@@ -626,6 +627,12 @@ sEngines = {
         addr: "https://www.walmart.com/",
         action: "https://www.walmart.com/search",
         kw_key: "q",
+    },
+    "bestbuy": {
+        dname: i18n(["百思买","Best Buy"]),
+        addr: "https://www.bestbuy.com/",
+        action: "https://www.bestbuy.com/site/searchpage.jsp",
+        kw_key: "st"
     },
     "youdao": {
         "dname": "有道词典",
