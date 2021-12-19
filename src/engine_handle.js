@@ -465,9 +465,21 @@ async function goEngBtn(engine,btn,keyword,source=null)
                             if ( typeof(ajax_arr_ele) === "string" )
                             {
                                 var web_element = document.querySelectorAll(ajax_arr_ele)[0];
-                                if ( web_element.tagName == "INPUT" || web_element.tagName == "TEXTAREA" )
+                                if ( web_element.tagName == "TEXTAREA" )
                                 {
                                     await doInput(ajax_arr_ele);
+                                }
+                                else if ( web_element.tagName == "INPUT" )
+                                {
+                                    if ( web_element.getAttribute("type") === null ||
+                                        web_element.getAttribute("type").toLowerCase() == "text" )
+                                    {
+                                        await doInput(ajax_arr_ele);
+                                    }
+                                    else if (web_element.getAttribute("type").toLowerCase() == "radio")
+                                    {
+                                        web_element.checked="checked";
+                                    }
                                 }
                                 else if ( web_element.tagName == "BUTTON" )
                                 {
