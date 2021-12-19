@@ -27,11 +27,8 @@ function layout_init()
         
         document.getElementById("floater_td").appendChild(  document.getElementById("hist_cont") );
         
-        //$("#content_mobile").html( $("#center_td").html() ); // lose events
-        //$("#center_td").html("");
         
         //layout_refresh();
-        //$(".cata_btns").click(layout_refresh);
         
         //set_table_observer();
         
@@ -51,7 +48,6 @@ function layout_init()
     }else{
         document.getElementById("btn_desktop").style.display = "none";
     }
-    // set_input_width();
 }
 
 var table_observer = null;
@@ -70,35 +66,10 @@ function table_observer_callback() {
     layout_refresh();
 }
 
-const mintw = 650; // min table width if screen wide
-const gap = 25; // gap if screen slim
-const maxiw = 700;  // max input width
 
 function layout_refresh()
 {
-    if(mobile)
-    {
-
-        if( window.innerWidth < mintw + 2*gap )
-        {
-            document.getElementById("engines_table").style.minWidth = 'unset';
-            document.getElementById("engines_table").style.width = window.innerWidth - 2*gap + "px" ;
-        }else{
-            document.getElementById("engines_table").style.minWidth = mintw+'px';
-        }
-        
-        document.getElementById("floater").style.width = window.innerWidth + "px";
-        document.getElementById("floater").style.height = window.innerHeight + "px";
-        document.getElementById("floater_td").style.width = window.innerWidth + "px";
-        document.getElementById("floater_td").style.height = window.innerHeight + "px";
-        document.getElementById("hist").style.width = window.innerWidth - 2*gap + "px";
-        document.getElementById("hist").style.height = window.innerHeight - 100 + "px";
-
-        set_input_width();
-        
-        table_cont_style();
-    }
-    set_input_width();
+   
 }
 
 
@@ -117,73 +88,6 @@ function onWindowResize()
     }, 200);
 }
 
-function set_input_width()
-{
-    return; 
-    
-    if (window.run_env != "http_web")
-        return;
-    
-    if(!mobile) //desktop
-    {
-        //console.log(" engines-table width: ", document.getElementById("engines_table").offsetWidth );
-        document.getElementById("inputbox").style.width=document.getElementById("engines_table").offsetWidth.toString()+"px";
-        
-    }else{  //mobile
-        
-        
-        if ( window.innerWidth > maxiw + 2*gap )
-        {
-            document.getElementById("input_cont").style.width = window.innerWidth - 2*gap + "px" ;
-            document.getElementById("inputbox").style.width = window.innerWidth - 2*gap + "px"  ;
-        }else{
-            document.getElementById("input_cont").style.width = window.innerWidth - 2*gap + "px" ;
-            document.getElementById("inputbox").style.width = window.innerWidth - 2*gap - 20 + "px";
-        }
-    }
-}
-
-function table_cont_style()
-{
-    const engines_table_height = document.getElementById("engines_table").offsetHeight;
-    const engines_table_width = document.getElementById("engines_table").offsetWidth;
-    /*
-    if (!engines_table_height || !engines_table_height){
-        setTimeout(table_cont_style,30);
-        return;
-    }
-    */
-    
-    var engines_cont_max_height;
-    if(mobile){
-        engines_cont_max_height = window.innerHeight - 100 ;
-    }else{
-        engines_cont_max_height = 400;
-    }
-
-    const engines_cont = document.getElementById("engines_cont");
-
-    engines_cont.style.overflowY="";
-    engines_cont.style.width = "";
-    
-
-    if( engines_table_height <= engines_cont_max_height )
-    {
-        //console.log("a" + engines_table_height);
-        
-        engines_cont.style.overflowY="";
-        engines_cont.style.height = engines_table_height.toString() + "px";
-        engines_cont.style.width = engines_table_width.toString() + "px";
-    }else
-    {
-        //console.log("b");
-        engines_cont.style.height = engines_cont_max_height.toString() + "px" ;
-        engines_cont.style.overflowY="scroll";
-        engines_cont.style.width = ((engines_cont.offsetWidth - engines_cont.clientWidth) + engines_table_width ).toString() + "px";
-
-        
-    }
-}
 
 ////////////////////////
 
