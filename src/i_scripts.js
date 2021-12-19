@@ -321,7 +321,7 @@ onrd.push(function(){
             JSON.parse(textarea.value);
         }catch(err){
             alert(
-                i18n(["错误，输入的内容无法解析为符合格式的JSON。\n", "Something in yout input is wrong. Can't be parsed as JSON format.\n"])
+                i18n(["好像有一点什么错误！！！\n输入的内容无法解析为符合严格格式的JSON。\n", "Ooops !!!\nSomething in yout input is wrong. Can't be parsed as strict JSON format.\n"])
                 + "\n"
                 + err
             );
@@ -340,6 +340,7 @@ onrd.push(function(){
             try{
                 await chrome.storage.sync.set({"usercustom_engines": compressed });
                 document.getElementById("textarea_json_saved").value = textarea.value;
+                alert(i18n([ "OK！\n解析并保存成功", "OK!\nSucessfully parsed and saved"]));
             }catch(err) {
                 alert(err);
                 return;
