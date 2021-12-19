@@ -200,6 +200,7 @@ catas = {
             { type:"label", lstr:"商游世界", visible_lang: "zh"},
             { type:"engine", name:"amazon"},
             { type:"engine", name:"tmall_global"},
+            { type:"engine", name:"ebay"},
         ],
     },
     "finance": {
@@ -560,6 +561,23 @@ sEngines = {
                 label: "搜索 .cn",
                 visible_lang: "zh",
                 action: "https://www.amazon.cn/s"
+                
+            }
+        }
+    },
+    "ebay": {
+        dname: "eBay",
+        addr: "https://www.ebay.com",
+        action: "https://www.ebay.com/sch/i.html",
+        kw_key: "_nkw",
+        btns: {
+            "sch": {
+                label: "Search"
+            },
+            "sch_hk" : {
+                label: "搜索 .hk",
+                visible_lang: "zh",
+                action: "https://www.ebay.com.hk/sch/i.html"
                 
             }
         }
