@@ -69,6 +69,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 - 🔎 User adding custom-defined search engine (syncronizable between devices via browser account in extension)
 - 🔎 Support using browser-installed search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
 - 🗂️ Search engines catagory
+- 🖋️ Single-line or **multi-line** input and sending
 - 📋 Save, reuse and manage your input history (only saved locally in the browser localStorage)
 - 🖱️ Quickly use user selected text on webpage as search term (browser extension, through context menu) 
   > - Not in Firefox incognito mode
@@ -81,8 +82,9 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 2. This provide ability to send requests to **multuple different engines** quickly **without** retyping or copy-paste
 3. This is cross-browser, and the engines data can be easily migrate
 4. Catagory feature allows adding many engines without clutter
-6. From other features we can see this is a more powerful tool 
 5. The history feature makes easy to **reuse**, tweak and try different search terms, which is quite essential for getting a desired searching result
+6. This supports **multi-line** text, making jobs like article translation efficient
+7. From other features we can see this is a more powerful tool 
 
 ## How to edit search engines
 

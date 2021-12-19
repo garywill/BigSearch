@@ -13,6 +13,8 @@
  * Source code: https://github.com/garywill/BigSearch
  */
 
+var inputHandler;
+
 var onrd = new Array(); //on document ready
 document.addEventListener('DOMContentLoaded', async (event) => {
 
@@ -110,26 +112,30 @@ onrd.push(function(){
 onrd.push(function(){
 	document.getElementById("inputclear").onclick=function()
 	{
-		document.getElementById("inputbox").value="";
-		setf();
+        inputHandler.inputbox.value="";
+        inputHandler.input_ml.value="";
+        
+        if (inputHandler.ml_ui === false)
+            inputHandler.setMlMode(false);
+        inputHandler.setMlView();
+		inputHandler.setFocus();
 	}
 });
 
 onrd.push(function(){
 	document.getElementById("inputselect").onclick=function()
 	{
-		document.getElementById("inputbox").select();
+		inputHandler.getInputFieldEle().select();
 	}
 });
 
 onrd.push(function(){
 	document.getElementById("inputcopy").onclick=function()
 	{
-		document.getElementById("inputbox").select();
+		inputHandler.getInputFieldEle().select();
         try 
         {
             document.execCommand('copy');
-            
         }catch(err){  }
 	}
 });
@@ -146,22 +152,277 @@ onrd.push(function(){
 		onPasteClick();
 	}
 	async function onPasteClick() {
-        const inputbox = document.getElementById("inputbox");
         
         if (isFirefox) {
             const clipboard = await navigator.clipboard.readText();
             
-            const start = inputbox.selectionStart;
-            const end = inputbox.selectionEnd;
-
-            inputbox.setRangeText(clipboard, start, end, "end");
-            inputbox.focus();
+            inputHandler.setValueAtCursor(clipboard);
+            inputHandler.setFocus();
         }else if (isChrome) {
-            inputbox.focus();
+            inputHandler.setFocus();
             document.execCommand('paste');
         }
     }
 });
+
+
+
+onrd.push(function(){
+    inputHandler = new function InputHandlerClass() {
+
+        this.btn_ml_input = document.getElementById("btn_ml_input");
+        this.btn_save_ml = document.getElementById("btn_save_ml");
+        this.btn_save_ml_sl = document.getElementById("btn_save_ml_sl");
+        
+        this.input_ml = document.getElementById("input_ml");
+        this.inputbox = document.getElementById("inputbox");
+        this.inputbox_shell = document.getElementById("inputbox_shell");
+        this.engines_o_cont = document.getElementById("engines_o_cont");
+        this.inputselect = document.getElementById("inputselect");
+        this.inputcopy = document.getElementById("inputcopy");
+        this.inputpaste = document.getElementById("inputpaste");
+        
+        
+        this.ml_mode = false; // the var that records the current ml/sl status !
+        this.ml_ui = false; // the var that records the current UI status 
+        
+        this.init_mode = function (s) { 
+            // when web refreshed (s=undefined)
+            // when addon popup inits input field value(s has value)
+            var str;
+            
+            if (s === undefined) {
+                str = this.input_ml.value;  // directly get val from the multi-line textarea
+            }
+            else 
+            {
+                str = s;
+            }
+            str = str.trim();
+            
+            this.setMlMode( this.isValueMl(str) ? true : false );
+            this.setValue(str);
+            this.syncMS();
+        };
+        this.isValueMl = function (val) {  // judge a string is ml or sl
+            val = val.trim();
+            return (
+                val.includes("\r") 
+                || 
+                val.includes("\n") 
+            ) ? true : false;
+        };
+        
+        this.convMl2Sl = function(s) { // convert string from whatever (ml/sl) to sl
+            s = s.trim();
+            return s.replaceAll("\r\n", "  ").replaceAll("\n", "  ").replaceAll("\r", "  ") ;
+        };
+
+        this.getInputFieldEle = function() {  // get the current used field element object
+            return document.getElementsByClassName("cur_inputbox")[0];
+        };
+        this.getValue = function() {  // get from the current used field 
+            return this.getInputFieldEle().value.trim();
+        };
+        this.setValue = function(str) {  // set the current used field value
+            this.getInputFieldEle().value = str.trim();
+        };
+        this.setValueAtCursor = function(str) { // used by paste, history reusing 
+            const start = this.getInputFieldEle().selectionStart;
+            const end = this.getInputFieldEle().selectionEnd;
+
+            if ( ! this.ml_mode )
+                str = this.convMl2Sl(str);
+            
+            this.getInputFieldEle().setRangeText(str, start, end, "end");
+            
+            this.syncMS();
+        };
+        this.setFocus = function() { // set focus to current used field
+            this.getInputFieldEle().focus();
+        };
+        
+        this.syncM2S = function() {  // sync the two input fields only . doesn't change the mode
+            this.inputbox.value = this.convMl2Sl( this.input_ml.value );
+        };
+        this.syncS2M = function() {  // sync the two input fields only . doesn't change the mode
+            this.input_ml.value = this.inputbox.value;
+        };
+        this.syncMS = function() {  // sync the two input fields only, according to mode . doesn't change the mode. Shonld't be used as saving 
+            if (this.ml_mode)
+                this.syncM2S();
+            else
+                this.syncS2M();
+        };
+        
+        this.trim = function() {
+            this.inputbox.value = this.inputbox.value.trim();
+            this.input_ml.value = this.input_ml.value.trim();
+        }
+        
+        // this changes the mode status , not UI status
+        this.setMlMode = function(boolVal = this.ml_mode) {
+            this.ml_mode = boolVal;
+            
+            if (boolVal) {
+                this.inputbox.classList.remove('cur_inputbox');
+                this.input_ml.classList.add('cur_inputbox');
+                
+                this.inputbox.setAttribute("readonly", "true");
+                this.inputbox_shell.classList.add('inputbox_in_ml');
+                
+                if ( ! mobile ) {
+                    this.inputbox.ondblclick = function () { 
+                        btn_ml_input.click();
+                    }
+                }
+                else
+                {
+                    this.inputbox.onclick = function () {
+                        btn_ml_input.click();
+                    }
+                }
+            }
+            else
+            {
+                this.input_ml.classList.remove('cur_inputbox');
+                this.inputbox.classList.add('cur_inputbox');
+                
+                this.inputbox.removeAttribute("readonly");
+                this.inputbox_shell.classList.remove('inputbox_in_ml');
+                
+                this.inputbox.ondblclick = null;
+                this.inputbox.onclick = null;
+            }
+        };
+        
+        // this changes the UI status, not mode status
+        this.setMlView = function (boolVal = this.ml_ui) {
+            this.ml_ui = boolVal;
+            if (boolVal) {  // to open multi-line view
+                this.input_ml.style.display = "";
+                this.inputbox.style.display = "none";
+                
+                this.btn_ml_input.style.display = "none";
+                this.engines_o_cont.style.display = "none";
+                this.btn_save_ml.style.display = "";
+                this.btn_save_ml_sl.style.display = "";
+                
+                // always show 'copy' and 'select' btns in ml UI view
+                this.inputselect.style.visibility = "";
+                this.inputcopy.style.visibility = "";
+                this.inputpaste.style.visibility = "";
+                
+                this.updateUI();
+            }
+            else // to close multi-line view
+            {
+                this.input_ml.style.display = "none";
+                this.inputbox.style.display = "";
+                
+                this.btn_ml_input.style.display = ""
+                this.engines_o_cont.style.display = "";
+                
+                this.btn_save_ml.style.display = "none";
+                this.btn_save_ml_sl.style.display = "none";
+                
+                if (this.ml_mode)
+                {
+                    this.inputselect.style.visibility = "hidden";
+                    this.inputcopy.style.visibility = "hidden";
+                    this.inputpaste.style.visibility = "hidden";
+                }
+                else
+                {
+                    // only show 'copy' and 'select' btns in sl mode
+                    this.inputselect.style.visibility = "";
+                    this.inputcopy.style.visibility = "";
+                    this.inputpaste.style.visibility = "";
+                }
+                
+                this.updateUI();
+            }
+        };
+        this.updateUI = function() { // mobile history btn
+            if ( ! mobile) // desktop
+                document.getElementById("openhist").style.display = "none";
+            else  // mobile
+            {
+                if (this.ml_mode && ! this.ml_ui)
+                    document.getElementById("openhist").style.display = "none";
+                else
+                    document.getElementById("openhist").style.display = "block";
+            }
+        }
+        
+        // when open ml UI btn clicked
+        this.openMlView = function() {
+            if (this.ml_mode) { // already in ml mode before trigger open ml view action
+                // no need to sync
+            }
+            else  // not in ml mode when open ml view action triggered
+            {
+                this.syncS2M();
+            }
+            
+            this.setMlMode(true) ;
+            this.setMlView(true) ;
+        }
+        
+        // when save ml btn clicked
+        this.saveMl = function() {
+            this.trim();
+            
+            if ( this.isValueMl( this.input_ml.value ) )
+                this.setMlMode(true);
+            else
+                this.setMlMode(false);
+            
+            this.syncM2S();
+            this.setMlView(false);
+        }
+        
+        // when save ml to be sl btn clicked
+        this.saveMlAsSl = function() {
+            this.trim();
+            
+            this.setMlMode(false);
+            this.syncM2S();
+            this.setMlView(false);
+        }
+        
+        this.inputbox.addEventListener("change", function() {
+            inputHandler.syncS2M();
+        });
+        this.input_ml.addEventListener("change", function() {
+            inputHandler.syncM2S();
+        });
+    } ();
+});
+
+onrd.push(function(){
+    const btn_ml_input = document.getElementById("btn_ml_input");
+    const btn_save_ml = document.getElementById("btn_save_ml");
+    const btn_save_ml_sl = document.getElementById("btn_save_ml_sl");
+    
+    if (window.run_env == "http_web")
+        inputHandler.init_mode();
+    inputHandler.setMlView(false);
+    
+    btn_ml_input.onclick = function() {
+        inputHandler.openMlView();
+    }
+    btn_save_ml.onclick = function() {
+        inputHandler.saveMl();
+    }
+    btn_save_ml_sl.onclick = function() {
+        inputHandler.saveMlAsSl();
+    }
+
+});
+
+
+
 
 onrd.push(function(){
     if (window.run_env != "http_web") {
@@ -228,17 +489,15 @@ onrd.push(function(){
     },500);
 });
 
-onrd.push(function(){
+onrd.push(function(){ 
+    // in addon, when popup open and close, read and save temperary input
+    // NOTE this must be after inputHandler inited
     if (window.run_env != "http_web" /* && ! chrome.extension.inIncognitoContext */ ) 
     {
-        //if (getStor("input_content") )
-            document.getElementById("inputbox").value = getStor("input_content");
-
+        inputHandler.init_mode( getStor("input_content") );
   
         window.addEventListener("blur", function(){
-            var input = document.getElementById("inputbox").value.trim()
-            //if (input) 
-                setStor("input_content", input);
+            setStor("input_content", inputHandler.getValue());
         });
     }
 });
@@ -522,15 +781,24 @@ function displayhist()
             {
                 newDiv.ondblclick=function()
                 {
-                    document.getElementById("inputbox").value=this.value;
-                    setf();
+                    if (inputHandler.ml_mode && ! inputHandler.ml_ui)
+                        //inputHandler.openMlView();
+                        return;
+                    
+                    inputHandler.setValueAtCursor( ' ' + this.value + ' ');
+                    inputHandler.setFocus();
                     
                 }
             }else{
                 newDiv.onclick=function()
                 {
-                    document.getElementById("inputbox").value=this.value;
-                    setf();
+                    if (inputHandler.ml_mode && ! inputHandler.ml_ui)
+                        //inputHandler.openMlView();
+                        return;
+                    
+                    inputHandler.setValueAtCursor( ' ' + this.value + ' ');
+                    inputHandler.setFocus();
+                    
                     document.getElementById("floater").style.display="none";
                 }
             }
@@ -571,7 +839,7 @@ async function ebtn_onclick(obj)
 {
     document.getElementById("permis_toast_o").style.display = "none";
     
-	var inputval=document.getElementById("inputbox").value.trim();
+	var inputval = inputHandler.getValue();
 	if (inputval=="")
 	{
 		alert(i18n(["搜索框内容为空！", "The input field is empty!"]))

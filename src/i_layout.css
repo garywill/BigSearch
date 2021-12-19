@@ -27,8 +27,10 @@
     --wrapper-height: calc( 100vh - ( var(--above-wrapper) + var(--bottom-padding-top) + var(--general-btn-font-size) ) - 15px );
     
     --intitle-height: 38px;
-    --inputbox-height: 30px;
+    --inputbox-height: 34px;
     --btns-below-input-height: 19px;
+    
+    --input-ml-height: calc( var(--wrapper-height) - var(--intitle-height) - var(--btns-below-input-height) );
     
     --engines-o-cont-height-max: calc(var(--wrapper-height) - var(--intitle-height) - var(--inputbox-height) - var(--btns-below-input-height) );
     
@@ -125,9 +127,12 @@ body {
 
 
 
-#input_o_cont, #input_cont, #inputbox { width: calc(var(--table-width) - 4px); }
+#input_o_cont, #input_cont, #inputbox , #input_ml { 
+    width: calc(var(--table-width) ); 
+}
 #input_cont {
 text-align: left; 
+    position: relative;
 }
 #inputbox {  
     height: var(--inputbox-height); 
@@ -137,12 +142,43 @@ text-align: left;
     display:block;
     border-radius: 6px;
     border-color: white;
-    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
 }
-#inputbox:focus {
-    background-color: rgba(255, 255, 255, 1);
+#input_ml {
+    box-sizing: border-box;
+    height: var(--input-ml-height);
+    resize: none;
+}
+#inputbox {
+    background-color: #a1d8f4b8;;
+    color: #5353f9;
+}
+.cur_inputbox {
+    color: black !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+.cur_inputbox:focus {
+    background-color: rgba(255, 255, 255, 1) !important;
     /* border-color: rgb(255, 226, 140); */
 }
+
+#inputbox_shell {
+    position: relative;
+}
+.inputbox_in_ml:hover  #dblclick_ml_tip {
+    display: block !important;
+}
+#dblclick_ml_tip {
+    font-size: 12px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.69);
+    color: #0058ff;
+    top: 4px;
+    right: 6px;
+    text-shadow: #515151 1px 1px;
+    pointer-events: none;
+}
+
 
 .btns_copypaste {
     width: var(--btns-below-input-height);
@@ -168,6 +204,28 @@ text-align: left;
     white-space: nowrap;
     pointer-events: none;
     background-color: rgba(255,255,255, 0.7);
+}
+
+
+#btn_ml_input {
+  width: 60px;
+  background-blend-mode: normal;
+}
+#btn_ml_input:hover {
+  background-color: #4d4de136;
+}
+
+#btn_save_ml {
+  width: 60px;
+}
+#btn_save_ml:hover {
+  background-color: #59e5f48c;
+}
+#btn_save_ml_sl {
+  width: 35px;
+}
+#btn_save_ml_sl:hover {
+  background-color: #f9e43c8f;
 }
 
 #div_custom_json {
