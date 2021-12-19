@@ -113,7 +113,6 @@ catas = {
             { type:"engine", name:"fdroid"},
             
             { type:"label", lstr:"iOS"},
-            { type:"engine", name:"itunesapps_baidu", visible_lang: "zh"},
             { type:"engine", name:"itunesapps"},
             
             { type:"label", lstr:"Third-party Apk Downloads"},
@@ -1180,31 +1179,26 @@ sEngines = {
         }
     },
     "itunesapps": {
-        dname: "iTunes Apps (Google)",
+        dname: "iTunes Apps",
         addr: "https://www.apple.com/itunes/charts/free-apps/",
-        kw_format: "{0} site:apple.com/*app",
         btns: {
-            "Search Apps": {
-                label: "Search Apps",
-                use_other_engine: {
-                    engine: "google",
-                    btn: "search"
-                }
-            }
-        }
-    },
-    "itunesapps_baidu": {
-        "dname": "iTunes Apps (百度)",
-        "addr": "https://www.apple.com/itunes/charts/free-apps/",
-        "kw_format": "site:(apps.apple.com) {0}",
-        "btns": {
-            "Search Apps": {
-                "label": "搜索Apps",
+            "baidu": {
+                "label": "百度",
+                visible_lang: "zh",
+                "kw_format": "site:(apps.apple.com) {0}",
                 "use_other_engine": {
                     "engine": "baidu",
                     "btn": "sch"
                 }
-            }
+            },
+            "google": {
+                label: "Google",
+                kw_format: "{0} site:apple.com/*app",
+                use_other_engine: {
+                    engine: "google",
+                    btn: "search"
+                }
+            },
         }
     },
     "github": {
