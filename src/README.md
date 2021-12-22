@@ -2,11 +2,11 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 # Big Search
 
-Handily use **any one** or **multiple** search engines (or search any websites) via a **flexible tool**.
+Handily use / switch **any one** or **multiple (uninterruptedly)** **search engines** (or search any websites) via a **flexible tool**.
 
 <p align="center">
 Search everywhere 🗺️ for everything 👨‍💻, as you choose & 🖱️ click.<br>
-Breadth & Depth.
+Breadth & Focus.
 </p>
 
 Cross-browser tool. Highly customizable on engines data.
@@ -14,7 +14,7 @@ Cross-browser tool. Highly customizable on engines data.
 We used to do web search step by step. 🐢<br>
 We now can do web search efficiently and concurrently. 🚀
 
-![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.png)
+![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 ## Similar tools & methods comparison
 
@@ -27,33 +27,28 @@ We now can do web search efficiently and concurrently. 🚀
 Ways to use:
 
 1. Browser extension (**recommended**)
-
    Install extension to let it fully function
-   
    - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
-   - [Download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)  for:
-     - Google Chrome, Microsoft Edge etc.
-     - Brave, Vivaldi, Opera etc.
-     > Now Google is charging $5 for a Chrome Store developer account, and I haven't figured out how to pay, due to my region. It would be great if someone willing to help. 
-   - Microsoft Edge： Please download .crx to install (like Chrome). The Edge Store can't get updates (~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~)
-     > A little-known fun fact: Microsoft bans such multi-search addon from being on Edge Store
+   - [Chrome Addon](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) or [download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main). For: Google Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.
 
-2. Web App: Main site https://acsearch.ga | Standby site http://acsearch.tk
-
-   Web app can't function fully like extension. Not as convenient as extension. Web app can be used on mobile browsers
+2. Web App: Web app can't function fully like extension. Not as convenient as extension. Web app can be used on mobile browsers
+   - Main site: https://acsearch.ga
+   - Standby site: http://acsearch.tk
    
 ## Screenshots and Demo
 
 | Screenshots    |    |      |
 | -------------- | ------------ | ----------- |
 | Extension UI    | Context selection search   | Use web app without install  |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) |
+| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) |
 | Mobile UI (web app) | (Feature preview) Various theme styles |  |
-| ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.png) | ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) |  |
+| ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) |  |
 
 [Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
-Solve all needs between browsers and search engines. Easily make best use of different web search engines or inquery systems. Or, use as universal web searching home, portal for people expecting good search quality & breadth.
+Making effort to solve all needs between browsers and search engines.<br>
+Easily make best use of different web search engines or inquery systems.<br>
+Or, use as universal web searching home, portal for people expecting good search quality & breadth.
 
 ## List of engines
 
@@ -69,6 +64,7 @@ Solve all needs between browsers and search engines. Easily make best use of dif
 - 🔎 Support using **browser-installed** search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
 - 🗂️ Search engines **categorization**
 - 🖋️ Single-line or **multi-line** input and sending
+  > Useful when for e.g. you want to have article paragraphs translated
 - 📋 Save, **reuse** and manage your input history (only saved locally in the browser localStorage)
 - 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, through context menu) 
   > - Not in Firefox incognito mode

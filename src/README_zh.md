@@ -2,14 +2,14 @@
 
 <p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 万列在手 🖱️ 任心点选</p>
 
-以 **灵活**又**顺手** 的方式 在 **任意一个** 或 **多个** 搜索引擎（或任意网站）进行搜索。
+以 **灵活**又**顺手** 的方式 在(切换) **任意一个** 或 **(连续)多个** 搜索引擎（或任意网站）进行搜索。
 
 跨浏览器工具。引擎数据高度可自定义。
 
 曾经，使用搜索引擎，是一步步、一个个来的。 🐢<br>
 现在，使用搜索引擎，是高效、可并发操作的。 🚀
 
-![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.png)
+![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 > 图标含意：篆书的「術」（术）字 + 代表搜索/查询的放大镜
 
@@ -17,7 +17,7 @@
 
 [开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-（ **↑ 有经验的用户，看一个直观的功能横向比较表，可能胜过以下诸多图文说明**）
+（ **↑ 有经验的用户，看一个直观的功能横向比较表，可能快过以下诸多图文说明**）
 
 ## 使用
 
@@ -28,30 +28,28 @@
    安装扩展以发挥所有功能
    
    - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
-   - [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)  适用于：
-     - Google Chrome、Microsoft Edge 等
-     - 搜狗浏览器、360浏览器 等 
-     - Brave、Vivaldi、Opera 等
-     > 现在Google要为Chrome Store的开发者账号收费\$5，我还没弄清楚如何支付。如果哪位兄台乐意帮忙（用你的账号维护上架也可以）
-   - Microsoft Edge： 请下载.crx安装（同Chrome），Edge商店无法更新（~~[Edge Store](https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc)~~）
-     > 鲜为人知的有趣事实：Microsoft禁止这种多搜索引擎的addon在Edge上架
+   - [Chrome Addon](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) 或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、搜狗浏览器、360浏览器 等 
 
-2. 网页版： 主站 https://acsearch.ga | 备用站 http://acsearch.tk
+2. 网页版：网页版功能稍有限，使用不如扩展方便。网页版可在手机浏览器使用
+   - 主站： https://acsearch.ga
+   - 备用站： http://acsearch.tk
    
-   网页版功能稍有限，使用不如扩展方便。网页版可在手机浏览器使用
+   
    
 ## 截图与演示
 
 | 截图                                                                                |                                                                                           |                                                                                   |                                                                                         |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| 扩展UI                                                                              | 上下文菜单搜索选择内容                                                                               | 免安装网页使用                                                                           | 移动版(web)                                                                                |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.png) |
-| (功能预告)多种外观主题 | 中文界面      |   汉语辞典文献类别(嘿嘿～)  |      |
-| ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) | ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.png) | ![screenshotchi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.png)  |  |
+| 扩展UI  | 上下文菜单搜索选择内容 | 免安装网页使用 |
+| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) |
+| 移动版(web) | (功能预告)多种外观主题 | 汉语辞典文献类别(嘿嘿～) |
+| ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg)  |
 
 [Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
-解决一切浏览器与搜索引擎之间的需求。让你最充分地利用不同的网络搜索引擎或查询系统。也可以作为注重搜索质量和广度的人的网络入口。
+正努力地解决一切浏览器与搜索引擎之间的需求。<br>
+让你最充分地利用不同的网络搜索引擎或查询系统。<br>
+也可以作为注重搜索质量和广度的人的网络入口。
 
 ## 已收录引擎
 
@@ -67,6 +65,7 @@
 - 🔎 可调用**浏览器内联**的搜索引擎（浏览器扩展。因此你已添加进浏览器的搜索引擎可以直接用。目前仅Firefox提供）
 - 🗂️ 引擎**分类**卡片
 - 🖋️ 单行、**多行**输入及发送
+  > 例如需要翻译文章段落时就很有用
 - 📋 可保存、**复用**和管理你的输入历史（仅保存在浏览器本地localStorage）
 - 🖱️ 快速将**选择**的网页上的文本作为搜索词（浏览器扩展，通过右键菜单）
   > - Firefox无痕模式中无
@@ -88,6 +87,8 @@
   1. 大术专搜内置搜索引擎
   1. 用户自定义的私人引擎
 
+<p align="center">大术专搜 👨‍💻　万页在手 🗺️　　网之所询 🌐　无不可收</p>
+  
 ### 例子
 
 #### 简短形式
