@@ -16,12 +16,6 @@ We now can do web search efficiently and concurrently. 🚀
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
-## Similar tools & methods comparison
-
-[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
-
-(**↑ Experienced users may prefer an intuitive horizontal comparison table than many texts and pictures below**)
-
 ## To use
 
 Ways to use:
@@ -35,16 +29,17 @@ Ways to use:
    - Main site: https://acsearch.ga
    - Standby site: http://acsearch.tk
    
-## Screenshots and Demo
+## Demo and Screenshots
+
+![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
+[Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
 | Screenshots                                                                       |                                                                                           |                                        |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
 | Extension UI                                                                      | Context selection search                                                                  | (Feature preview) Various theme styles |
 | ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |                                        |
-| Use web app without install                                                       | Mobile UI (web app) (beta)                                                                |                                        |
+| Use web app without install                                                       | Mobile UI (beta) (web app)                                                                 |                                        |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   |                                        |
-
-[Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
 Making effort to solve all needs between browsers and search engines.<br>
 Easily make best use of different web search engines or inquery systems.<br>
@@ -54,19 +49,23 @@ Or, use as universal web searching home, portal for people expecting good search
 
 [See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
+## Similar tools & methods comparison
+
+[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
+
+(**↑ Experienced users may prefer an intuitive horizontal comparison table than many texts and pictures below**)
+
 ## Features
 
-### Features for use
-
 - 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. (And **even** [**works** with those that **don't** support GET/POST](#Ajax-Instructions))
-  > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc., or the holding of the library near your home (easy to customize). Included 50+
-- 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable between devices via browser account in extension)
-- 🔎 Support using **browser-installed** search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
+  > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc. Or the stock of a supermarket near your home (if it supports). Customizable. 50+ build-in.
+- 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable in extension)
+- 🔎 Support using **browser-installed** search engines (extension. So can directly use those you've added into browser. Only Firefox)
 - 🗂️ Search engines **categorization**
 - 🖋️ Single-line or **multi-line** input and sending
   > Useful when for e.g. you want to have article paragraphs translated
 - 📋 Save, **reuse** and manage your input history (only saved locally in the browser localStorage)
-- 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, through context menu) 
+- 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, context menu) 
   > - Not in Firefox incognito mode
   > - On Chrome, after clicking context menu item, click the icon on toolbar
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
@@ -268,8 +267,10 @@ Of course, it is **also completely easy for ordinary people to use**.
 
 ## What's Next
 
-Maybe we (when? who?) can do something more:
+Maybe it can do something more:
 
+- Omnibox (??)
+- GUI to custom user engines, beside the custom engine JSON edit field
 - Browser (native) sidebar panel (before that need to change UI. Need responsive)
 - Desktop stanalone app, opening URL with user-assigned browser
 - Mobile native app (any idea?)
@@ -304,7 +305,7 @@ If you want to add a search engine that only targets users in a certain language
 
 <details>
 
-- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (compression)
+- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (data compression)
   
   ```
   Copyright (c) 2021, Rotem Dan

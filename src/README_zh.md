@@ -1,6 +1,6 @@
 # 大术专搜
 
-<p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 万列在手 🖱️ 任心点选</p>
+<p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手中万列 🖱️ 任心点选</p>
 
 以 **灵活**又**顺手** 的方式 在(切换) **任意一个** 或 **(连续)多个** 搜索引擎（或任意网站）进行搜索。
 
@@ -12,12 +12,6 @@
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 > 图标含意：篆书的「**術**」（术）字 + 代表搜索/查询的放大镜
-
-## 相似工具和方法比较
-
-[开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
-
-（ **↑ 有经验的用户，看一个直观的功能横向比较表，可能快过以下诸多图文说明**）
 
 ## 使用
 
@@ -36,16 +30,17 @@
    
    
    
-## 截图与演示
+## 演示与截图
+
+![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
+[Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
 | 截图                                                                                |                                                                                           |                                                                                   |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | 扩展UI                                                                              | 上下文菜单搜索选择内容                                                                               | (预告)多种外观主题                                                                        |
 | ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |                                                                                   |
-| 免安装网页使用                                                                           | 移动版(web)(试验)                                                                              | 汉语辞典文献类别(嘿嘿～)                                                                     |
+| 免安装网页使用                                                                           | 移动版(试验)(web)                                                                              | 汉语辞典文献类别(嘿嘿～)                                                                     |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg) |
-
-[Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
 正努力地解决一切浏览器与搜索引擎之间的需求。<br>
 让你最充分地利用不同的网络搜索引擎或查询系统。<br>
@@ -55,20 +50,26 @@
 
 [查看收录引擎列表](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
+## 相似工具和方法比较
+
+[开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
+
+（ **↑ 有经验的用户，看一个直观的功能横向比较表，可能快过以下诸多图文说明**）
+
 ## 特性
 
 - 🔎 可将任意搜索引擎、查询网站集于一处（连续）操作，任何支持**GET/POST**的网站。（**甚至**[**兼容**那些**不**支持GET/POST的](#Ajax说明)）
-  > 例如 百度、Google、哔哩哔哩、网易云音乐、淘宝、有道、Github、IEEE、你家附近某图书馆（易于自定义）藏书查询 等。已收录50+个
-- 🔎 用户添加**自定义**搜索引擎（[详情](#如何编辑搜索引擎)）（若在扩展中，可通过浏览器账号同步）
-- 🔎 可调用**浏览器内联**的搜索引擎（浏览器扩展。因此你已添加进浏览器的搜索引擎可以直接用。目前仅Firefox提供）
+  > 例如 百度、Google、哔哩哔哩、网易云音乐、淘宝、有道、Github、IEEE、你家附近某店货物查询（如果有）等。可自定义。已收录50+个
+- 🔎 用户添加**自定义**搜索引擎（[详情](#如何编辑搜索引擎)）（在扩展中可同步）
+- 🔎 可调用**浏览器内联**的搜索引擎（扩展。因此已加进浏览器的可直接用。仅Firefox）
 - 🗂️ 引擎**分类**卡片
 - 🖋️ 单行、**多行**输入及发送
   > 例如需要翻译文章段落时就很有用
 - 📋 可保存、**复用**和管理你的输入历史（仅保存在浏览器本地localStorage）
-- 🖱️ 快速将**选择**的网页上的文本作为搜索词（浏览器扩展，通过右键菜单）
+- 🖱️ 快速将**选择**的网页上的文本作为搜索词（扩展。右键菜单）
   > - Firefox无痕模式中无
   > - Chrome中点了右键菜单后，需再点击工具栏中的图标
-- 🖥️ 支持**桌面**设备（扩展或网页）和**移动**设备（仅网页）
+- 🖥️ 支持**桌面**设备（扩展或网页）和**移动**设备（网页）
 
 ### 安全性和隐私
 
@@ -269,8 +270,10 @@ JSON格式。
 
 ## What's Next?
 
-有些或许还可以做：（做不做呢？什么时候谁来做呢？）
+有些或许还可以做：
 
+- Omnibox (??)
+- 除自定义引擎的JSON输入框外，搞个GUI。
 - 能够在浏览器（原生）侧边栏使用（要先改进布局问题。需要响应式）
 - 套壳做个桌面app，调用用户指定的浏览器
 - 手机原生App（any ideas?)
@@ -305,7 +308,7 @@ JSON格式。
 
 <details>
 
-- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (compression)
+- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (data compression)
   
   ```
   Copyright (c) 2021, Rotem Dan
