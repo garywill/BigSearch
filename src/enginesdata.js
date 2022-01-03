@@ -289,7 +289,7 @@ sEngines = {
         kw_key: "q",
         btns: {
             "search": {
-                label: "Search"
+                label: "Google Search"
             },
             "lucky": {
                 label: "I'm Lucky",
