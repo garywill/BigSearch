@@ -71,6 +71,10 @@ function set_string_format_prototype() {
     }
 }
 
+onrd.push( function() {
+    init_inputHandler();
+});
+
 onrd.push(async function(){
     await make_cata_btns();
     
@@ -92,6 +96,7 @@ onrd.push(function(){
 
 onrd.push(function(){
 	setlp();
+    scroll_to_lastp();
 });
 
 onrd.push(function(){
@@ -165,7 +170,7 @@ onrd.push(function(){
 
 
 
-onrd.push(function(){
+function init_inputHandler() {
     inputHandler = new function InputHandlerClass() {
 
         this.btn_ml_input = document.getElementById("btn_ml_input");
@@ -237,7 +242,7 @@ onrd.push(function(){
             
             this.syncMS();
         };
-        this.setFocus = function() { // set focus to current used field
+        this.setFocus = async function() { // set focus to current used field
             this.getInputFieldEle().focus();
         };
         
@@ -397,7 +402,7 @@ onrd.push(function(){
             inputHandler.syncM2S();
         });
     } ();
-});
+}
 
 onrd.push(function(){
     const btn_ml_input = document.getElementById("btn_ml_input");
@@ -783,23 +788,12 @@ function displayhist()
             {
                 newDiv.ondblclick=function()
                 {
-                    if (inputHandler.ml_mode && ! inputHandler.ml_ui)
-                        //inputHandler.openMlView();
-                        return;
-                    
-                    inputHandler.setValueAtCursor( ' ' + this.value + ' ');
-                    inputHandler.setFocus();
-                    
+                    onHistItemDblClk(this.value);
                 }
             }else{
                 newDiv.onclick=function()
                 {
-                    if (inputHandler.ml_mode && ! inputHandler.ml_ui)
-                        //inputHandler.openMlView();
-                        return;
-                    
-                    inputHandler.setValueAtCursor( ' ' + this.value + ' ');
-                    inputHandler.setFocus();
+                    onHistItemDblClk(this.value);
                     
                     document.getElementById("floater").style.display="none";
                 }
@@ -836,7 +830,18 @@ function displayhist()
         }
     }catch(err){}
 }
-
+function onHistItemDblClk(str) {
+    if (inputHandler.ml_mode && ! inputHandler.ml_ui)
+        //inputHandler.openMlView();
+        return;
+    
+    if (inputHandler.ml_mode)
+        inputHandler.setValueAtCursor( ' ' + str + ' ');
+    else
+        inputHandler.setValue(str);
+    
+    inputHandler.setFocus();
+}
 async function ebtn_onclick(obj) 
 {
     document.getElementById("permis_toast_o").style.display = "none";
@@ -926,6 +931,18 @@ function setlp()
         }
     }catch(err){}
 }
+async function scroll_to_lastp() {
+    var div = document.getElementById("engines_o_cont");
+    var lastp = document.getElementById("lastp");
+    
+    if ( ! lastp) {
+        div.scrollTop = 0;
+        return;
+    }
+
+    var distance = lastp.offsetTop + lastp.parentNode.offsetTop;
+    div.scrollTop = distance - div.clientHeight + parseInt(getComputedStyle(lastp).height);
+}
 function setc_lastp(sete,setb)
 {
 	setStor("le",sete);
@@ -974,7 +991,12 @@ async function cata_onclick(btnobj)
         ele.classList.remove("cata_btn_highlight");
     });
     btnobj.classList.add("cata_btn_highlight");
+    
     setlp();
+    scroll_to_lastp();
+    
+    if (!mobile)
+        inputHandler.setFocus();
     
     //table_cont_style();
 }
