@@ -1578,47 +1578,47 @@ sEngines = {
         btns: {
             "TraditionalChinese": {
                 "label": "广韵",
-                "ajax": ["input[type=radio][name=language][value=TraditionalChinese]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=TraditionalChinese]",100,".s_ipt",100,".s_btn"]
             },
             "Taiwanese": {
                 "label": "闽南话",
-                "ajax": ["input[type=radio][name=language][value=Taiwanese]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Taiwanese]",100,".s_ipt",100,".s_btn"]
             },
             "Hakka": {
                 "label": "客家话",
-                "ajax": ["input[type=radio][name=language][value=Hakka]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Hakka]",100,".s_ipt",100,".s_btn"]
             },
             "Chaozhouese": {
                 "label": "潮州话",
-                "ajax": ["input[type=radio][name=language][value=Chaozhouese]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Chaozhouese]",100,".s_ipt",100,".s_btn"]
             },
             "Cantonese": {
                 "label": "广州话",
-                "ajax": ["input[type=radio][name=language][value=Cantonese]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Cantonese]",100,".s_ipt",100,".s_btn"]
             },
             "Shanghaiese": {
                 "label": "上海话",
-                "ajax": ["input[type=radio][name=language][value=Shanghaiese]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Shanghaiese]",100,".s_ipt",100,".s_btn"]
             },
             "Suzhouese": {
                 "label": "苏州话",
-                "ajax": ["input[type=radio][name=language][value=Suzhouese]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Suzhouese]",100,".s_ipt",100,".s_btn"]
             },
             "Waitau": {
                 "label": "围头话",
-                "ajax": ["input[type=radio][name=language][value=Waitau]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Waitau]",100,".s_ipt",100,".s_btn"]
             },
             "Vusihlau": {
                 "label": "无锡话",
-                "ajax": ["input[type=radio][name=language][value=Vusihlau]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Vusihlau]",100,".s_ipt",100,".s_btn"]
             },
             "Langjin": {
                 "label": "南京话",
-                "ajax": ["input[type=radio][name=language][value=Langjin]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Langjin]",100,".s_ipt",100,".s_btn"]
             },
             "Wenzhouese": {
                 "label": "温州话",
-                "ajax": ["input[type=radio][name=language][value=Wenzhouese]",300,".s_ipt"]
+                "ajax": ["input[type=radio][name=language][value=Wenzhouese]",100,".s_ipt",100,".s_btn"]
             }
         }
     },
