@@ -254,7 +254,7 @@ function createCataBtn(cata, source=null)
     
     var button = document.createElement("button");
     //div.appendChild(button);
-    button.className = "general_btn cata_btns";
+    button.className = "cata_btns";
     button.name = cata;
     if (source) button.setAttribute("source",source );
     button.id = "cata_btn_" + cata;

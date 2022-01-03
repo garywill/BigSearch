@@ -12,20 +12,18 @@
  * 
  * Source code: https://github.com/garywill/BigSearch
  */
-:root {
-    --above-wrapper: calc( var(--header-nav-span-font-size) + 2 * var(--header-padding-v) + var(--header-margin-bottom) );
+.addon {
     
+    --desktop-mobile-cont-height: 0px;
     --intitle-height: 0px;
-
-    
-    --engines-o-cont-height-max: calc(var(--wrapper-height) - var(--inputbox-height) - var(--btns-below-input-height) );
     
     --catas-head-height: 0px;
     
     --table-width-max: 400px;
     --table-width: var(--table-width-max);
-}
+    
 
+}
 body {
     width: 800px; 
     min-height: 600px;
@@ -36,12 +34,9 @@ body {
     scrollbar-width: thin;
     scrollbar-color: #93a7d9 white;
 }
-#bghero::before {
-    background-image: url('bgaddon.webp');
-}
 
 #catas_cont { 
-padding-top:0px; padding-right: 0px; 
+    padding-top:0px; padding-right: 0px; 
     
 } 
 

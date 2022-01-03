@@ -204,7 +204,7 @@
 
                                     <div id="hist" ></div>
                                     
-                                    <div id="clearhist">
+                                    <div id="clearhist" class="general_btn">
                                         <span class='lang lang-zh'>清空</span><span class='lang lang-en'>Clean All</span>                                    </div>
                                 </div>
                             </td>
@@ -219,13 +219,16 @@
                     <button class="general_btn btmbtn " id="btn_usage" name="usage"  ><a href="#usage">
                                                     <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                                
                     </a></button>
+                    
+                    <button class="general_btn btmbtn" id="btn_theme" name="theme"  ><a href="#theme">
+                        <span class='lang lang-zh'>外观主题</span><span class='lang lang-en'>UI Themes</span>                    </a></button>
 
                     <button class="general_btn btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
                         <span class='lang lang-zh'>源代码 / 用户手册</span><span class='lang lang-en'>Source Code / User Manual</span>                    </a></button>
                     
                     <button class="general_btn btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
                         <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                        <span class="badge_cont" style="">
-                            <span id="hot_badge" class="badge" style="background-color: rgba(255, 0, 0, 0.65); color: white;" >HOT</span>
+                            <span id="hot_badge" class="badge" >HOT</span>
                         </span>
                     </a></button>
                         <button class="general_btn btmbtn" id=""  style="display:none;"><a target="_blank"   rel="nofollow" href="http://acsmessage.atwebpages.com/">
@@ -241,6 +244,18 @@
         <span class='lang lang-zh'>关于 / 更多工具</span><span class='lang lang-en'>About / More Tools</span>    </a></button>
     
                     </div>
+                
+                <div class="btm_dialog" id="btn_theme_dialog">
+                    
+                    <a name="theme" ></a>
+                    <h3> <span class='lang lang-zh'>外观主题（试验中）</span><span class='lang lang-en'>UI Themes (experimental)</span> </h3>
+                    
+                    <div id="div_choose_themes" style="text-align: left;" ></div>
+                    
+                    <div style="background-color: #ffff0091;">This theme-choosing feature is still being developed. Now it is not in stable state. It could be changed in the future.<br>
+                    More themes will be available in the future. (However, please focus on our  main feature: powerful web searching)</div>
+                </div>
+                        
                 <div class="btm_dialog" id="btn_webext_dialog">
                     
                         <a name="webext" ></a>

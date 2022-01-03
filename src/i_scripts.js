@@ -477,9 +477,9 @@ onrd.push(function(){
 	window.onfocus=windowonfocus;
 });
 
-onrd.push(function(){
+onrd.push(async function(){
     //setTimeout(layout_init, 30);
-    layout_init();
+    await layout_init();
 });
 
 onrd.push(function(){
@@ -635,6 +635,9 @@ onrd.push(function(){
         document.getElementById("totrad").onclick=simp_trad_click;
     }
 });
+onrd.push(function(){
+    init_themeHandler();
+});
 
 onrd.push(async function(){
     if (window.run_env != "http_web")
@@ -770,7 +773,7 @@ function displayhist()
             var txt2save=hists[i];
             
             var newDiv=document.createElement("div");
-            
+            newDiv.className = "hist_item";
             
             newDiv.appendChild(document.createTextNode(txt2save));
             
@@ -995,15 +998,19 @@ function toggle_btm_dialog()
 		case "btn_about":
 		case "btn_usage":
         case "btn_usetip":
+        case "btn_theme":
         case "btn_webext":
             toggle( document.getElementById(this.id + "_dialog") );
 			break;
 	}
 	function toggle(object) {
-        if (getComputedStyle(object).display != "none")
+        if (getComputedStyle(object).display != "none") {
             object.style.display = "none";
-        else
+            document.body.classList.remove("when-btm-open");
+        } else {
             object.style.display = "block";
+            document.body.classList.add("when-btm-open");
+        }
     }
     
     switch(this.id)
@@ -1076,6 +1083,7 @@ async function do_stati()
             fake_title: 'Big Search Addon '
                 + chrome.runtime.getManifest()['version'] 
                 + ' [' + chrome.i18n.getUILanguage() + '] '
+                + `${localStorage['theme'] ? ' [' + localStorage['theme'] + '] ': ''}`
                 + '(' + (await getInstallType()) + ')'
             ,
             page_pg: function() {

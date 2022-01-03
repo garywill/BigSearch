@@ -1,0 +1,159 @@
+body {
+    --header-bg-cl: rgba(127, 156, 247, 0.51);
+    --btns-text-shadow: 1px 1px #333;
+}
+.http_web {
+    --bg-img: url('bg.jpg');
+}
+.btn-http-highlight span {
+    text-shadow: 1px 1px #000, 2px 2px white, 2px -1px white,-2px -1px #f2f1f1 !important;
+}
+.addon {
+    --bg-img: url('bgaddon.webp');
+}
+
+/*
+.general_btn, .general_btn a {
+    color: blue;
+}
+*/
+
+
+#header {  
+    box-shadow: 0px 2px 2px rgba(221, 221, 221, 0.3);
+}
+.header-nav-span, .header-nav-span a{
+    color: #fbfbfb; 
+}
+.header-nav-span:hover {
+    border-bottom:2px solid ;
+    border-color:red;
+}
+
+#newver, #newver_link {
+    color:#f6f6ad; 
+}
+#btn_mobile, #btn_desktop {
+    /* text-shadow: #c1d7ff 1px 1px 2px; */
+}
+
+#intitle , #intitle a{ 
+    color:#077500; 
+}
+
+#inputbox {  
+    box-shadow: 1px 1px 2px #60a7fb; 
+    border-color: white;
+}
+
+/*
+#engines_o_cont{
+    scrollbar-color: #6d69ec #ffef068c;
+}
+#engines_o_cont::-webkit-scrollbar-thumb {
+    background-color:#6d69ec;
+}
+
+#engines_o_cont::-webkit-scrollbar-track-piece {
+    background-color: #ffef068c;
+}
+
+#catas_cont {  
+    scrollbar-color: #5b79c4 #ffffff59;
+}
+#catas_cont::-webkit-scrollbar-thumb {
+    background-color: #5b79c4;
+}
+#catas_cont::-webkit-scrollbar-track-piece {
+    background-color: #ffffff59;
+}
+*/
+
+.cata_btns {
+    color:#4e4f57;  
+    background-color: rgba(218, 218, 219, 0.23);
+    text-shadow: 0px 0px 4px white;
+    font-weight: bold;
+}
+.cata_btns:hover {
+    color: #11111c;
+    background-color: rgba(219, 220, 225, 0.7);
+}
+.cata_btn_highlight {
+    color:#171762; 
+    background-color:#e6e7ec85;
+    text-shadow: 5px 0px 2px #e6e8e5;
+}
+.cata_btn_highlight span { 
+    border-bottom:2px solid #4b4bbb;
+}
+
+
+
+#hist_tip {
+    color: #ddd;
+}
+.hist_item:hover { 
+    background-color: rgb(192, 203, 242); 
+}
+.hist_item .hist_entry_span_buttons {  
+    color: yellow; 
+}
+
+.labelrow {
+    color:#6c6969; 
+    background-color: rgba(202, 228, 234, 0.7);
+}
+.engine_tr {
+    background-color: rgba(224, 232, 246,0.3); 
+}
+.engine_tr:hover { 
+    background-color: rgba(0, 167, 0, 0.67); 
+}
+.enginename_td a { 
+    color: #077500; 
+}
+.engine_tr:hover .enginename_td a {  
+    color: orange;  
+    text-shadow: 1px 1px black; 
+    
+}
+.gobutton {
+    color: #353535; 
+    border-color: rgb(136, 136, 0);
+    border-bottom:3px solid transparent;  
+    background-color:transparent; 
+}
+.engine_tr:hover .engbtns_td .gobutton {
+    color: #f0f0f0;
+    text-shadow: 1px 1px black;
+}
+#lastp {
+    border-bottom:3px solid ;
+    color:#c98200; 
+    text-shadow:2px 2px white; 
+    box-shadow: 1px 0px 4px blue;  
+    border-color:orange ;
+}
+.engine_tr:hover .engbtns_td #lastp { 
+    color:#ffea00; 
+    text-shadow:none;
+    box-shadow:none;
+}
+.engine_tr:hover .engbtns_td #lastp:hover { 
+    box-shadow:0px 3px 10px black;
+}
+.gobutton:hover {  
+    background-color: rgb(7, 196, 7); 
+    box-shadow: 0px 3px 10px black; 
+    border-bottom: 3px solid orange;
+}
+
+.badge {  
+    background-color: rgba(255, 255, 0, 0.65);
+    color: black; 
+}
+#hot_badge {
+    background-color: rgba(255, 0, 0, 0.65); 
+    color: white;
+}

@@ -15,8 +15,11 @@
 
 const mobile = getStor("mobile") === "true"?true:false;
 
-function layout_init()
+async function layout_init()
 {
+    init_body_class();
+    
+    init_viewport();
     
     if(mobile) 
     {
@@ -50,6 +53,33 @@ function layout_init()
     }
 }
 
+function init_body_class() {
+    if ( window.run_env == "http_web" )
+        document.body.classList.add("http_web");
+    else
+        document.body.classList.add("addon");
+    
+    if (mobile)
+        document.body.classList.add("mobile");
+    else
+        document.body.classList.add("desktop");
+}
+
+
+function init_viewport() {
+    if ( window.run_env != "http_web" )
+        return;
+    
+    var content; 
+    if (mobile) {
+        content = "width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" ;
+    }
+    else if ( ! mobile ) {
+        content = "width=1200px, height=700px" ;
+    }
+    document.getElementById("viewport_tag").setAttribute("content", content);
+}
+
 var table_observer = null;
 function set_table_observer() {
     table_observer = new MutationObserver(table_observer_callback);
@@ -76,7 +106,7 @@ function layout_refresh()
 function onWindowResize()
 {
     return; // !!!!!!!!!!
-    
+    /*
     window.onresize = null;
     setTimeout(function() {
         if (
@@ -86,6 +116,7 @@ function onWindowResize()
             window.onresize = onWindowResize;
         layout_refresh();
     }, 200);
+    */
 }
 
 
@@ -130,5 +161,120 @@ function rm_not_userlang(){
         })
     }
 };
+
+// =======================================
+var themeHandler = {};
+function init_themeHandler() {
+    themeHandler = new function themeHandlerClass () {
+        this.div_choose_themes = document.getElementById("div_choose_themes");
+        
+        this.themes = {
+            "default" : { d_name: i18n(["默认主题" , "Default Theme"]) },
+            "Foggy_Lake": {
+                need_sty: ["bold"],
+            },
+            "Foggy_Lake__Grey": {
+                need_theme: "Foggy_Lake",
+            },
+            "Foggy_Lake__Grey_2": {
+                need_theme: "Foggy_Lake__Grey",
+            },
+            "no": {
+                d_name: "No Theme (ugly)"
+            },
+            
+        };
+        this.getDefaultTheme = function() {
+            return "Foggy_Lake";
+        };
+        this.clean_theme = function() {
+            var oldThemeCsses = document.getElementsByClassName("theme_css");
+            for (var i=oldThemeCsses.length - 1 ; i>=0; i--) {
+                var old = oldThemeCsses[i];
+                //old.parentNode.removeChild(old);
+                old.remove();
+            }
+        };
+        this.init_theme = function(theme) {
+            if (!theme || theme == "default") 
+                theme = this.getDefaultTheme();
+            
+            this.clean_theme();
+            
+            var themeInfo = this.themes[theme];
+            
+            if (themeInfo['need_theme'] !== undefined)
+                this.init_theme(themeInfo['need_theme'])
+            
+            if (themeInfo.need_sty !== undefined)
+                for (var i=0; i<themeInfo.need_sty.length; i++) {
+                    const sty = themeInfo.need_sty[i];
+                    this.addCss(`sty_${sty}`);
+                }
+                
+            this.addCss(theme);
+            
+        };
+        this.addCss = function(file) {
+            var csstag = document.createElement("link");
+            csstag.setAttribute("class", "theme_css");
+            csstag.setAttribute("rel", "stylesheet");
+            csstag.setAttribute("type", "text/css");
+            csstag.setAttribute("href", `themes/${file}.css`); // TODO file time
+            document.head.appendChild(csstag);
+        }
+        this.onRadioChange = function () {
+            themeHandler.init_theme(this.value);
+            localStorage['theme'] = this.value;
+            if (this.value == "default" )
+                delete localStorage['theme'];
+        }
+        
+        this.init_theme(localStorage['theme']);
+        
+        var themes_names = Object.keys(this.themes);
+        for (var i=0; i<themes_names.length; i++)
+        {
+            var tm = themes_names[i];
+            var tmInfo = this.themes[tm];
+            
+            var radio = document.createElement("input");
+            radio.setAttribute("type", "radio");
+            radio.setAttribute("name", "theme");
+            radio.setAttribute("value", tm);
+            
+            var radio_id = `id_themeradio__${tm}`;
+            radio.id = radio_id;
+            
+            if ( localStorage['theme'] === tm  )
+                radio.checked = true;
+            
+            if ( tm == "default" && ( ! localStorage['theme'] || localStorage['theme'] == "default" ) )
+                radio.checked = true;
+            
+            radio.onchange = this.onRadioChange;
+            // ----
+            
+            var label = document.createElement("label");
+            label.setAttribute("for", radio_id);
+            
+            var label_text = "";
+            if (tmInfo['d_name'] !== undefined)
+                label_text = tmInfo['d_name'];
+            else
+                label_text = tm.replaceAll("__", " - ").replaceAll("_", " ");
+            
+            label.textContent = label_text;
+            
+            var br = document.createElement("br");
+            
+            this.div_choose_themes.appendChild(radio);
+            this.div_choose_themes.appendChild(label);
+            this.div_choose_themes.appendChild(br);
+            
+        }
+        
+    } ();
+}
 
 
