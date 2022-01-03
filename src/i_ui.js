@@ -63,6 +63,8 @@ function init_body_class() {
         document.body.classList.add("mobile");
     else
         document.body.classList.add("desktop");
+    
+    document.body.classList.add(window.lang);
 }
 
 
@@ -169,7 +171,7 @@ function init_themeHandler() {
         this.div_choose_themes = document.getElementById("div_choose_themes");
         
         this.themes = {
-            "default" : { d_name: i18n(["默认主题" , "Default Theme"]) },
+            "default" : {  },
             "Foggy_Lake": {
                 need_sty: ["bold"],
             },
@@ -186,6 +188,25 @@ function init_themeHandler() {
         };
         this.getDefaultTheme = function() {
             return "Foggy_Lake";
+        };
+        this.getThemeDisplayName = function(theme) {
+            var tmInfo = this.themes[theme]
+            //console.log(theme, tmInfo);
+            var label_text = "";
+            
+            if (theme == "default") {
+                label_text = i18n(["默认主题" , "Default Theme"]);
+                label_text += ` (${this.getThemeDisplayName(this.getDefaultTheme())})`
+                
+            }
+            else 
+            {
+                if (tmInfo['d_name'] !== undefined)
+                    label_text = tmInfo['d_name'];
+                else
+                    label_text = theme.replaceAll("__", " - ").replaceAll("_", " ");
+            }
+            return label_text;
         };
         this.clean_theme = function() {
             var oldThemeCsses = document.getElementsByClassName("theme_css");
@@ -257,14 +278,7 @@ function init_themeHandler() {
             
             var label = document.createElement("label");
             label.setAttribute("for", radio_id);
-            
-            var label_text = "";
-            if (tmInfo['d_name'] !== undefined)
-                label_text = tmInfo['d_name'];
-            else
-                label_text = tm.replaceAll("__", " - ").replaceAll("_", " ");
-            
-            label.textContent = label_text;
+            label.textContent = this.getThemeDisplayName(tm); 
             
             var br = document.createElement("br");
             

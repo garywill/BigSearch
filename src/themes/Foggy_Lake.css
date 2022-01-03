@@ -1,6 +1,6 @@
 body {
     --header-bg-cl: rgba(127, 156, 247, 0.51);
-    --btns-text-shadow: 1px 1px #333;
+    --main-btns-text-shadow: 1px 1px #333;
 }
 .http_web {
     --bg-img: url('bg.jpg');
@@ -68,12 +68,21 @@ body {
     background-color: #ffffff59;
 }
 */
-
+body {
+    --cata-btns-font-weight: bold;
+    --cata-btns-cl: #4e4f57;
+    --cata-btns-tshadow: 0px 0px 4px white;
+}
+body.addon.en {
+    --cata-btns-font-weight: unset;
+    /* --cata-btns-cl: black; */
+    --cata-btns-tshadow: 1px 1px 1px var(--cata-btns-cl), 0px 0px 4px white;
+}
 .cata_btns {
-    color:#4e4f57;  
+    color: var(--cata-btns-cl);  
     background-color: rgba(218, 218, 219, 0.23);
-    text-shadow: 0px 0px 4px white;
-    font-weight: bold;
+    text-shadow: var(--cata-btns-tshadow);
+    font-weight: var(--cata-btns-font-weight);
 }
 .cata_btns:hover {
     color: #11111c;
@@ -82,7 +91,7 @@ body {
 .cata_btn_highlight {
     color:#171762; 
     background-color:#e6e7ec85;
-    text-shadow: 5px 0px 2px #e6e8e5;
+    /* text-shadow: 5px 0px 2px #e6e8e5; */
 }
 .cata_btn_highlight span { 
     border-bottom:2px solid #4b4bbb;

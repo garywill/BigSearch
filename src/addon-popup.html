@@ -23,8 +23,17 @@
                 
         <script type="text/javascript"  src="index-phpjs.js"  >
                     </script>
-        <script type='text/javascript' src='ck.js'></script><script type='text/javascript' src='i_ui.js'></script><script type='text/javascript' src='enginesdata.js'></script><script type='text/javascript' src='engine_handle.js'></script><script type='text/javascript' src='i_scripts.js'></script><script type='text/javascript' src='lzutf8.js'></script>        <link rel='stylesheet' type='text/css' href='i_layout.css'></link>		
-		<link rel='stylesheet' type='text/css' href='addon.css'></link>		<link rel='stylesheet' type='text/css' href='' id='mobile_css_tag' ></link>
+        <script type='text/javascript' src='ck.js'></script> 
+<script type='text/javascript' src='i_ui.js'></script> 
+<script type='text/javascript' src='enginesdata.js'></script> 
+<script type='text/javascript' src='engine_handle.js'></script> 
+<script type='text/javascript' src='i_scripts.js'></script> 
+<script type='text/javascript' src='lzutf8.js'></script> 
+        <link rel='stylesheet' type='text/css' href='i_layout.css'></link> 
+		
+		<link rel='stylesheet' type='text/css' href='addon.css'></link> 
+		<link rel='stylesheet' type='text/css' href='' id='mobile_css_tag' ></link> 
+
 
 		<link rel="icon" type="image/png" href="icon.png"/>
 		
@@ -51,22 +60,22 @@
                 <span id="curver"  ></span>
             </div>
             <div id="desktop_mobile_cont" >
-                <button class="general_btn" id="btn_zh"><a href="index.php?hl=zh" lang="zh">中文</a></button>&nbsp;&nbsp;
-                <button class="general_btn" id="btn_en"><a href="index.php?hl=en" lang="en">English</a></button>&nbsp;|&nbsp;
-                <button class="general_btn" id="btn_desktop"><span class='lang lang-zh'>切换到桌面版</span><span class='lang lang-en'>Switch to Desktop View</span> 🖥</button>
-                <button class="general_btn " id="btn_mobile"><span class='lang lang-zh'>切换到移动版(试验)</span><span class='lang lang-en'>Switch to Mobile View (beta)</span> 📱</button>
+                <button class="general_btn main_btns" id="btn_zh"><a href="index.php?hl=zh" lang="zh">中文</a></button>&nbsp;&nbsp;
+                <button class="general_btn main_btns" id="btn_en"><a href="index.php?hl=en" lang="en">English</a></button>&nbsp;|&nbsp;
+                <button class="general_btn main_btns" id="btn_desktop"><span class='lang lang-zh'>切换到桌面版</span><span class='lang lang-en'>Switch to Desktop View</span> 🖥</button>
+                <button class="general_btn main_btns " id="btn_mobile"><span class='lang lang-zh'>切换到移动版(试验)</span><span class='lang lang-en'>Switch to Mobile View (beta)</span> 📱</button>
             </div>
 
             <div id="wrapper">
+            <div id="wrapper_in">
                 <div id="content">
-                    <table id="content_o_tab">
-                        <tr style="vertical-align:top;">
-                            <td>
+
+                            <div class="main_td" >
                                 <div id="catabtns_header">
                                     <span class='lang lang-zh'>选择分类:</span><span class='lang lang-en'>Catagories:</span>                                </div>
                                 <div id="catas_cont" > </div>
-                            </td>
-                            <td id="center_td">
+                            </div>
+                            <div class="main_td" id="center_td">
                                 
                                     
                                 <div id="intitle" >				
@@ -194,53 +203,60 @@
                                 </div>
         
 
-                            </td>
-                            <td id="hist_td">
+                            </div>
+                            
+                            <div class="main_td" id="td_gap_hist_left">
+                            </div>
+                            
+                            <div class="main_td"  id="hist_td">
                                 <div id="hist_cont">
                                     <div id="hist_ban">
                                         <span class='lang lang-zh'>输入历史</span><span class='lang lang-en'>Input History</span>                                        <span id="hist_tip">
                                             <span class='lang lang-zh'>双击可再次使用</span><span class='lang lang-en'>Doubleclick to use again</span>                                        </span>
                                     </div>
+                                    <div id="hist_grow" style="height: 0px;">12345678901234567890123456789012345678901234567890123456789012345678901234567890</div>
 
                                     <div id="hist" ></div>
                                     
-                                    <div id="clearhist" class="general_btn">
+                                    <div id="clearhist" class="general_btn main_btns">
                                         <span class='lang lang-zh'>清空</span><span class='lang lang-en'>Clean All</span>                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
+                            </div>
+                            
+                            <div class="main_td" id="td_gap_hist_right">
+                            </div>
+
                 
                 </div>
+            </div>
             </div>
 
             <div id="bottom">
                 <div id="btmbtns" >
-                    <button class="general_btn btmbtn " id="btn_usage" name="usage"  ><a href="#usage">
+                    <button class="general_btn main_btns btmbtn " id="btn_usage" name="usage"  ><a href="#usage">
                                                     <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                                
                     </a></button>
                     
-                    <button class="general_btn btmbtn" id="btn_theme" name="theme"  ><a href="#theme">
+                    <button class="general_btn main_btns btmbtn" id="btn_theme" name="theme"  ><a href="#theme">
                         <span class='lang lang-zh'>外观主题</span><span class='lang lang-en'>UI Themes</span>                    </a></button>
 
-                    <button class="general_btn btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
+                    <button class="general_btn main_btns btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
                         <span class='lang lang-zh'>源代码 / 用户手册</span><span class='lang lang-en'>Source Code / User Manual</span>                    </a></button>
                     
-                    <button class="general_btn btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
+                    <button class="general_btn main_btns btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
                         <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                        <span class="badge_cont" style="">
                             <span id="hot_badge" class="badge" >HOT</span>
                         </span>
                     </a></button>
-                        <button class="general_btn btmbtn" id=""  style="display:none;"><a target="_blank"   rel="nofollow" href="http://acsmessage.atwebpages.com/">
-        <span class='lang lang-zh'>留言板/反馈问题</span><span class='lang lang-en'>Guestbook/Feedback</span>    </a></button>
-    <button class="general_btn btmbtn" id="btn_donate" name="donate"  >
+                        
+    <button class="general_btn main_btns btmbtn" id="btn_donate" name="donate"  >
         <a href="#donate">
             <span class='lang lang-zh'>扫码打赏 / 领支付宝红包</span><span class='lang lang-en'>Buy me a coffee</span>            <span class="badge_cont" style="">
                 <span class="badge" >^_^</span>
             </span>
         </a>
     </button>
-    <button class="general_btn btmbtn" id="btn_about" name="about"  ><a href="#about" >
+    <button class="general_btn main_btns btmbtn" id="btn_about" name="about"  ><a href="#about" >
         <span class='lang lang-zh'>关于 / 更多工具</span><span class='lang lang-en'>About / More Tools</span>    </a></button>
     
                     </div>
@@ -251,9 +267,7 @@
                     <h3> <span class='lang lang-zh'>外观主题（试验中）</span><span class='lang lang-en'>UI Themes (experimental)</span> </h3>
                     
                     <div id="div_choose_themes" style="text-align: left;" ></div>
-                    
-                    <div style="background-color: #ffff0091;">This theme-choosing feature is still being developed. Now it is not in stable state. It could be changed in the future.<br>
-                    More themes will be available in the future. (However, please focus on our  main feature: powerful web searching)</div>
+
                 </div>
                         
                 <div class="btm_dialog" id="btn_webext_dialog">
@@ -286,9 +300,9 @@
                             <p>以 <strong>灵活</strong>又<strong>顺手</strong> 的方式 在(切换) <strong>任意一个</strong> 或 <strong>(连续)多个</strong> 搜索引擎（或任意网站）进行搜索。</p>
 
                             <ul>
-                            <li>输入后，点击表格右列中的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）。将打开新分页显示结果。<br><br></li>
+                            <li>输入后，<b>点击</b>表格<b>右列中</b>的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）。将打开新分页显示结果。<br><br></li>
                             <li>最后使用过的按钮被加亮显示，下次敲击回车即可再次调用（如果处于同一分类）。<br><br></li>
-                            <li>双击搜索历史中的条目，快速将条目插入至输入框。<br><br></li>
+                            <li>双击搜索历史中的条目，快速将条目插入至输入框。（单行编辑状态下，双击为替换全部；多行编辑状态下，双击为插入至光标处）<br><br></li>
                             </ul>
 
                             <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video (Youtube)</a>
@@ -299,9 +313,9 @@
                             <p>Handily use / switch <strong>any one</strong> or <strong>multiple (uninterruptedly)</strong> <strong>search engines</strong> (or search any websites) via a <strong>flexible tool</strong>.</p>
 
                             <ul>
-                            <li>After finish inputting, click button in the right column of the table to perform an operation (e.g. search) for the corresponding website (or database). A new page will be opened to display the results. <br><br></li>
+                            <li>After finish inputting, <b>click</b> button(s) in the <b>right column</b> of the table to perform an operation (e.g. search) for the corresponding website (or database). A new page will be opened to display the results. <br><br></li>
                             <li>The last used button is highlighted, and it can be called again by pressing Enter (if in the same catagory). <br><br></li>
-                            <li>Double-click an entry in the history to quickly insert the entry text to the input box. <br><br></li> 
+                            <li>Double-click an entry in the history to quickly insert the entry text to the input box. (In single-line edit mode, double-clicking replaces all text; In multi-line edit mode, double-clicking inserts to cursor) <br><br></li> 
                             </ul>
                             
                             <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
@@ -338,7 +352,7 @@
             Third-party libraries and components used by Big Search
             <div style="text-align: left;  font-size: 80%; " >
                 <ul>
-                <li><a href="https://github.com/rotemdan/lzutf8.js">LZ-UTF8.js</a> (compression)
+                <li><a href="https://github.com/rotemdan/lzutf8.js">LZ-UTF8.js</a> (data compression)
                 </li>
                 <li><a href="https://www.pexels.com/photo/foggy-lake-2166695/">Foggy Lake</a> (background photo)
                 by Quang Nguyen Vinh

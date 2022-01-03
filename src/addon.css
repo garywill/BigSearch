@@ -17,12 +17,15 @@
     --desktop-mobile-cont-height: 0px;
     --intitle-height: 0px;
     
+    --tdgap: 5px;
+    
     --catas-head-height: 0px;
     
-    --table-width-max: 400px;
+    --table-width-max: 450px;
     --table-width: var(--table-width-max);
-    
-
+}
+.addon.en {
+    --table-width-max: 420px;
 }
 body {
     width: 800px; 
@@ -78,14 +81,21 @@ body::-webkit-scrollbar-track-piece {
 }
 
 
-#hist_td{  padding-left: 20px;padding-top:0px; }
+#hist_td{  
+    /* padding-left: 20px; */
+    padding-top:0px; 
+}
 #hist div .hist_entry_span_buttons { right: 0; }
 
 #hist { 
-    width: 220px;
+    /* width: 220px; */
 }
 #hist_tip { display:block;}
 #hist div .hist_entry_span_buttons { font-size: 10px; } 
+#td_gap_hist_right {
+    min-width: 10px;
+}
+
 
 #btmbtns {padding-top: 0px; }
 #hot_badge { display:none; }

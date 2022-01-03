@@ -18,6 +18,8 @@ body {
     --header-margin-bottom: 5px;
     --nav-padding-h: 30px;
     
+    --tdgap: 10px;
+    
     --general-btn-font-size: 15px;
     --desktop-mobile-cont-height: calc( var(--general-btn-font-size) + 4px );
     
@@ -123,6 +125,12 @@ a {
     height: var(--intitle-height);
     max-height: var(--intitle-height);
 }
+
+.main_td {
+    display:inline;
+}
+
+
 #index_title  { 
     display: inline;  
     margin-left: 10px;
@@ -148,9 +156,17 @@ a {
     max-height: var(--wrapper-height);
     min-height: var(--wrapper-height);
 }
+
+#wrapper_in {
+  display: inline-block;
+}
 #content {  
-    display:inline-block; 
+    width: 100%;
+    display:flex; 
     text-align:left;
+    /*! align-content: center; */
+    justify-content: center;
+    gap: var(--tdgap);
 }
 
 
@@ -337,7 +353,7 @@ a {
 .enginename_td { 
     padding:0px 10px 0px 5px; 
     min-width:130px; 
-    white-space:nowrap; 
+    /* white-space:nowrap; */
 }
 .enginename_td a { 
     text-decoration: none; 
@@ -400,10 +416,12 @@ a {
     background-repeat: no-repeat;
     color:#164782;
 }
-.general_btn:hover > * {text-decoration: underline;}
+.general_btn:hover > * {
+    text-decoration: underline;
+}
 
 #catas_cont {  
-    padding-left: 4px; 
+    /*! padding-left: 4px; */ 
     text-align: left; 
     word-break: keep-all; 
     overflow-y: auto;
@@ -411,7 +429,7 @@ a {
     direction: rtl;
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
-    padding-right: 10px;
+    /*! padding-right: 10px; */
 }
 #catas_cont::-webkit-scrollbar {
     width: 4px;  
@@ -433,6 +451,7 @@ a {
     text-align:left; 
     display: block; 
     padding: 10px 0px; 
+    padding-left: 4px;
     padding-right: 10px;
     font-weight: var(--cata-btns-weight); 
     font-size:16px;
@@ -459,8 +478,11 @@ a {
 }
 
 #hist_td {  
-    padding-left: 50px;
+    /* padding-left: 50px; */
     /*! padding-top:var(--hist-td-padding-top); */ 
+    /* background-color: yellow; */
+    max-width: 250px;
+    width: 100%;
 }
 #hist_cont {
     height: var(--hist-cont-height);
@@ -475,19 +497,26 @@ a {
     white-space: nowrap;
     color: #777;
 }
+#hist_grow {
+    height: 0px;
+    overflow: hidden;
+    word-wrap: anywhere;
+}
 #hist { 
-    width: 250px; 
+    /*! max-width: 250px; */ 
     height: calc( var(--wrapper-height) - var(--general-btn-font-size) - var(--hist-ban-font-size)); 
     overflow-y: scroll; 
     border: 1px solid gray;
     background-color: rgba(255,255,255,0.4);
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
+    min-width: 100px;
+
 }
 .hist_item { 
     font-size: 14px; 
     padding: 5px 3px; 
-    word-wrap:break-word; 
+    word-wrap:anywhere; 
     position:relative; 
     max-height:52px; 
     overflow:hidden;
@@ -549,7 +578,19 @@ a {
 
 
 
-.btm_dialog  { clear:left;text-align: center;max-width:600px; margin-left:auto;margin-right:auto;display:none; margin-bottom:10px; /*! padding-top:5px; */ background-color: rgba(255,255,255,0.3);margin-top: 10px;}
+.btm_dialog  { 
+    clear:left;
+    text-align: center;
+    max-width:600px; 
+    margin-left:auto;
+    margin-right:auto;
+    display:none; 
+    margin-bottom:10px; 
+    /*! padding-top:5px; */ 
+    background-color: rgba(255,255,255,0.3);
+    margin-top: 10px;
+    font-size: 15px;
+}
 #ourmail { /* color:blue; */ }
 #ourmail:hover { text-decoration: underline; }
 
@@ -577,6 +618,9 @@ a {
 #permis_toast {
     background-color: rgba(255, 255, 255, 0.7);
     padding: 10px;
+}
+#permis_toast .general_btn {
+    color: blue;
 }
 
 #floater {display:none;}

@@ -1,7 +1,6 @@
 
 .general_btn, .general_btn a {
     color: #888;
-    text-shadow: var(--btns-text-shadow);
 }
 
 .engine_tr:hover {
@@ -20,4 +19,8 @@
 }
 .hist_item:hover { 
     background-color: rgb(225, 230, 244); 
+}
+
+.main_btns, .main_btns a, #clearhist {
+    text-shadow: var(--main-btns-text-shadow);
 }
