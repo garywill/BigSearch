@@ -91,7 +91,7 @@ onrd.push(function(){
 });
 
 onrd.push(function(){
-	setf();
+	inputHandler.setFocus();
 });
 
 onrd.push(function(){
@@ -243,6 +243,9 @@ function init_inputHandler() {
             this.syncMS();
         };
         this.setFocus = async function() { // set focus to current used field
+            if (mobile)
+                return;
+            
             this.getInputFieldEle().focus();
         };
         
@@ -711,11 +714,6 @@ async function make_cata_btns() {
 }
 
 
-function setf() {
-	document.getElementById("inputbox").focus();
-}
-
-
 function inputbox_press( e ) {
 	var evt = e || window.event
 	// "e" is the standard behavior (FF, Chrome, Safari, Opera),
@@ -850,7 +848,7 @@ async function ebtn_onclick(obj)
 	if (inputval=="")
 	{
 		alert(i18n(["搜索框内容为空！", "The input field is empty!"]))
-		setf();
+		inputHandler.setFocus();
 		return;
 	}
 	
@@ -866,7 +864,7 @@ async function ebtn_onclick(obj)
     }
     
     if(!mobile) 
-        setTimeout(setf,1);
+        setTimeout(inputHandler.setFocus,1);
     
 	setTimeout( function() {
         setc_lastp( obj.getAttribute("e") , obj.getAttribute("b") ); 
