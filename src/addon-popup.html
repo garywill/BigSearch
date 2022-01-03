@@ -54,7 +54,7 @@
                 <button class="general_btn" id="btn_zh"><a href="index.php?hl=zh" lang="zh">中文</a></button>&nbsp;&nbsp;
                 <button class="general_btn" id="btn_en"><a href="index.php?hl=en" lang="en">English</a></button>&nbsp;|&nbsp;
                 <button class="general_btn" id="btn_desktop"><span class='lang lang-zh'>切换到桌面版</span><span class='lang lang-en'>Switch to Desktop View</span> 🖥</button>
-                <button class="general_btn" id="btn_mobile"><span class='lang lang-zh'>切换到移动版</span><span class='lang lang-en'>Switch to Mobile View</span> 📱</button>
+                <button class="general_btn " id="btn_mobile"><span class='lang lang-zh'>切换到移动版(试验)</span><span class='lang lang-en'>Switch to Mobile View (beta)</span> 📱</button>
             </div>
 
             <div id="wrapper">
@@ -216,12 +216,13 @@
 
             <div id="bottom">
                 <div id="btmbtns" >
-                    <button class="general_btn btmbtn" id="btn_usage" name="usage"  ><a href="#usage">
+                    <button class="general_btn btmbtn " id="btn_usage" name="usage"  ><a href="#usage">
                                                     <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                                
                     </a></button>
 
                     <button class="general_btn btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
-                        <span class='lang lang-zh'>源代码 / 详细说明</span><span class='lang lang-en'>Source Code / User Manual</span>                    </a></button>
+                        <span class='lang lang-zh'>源代码 / 用户手册</span><span class='lang lang-en'>Source Code / User Manual</span>                    </a></button>
+                    
                     <button class="general_btn btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
                         <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                        <span class="badge_cont" style="">
                             <span id="hot_badge" class="badge" style="background-color: rgba(255, 0, 0, 0.65); color: white;" >HOT</span>
@@ -251,17 +252,13 @@
                                 <br><br></li>
 
                                 <li>
-                                    <span class='lang lang-zh'>Chrome / Microsoft Edge / 搜狗 / 360 / 其余国产浏览器 等</span><span class='lang lang-en'>Chrome, Brave, Vivaldi, Edge, Opera etc.</span> :  
-                                    <a class="webext_link" id="webext_crx" target="_blank" href="https://gitlab.com/garywill/releaseapps-dl/-/tree/main">Download .crx</a>
-                                <br><br></li>
-                                
-                                <li>
-                                    Microsoft Edge: 
-                                    <span class='lang lang-zh'>请下载文件来安装（同Chrome），商店版无法再更新</span><span class='lang lang-en'>Please download file then install (like Chrome). The store can't get updates</span>                                    (
-                                    <a style="text-decoration: line-through;" class="webext_link" id="webext_edge" target="_blank" href="https://microsoftedge.microsoft.com/addons/detail/big-search/pdmlapcmibobkkchijgfeongemmepkbc">Edge Store</a>
-                                    )
                                     
-                                </li>
+                                    <a class="webext_link" id="webext_chrome" target="_blank" href="https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb">Chrome Addon</a>
+                                    <span class='lang lang-zh'> 或 </span><span class='lang lang-en'> or </span>                                    <a class="webext_link" id="webext_crx" target="_blank" href="https://gitlab.com/garywill/releaseapps-dl/-/tree/main">
+                                    <span class='lang lang-zh'>下载 .crx</span><span class='lang lang-en'> download .crx</span>                                    </a>
+                                    <br>
+                                    <span class='lang lang-zh'>Google Chrome / Microsoft Edge / 搜狗 / 360 / 其余国产浏览器 等</span><span class='lang lang-en'>Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.</span>                                <br><br></li>
+
                             </ul>
                         </div>
                 </div>
@@ -271,21 +268,30 @@
                     <h3><span class='lang lang-zh'>使用说明</span><span class='lang lang-en'>Usage</span></h3>
                     <div style="text-align: left;">
                         <span class="lang lang-zh">
+                            <p>以 <strong>灵活</strong>又<strong>顺手</strong> 的方式 在(切换) <strong>任意一个</strong> 或 <strong>(连续)多个</strong> 搜索引擎（或任意网站）进行搜索。</p>
+
                             <ul>
-                            <li>输入后，点击表格右列中的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）,将打开新分页显示结果。<br><br></li>
-                            <li>最后点击的按钮被加亮显示，敲击回车即可再次调用。<br><br></li>
+                            <li>输入后，点击表格右列中的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）。将打开新分页显示结果。<br><br></li>
+                            <li>最后使用过的按钮被加亮显示，下次敲击回车即可再次调用（如果处于同一分类）。<br><br></li>
                             <li>双击搜索历史中的条目，快速将条目插入至输入框。<br><br></li>
+                            </ul>
+
+                            <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video (Youtube)</a>
                             
-                                                        </ul>
+                                                        
                         </span>
                         <span class="lang lang-en">
-                            <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
+                            <p>Handily use / switch <strong>any one</strong> or <strong>multiple (uninterruptedly)</strong> <strong>search engines</strong> (or search any websites) via a <strong>flexible tool</strong>.</p>
+
                             <ul>
-                            <li>After finish inputting, click button in the right column of the table to perform an operation (e.g. search) in the corresponding website (or database). A new page will be opened to display the results. <br><br></li>
-                            <li>The last clicked button is highlighted, and it can be called again by pressing Enter. <br><br></li>
+                            <li>After finish inputting, click button in the right column of the table to perform an operation (e.g. search) for the corresponding website (or database). A new page will be opened to display the results. <br><br></li>
+                            <li>The last used button is highlighted, and it can be called again by pressing Enter (if in the same catagory). <br><br></li>
                             <li>Double-click an entry in the history to quickly insert the entry text to the input box. <br><br></li> 
+                            </ul>
                             
-                                                        </ul>
+                            <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
+                            
+                                                        
                         </span>
                     </div>
 
@@ -319,7 +325,7 @@
                 <ul>
                 <li><a href="https://github.com/rotemdan/lzutf8.js">LZ-UTF8.js</a> (compression)
                 </li>
-                <li><a href="https://www.pexels.com/photo/foggy-lake-2166695/">Floggy Lake</a> (background photo)
+                <li><a href="https://www.pexels.com/photo/foggy-lake-2166695/">Foggy Lake</a> (background photo)
                 by Quang Nguyen Vinh
                 </li>
                 <li><a href="https://github.com/Iconscout/unicons">Unicons icon</a>
@@ -340,7 +346,7 @@
 		
 		<div id="footer">
             <div class="lang lang-zh">版权所有  保留所有权利</div>
-            Copyright 2015 - 2500   All Rights Reserved.
+            <div>Copyright 2015 - 2500   All Rights Reserved.</div>
         </div>
 		
 		<div id="floater">
