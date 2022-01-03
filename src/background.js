@@ -65,7 +65,7 @@ async function set_contextmenu() {
 //-------
 
 async function set_checkupdate() {
-    if ( (await get_addon_setting("checkupdate")) === false )
+    if ( (await get_addon_setting("checkupdate")) !== true )
         return;
     
     parseGotNewsXml();

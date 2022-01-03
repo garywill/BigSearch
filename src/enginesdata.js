@@ -12,10 +12,13 @@
  * The code of this file is released under：
  *     1. GNU AGPL (GNU Affero General Public License)
  *     2. Our (Big Search) statement:
- *          1) AGPL doesn't have infect to other files of Big Search.
- *              Other files can be other license or copyright status.
+ *          1) AGPL won't have infect to other files or parts of Big Search.
+ *              Other files/parts can be in other license or copyright status.
  *             The original creator (garywill) of this file reserves
  *              all rights to the code and data he creats or maintains
+ *             (i.e. Big Search project and its creator's related projects,
+ *              related features and extended featues are not restricted by 
+ *              AGPL) 
  *          2) If any person or organization use this file or any part of
  *           its data in any form (including but not limited to 
  *           converting data format, compressing code, compiling link, 
@@ -28,8 +31,9 @@
  * 此文件的代码在这些许可协议下发布：
  *     1. GNU AGPL (GNU Affero General Public License)
  *     2. 我们（大术专搜）的声明：
- *          1) AGPL不对大术专搜的其他文件产生作用，其他文件可以是别的许可证或版权状态。
- *              此文件的原创建者（garywill）保留自己所作(及所收集）的代码和数据的所有权利。
+ *          1) AGPL不对大术专搜的其他文件或部分产生作用，其他部分可以是别的许可证或版权状态。
+ *              此文件的原创建者（garywill）保留自己所作及所收集的代码和数据的所有权利。
+ *              （也就是说大术专搜及其创建者的相关、周边项目、功能、扩充功能并不受AGPL制约）
  *          2) 如果任何人或组织以任意形式（形式包括但不限于转换数据格式、压缩代码、编译链接、
  *              非编译链接、脚本调用、URL调用、取用部分数据 等）使用了此文件或其中
  *              任意部分数据，则你使用了此文件的整个项目皆为AGPL许可（包括但不限于用户界面、

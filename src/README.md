@@ -37,12 +37,12 @@ Ways to use:
    
 ## Screenshots and Demo
 
-| Screenshots    |    |      |
-| -------------- | ------------ | ----------- |
-| Extension UI    | Context selection search   | Use web app without install  |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) |
-| Mobile UI (web app) | (Feature preview) Various theme styles |  |
-| ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) |  |
+| Screenshots                                                                       |                                                                                           |                                        |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
+| Extension UI                                                                      | Context selection search                                                                  | (Feature preview) Various theme styles |
+| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |                                        |
+| Use web app without install                                                       | Mobile UI (web app) (beta)                                                                |                                        |
+| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   |                                        |
 
 [Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
@@ -58,7 +58,7 @@ Or, use as universal web searching home, portal for people expecting good search
 
 ### Features for use
 
-- 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. (And **even** [works with those that don't support GET/POST](#Ajax-Instructions))
+- 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. (And **even** [**works** with those that **don't** support GET/POST](#Ajax-Instructions))
   > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc., or the holding of the library near your home (easy to customize). Included 50+
 - 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable between devices via browser account in extension)
 - 🔎 Support using **browser-installed** search engines (browser extension. So you can directly use those engines you've added into browser. Currently only Firefox provides)
@@ -83,8 +83,8 @@ Or, use as universal web searching home, portal for people expecting good search
 Generally, you only need to write JSON and have basic http request knowledge about GET/POST. 
 
 The method described here to add or edit an engine is for both:
-  1. Big Search build-in search engines
-  1. User-defined private engines
+1. Big Search build-in search engines
+2. User-defined private engines
 
 ### Examples
 
@@ -251,28 +251,31 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 ## Our Special Technical Features
 
-Comparing to other similar tools, this tool uses JSON for search engines database (both built-in and user-defined), so it has strong flexibility in engine data.
+- Uses **JSON** as unified search engines database (**both** built-in and user-defined)
+- Has strong flexibility in engine data:
+  - **Multiple buttons** for **one engine**: more than one operations
+  - **Cross-engine** use: Call another engine (or it's certain button action) to do the action
+  - String formatting user's input, according to engine's need
+  - Combining above two to search websites that don't support search
+- **Ajax-only** websites support
+- Support **multi-line** inputting and sending
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 
-In addition to ordinary operations on a certain search engine:
-
-- For one engine, different operations are supported (one engine, multiple buttons)
-- String formatting user's input
-- Call another engine (or engine's certain action) to do the action
-- Ajax-only websites support
-
-Therefore, it is **more satisfying to technician people** comparing to similar tools. 
+Therefore, this tool is more satisfying to **technician** people comparing to similar tools. 
 
 Of course, it is **also completely easy for ordinary people to use**. 
 
-## Plans
+## What's Next
+
+Maybe we (when? who?) can do something more:
 
 - Browser (native) sidebar panel (before that need to change UI. Need responsive)
 - Desktop stanalone app, opening URL with user-assigned browser
+- Mobile native app (any idea?)
 - Add non-search navigation feature
-- Be compatible with OpenSearch
-- Be able to be used by CLI in terminal
+- Be compatible with others e.g. OpenSearch. Add or convert by 1-click
+- Be able to be used via CLI in terminal （nodejs)
 
 ## For Developers
 
@@ -307,14 +310,14 @@ If you want to add a search engine that only targets users in a certain language
   Copyright (c) 2021, Rotem Dan
   Released under the MIT license.
   ```
-- [Floggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
+- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
   
   by Quang Nguyen Vinh
   
-- [Unicons icon](https://github.com/Iconscout/unicons) 
 
-  Unicons by [Iconscout](https://iconscout.com/)
+- [Unicons icon](https://github.com/Iconscout/unicons) 
   
+  Unicons by [Iconscout](https://iconscout.com/)
 </details>
 
 ### History, Code Status, and License

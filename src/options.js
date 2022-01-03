@@ -16,8 +16,8 @@ async function on_optionpage_load() {
     
 
         
-    if (settings['checkupdate'] === false) 
-        document.getElementById("cbox_shownew").checked = false ;
+    if (settings['checkupdate'] === true) 
+        document.getElementById("cbox_shownew").checked = true ;
     
     document.getElementById("cbox_shownew").addEventListener("change", function () {
         chrome.storage.sync.set({"checkupdate": document.getElementById("cbox_shownew").checked });

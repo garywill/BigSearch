@@ -22,58 +22,60 @@
         </div>
         <br>
         
-        <div>
-            <input type="checkbox"  disabled="true">(feature in the future) Context menu has sub-menus</input>
-            <div style="color:gray;" >
-            Without submenus, clicking context menu item is enough to set selection as search term in popup box.
-            </div>
-        </div>
+        <div  id="div_shownew">
         <br>
-        
-        <div>
-            <label for="open-position-selector">(feature in the future) Tab open position</label>
-            <select id="open-position-selector" disabled="true">
-                <option value ="left-all">Left of all tabs</option>
-                <option value ="right-all">Right of all tabs</option>
-                <option value ="left-current">Left of current tab</option>
-                <option value ="right-current">Right of current tab</option>
-            </select>
-        </div>
-        <br>
-        
-        <div>
-            <label for="back-fore-selector">(feature in the future) Bring opened tab to foreground immediatly</label>
-            <select id="back-fore-selector" disabled="true">
-                <option value ="">Default</option>
-                <option value ="">No</option>
-                <option value ="">Yes</option>
-            </select>
+            <input type="checkbox" id="cbox_shownew" >Show when new version available, at corner of addon page </input>
             <br>
-            <div style="color:gray;" >
-            Default: On Firefox yes, on Chrome no. (On Firefox, bringing tab to foreground won't hide popup, so user can continue clicking other search engines. But different on Chrome.)
-            </div>
+            <a target="_blank" href="https://gitlab.com/garywill/releaseapps-dl/-/tree/main">.crx Download page</a>
+        
         </div>
         <br>
         
-        <div>
-            <input type="checkbox"  disabled="true">(feature in the future) Override if current tab is blank</input>
-        </div>
-        <br>
+        
         
         <br><br>
         <div>
             <details>
-            <summary>Avanced settings</summary>
+            <summary>Other settings</summary>
             
-            
-            <div  id="div_shownew">
-            <br>
-                <input type="checkbox" id="cbox_shownew" checked="true">Show when new version available, at corner of addon page </input>
-                <br>
-                <a target="_blank" href="https://gitlab.com/garywill/releaseapps-dl/-/tree/main">.crx Download page</a>
-            
+            <div>
+                <input type="checkbox"  disabled="true">(feature in the future) Context menu has sub-menus</input>
+                <div style="color:gray;" >
+                Without submenus, clicking context menu item is enough to set selection as search term in popup box.
+                </div>
             </div>
             <br>
+            
+            <div>
+                <label for="open-position-selector">(feature in the future) Tab open position</label>
+                <select id="open-position-selector" disabled="true">
+                    <option value ="left-all">Left of all tabs</option>
+                    <option value ="right-all">Right of all tabs</option>
+                    <option value ="left-current">Left of current tab</option>
+                    <option value ="right-current">Right of current tab</option>
+                </select>
+            </div>
+            <br>
+            
+            <div>
+                <label for="back-fore-selector">(feature in the future) Bring opened tab to foreground immediatly</label>
+                <select id="back-fore-selector" disabled="true">
+                    <option value ="">Default</option>
+                    <option value ="">No</option>
+                    <option value ="">Yes</option>
+                </select>
+                <br>
+                <div style="color:gray;" >
+                Default: On Firefox yes, on Chrome no. (On Firefox, bringing tab to foreground won't hide popup, so user can continue clicking other search engines. But different on Chrome.)
+                </div>
+            </div>
+            <br>
+            
+            <div>
+                <input type="checkbox"  disabled="true">(feature in the future) Override if current tab is blank</input>
+            </div>
+            <br>
+            
             
             <div>
             Thank you for choosing <a target="_blank" href="https://acsearch.ga">Big Search</a>. It's a pure-client-side tool. You can easily search the whole Internet without any our server. This addon doesn't collect any user-input search keyword or which search engine you use. Welcome to our <a target="_blank" href="https://github.com/garywill/BigSearch">Source Code</a>. We'll appreciate if you help.

@@ -644,7 +644,7 @@ onrd.push(async function(){
 onrd.push(async function(){
     if (window.run_env != "http_web")
     {
-        if ( (await get_addon_setting("checkupdate")) === false )
+        if ( (await get_addon_setting("checkupdate")) !== true )
             return;
         
         if (getStor("news_text"))

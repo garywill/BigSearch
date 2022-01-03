@@ -11,7 +11,7 @@
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
-> 图标含意：篆书的「術」（术）字 + 代表搜索/查询的放大镜
+> 图标含意：篆书的「**術**」（术）字 + 代表搜索/查询的放大镜
 
 ## 相似工具和方法比较
 
@@ -38,12 +38,12 @@
    
 ## 截图与演示
 
-| 截图                                                                                |                                                                                           |                                                                                   |                                                                                         |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| 扩展UI  | 上下文菜单搜索选择内容 | 免安装网页使用 |
-| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) |
-| 移动版(web) | (功能预告)多种外观主题 | 汉语辞典文献类别(嘿嘿～) |
-| ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | ![screenshot_themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg) | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg)  |
+| 截图                                                                                |                                                                                           |                                                                                   |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 扩展UI                                                                              | 上下文菜单搜索选择内容                                                                               | (预告)多种外观主题                                                                        |
+| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |                                                                                   |
+| 免安装网页使用                                                                           | 移动版(web)(试验)                                                                              | 汉语辞典文献类别(嘿嘿～)                                                                     |
+| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg) |
 
 [Watch demo video](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
@@ -57,9 +57,7 @@
 
 ## 特性
 
-### 功能
-
-- 🔎 可将任意搜索引擎、查询网站集于一处（连续）操作，任何支持**GET/POST**的网站。（**甚至**[兼容那些不支持GET/POST的](#Ajax说明)）
+- 🔎 可将任意搜索引擎、查询网站集于一处（连续）操作，任何支持**GET/POST**的网站。（**甚至**[**兼容**那些**不**支持GET/POST的](#Ajax说明)）
   > 例如 百度、Google、哔哩哔哩、网易云音乐、淘宝、有道、Github、IEEE、你家附近某图书馆（易于自定义）藏书查询 等。已收录50+个
 - 🔎 用户添加**自定义**搜索引擎（[详情](#如何编辑搜索引擎)）（若在扩展中，可通过浏览器账号同步）
 - 🔎 可调用**浏览器内联**的搜索引擎（浏览器扩展。因此你已添加进浏览器的搜索引擎可以直接用。目前仅Firefox提供）
@@ -74,18 +72,18 @@
 
 ### 安全性和隐私
 
-  - 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
-  - 🛡️ **纯客户端**功能完整，不需服务器，无搜集用户搜索内容（包括网页及扩展）
-  - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
-  - 🛡️ 浏览器扩展**不**向网页注入任何代码（除使用需要Ajax的引擎时外）
+- 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
+- 🛡️ **纯客户端**功能完整，不需服务器，无搜集用户搜索内容（包括网页及扩展）
+- 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
+- 🛡️ 浏览器扩展**不**向网页注入任何代码（除使用需要Ajax的引擎时外）
 
 ## 如何编辑搜索引擎
 
 一般来说，只需要会简单的JSON，和GET/POST这一基本http request知识。
 
 添加编辑一个搜索引擎的方法以下两者皆适用：
-  1. 大术专搜内置搜索引擎
-  1. 用户自定义的私人引擎
+1. 大术专搜内置搜索引擎
+2. 用户自定义的私人引擎
 
 <p align="center">大术专搜 👨‍💻　万页在手 🗺️　　网之所询 🌐　无不可收</p>
   
@@ -254,28 +252,31 @@ JSON格式。
 
 ## 技术特色
 
-与其他同类工具相比，这个工具使用JSON格式作为引擎数据库（包括自带的及用户自定义的），因此在引擎数据方面具有强大的灵活性
+- 使用统一的**JSON**作为引擎数据库（包括 自带的 及 用户自定义的）
+- 在引擎数据方面的强大的灵活性：
+  - **一引擎，多按钮**：对于一个引擎，可以支持不同的操作
+  - **跨引擎**调用：可调用另一引擎（中的某一按钮）动作
+  - 可针对引擎需要，对用户输入进行字符串格式化
+  - 若适当结合利用以上两点，可对某一不支持搜索的网站进行搜索
+- 支持 **Ajax-only** 的网站
+- 支持**多行**文本输入及发送
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 
-除了普通的对某一个搜索引擎进行单一操作外，还具有：
-
-- 对于一个引擎，支持不同的操作（一引擎，多按钮）
-- 对用户输入进行字符串格式化
-- 调用引擎库中的另一个引擎中的某一按钮动作，以实现对某一本身不支持搜索的网站进行搜索
-- 支持 Ajax-only 的网站
-
-因此，它**比同类工具更能让技术型人群满意**。
+因此，它比同类工具更能让**技术型**人群满意。
 
 当然，**普通人也完全可以轻松使用**。
 
-## 计划
+## What's Next?
+
+有些或许还可以做：（做不做呢？什么时候谁来做呢？）
 
 - 能够在浏览器（原生）侧边栏使用（要先改进布局问题。需要响应式）
 - 套壳做个桌面app，调用用户指定的浏览器
+- 手机原生App（any ideas?)
 - 增加非搜索导航功能
-- 兼容OpenSearch
-- 在终端内调用的CLI
+- 兼容OpenSearch等，一键自动添加或转换
+- 在终端内调用的CLI（nodejs）
 
 ## For Developers
 
@@ -310,14 +311,14 @@ JSON格式。
   Copyright (c) 2021, Rotem Dan
   Released under the MIT license.
   ```
-- [Floggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
+- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
   
   by Quang Nguyen Vinh
   
-- [Unicons icon](https://github.com/Iconscout/unicons) 
 
-  Unicons by [Iconscout](https://iconscout.com/)
+- [Unicons icon](https://github.com/Iconscout/unicons) 
   
+  Unicons by [Iconscout](https://iconscout.com/)
 </details>
 
 ### 历史、代码状况、许可证
