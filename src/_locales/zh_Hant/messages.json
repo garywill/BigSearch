@@ -1,0 +1,11 @@
+{
+  "extensionName": {
+    "message": "大術專搜",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "以順手靈活的工具在(切換)任意一個或(連續)多個搜尋引擎進行搜尋。大術專搜，既專又廣。Open souce on Github",
+    "description": "Description of the extension."
+  }
+}

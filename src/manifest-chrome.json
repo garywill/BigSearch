@@ -1,6 +1,7 @@
 {
-    "name": "Big Search",
-    "description": "Handily use any One or Multiple search engines via a Flexible tool",
+    "name": "__MSG_extensionName__",
+    "description": "__MSG_extensionDescription__",
+    "default_locale": "en",
     "manifest_version": 2,
     "version": "2.6.5",
     "homepage_url": "https://github.com/garywill/BigSearch",
@@ -23,7 +24,7 @@
  
     "browser_action": {
         "default_icon": "icon_button.png",
-        "default_title": "Big Search",
+        "default_title": "__MSG_extensionName__",
         "default_popup": "addon-popup.html"
     },
     "options_ui": {

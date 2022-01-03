@@ -1,0 +1,11 @@
+{
+  "extensionName": {
+    "message": "Big Search",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Handily use / switch any One or Multiple search engines via a Flexible tool. Open souce on Github",
+    "description": "Description of the extension."
+  }
+}
