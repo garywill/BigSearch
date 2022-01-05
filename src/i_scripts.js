@@ -643,8 +643,9 @@ onrd.push(function(){
         document.getElementById("totrad").onclick=simp_trad_click;
     }
 });
-onrd.push(function(){
-    init_themeHandler();
+onrd.push(async function(){
+    await init_themeHandler();
+    setTimeout(scroll_to_lastp,500);
 });
 
 onrd.push(async function(){
