@@ -33,6 +33,7 @@ body {
     --intitle-height: 38px;
     --inputbox-height: 34px;
     --btns-below-input-height: 19px;
+    --btns-copypaste-gap: 5px;
     
     --input-ml-height: calc( var(--wrapper-height) - var(--intitle-height) - var(--btns-below-input-height) );
     
@@ -51,6 +52,29 @@ body {
     --scrollbar-cl-bg: white;
     
     --bg-cl: #f9f9fb;
+    --header-box-shadow-cl: rgba(0, 0, 0, 0.3);
+    
+    --cata-btns-cl: grey;
+    --cata-btns-bg-cl: transparent;
+    
+    --cata-btns-hover-cl: black;
+    --cata-btns-highlight-cl: black;
+    --cata-btns-highlight-underline-cl: black;
+    
+    --labelrow-bg-cl: #ddd;
+    
+    --gobutton-bg-cl: #eee;
+    --gobutton-bg-cl-hover: #aaa;
+    
+    --gobutton-btm-line: 1px;
+    --gobutton-btm-line-cl: transparent;
+    --gobutton-btm-line-hover-cl: transparent;
+    
+    --lastp-btm-line-cl: orange;
+    --lastp-cl: orange;
+    --lastp-text-shadow: 2px 2px white; 
+    
+    --hist-item-hover-bg-cl: #eee
 }
 
 .when-btm-open{
@@ -69,8 +93,8 @@ a {
 }
 
 #bghero {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 #bghero::before {
     background-image: var(--bg-img);
@@ -91,8 +115,11 @@ a {
     width: 100%; 
     padding: var(--header-padding-v) 0px;
     margin-bottom: var(--header-margin-bottom);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px var(--header-box-shadow-cl);
     background-color: var(--header-bg-cl);
+}
+.header-nav-span, .header-nav-span a{
+    color: var(--header-text-cl); 
 }
 .header-nav-span{
     font-size: var(--header-nav-span-font-size);
@@ -224,15 +251,21 @@ a {
 
 
 .btns_copypaste {
+    width: calc( 2 * var(--btns-copypaste-gap) + var(--btns-below-input-height) );
+    height: var(--btns-below-input-height);
+    text-align: center;
+    display: relative;
+}
+.btns_copypaste_img {
     width: var(--btns-below-input-height);
     height: var(--btns-below-input-height);
     background-position-x: center;
 }
-.btns_copypaste  .span_copypaste_cont {
+.span_copypaste_cont {
     display: none;
     position: relative;
-    width:0;
-    height:100%;
+    width: 0;
+    height: 0;
 }
 .btns_copypaste:hover  .span_copypaste_cont {
     display: block;
@@ -240,7 +273,7 @@ a {
 .btns_copypaste .span_copypaste {
     display: block;
     position: absolute;
-    top: -100%;
+    top: calc( 0px - var(--btns-below-input-height) );
     left: 0;
     text-align: left;
     word-break: keep-all;
@@ -251,8 +284,9 @@ a {
 }
 
 
+
 #btn_ml_input {
-  width: 60px;
+  width: 80px;
   background-blend-mode: normal;
 }
 #btn_ml_input:hover {
@@ -260,13 +294,13 @@ a {
 }
 
 #btn_save_ml {
-  width: 60px;
+  width: 80px;
 }
 #btn_save_ml:hover {
   background-color: #59e5f48c;
 }
 #btn_save_ml_sl {
-  width: 35px;
+  width: 50px;
 }
 #btn_save_ml_sl:hover {
   background-color: #f9e43c8f;
@@ -338,7 +372,8 @@ a {
 .labelrow {
     font-size:15px;  
     font-weight: var(--labelrow-weight);
-    background-color: #ddd;
+    background-color: var(--labelrow-bg-cl);
+    color: var(--labelrow-cl);
 }
 .labelrow td { 
     padding-left: 50px; 
@@ -348,8 +383,11 @@ a {
     height:24px;  
     clear: left; 
     border-bottom: 5px solid; 
+    background-color: var(--engine-tr-bg-cl); 
 }
-
+.engine_tr:hover { 
+    background-color: var(--engine-tr-hover-bg-cl); 
+}
 .enginename_td { 
     padding:0px 10px 0px 5px; 
     min-width:130px; 
@@ -357,10 +395,13 @@ a {
 }
 .enginename_td a { 
     text-decoration: none; 
-    
+    color: var(--enginename-td-cl); 
 }
 .enginename_td, .enginename_td a {
     font-weight: var(--ename-weight); 
+}
+.engine_tr:hover .enginename_td a {  
+    color: var(--enginename-td-cl-when-tr-hover);  
 }
 
 .d_addi_html a:hover { 
@@ -386,20 +427,31 @@ a {
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
-    border-bottom:3px solid transparent;  
+    
+    border-bottom: var(--gobutton-btm-line);
+    border-bottom-color: var(--gobutton-btm-line-cl);  
+    border-bottom-style: solid;
+    
     font-size:16px; 
+    
+    color: var(--gobutton-cl); 
+    background-color: var(--gobutton-bg-cl); 
+}
+.gobutton:hover {  
+    background-color: var(--gobutton-bg-cl-hover); 
+    border-bottom-color:var(--gobutton-btm-line-hover-cl);
+}
+.engine_tr:hover .engbtns_td .gobutton {
+    color: var(--gobutton-cl-when-tr-hover);
 }
 
 #lastp {
-    border-bottom:3px solid ;
-    font-weight: var(--ebtns-weight); 
-    color:#c98200; 
-    text-shadow:2px 2px white; 
-    box-shadow: 1px 0px 4px black;  
+    border-bottom-color: var(--lastp-btm-line-cl) ;
+    color: var(--lastp-cl); 
+    background-color: var(--lastp-bg-cl);
+    text-shadow: var(--lastp-text-shadow);
 }
-.gobutton:hover {  
-    background-color: #aaa; 
-}
+
 
 
 
@@ -453,28 +505,31 @@ a {
     padding: 10px 0px; 
     padding-left: 4px;
     padding-right: 10px;
-    font-weight: var(--cata-btns-weight); 
-    font-size:16px;
+    cursor: pointer; 
     direction: ltr;
     width: 100%;
     white-space: nowrap;
-    color: grey;
-    
-    cursor: pointer; 
     text-decoration:none; 
-    background-color:transparent; 
     border:0px;
     outline: none; 
-
+    
+    color: var(--cata-btns-cl);
+    background-color: var(--cata-btns-bg-cl); 
+    font-size:16px;
+    font-weight: var(--cata-btns-weight); 
+    text-shadow: var(--cata-btns-tshadow);
+    
 }
 .cata_btns:hover {
-    color: black; 
+    color: var(--cata-btns-hover-cl); 
+    background-color: var(--cata-btns-hover-bg-cl);
 }
 .cata_btn_highlight {
-    color: black; 
+    color: var(--cata-btns-highlight-cl); 
+    background-color: var(--cata-btns-highlight-bg-cl);
 }
 .cata_btn_highlight span { 
-    border-bottom:2px solid;
+    border-bottom: 2px solid var(--cata-btns-highlight-underline-cl);
 }
 
 #hist_td {  
@@ -523,7 +578,7 @@ a {
     color:#3e3d3d ; 
 }
 .hist_item:hover { 
-    background-color: #eee; 
+    background-color: var(--hist-item-hover-bg-cl); 
 }
 .hist_item .hist_entry_span_buttons {  
     cursor: pointer;
@@ -533,7 +588,7 @@ a {
     top: 3px;  
     display: none; 
     height: 28px; 
-    color: black; 
+    color: var(--hist-del-btn-cl); 
 }
 .hist_item:hover .hist_entry_span_buttons { 
     display: block; 
@@ -571,11 +626,13 @@ a {
     
 }
 .btmbtn, .btmbtn a { 
-    text-shadow: #a2c3fd 0px 0px 3px;
+    /*text-shadow: #a2c3fd 0px 0px 3px;*/
     word-break: keep-all;
     font-size: var(--btmbtns-font-size);
 }
-
+.main_btns, .main_btns a, #clearhist {
+    text-shadow: var(--main-btns-text-shadow);
+}
 
 
 .btm_dialog  { 

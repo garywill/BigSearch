@@ -1,6 +1,43 @@
 body {
     --header-bg-cl: rgba(127, 156, 247, 0.51);
-    --main-btns-text-shadow: 1px 1px #333;
+    
+    --header-text-cl: #fbfbfb;
+    --header-box-shadow-cl: rgba(221, 221, 221, 0.3);
+    --intitle-cl: #077500;
+    
+    --cata-btns-weight: bold;
+    --cata-btns-cl: #4e4f57;
+    --cata-btns-tshadow: 0px 0px 4px white;
+    --cata-btns-bg-cl: rgba(218, 218, 219, 0.23);
+    
+    --cata-btns-hover-cl: #11111c;
+    --cata-btns-hover-bg-cl: rgba(219, 220, 225, 0.7);
+    --cata-btns-highlight-cl: #171762;
+    --cata-btns-highlight-bg-cl: #e6e7ec85;
+    --cata-btns-highlight-underline-cl: #4b4bbb;
+    
+    --labelrow-bg-cl: rgba(202, 228, 234, 0.7);
+    --labelrow-cl: #6c6969;
+    
+    --engine-tr-bg-cl: rgba(224, 232, 246,0.3);
+    --engine-tr-hover-bg-cl: rgba(0, 167, 0, 0.67);
+    
+    --enginename-td-cl: #077500;
+    --enginename-td-cl-when-tr-hover: orange;
+    
+    --gobutton-btm-line: 3px;
+    --gobutton-cl: #353535;
+    --gobutton-bg-cl: transparent;
+    
+    --gobutton-cl-when-tr-hover: #f0f0f0;
+    --gobutton-text-shadow-when-tr-hover: 1px 1px black;
+    --gobutton-bg-cl-hover: rgb(7, 196, 7);
+    --gobutton-btm-line-hover-cl: orange;
+    
+    --lastp-cl-when-tr-hover: #ffea00;
+    
+    --hist-item-hover-bg-cl: rgb(192, 203, 242);
+    --hist-del-btn-cl: yellow;
 }
 .http_web {
     --bg-img: url('bg.jpg');
@@ -19,12 +56,6 @@ body {
 */
 
 
-#header {  
-    box-shadow: 0px 2px 2px rgba(221, 221, 221, 0.3);
-}
-.header-nav-span, .header-nav-span a{
-    color: #fbfbfb; 
-}
 .header-nav-span:hover {
     border-bottom:2px solid ;
     border-color:red;
@@ -38,7 +69,7 @@ body {
 }
 
 #intitle , #intitle a{ 
-    color:#077500; 
+    color: var(--intitle-cl); 
 }
 
 #inputbox {  
@@ -68,95 +99,47 @@ body {
     background-color: #ffffff59;
 }
 */
-body {
-    --cata-btns-font-weight: bold;
-    --cata-btns-cl: #4e4f57;
-    --cata-btns-tshadow: 0px 0px 4px white;
-}
+
 body.addon.en {
-    --cata-btns-font-weight: unset;
+    --cata-btns-weight: unset;
     /* --cata-btns-cl: black; */
     --cata-btns-tshadow: 1px 1px 1px var(--cata-btns-cl), 0px 0px 4px white;
 }
-.cata_btns {
-    color: var(--cata-btns-cl);  
-    background-color: rgba(218, 218, 219, 0.23);
-    text-shadow: var(--cata-btns-tshadow);
-    font-weight: var(--cata-btns-font-weight);
-}
-.cata_btns:hover {
-    color: #11111c;
-    background-color: rgba(219, 220, 225, 0.7);
-}
+
+
 .cata_btn_highlight {
-    color:#171762; 
-    background-color:#e6e7ec85;
     /* text-shadow: 5px 0px 2px #e6e8e5; */
 }
-.cata_btn_highlight span { 
-    border-bottom:2px solid #4b4bbb;
-}
-
-
 
 #hist_tip {
     color: #ddd;
 }
-.hist_item:hover { 
-    background-color: rgb(192, 203, 242); 
-}
-.hist_item .hist_entry_span_buttons {  
-    color: yellow; 
+
+
+
+
+.engine_tr:hover .enginename_td a {  
+    text-shadow: 1px 1px black; 
 }
 
-.labelrow {
-    color:#6c6969; 
-    background-color: rgba(202, 228, 234, 0.7);
-}
-.engine_tr {
-    background-color: rgba(224, 232, 246,0.3); 
-}
-.engine_tr:hover { 
-    background-color: rgba(0, 167, 0, 0.67); 
-}
-.enginename_td a { 
-    color: #077500; 
-}
-.engine_tr:hover .enginename_td a {  
-    color: orange;  
-    text-shadow: 1px 1px black; 
-    
-}
-.gobutton {
-    color: #353535; 
-    border-color: rgb(136, 136, 0);
-    border-bottom:3px solid transparent;  
-    background-color:transparent; 
+.gobutton:hover {  
+    box-shadow: 0px 3px 10px black; 
 }
 .engine_tr:hover .engbtns_td .gobutton {
-    color: #f0f0f0;
-    text-shadow: 1px 1px black;
+    text-shadow: var(--gobutton-text-shadow-when-tr-hover);
 }
 #lastp {
-    border-bottom:3px solid ;
-    color:#c98200; 
-    text-shadow:2px 2px white; 
     box-shadow: 1px 0px 4px blue;  
-    border-color:orange ;
 }
 .engine_tr:hover .engbtns_td #lastp { 
-    color:#ffea00; 
+    color: var(--lastp-cl-when-tr-hover); 
     text-shadow:none;
     box-shadow:none;
 }
 .engine_tr:hover .engbtns_td #lastp:hover { 
     box-shadow:0px 3px 10px black;
 }
-.gobutton:hover {  
-    background-color: rgb(7, 196, 7); 
-    box-shadow: 0px 3px 10px black; 
-    border-bottom: 3px solid orange;
-}
+
 
 .badge {  
     background-color: rgba(255, 255, 0, 0.65);

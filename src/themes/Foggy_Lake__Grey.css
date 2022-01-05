@@ -1,26 +1,31 @@
-
-.general_btn, .general_btn a {
+body {
+    --main-btns-text-shadow: 1px 1px #333 ,0px 0px 1px white;
+    
+    --enginename-td-cl-when-tr-hover: #fdeccc;
+    --gobutton-bg-cl-hover: rgba(21, 157, 21, 0.41);
+    --gobutton-cl-when-tr-hover: white;
+    --gobutton-text-shadow-when-tr-hover: 1px 1px black, 0px 0px 3px black ;
+}
+.main_btns, .main_btns a {
     color: #888;
 }
 
 .engine_tr:hover {
     background-color: rgba(78, 193, 78, 0.66);
 }
-.gobutton:hover {
+/*.gobutton:hover {
     background-color: rgb(75, 206, 75);
-}
+}*/
 
-.engine_tr:hover .enginename_td a {  
+/*.engine_tr:hover .enginename_td a {  
     text-shadow: 1px 1px #020202, 1px -1px #bdb4b4;
-}
+}*/
 
-.engine_tr:hover .engbtns_td .gobutton {
+/*.engine_tr:hover .engbtns_td .gobutton {
     color: white;
-}
+}*/
 .hist_item:hover { 
     background-color: rgb(225, 230, 244); 
 }
 
-.main_btns, .main_btns a, #clearhist {
-    text-shadow: var(--main-btns-text-shadow);
-}
+

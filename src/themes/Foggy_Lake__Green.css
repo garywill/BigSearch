@@ -1,0 +1,32 @@
+body {
+    --header-bg-cl: rgba(7, 117, 0, 0.59);
+    --main-btns-text-shadow: 1px 1px #333 ,0px 0px 1px white;
+    
+    --labelrow-bg-cl: rgba(209, 222, 225, 0.7);
+    --engine-tr-bg-cl: rgba(224, 232, 246, 0.19);
+    --engine-tr-hover-bg-cl: rgba(0, 167, 0, 0.3);
+    --enginename-td-cl-when-tr-hover: #fdeccc;
+    --gobutton-bg-cl-hover: rgba(21, 157, 21, 0.41);
+    --gobutton-cl-when-tr-hover: white;
+    --gobutton-text-shadow-when-tr-hover: 1px 1px black, 0px 0px 3px black ;
+    
+    --cata-btns-highlight-cl: green;
+    --cata-btns-highlight-underline-cl: green;
+    
+    --hist-item-hover-bg-cl: rgb(156 238 163 / 71%);
+    --hist-del-btn-cl: white;
+    --scrollbar-cl: #8aa87c;
+}
+
+#header {  
+    box-shadow: unset;
+}
+
+.main_btns, .main_btns a {
+    color: #888;
+}
+
+.btns_copypaste_img {
+    filter: grayscale(70%) brightness(1.1);
+}
+

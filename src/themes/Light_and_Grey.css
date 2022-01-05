@@ -1,0 +1,45 @@
+body {
+    --bg-cl: #f6f8fa;
+    
+    --header-bg-cl: #aeaeae;
+    --header-text-cl: white;
+    
+    --intitle-cl: var(--header-bg-cl);
+    
+    --engine-tr-hover-bg-cl: #f0f0f0;
+    
+    --ebtns-weight: unset;
+    --gobutton-cl: rgb(36, 41, 47);
+    --gobutton-bg-cl: #f6f8fa;
+    
+    --lastp-btm-line-cl: #d0d7de;
+    --lastp-cl: #dbf0e1;
+    --lastp-bg-cl: #2da44e;
+    --lastp-text-shadow: unset;
+    
+    --scrollbar-cl: #999;
+    --scrollbar-cl-bg: #cecece;
+}
+
+
+
+.btn-http-highlight span {
+    text-shadow: 1px 1px #000, 2px 2px white, 2px -1px white,-2px -1px #f2f1f1 !important;
+}
+
+#engines_o_cont {
+    background-color: white;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+}
+.gobutton {
+    border-radius: 6px;
+    border: 1px solid #d0d7de;
+    box-shadow: rgba(27, 31, 36, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+}
+.btns_copypaste_img {
+    filter: grayscale(50%) brightness(1.1);
+}
+.main_btns, .main_btns a {
+    color: #57606a;
+}

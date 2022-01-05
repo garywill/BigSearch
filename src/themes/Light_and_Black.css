@@ -1,0 +1,12 @@
+
+
+body {
+    --header-bg-cl: #24292f;
+    --header-text-cl: white;
+    --header-padding-v: 10px;
+    
+    --cata-btns-tshadow: 1px 1px 1px #ccc;
+}
+#header {  
+    box-shadow: unset;
+}

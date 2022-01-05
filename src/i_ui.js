@@ -172,14 +172,29 @@ function init_themeHandler() {
         
         this.themes = {
             "default" : {  },
+            "Foggy_Lake__Green": {
+                need_theme: "Foggy_Lake",
+                need_sty: [],
+            },
+            "Foggy_Lake__Grey_3": {
+                d_name: "Foggy Lake (faded head)",
+                need_theme: "Foggy_Lake",
+            },
             "Foggy_Lake": {
+                d_name: "Foggy Lake (with blue color)",
                 need_sty: ["bold"],
             },
             "Foggy_Lake__Grey": {
+                d_name: "Foggy Lake (blue head & grey buttons & faded selection)",
                 need_theme: "Foggy_Lake",
             },
             "Foggy_Lake__Grey_2": {
+                d_name: "Foggy Lake (faded blue header)",
                 need_theme: "Foggy_Lake__Grey",
+            },
+            "Light_and_Grey": {},
+            "Light_and_Black": {
+                need_theme: "Light_and_Grey"
             },
             "no": {
                 d_name: "No Theme (ugly)"
