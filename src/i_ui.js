@@ -217,7 +217,7 @@ function init_themeHandler() {
             }
         };
         this.init_theme = function(theme) {
-            if (!theme || theme == "default") 
+            if (!theme || theme == "default" || this.themes[theme] === undefined) 
                 theme = this.getDefaultTheme();
             
             this.clean_theme();
