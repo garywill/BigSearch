@@ -37,8 +37,8 @@
 
 | 截图                                                                                |                                                                                           |                                                                                   |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| 扩展UI                                                                              | 上下文菜单搜索选择内容                                                                               | (预告)多种外观主题                                                                        |
-| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |                                                                                   |
+| 扩展UI                                                                              | 上下文菜单搜索选择内容                                                                               | 可选择界面风格 |
+| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)  |
 | 免安装网页使用                                                                           | 移动版(试验)(web)                                                                              | 汉语辞典文献类别(嘿嘿～)                                                                     |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg) |
 

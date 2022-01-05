@@ -36,8 +36,8 @@ Ways to use:
 
 | Screenshots                                                                       |                                                                                           |                                        |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
-| Extension UI                                                                      | Context selection search                                                                  | (Feature preview) Various theme styles |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |                                        |
+| Extension UI                                                                      | Context selection search                                                                  | Choose UI style |
+| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |  ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |
 | Use web app without install                                                       | Mobile UI (beta) (web app)                                                                 |                                        |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   |                                        |
 
@@ -276,7 +276,7 @@ Maybe it can do something more:
 - Mobile native app (any idea?)
 - Add non-search navigation feature
 - Be compatible with others e.g. OpenSearch. Add or convert by 1-click
-- Be able to be used via CLI in terminal （nodejs)
+- Be able to be used via CLI in terminal (nodejs)
 
 ## For Developers
 
