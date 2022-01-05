@@ -238,7 +238,7 @@ function init_inputHandler() {
             if ( ! this.ml_mode )
                 str = this.convMl2Sl(str);
             
-            this.getInputFieldEle().setRangeText(str, start, end, "end");
+            inputHandler.getInputFieldEle().setRangeText(str, start, end, "end");
             
             this.syncMS();
         };
@@ -246,7 +246,7 @@ function init_inputHandler() {
             if (mobile)
                 return;
             
-            this.getInputFieldEle().focus();
+            inputHandler.getInputFieldEle().focus();
         };
         
         this.syncM2S = function() {  // sync the two input fields only . doesn't change the mode
