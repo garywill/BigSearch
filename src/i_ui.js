@@ -202,7 +202,13 @@ function init_themeHandler() {
             
         };
         this.getDefaultTheme = function() {
-            return "Foggy_Lake";
+            if (window.run_env == "http_web")
+                if ( ! mobile ) // desktop http
+                    return "Foggy_Lake__Grey_3";
+                else  // mobile http
+                    return "Light_and_Grey";
+            else  // addon 
+                return "Foggy_Lake__Green";
         };
         this.getThemeDisplayName = function(theme) {
             var tmInfo = this.themes[theme]
