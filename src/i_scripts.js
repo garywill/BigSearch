@@ -450,8 +450,26 @@ onrd.push(function(){
 });
 
 onrd.push(function(){
+    init_btmDialogToggler();
+    
 	Array.from( document.getElementsByClassName("btmbtn") ).forEach( function(ele) {
-        ele.onclick = toggle_btm_dialog;
+        ele.onclick = btmDialogToggler.onBtnClick;
+    });
+});
+
+onrd.push(function(){
+	Array.from( document.getElementsByClassName("btm_dialog") ).forEach( function(ele) {
+        var close_btn = document.createElement("img");
+        close_btn.className = "btm_dialog_close_btn";
+        close_btn.setAttribute("src", "icon/multiply.svg");
+        
+        close_btn.onclick = function() {
+            btmDialogToggler.close(this.parentNode);
+            
+        }
+        
+        ele.appendChild(close_btn);
+        
     });
 });
 
@@ -1006,45 +1024,75 @@ async function fetch_browser_engines() {
     got_browser_engines = ( await browser.search.get() );
 }
 
-function toggle_btm_dialog()
-{
-    Array.from(document.querySelectorAll(".btm_dialog:not(#" + this.id + "_dialog)")).forEach(function(ele) {
-        ele.style.display = "none";
-    });
-	switch(this.id)
-	{
-        case "btn_donate":
-            const donate_pic = "https://gitlab.com/garywill/receiving/raw/master/receivingcode.png";
-            // https://gitlab.com/garywill/receiving/raw/master/receivingcode.png
-            // https://raw.githubusercontent.com/garywill/receiving/master/receivingcode.png
-            if ( document.getElementById("img_receivingcode").getAttribute("src") != donate_pic)
-                document.getElementById("img_receivingcode").setAttribute("src",donate_pic); 
-		case "btn_about":
-		case "btn_usage":
-        case "btn_usetip":
-        case "btn_theme":
-        case "btn_webext":
-            toggle( document.getElementById(this.id + "_dialog") );
-			break;
-	}
-	function toggle(object) {
-        if (getComputedStyle(object).display != "none") {
-            object.style.display = "none";
-            document.body.classList.remove("when-btm-open");
-        } else {
+var btmDialogToggler;
+function init_btmDialogToggler() {
+    
+    btmDialogToggler = new function btmDialogTogglerClass() {
+        
+        this.onBtnClick = function() {
+            
+            Array.from(document.querySelectorAll(".btm_dialog:not(#" + this.id + "_dialog)")).forEach(function(ele) {
+                ele.style.display = "none";
+            });
+            
+            if (this.id == "btn_donate") {
+                const donate_pic = "https://gitlab.com/garywill/receiving/raw/master/receivingcode.png";
+                // https://gitlab.com/garywill/receiving/raw/master/receivingcode.png
+                // https://raw.githubusercontent.com/garywill/receiving/master/receivingcode.png
+                if ( document.getElementById("img_receivingcode").getAttribute("src") != donate_pic)
+                    document.getElementById("img_receivingcode").setAttribute("src",donate_pic); 
+            }
+            
+            if (this.id == "btn_webext") {
+                var imgs = document.getElementById("div_addon_badges").querySelectorAll("img");
+                Array.from(imgs).forEach(function(ele) {
+                    if (ele.getAttribute("src") != ele.getAttribute("nsrc") )
+                        ele.setAttribute("src", ele.getAttribute("nsrc"));
+                });
+            }
+            switch(this.id)
+            {
+                case "btn_donate":
+                case "btn_about":
+                case "btn_usage":
+                case "btn_usetip":
+                case "btn_theme":
+                case "btn_source":
+                case "btn_webext":
+                    btmDialogToggler.toggle( document.getElementById(this.id + "_dialog") );
+                    break;
+            }
+            
+            switch(this.id)
+            {
+                case "btn_donate":
+                case "btn_webext":
+                case "btn_theme":
+                case "btn_randomtheme":
+                case "btn_source":
+                    stati_custom_page(this.id);
+                    break;
+            }
+        };
+        this.toggle = function(object) {
+            if (getComputedStyle(object).display != "none") {
+                this.close(object);
+            } else {
+                this.open(object);
+            }
+        };
+        this.open = function(object) {
             object.style.display = "block";
             document.body.classList.add("when-btm-open");
-        }
-    }
+        };
+        this.close = function(object) {
+            object.style.display = "none";
+            document.body.classList.remove("when-btm-open");
+        };
+    }();
+
+	
     
-    switch(this.id)
-	{
-        case "btn_donate":
-        case "btn_webext":
-        case "btn_source":
-            stati_custom_page(this.id);
-			break;
-	}
 }
 
 async function eng_link_onclick() {
