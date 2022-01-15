@@ -1,0 +1,195 @@
+body {
+    --header-bg-cl: rgba(120, 149, 255, 0.5);
+    --header-text-cl: #fbfbfb;
+    --header-box-shadow-cl: rgba(221, 221, 221, 0.3);
+    --intitle-cl: #077500;
+}
+
+#btn_mobile, #btn_desktop {
+    text-shadow: #c1d7ff 1px 1px 2px;
+}
+
+.json_area {
+    scrollbar-color: #93a7d9 white;
+}
+
+/*#engines_o_cont {
+    scrollbar-color: #6d69ec white;
+}
+
+#engines_o_cont::-webkit-scrollbar-thumb {
+    background-color: #6d69ec;
+}
+
+#engines_o_cont::-webkit-scrollbar-track-piece {
+    background-color: white;
+}*/
+
+#hist::-webkit-scrollbar-thumb {
+    background-color: #93a7d9;
+}
+
+#hist::-webkit-scrollbar-track-piece {
+    background-color: white;
+}
+
+#catas_cont::-webkit-scrollbar-thumb {
+    background-color: #5b79c4;
+}
+
+#catas_cont::-webkit-scrollbar-track-piece {
+    background-color: #ffffff59;
+}
+
+#engines_cont {
+    box-shadow: 4px 3px 7px #a1a1a1;
+}
+
+.labelrow {
+    color: #6c6969;
+    
+    background-color: rgba(202, 228, 234, 0.7);
+}
+
+.engine_tr {
+    background-color: rgba(224, 232, 246,0.3);
+}
+
+.engine_tr:hover {
+    background-color: rgb(0, 167, 0);
+}
+
+.enginename_td a {
+    color: #077500;
+    font-weight: bold;
+}
+
+.engine_tr:hover .enginename_td a {
+    color: orange;
+}
+
+.gobutton {
+    color: #353535;
+    border-color: rgb(136, 136, 0);
+    border-bottom: 3px solid transparent;
+    background-color: transparent;
+}
+
+.engine_tr:hover .engbtns_td .gobutton {
+    color: white;
+}
+
+#lastp {
+    border-bottom: 3px solid;
+    border-color: orange;
+    font-weight: bold;
+    color: #c98200;
+    text-shadow: 2px 2px white;
+    box-shadow: 1px 0px 4px blue;
+}
+
+.gobutton:hover {
+    background-color: rgb(0, 255, 0);
+    box-shadow: 0px 3px 10px black;
+    border-bottom: 3px solid;
+}
+
+.engine_tr:hover .engbtns_td #lastp {
+    color: #ffea00;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.engine_tr:hover .engbtns_td #lastp:hover {
+    box-shadow: 0px 3px 10px black;
+}
+
+.general_btn, .general_btn a {
+    color: blue;
+}
+
+
+#catas_cont {
+    scrollbar-width: thin;
+    scrollbar-color: #5b79c4 #ffffff59;
+}
+
+
+.cata_btns {
+    color: #515ebd;
+    background-color: rgba(192, 203, 242,0.4);
+    text-shadow: 0px 0px 4px white;
+}
+
+.cata_btns:hover {
+    color: blue;
+    background-color: rgba(192, 203, 242,0.7);
+}
+
+.cata_btn_highlight {
+    color: blue;
+    background-color: #c0cbf2;
+    text-shadow: 5px 0px 2px #e6e8e5;
+}
+
+.cata_btn_highlight span {
+    border-bottom: 2px solid blue;
+}
+
+
+
+#hist_tip {
+    color: #ddd;
+}
+
+#hist {
+    border: 1px solid gray;
+    background-color: rgba(255,255,255,0.4);
+    scrollbar-width: thin;
+    scrollbar-color: #93a7d9 white;
+}
+
+#hist div {
+    color: #3e3d3d;
+}
+
+#hist div:hover {
+    background-color: rgb(192, 203, 242);
+}
+
+#hist div .hist_entry_span_buttons {
+    color: yellow;
+
+}
+
+
+#clearhist {
+    color: blue;
+}
+
+
+#inputclear, #inputselect, #inputcopy {
+    color: blue;
+}
+
+
+
+.btmbtn {
+    text-shadow: #a2c3fd 0px 0px 3px;
+}
+
+.btm_dialog {
+    background-color: rgba(255,255,255,0.3);
+}
+
+#ourmail {
+    color: blue;
+}
+.badge {
+    background-color: rgba(255, 255, 0, 0.65);
+}
+
+
+#permis_toast {
+    background-color: rgba(255, 255, 255, 0.7);
+}

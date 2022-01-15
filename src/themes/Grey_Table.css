@@ -1,0 +1,51 @@
+body {
+    --bg-cl: #e7e7e7;
+    
+    --header-bg-cl: #aeaeae;
+    --header-text-cl: white;
+    
+    --intitle-cl: #616161;
+    
+    --labelrow-bg-cl: #858585;
+    --labelrow-cl: white;
+    
+    --engine-tr-bg-cl: #616161;
+    --engine-tr-hover-bg-cl: #008800;
+    
+    --ename-weight: bold; 
+    --enginename-td-cl: orange;
+    --enginename-td-cl-when-tr-hover: var(--enginename-td-cl);
+    
+    --ebtns-weight: unset;
+    --gobutton-cl: white;
+    --gobutton-cl-hover: black;
+    --gobutton-cl-when-tr-hover: var(--gobutton-cl);
+    
+    --gobutton-bg-cl: transparent;
+    --gobutton-bg-cl-hover: rgb(0, 255, 0);
+    --gobutton-btm-line: 2px;
+    --gobutton-btm-line-hover-cl: transparent;
+
+    --lastp-cl: orange;
+    --lastp-bg-cl: transparent;
+    --lastp-text-shadow: unset;
+    --lastp-bg-cl-hover: var(--gobutton-bg-cl-hover);
+    
+    --scrollbar-cl: #999;
+    --scrollbar-cl-bg: #cecece;
+}
+
+#engines_table {
+    background-color: #888800;
+}
+
+.btn-http-highlight span {
+    text-shadow: 1px 1px #000, 2px 2px white, 2px -1px white,-2px -1px #f2f1f1 !important;
+}
+
+.btns_copypaste_img {
+    filter: grayscale(50%) brightness(1.1);
+}
+.main_btns, .main_btns a {
+    color: #090928;
+}

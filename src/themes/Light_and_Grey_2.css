@@ -1,0 +1,21 @@
+body {
+    --bg-cl: #eaeaea;
+    --header-bg-cl: #9b9a9a;
+    
+    --intitle-cl: #7b7979;
+    
+    --cata-btns-cl: #575757;
+    
+    --labelrow-bg-cl: #cecece;
+    
+    --engine-tr-bg-cl: #f4f4f4;
+    --engine-tr-hover-bg-cl: #e2edf2;
+
+
+}
+
+
+#engines_cont {
+    background-color: #f7f7f7;
+}
+
