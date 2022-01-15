@@ -118,7 +118,7 @@ function createEngineTr(e_name,source=null){
     
     var span_in_td_dname = document.createElement("span");
     td_dname.appendChild(span_in_td_dname);
-    span_in_td_dname.title = db(source).sEngines[e_name].tip ? db(source).sEngines[e_name].tip : i18n(["点此打开其首页。要进行操作（如搜索），请输入后点击右列相应的按钮", "Click to open its homepage. To do an action (e.g. search), input text then click a button on the right column"]);
+    span_in_td_dname.title = db(source).sEngines[e_name].tip ? db(source).sEngines[e_name].tip : i18n(["点此打开其首页。\n要进行操作（如搜索），请输入后点击右列相应的按钮", "Click to open its homepage.\n To do an action (e.g. search), input text then click a button on the right column"]);
     
     var engine_home_link = document.createElement("a");
     span_in_td_dname.appendChild(engine_home_link);

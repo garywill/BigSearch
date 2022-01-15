@@ -848,7 +848,7 @@ async function ebtn_onclick(obj)
 	var inputval = inputHandler.getValue();
 	if (inputval=="")
 	{
-		alert(i18n(["搜索框内容为空！", "The input field is empty!"]))
+		alert(i18n(["搜索框内容为空！\n如要进行操作（如搜索），输入后，再点击表格右列对应的按钮", "The input field is empty!\nTo do an action (e.g. search), input text, then click a button on the right column of table"]))
 		inputHandler.setFocus();
 		return;
 	}

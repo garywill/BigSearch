@@ -1,13 +1,10 @@
+[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+
 # 大术专搜
 
 <p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手中万列 🖱️ 任心点选</p>
 
 以 **灵活**又**顺手** 的方式 在(切换) **任意一个** 或 **(连续)多个** 搜索引擎（或任意网站）进行搜索。
-
-跨浏览器工具。引擎数据高度可自定义。
-
-曾经，使用搜索引擎，是一步步、一个个来的。 🐢<br>
-现在，使用搜索引擎，是高效、可并发操作的。 🚀
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
@@ -21,12 +18,12 @@
    
    安装扩展以发挥所有功能
    
-   - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
-   - [Chrome Addon](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) 或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、搜狗浏览器、360浏览器 等 
+   - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
+   - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb)  或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、搜狗浏览器(部分)、360浏览器(部分) 等 
 
 2. 网页版：网页版功能稍有限，使用不如扩展方便。网页版可在手机浏览器使用
-   - 主站： https://acsearch.ga
-   - 备用站： http://acsearch.tk
+   - 主站： [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga)
+   - 备用站： [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
    
    
    
@@ -37,9 +34,9 @@
 
 | 截图                                                                                |                                                                                           |                                                                                   |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| 扩展UI                                                                              | 上下文菜单搜索选择内容                                                                               | 可选择界面风格 |
-| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)  |
-| 免安装网页使用                                                                           | 移动版(试验)(web)                                                                              | 汉语辞典文献类别(嘿嘿～)                                                                     |
+| 使用扩展    | 可选UI风格 朴素或fancy | 搜索选择内容  |
+| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)  | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |
+| 免安装网页使用                                                                           | 移动版(试验)(web)                                                                              | 汉语类别(嘿嘿～)                                                                     |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg) |
 
 正努力地解决一切浏览器与搜索引擎之间的需求。<br>
@@ -54,7 +51,7 @@
 
 [开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-（ **↑ 有经验的用户，看一个直观的功能横向比较表，可能快过以下诸多图文说明**）
+（ **↑ 有经验的用户看直观的横向比较，可能快过图文说明**）
 
 ## 特性
 
@@ -232,7 +229,7 @@ JSON格式。
 
 有些网站无GET或POST，需要打开它们的页面后再输入，然后它们通过Ajax的形式展现搜索结果。
 
-大术专搜的浏览器扩展支持这类只能通过Ajax进行的搜索。
+大术专搜的浏览器扩展支持这类只能通过Ajax进行的搜索，并极易配置。
 
 <details>
 <summary>Ajax说明</summary>
@@ -259,8 +256,9 @@ JSON格式。
   - **跨引擎**调用：可调用另一引擎（中的某一按钮）动作
   - 可针对引擎需要，对用户输入进行字符串格式化
   - 若适当结合利用以上两点，可对某一不支持搜索的网站进行搜索
-- 支持 **Ajax-only** 的网站
+- 支持 **Ajax-only** 的网站（[详情](#Ajax说明)）
 - 支持**多行**文本输入及发送
+- 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 
@@ -287,6 +285,30 @@ JSON格式。
 
 > `enginesdata.js`是收录搜索引擎的数据，若要添加搜索引擎使被收录，往这里添加。
 
+### 采用的第三方库和组件
+
+**Fast** and **lightweight**: NO heavy framework or library dependencies. Although it has UI themes of both simplicify & fancy, all main features and UI are pure JS + CSS. ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+
+<details>
+
+- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (81kB not minified. Data compression library, only for user-custom engines sync)
+  
+  ```
+  Copyright (c) 2021, Rotem Dan
+  Released under the MIT license.
+  ```
+  
+- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (37kB webp. Default background photo)
+  
+  by Quang Nguyen Vinh
+  
+
+- [Unicons icon](https://github.com/Iconscout/unicons) (svg)
+  
+  Unicons by [Iconscout](https://iconscout.com/)
+  
+</details>
+
 ### 国际化
 
 <details>
@@ -304,33 +326,13 @@ JSON格式。
 
 </details>
 
-### 采用的第三方库和组件
-
-<details>
-
-- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (data compression)
-  
-  ```
-  Copyright (c) 2021, Rotem Dan
-  Released under the MIT license.
-  ```
-- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
-  
-  by Quang Nguyen Vinh
-  
-
-- [Unicons icon](https://github.com/Iconscout/unicons) 
-  
-  Unicons by [Iconscout](https://iconscout.com/)
-</details>
-
 ### 历史、代码状况、许可证
 
 <details>
 
 这工具的代码一部分最早可追溯到2008年左右。2015年首次将网页功能发布在网上可公开使用。2020年代初，才发现webExtension和JS已经标准化，于是做出了浏览器扩展版本。（是的，慢慢地发展，不是全职的）
 
-核心部分有过重构。尽管UI部分有些代码不能叫很好，但**这个东西一直很好用**。喜欢还请不吝Star🌟。
+有过（并可能仍会有）重构。尽管部分代码仍有岁月的风格，但现代这个东西**一直很现代并很好用**。喜欢还请不吝Star🌟。
 
 已给了搜索引擎数据`enginesdata.js`AGPL自由许可（欢迎来添加引擎数据哦🌱。或者，你觉得有什么比AGPL更适合这些数据的许可🍀）。若需要整个项目的自由许可，欢迎讨论💚（open an issue）。
 

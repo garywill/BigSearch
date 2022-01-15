@@ -250,8 +250,8 @@
                         <span class='lang lang-zh'>随机换</span><span class='lang lang-en'>Change</span>                    </a></button>
                     </div>
 
-                    <button class="general_btn main_btns btmbtn" id="btn_source" name="source"  ><a target="_blank" href="https://github.com/garywill/BigSearch">
-                        <span class='lang lang-zh'>源代码 / 用户手册</span><span class='lang lang-en'>Source Code / User Manual</span>                    </a></button>
+                    <button class="general_btn main_btns btmbtn" id="btn_source" name="source"  ><a href="#source">
+                        <span class='lang lang-zh'>源代码 | 用户手册</span><span class='lang lang-en'>Source Code | User Manual</span>                    </a></button>
                     
                     <button class="general_btn main_btns btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
                         <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                        <span class="badge_cont" style="">
@@ -261,28 +261,46 @@
                         
     <button class="general_btn main_btns btmbtn" id="btn_donate" name="donate"  >
         <a href="#donate">
-            <span class='lang lang-zh'>扫码打赏 / 领支付宝红包</span><span class='lang lang-en'>Buy me a coffee</span>            <span class="badge_cont" style="">
+            <span class='lang lang-zh'>扫码打赏 | 领支付宝红包</span><span class='lang lang-en'>Buy me coffee</span>            <span class="badge_cont" style="">
                 <span class="badge" >^_^</span>
             </span>
         </a>
     </button>
     <button class="general_btn main_btns btmbtn" id="btn_about" name="about"  ><a href="#about" >
-        <span class='lang lang-zh'>关于 / 更多工具</span><span class='lang lang-en'>About / More Tools</span>    </a></button>
+        <span class='lang lang-zh'>关于</span><span class='lang lang-en'>About</span>    </a></button>
     
                     </div>
                 
                 <div class="btm_dialog" id="btn_theme_dialog">
                     
                     <a name="theme" ></a>
-                    <h3> <span class='lang lang-zh'>外观主题（试验中）</span><span class='lang lang-en'>UI Themes (experimental)</span> </h3>
+                    <h3> <span class='lang lang-zh'>外观主题</span><span class='lang lang-en'>UI Themes</span> </h3>
                     
                     <div id="div_choose_themes" style="text-align: left;" >
-                        <div>
-                        <span class='lang lang-zh'>注意各主题正在测试中，将来有可能变更</span><span class='lang lang-en'>Note these themes are being tested. They may change in future release</span>                        </div><br>
+                        
                     </div>
 
                 </div>
+                
+                <div class="btm_dialog" id="btn_source_dialog">
+                    
+                    <a name="source" ></a>
+                    <h3> <span class='lang lang-zh'>源代码</span><span class='lang lang-en'>Source code</span> </h3>
+                    
+                    <div style="text-align: left;">
+                        <span class='lang lang-zh'>查阅源代码 及 阅读简明的 介绍 和 用户手册：</span><span class='lang lang-en'>Read the Source Code and the Introduction and User Manual:</span>                        
+                        <ul>
                         
+                        <li>Github: <a target="_blank" href="https://github.com/garywill/BigSearch">garywill/BigSearch </a>  </li>
+                        
+                        <span class="lang lang-zh">
+                            <li>Gitlab: <a target="_blank" href="https://gitlab.com/garywill/bigSearch/-/blob/master/src/README_zh.md">备用镜像 </a>  </li>
+                        </span>
+                        
+                        </ul>
+                    </div>
+                </div>
+                
                 <div class="btm_dialog" id="btn_webext_dialog">
                     
                         <a name="webext" ></a>
@@ -299,9 +317,15 @@
                                     <span class='lang lang-zh'> 或 </span><span class='lang lang-en'> or </span>                                    <a class="webext_link" id="webext_crx" target="_blank" href="https://gitlab.com/garywill/releaseapps-dl/-/tree/main">
                                     <span class='lang lang-zh'>下载 .crx</span><span class='lang lang-en'> download .crx</span>                                    </a>
                                     <br>
-                                    <span class='lang lang-zh'>Google Chrome / Microsoft Edge / 搜狗 / 360 / 其余国产浏览器 等</span><span class='lang lang-en'>Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.</span>                                <br><br></li>
+                                    <span class='lang lang-zh'>Google Chrome / Microsoft Edge / 搜狗(部分) / 360(部分) / 其余国产浏览器 等</span><span class='lang lang-en'>Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.</span>                                <br><br></li>
 
                             </ul>
+                            <div id="div_addon_badges">
+                            <a href="https://addons.mozilla.org/firefox/addon/big-search/"><img nsrc="https://img.shields.io/amo/v/big-search?style=flat-square&amp;color=success"  loading="lazy"  /></a> 
+                            <a href="https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb"><img nsrc="https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&amp;color=success"  loading="lazy"  /></a> 
+                            <a href="https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc"><img nsrc="https://img.shields.io/badge/dynamic/json?style=flat-square&amp;color=inactive&amp;label=edge%20add-on&amp;prefix=v&amp;query=%24.version&amp;url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc"  loading="lazy" /></a>
+
+                            </div>
                         </div>
                 </div>
                 
@@ -315,7 +339,21 @@
                             <ul>
                             <li>输入后，<b>点击</b>表格<b>右列中</b>的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）。将打开新分页显示结果。<br><br></li>
                             <li>最后使用过的按钮被加亮显示，下次敲击回车即可再次调用（如果处于同一分类）。<br><br></li>
-                            <li>双击搜索历史中的条目，快速将条目插入至输入框。（单行编辑状态下，双击为替换全部；多行编辑状态下，双击为插入至光标处）<br><br></li>
+                            <li>双击搜索历史中的条目，快速将条目插入至输入框
+                                <ul>
+                                <li>单行编辑状态下，双击为替换文本</li>
+                                <li>多行编辑状态下，双击为插入至光标处<br><br></li>
+                                </ul>
+                            </li>
+                            <li>记得<b>选</b>一个你自己顺眼的界面风格和<b>颜色</b>哦～<br><br></li>
+                            
+                                <li><strong>快捷键</strong>唤出界面。默认为： 
+                                    <ul>
+                                    <li>Firefox: Ctrl+Alt+S （<a target="_blank" href="https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647">更改方法</a>）</li>
+                                    <li>Chrome及其他：Ctrl+Shift+S （更改方法： <a target="_blank" href="chrome://extensions/shortcuts">chrome://extensions/shortcuts</a>）</li>
+                                    </ul><br><br>
+                                </li>
+                            
                             </ul>
 
                             <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video (Youtube)</a>
@@ -326,9 +364,28 @@
                             <p>Handily use / switch <strong>any one</strong> or <strong>multiple (uninterruptedly)</strong> <strong>search engines</strong> (or search any websites) via a <strong>flexible tool</strong>.</p>
 
                             <ul>
-                            <li>After finish inputting, <b>click</b> button(s) in the <b>right column</b> of the table to perform an operation (e.g. search) for the corresponding website (or database). A new page will be opened to display the results. <br><br></li>
+                            <li>After finish inputting, <b>click</b> button(s) in the <b>right column</b> of the table to perform an operation (e.g. search) in the corresponding engine (or website/database). A new page will be opened to display the results. <br><br></li>
                             <li>The last used button is highlighted, and it can be called again by pressing Enter (if in the same catagory). <br><br></li>
-                            <li>Double-click an entry in the history to quickly insert the entry text to the input box. (In single-line edit mode, double-clicking replaces all text; In multi-line edit mode, double-clicking inserts to cursor) <br><br></li> 
+                            <li>Double-click an entry in the history to quickly insert the entry text to the input box 
+                                <ul>
+                                <li>In single-line edit mode, double-clicking replaces the text </li>
+                                <li>In multi-line edit mode, double-clicking inserts to cursor</li>
+                                <br><br>
+                                </ul>
+                            </li>
+                            <li>Don't forget to <b>choose</b> a UI style and <b>color</b> nice to your eyes ~<br><br></li> 
+                            
+                            
+                            
+                                <li><strong>Keyboard shortcut</strong> to open (browser addon). Default key is： 
+
+                                <ul>
+                                <li>Firefox: Ctrl+Alt+S (<a target="_blank" href="https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647">how to change</a>)</li>
+                                <li>Chrome &amp; others：Ctrl+Shift+S (to change: <a target="_blank" href="chrome://extensions/shortcuts">chrome://extensions/shortcuts</a>)</li>
+                                </ul><br><br>
+                                </li>
+
+                                                        
                             </ul>
                             
                             <a href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
@@ -340,7 +397,7 @@
                                     </div>
                     <div class="btm_dialog" id="btn_donate_dialog" style="display:none;" >
         <a name="donate" ></a>
-        <h3><span class='lang lang-zh'>扫码领红包 + 打赏一个吧</span><span class='lang lang-en'>Buy me a coffee</span></h3>
+        <h3><span class='lang lang-zh'>扫码领红包 + 打赏一个</span><span class='lang lang-en'>Buy me a coffee</span></h3>
         <span class='lang lang-zh'>建造不易，感谢支持！你们的赞赏是我们的动力！</span><span class='lang lang-en'>Thank you for recognizing and giving reward for our work! Your donation will be an impetus for us!</span>        
         <br/>
         <a target="_blank"  href="https://github.com/garywill/receiving/blob/master/receiving_methods.md">
@@ -388,7 +445,7 @@
 		
 		<div id="footer">
             <div class="lang lang-zh">版权所有  保留所有权利</div>
-            <div>Copyright 2015 - 2500   All Rights Reserved.</div>
+            <div>Copyright 2008 - 2022 ( -- 2050+) <br> All Rights Reserved.</div>
         </div>
 		
 		<div id="floater">

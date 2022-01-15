@@ -1,5 +1,7 @@
 English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_zh.md)
 
+[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+
 # Big Search
 
 Handily use / switch **any one** or **multiple (uninterruptedly)** **search engines** (or search any websites) via a **flexible tool**.
@@ -9,11 +11,6 @@ Search everywhere 🗺️ for everything 👨‍💻, as you choose & 🖱️ cl
 Breadth & Focus.
 </p>
 
-Cross-browser tool. Highly customizable on engines data.
-
-We used to do web search step by step. 🐢<br>
-We now can do web search efficiently and concurrently. 🚀
-
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 ## To use
@@ -22,12 +19,12 @@ Ways to use:
 
 1. Browser extension (**recommended**)
    Install extension to let it fully function
-   - [Firefox Addon](https://addons.mozilla.org/firefox/addon/big-search/) 
-   - [Chrome Addon](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) or [download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main). For: Google Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.
+   - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
+   - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) or [download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main). For: Google Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.
 
 2. Web App: Web app can't function fully like extension. Not as convenient as extension. Web app can be used on mobile browsers
-   - Main site: https://acsearch.ga
-   - Standby site: http://acsearch.tk
+   - Main site: [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga)
+   - Standby site: [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
    
 ## Demo and Screenshots
 
@@ -36,8 +33,8 @@ Ways to use:
 
 | Screenshots                                                                       |                                                                                           |                                        |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
-| Extension UI                                                                      | Context selection search                                                                  | Choose UI style |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |  ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |
+| Use Extension    | UI Styles, simplicity or fancy | Context selection search  | 
+| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |  
 | Use web app without install                                                       | Mobile UI (beta) (web app)                                                                 |                                        |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   |                                        |
 
@@ -53,7 +50,7 @@ Or, use as universal web searching home, portal for people expecting good search
 
 [Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-(**↑ Experienced users may prefer an intuitive horizontal comparison table than many texts and pictures below**)
+(**↑ Experienced users may prefer intuitive horizontal comparison than text doc**)
 
 ## Features
 
@@ -228,7 +225,7 @@ Engine data in full format can contain following key-values:
 
 Some websites doesn't accept GET or POST. Visitor need to open their page and input, then they show search results on page via Ajax.
 
-Big Search browser extension supports searching in such Ajax-only websites.
+Big Search browser extension supports searching in such Ajax-only websites. And very easy to configure.
 
 <details>
 
@@ -256,8 +253,9 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
   - **Cross-engine** use: Call another engine (or it's certain button action) to do the action
   - String formatting user's input, according to engine's need
   - Combining above two to search websites that don't support search
-- **Ajax-only** websites support
+- **Ajax-only** websites support ([details](#Ajax-Instructions))
 - Support **multi-line** inputting and sending
+- Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and components-used))
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 
@@ -284,6 +282,30 @@ Maybe it can do something more:
 
 > If you want some search engines to be included by us, add/submit it to `enginesdata.js`, it is the core data of Big Search.
 
+### Third-party libraries and components used
+
+**Fast** and **lightweight**: NO heavy framework or library dependencies. Although it has UI themes of both simplicify & fancy, all main features and UI are pure JS + CSS. ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+
+<details>
+
+- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (81kB not minified. Data compression library, only for user-custom engines sync)
+  
+  ```
+  Copyright (c) 2021, Rotem Dan
+  Released under the MIT license.
+  ```
+  
+- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (37kB webp. Default background photo)
+  
+  by Quang Nguyen Vinh
+  
+
+- [Unicons icon](https://github.com/Iconscout/unicons) (svg)
+  
+  Unicons by [Iconscout](https://iconscout.com/)
+  
+</details>
+
 ### Globalization
 
 <details>
@@ -301,33 +323,13 @@ If you want to add a search engine that only targets users in a certain language
 
 </details>
 
-### Third-party libraries and components used
-
-<details>
-
-- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (data compression)
-  
-  ```
-  Copyright (c) 2021, Rotem Dan
-  Released under the MIT license.
-  ```
-- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (background photo)
-  
-  by Quang Nguyen Vinh
-  
-
-- [Unicons icon](https://github.com/Iconscout/unicons) 
-  
-  Unicons by [Iconscout](https://iconscout.com/)
-</details>
-
 ### History, Code Status, and License
 
 <details>
 
 A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently. Not full-time)
 
-The core part's code has been ever refactored. Although some UI code is not enough to be called awesome, **this tool has always been very useful.** Please be generous giving a star 🌟 if you like it.
+Some code has been ever (and may still getting) refactored. Although there's still some some aged parts, this tool has **always been handy, useful and modern.** Please be generous giving a star 🌟 if you like it.
 
 Have given the engines data `enginesdata.js` AGPL FLOSS license (so welcome adding data 🌱. Or, if you know any license properer for this data 🍀). Feel free to discuss (open an issue) if want FLOSS license for this whole project 💚.
 
