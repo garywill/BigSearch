@@ -172,29 +172,41 @@ function init_themeHandler() {
         
         this.themes = {
             "default" : {  },
+            "Foggy_Lake__Blue": {
+                d_name: "Foggy Lake - Colorful Blue + Green",
+                need_theme: "Foggy_Lake",
+            },
             "Foggy_Lake__Green": {
                 need_theme: "Foggy_Lake",
                 need_sty: [],
             },
-            "Foggy_Lake__Grey_3": {
-                d_name: "Foggy Lake (faded head)",
-                need_theme: "Foggy_Lake",
-            },
+            
             "Foggy_Lake": {
-                d_name: "Foggy Lake (with blue color)",
+                d_name: "Foggy Lake (some blue)",
                 need_sty: ["bold"],
             },
+            "Foggy_Lake__Grey_3": {
+                d_name: "Foggy Lake (some blue, faded head)",
+                need_theme: "Foggy_Lake",
+            },
             "Foggy_Lake__Grey": {
-                d_name: "Foggy Lake (blue head & grey buttons & faded selection)",
+                d_name: "Foggy Lake (Grey: blue head, grey buttons, faded selection)",
                 need_theme: "Foggy_Lake",
             },
             "Foggy_Lake__Grey_2": {
-                d_name: "Foggy Lake (faded blue header)",
+                d_name: "Foggy Lake (Grey + faded head)",
                 need_theme: "Foggy_Lake__Grey",
             },
+            
             "Light_and_Grey": {},
+            "Light_and_Grey_2": {
+                need_theme: "Light_and_Grey"
+            },
             "Light_and_Black": {
                 need_theme: "Light_and_Grey"
+            },
+            "Grey_Table": {
+                d_name: "Focus (focus on the table)"
             },
             "no": {
                 d_name: "No Theme (ugly)"
@@ -204,7 +216,7 @@ function init_themeHandler() {
         this.getDefaultTheme = function() {
             if (window.run_env == "http_web")
                 if ( ! mobile ) // desktop http
-                    return "Foggy_Lake__Grey_3";
+                    return "Foggy_Lake__Blue";
                 else  // mobile http
                     return "Light_and_Grey";
             else  // addon 
@@ -216,8 +228,8 @@ function init_themeHandler() {
             var label_text = "";
             
             if (theme == "default") {
-                label_text = i18n(["默认主题" , "Default Theme"]);
-                label_text += ` (${this.getThemeDisplayName(this.getDefaultTheme())})`
+                label_text = i18n(["默认" , "Default"]);
+                label_text += `: [ ${this.getThemeDisplayName(this.getDefaultTheme())} ]`
                 
             }
             else 

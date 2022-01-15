@@ -8,6 +8,8 @@ body {
     --cata-btns-weight: bold;
     --cata-btns-cl: #4e4f57;
     --cata-btns-tshadow: 0px 0px 4px white;
+/*     --cata-btns-tshadow: 1px 1px white, 0px 0px 4px white, 0px 0px 2px white; */
+/*     --cata-btns-highlight-tshadow: 1px 1px white; */
     --cata-btns-bg-cl: rgba(218, 218, 219, 0.23);
     
     --cata-btns-hover-cl: #11111c;
@@ -19,18 +21,21 @@ body {
     --labelrow-bg-cl: rgba(202, 228, 234, 0.7);
     --labelrow-cl: #6c6969;
     
-    --engine-tr-bg-cl: rgba(224, 232, 246,0.3);
+/*     --engine-tr-bg-cl: rgba(224, 232, 246,0.3); */
+    --engine-tr-bg-cl: rgba(204, 210, 221, 0.3);
     --engine-tr-hover-bg-cl: rgba(0, 167, 0, 0.67);
     
     --enginename-td-cl: #077500;
     --enginename-td-cl-when-tr-hover: orange;
+    --enginename-tshadow-when-tr-hover: 1px 1px black;
     
     --gobutton-btm-line: 3px;
     --gobutton-cl: #353535;
+    --gobutton-cl-hover: #f0f0f0;
     --gobutton-bg-cl: transparent;
     
     --gobutton-cl-when-tr-hover: #f0f0f0;
-    --gobutton-text-shadow-when-tr-hover: 1px 1px black;
+    --gobutton-text-shadow-when-tr-hover: 1px 1px black, 0px 0px 3px black;
     --gobutton-bg-cl-hover: rgb(7, 196, 7);
     --gobutton-btm-line-hover-cl: orange;
     
@@ -68,9 +73,6 @@ body {
     /* text-shadow: #c1d7ff 1px 1px 2px; */
 }
 
-#intitle , #intitle a{ 
-    color: var(--intitle-cl); 
-}
 
 #inputbox {  
     box-shadow: 1px 1px 2px #60a7fb; 
@@ -115,19 +117,10 @@ body.addon.en {
     color: #ddd;
 }
 
-
-
-
-.engine_tr:hover .enginename_td a {  
-    text-shadow: 1px 1px black; 
-}
-
 .gobutton:hover {  
     box-shadow: 0px 3px 10px black; 
 }
-.engine_tr:hover .engbtns_td .gobutton {
-    text-shadow: var(--gobutton-text-shadow-when-tr-hover);
-}
+
 #lastp {
     box-shadow: 1px 0px 4px blue;  
 }
@@ -148,4 +141,25 @@ body.addon.en {
 #hot_badge {
     background-color: rgba(255, 0, 0, 0.65); 
     color: white;
+}
+
+#engines_o_cont:hover {
+/*     box-shadow: 0px 0px 5px #999; */
+}
+#engines_table:hover .enginename_td {
+    background-color: rgba(255,255,255, 0.25);
+    border-radius: 2px;
+}
+
+#catas_cont:hover
+{
+    background-color: rgba(255,255,255,0.25);
+    border-radius: 3px;
+}
+/*#engines_cont:hover {
+    background-color: rgba(200,200,200, 0.2);
+}*/
+#input_cont:hover {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 3px;
 }

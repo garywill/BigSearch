@@ -147,20 +147,22 @@ a {
 }
 
 
-#intitle , #intitle a{ 
-    text-decoration: none;
-    height: var(--intitle-height);
-    max-height: var(--intitle-height);
-}
 
 .main_td {
     display:inline;
 }
 
 
-#index_title  { 
+#intitle , #intitle a{ 
+    text-decoration: none;
+    height: var(--intitle-height);
+    max-height: var(--intitle-height);
+    color: var(--intitle-cl); 
+}
+#index_title, #index_title a  { 
     display: inline;  
     margin-left: 10px;
+    color: var(--index-title-cl);
 }
 #index_subtitle { 
     display: inline;  
@@ -319,11 +321,14 @@ a {
 }
 
 #engines_o_cont{
+    border-bottom: 1px solid #d0d7de88;
+
     max-height: var(--engines-o-cont-height-max);
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
     scrollbar-width: thin;
+    
 }
 
 #engines_o_cont::-webkit-scrollbar {
@@ -358,6 +363,15 @@ a {
 }
 #engines_cont, #engines_o_cont { 
     width: var(--table-width); 
+}
+#hr_above_table {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #d0d7de55;
+    border-bottom: 0;
+    
 }
 #engines_table { 
     text-align: left; 
@@ -402,6 +416,10 @@ a {
 }
 .engine_tr:hover .enginename_td a {  
     color: var(--enginename-td-cl-when-tr-hover);  
+    text-shadow: var(--enginename-tshadow-when-tr-hover);
+}
+.engine_tr:hover .engbtns_td .gobutton {
+    text-shadow: var(--gobutton-text-shadow-when-tr-hover);
 }
 
 .d_addi_html a:hover { 
@@ -437,11 +455,12 @@ a {
     color: var(--gobutton-cl); 
     background-color: var(--gobutton-bg-cl); 
 }
-.gobutton:hover {  
+.gobutton:hover , .engine_tr:hover .gobutton:hover{  
+    color: var(--gobutton-cl-hover);
     background-color: var(--gobutton-bg-cl-hover); 
     border-bottom-color:var(--gobutton-btm-line-hover-cl);
 }
-.engine_tr:hover .engbtns_td .gobutton {
+.engine_tr:hover  .gobutton {
     color: var(--gobutton-cl-when-tr-hover);
 }
 
@@ -451,7 +470,9 @@ a {
     background-color: var(--lastp-bg-cl);
     text-shadow: var(--lastp-text-shadow);
 }
-
+.engine_tr:hover .engbtns_td #lastp:hover { 
+    background-color: var(--lastp-bg-cl-hover);
+}
 
 
 
@@ -527,6 +548,7 @@ a {
 .cata_btn_highlight {
     color: var(--cata-btns-highlight-cl); 
     background-color: var(--cata-btns-highlight-bg-cl);
+    text-shadow: var(--cata-btns-highlight-tshadow);
 }
 .cata_btn_highlight span { 
     border-bottom: 2px solid var(--cata-btns-highlight-underline-cl);
@@ -559,6 +581,7 @@ a {
 }
 #hist { 
     /*! max-width: 250px; */ 
+    border-radius: 4px;
     height: calc( var(--wrapper-height) - var(--general-btn-font-size) - var(--hist-ban-font-size)); 
     overflow-y: scroll; 
     border: 1px solid gray;
@@ -566,7 +589,9 @@ a {
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
     min-width: 100px;
-
+}
+#hist:hover {
+    background-color: rgba(255,255,255,0.6);
 }
 .hist_item { 
     font-size: 14px; 
@@ -647,6 +672,8 @@ a {
     background-color: rgba(255,255,255,0.3);
     margin-top: 10px;
     font-size: 15px;
+    position: relative;
+}
 }
 #ourmail { /* color:blue; */ }
 #ourmail:hover { text-decoration: underline; }

@@ -952,7 +952,10 @@ async function cata_onclick(btnobj)
 {
     const engines_cont = document.getElementById("engines_cont");
     
-    engines_cont.innerHTML = "";
+    //engines_cont.innerHTML = "";
+    var oldTable = engines_cont.querySelector("#engines_table");
+    if (oldTable)
+        oldTable.parentNode.removeChild(oldTable);
     
     if (btnobj.getAttribute("source")=="user")
     {
