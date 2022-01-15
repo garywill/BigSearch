@@ -65,7 +65,10 @@
 - 📋 可保存、**复用**和管理你的输入历史（仅保存在浏览器本地localStorage）
 - 🖱️ 快速将**选择**的网页上的文本作为搜索词（扩展。右键菜单）
   > - Firefox无痕模式中无
-  > - Chrome中点了右键菜单后，需再点击工具栏中的图标
+  > - Chrome中点了右键菜单后，再点击工具栏中的图标（或使用快捷键）
+- ⌨️ **快捷键**唤出界面（扩展）。默认为： 
+  - Firefox: Ctrl+Alt+S （[更改方法](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647)）
+  - Chrome及其他：Ctrl+Shift+S （更改方法： [chrome://extensions/shortcuts](chrome://extensions/shortcuts)）
 - 🖥️ 支持**桌面**设备（扩展或网页）和**移动**设备（网页）
 
 ### 安全性和隐私

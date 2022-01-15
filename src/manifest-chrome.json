@@ -27,6 +27,13 @@
         "default_title": "__MSG_extensionName__",
         "default_popup": "addon-popup.html"
     },
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S"
+            }
+        }
+    },
     "options_ui": {
         "page": "options.html"
     },

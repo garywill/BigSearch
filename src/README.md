@@ -64,7 +64,10 @@ Or, use as universal web searching home, portal for people expecting good search
 - 📋 Save, **reuse** and manage your input history (only saved locally in the browser localStorage)
 - 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, context menu) 
   > - Not in Firefox incognito mode
-  > - On Chrome, after clicking context menu item, click the icon on toolbar
+  > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut)
+- ⌨️ **Keyboard shortcut** to open (browser addon). Default key is： 
+  - Firefox: Ctrl+Alt+S ([how to change](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647))
+  - Chrome & others：Ctrl+Shift+S (to change: [chrome://extensions/shortcuts](chrome://extensions/shortcuts))
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 
 ### Safety & Privacy
