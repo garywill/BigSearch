@@ -249,11 +249,17 @@ function init_themeHandler() {
                 old.remove();
             }
         };
+        this.setRadioChecked = async function (theme) {
+            document.querySelector(`.radios_themes[value=${theme}`).checked = true;
+        };
         this.init_theme = function(theme) {
             if (!theme || theme == "default" || this.themes[theme] === undefined) 
                 theme = this.getDefaultTheme();
             
             this.clean_theme();
+            
+            if (theme == "no")
+                return;
             
             var themeInfo = this.themes[theme];
             
@@ -267,7 +273,7 @@ function init_themeHandler() {
                 }
                 
             this.addCss(theme);
-            
+
         };
         this.addCss = function(file) {
             var csstag = document.createElement("link");
@@ -284,8 +290,6 @@ function init_themeHandler() {
                 delete localStorage['theme'];
         }
         
-        this.init_theme(localStorage['theme']);
-        
         var themes_names = Object.keys(this.themes);
         for (var i=0; i<themes_names.length; i++)
         {
@@ -296,6 +300,7 @@ function init_themeHandler() {
             radio.setAttribute("type", "radio");
             radio.setAttribute("name", "theme");
             radio.setAttribute("value", tm);
+            radio.classList.add("radios_themes");
             
             var radio_id = `id_themeradio__${tm}`;
             radio.id = radio_id;
@@ -321,6 +326,28 @@ function init_themeHandler() {
             
         }
         
+        this.init_theme(localStorage['theme']);
+        
+        document.getElementById("btn_randomtheme").onclick = function() {
+            const oldName = localStorage['theme'];
+            
+            const tNames = Object.keys(themeHandler.themes);
+            
+            function getNewRandomTheme() {
+                var N = getRandomInt(tNames.length -2) +1 ; // last one is 'no'. first one is default
+                var name = tNames[N];
+                return name;
+            }
+            
+            var newName;
+            do {
+                newName = getNewRandomTheme();
+            } while ( newName == oldName )
+            
+            themeHandler.init_theme(newName);
+            themeHandler.setRadioChecked(newName);
+            localStorage['theme'] = newName;
+        }
     } ();
 }
 
