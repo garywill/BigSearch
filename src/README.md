@@ -33,7 +33,7 @@ Ways to use:
 
 | Screenshots                                                                       |                                                                                           |                                        |
 | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
-| Use Extension    | UI Styles, simplicity or fancy | Context selection search  | 
+| Use Extension    | UI Styles, Simplicity or Fancy | Context selection search  | 
 | ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |  
 | Use web app without install                                                       | Mobile UI (beta) (web app)                                                                 |                                        |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   |                                        |
@@ -344,7 +344,7 @@ If you want to add a search engine that only targets users in a certain language
 
 A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently. Not full-time)
 
-Some code has been ever (and may still getting) refactored. Although there's still some some aged parts, this tool has **always been handy, useful and modern.** Please be generous giving a star 🌟 if you like it.
+Some code has been ever (and may still getting) refactored. Although there's still some some aged parts, this tool has **always been modern, handy & useful**.
 
 Have given the engines data `enginesdata.js` AGPL FLOSS license (so welcome adding data 🌱. Or, if you know any license properer for this data 🍀). Feel free to discuss (open an issue) if want FLOSS license for this whole project 💚.
 

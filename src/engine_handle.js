@@ -172,7 +172,10 @@ function createEngineTr(e_name,source=null){
     
     var td_enginebuttons = document.createElement("td");
     tr.appendChild(td_enginebuttons);
-    td_enginebuttons.title = i18n(['要进行操作（如搜索），请输入后点击相应的按钮', 'To do an action (e.g. search), input text then click a button']);
+    
+    if (window.run_env == "http_web")
+        td_enginebuttons.title = i18n(['要进行操作（如搜索），请输入后点击相应的按钮', 'To do an action (e.g. search), input text then click a button']);
+    
     td_enginebuttons.className = "engbtns_td";
     
     if ( db(source).sEngines[e_name].btns === undefined )
@@ -198,7 +201,12 @@ function createEngineTr(e_name,source=null){
                 else
                     btn.setAttribute("source", "bigsearch");
                 btn.addEventListener('click', function () {ebtn_onclick(this);} );
-                btn.title = btns[key].btn_tip ? btns[key].btn_tip : i18n(["在上面的输入框中输入后，点击进行相应操作", "Input text into above box, then click to do corresponding action"]);
+                
+                if (btns[key].btn_tip)
+                    btn.title = btns[key].btn_tip 
+                else if (window.run_env == "http_web")
+                    btn.title = i18n(["在上面的输入框中输入后，点击进行相应操作", "Input text into above box, then click to do corresponding action"]);
+                
                 btn.textContent = btns[key].label;
                 parent.appendChild(btn);
             }

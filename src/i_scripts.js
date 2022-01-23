@@ -626,6 +626,7 @@ onrd.push(function(){
         {
             setStor("usercustom_engines", textarea.value); 
             document.getElementById("textarea_json_saved").value = textarea.value;
+            alert(i18n([ "OK！\n解析并保存成功", "OK!\nSucessfully parsed and saved"]));
         }else{
             var compressed;
             //compressed = LZString.compressToUint8Array(textarea.value);
