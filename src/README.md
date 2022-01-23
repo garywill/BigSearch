@@ -55,9 +55,9 @@ Or, use as universal web searching home, portal for people expecting good search
 ## Features
 
 - 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. (And **even** [**works** with those that **don't** support GET/POST](#Ajax-Instructions))
-  > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc. Or the stock of a supermarket near your home (if it supports). Customizable. 50+ build-in.
+  > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc. Or the stock of a supermarket near your home (if it supports). Customizable. 50+ built-in.
 - 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable in extension)
-- 🔎 Support using **browser-installed** search engines (extension. So can directly use those you've added into browser. Only Firefox)
+- 🔎 Support using **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
 - 🗂️ Search engines **categorization**
 - 🖋️ Single-line or **multi-line** input and sending
   > Useful when for e.g. you want to have article paragraphs translated
@@ -73,17 +73,17 @@ Or, use as universal web searching home, portal for people expecting good search
 
 ### Safety & Privacy
 
-- 🛡️ Minimun default permissions. Won't ask for sensitive permissions **until** needed. (Browser extension)
-- 🛡️ Pure **client-side** tool functions fully. No necessary server. No collecting user's input. (extension and web app)
+- 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed. (browser extension)
+- 🛡️ Pure **client-side** tool functions fully. No necessary server. No collecting user's input. (browser extension and web app)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy.
-- 🛡️ Browser extension **doesn't inject** anything to webs. (except when using those engines requiring Ajax)
+- 🛡️ Browser extension **does not inject** anything to web sites. (except when using engines that require Ajax)
 
 ## How to edit search engines
 
 Generally, you only need to write JSON and have basic http request knowledge about GET/POST. 
 
 The method described here to add or edit an engine is for both:
-1. Big Search build-in search engines
+1. Big Search built-in search engines
 2. User-defined private engines
 
 ### Examples
@@ -294,9 +294,9 @@ Maybe it can do something more:
 
 ## For Developers
 
-> We encourage user to submit their customized search engines data to us after they use JSON customing. Search engines data is AGPL licensed FLOSS.
+> We encourage user to submit their customized search engines data to us after they format as JSON. Search engines data is AGPL licensed FLOSS.
 
-> If you want some search engines to be included by us, add/submit it to `enginesdata.js`, it is the core data of Big Search.
+> If you want some search engines to be included by us, add/submit it to `enginesdata.js`. It is the core data of Big Search.
 
 ### Third-party libraries and components used
 
@@ -326,7 +326,7 @@ Maybe it can do something more:
 
 <details>
 
-Because there are currently only 2 languages, no framework used yet, only a simple function to implement multi-language. 
+Because there are currently only 2 languages supported, no framework used yet, only a simple function to implement multi-language. 
 
 For strings that you want it to be multi-language (it's okay to leave it English only, also), use JS function `i18n()`, whose input parameters can be:
 
@@ -343,7 +343,7 @@ If you want to add a search engine that only targets users in a certain language
 
 <details>
 
-A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently. Not full-time)
+A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently, not full-time.)
 
 Some code has been ever (and may still getting) refactored. Although there's still some some aged parts, this tool has **always been modern, handy & useful**.
 
