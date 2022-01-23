@@ -330,7 +330,7 @@ If you want to add a search engine that only targets users in a certain language
 
 <details>
 
-A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently, tot full-time.)
+A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently, not full-time.)
 
 Some code has been ever (and may still getting) refactored. Although there's still some some aged parts, this tool has **always been handy, useful and modern.** Please be generous giving a star 🌟 if you like it.
 
