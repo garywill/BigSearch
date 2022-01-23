@@ -21,14 +21,29 @@ if (window.run_env != "http_web")
     isChrome = chrome.runtime.getURL('').startsWith('chrome-extension://');
 }
 
-async function get_addon_setting(key) {
-    
+async function get_addon_setting_local(key) {
+    return ( await get_addon_setting(key, true) ) ;
+}
+
+async function get_addon_setting(key, local=false) {
+    var storageType;
+    if (isFirefox) {
+        if (local)
+            storageType = browser.storage.local;
+        else
+            storageType = browser.storage.sync;
+    }else if (isChrome) {
+        if (local)
+            storageType = chrome.storage.local;
+        else
+            storageType = chrome.storage.sync;
+    }
     
     function getAllStorageSyncData() { // Chrome only
     // Immediately return a promise and start asynchronous work
         return new Promise((resolve, reject) => {
             // Asynchronously fetch all data from storage.sync.
-            chrome.storage.sync.get(null, (items) => {
+            storageType.get(null, (items) => {
             // Pass any observed errors down the promise chain.
             if (chrome.runtime.lastError) {
                 return reject(chrome.runtime.lastError);
@@ -41,9 +56,9 @@ async function get_addon_setting(key) {
     
     if (isFirefox)
         if ( ! key)
-            return (await browser.storage.sync.get());
+            return (await storageType.get());
         else
-            return (await browser.storage.sync.get())[key];
+            return (await storageType.get())[key];
     else if (isChrome)
     {
         if ( ! key)
