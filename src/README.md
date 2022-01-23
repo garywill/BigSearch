@@ -166,6 +166,17 @@ Also, mixing short formatted and full formatted elements is supported.
         "addr": "https://developer.chrome.com/docs/extensions/reference/",
         "action": "https://developer.chrome.com/docs/extensions/reference/",
         "ajax": ".search-box__input"
+    },
+    
+    "label_many": { "lstr": "Many Engines at once" },
+    "many_once" : {
+        "dname": "Many Engines at once",
+        "btns": {
+            "gg_ddg": {
+                "label": "Google + DDG",
+                "use_other_engine": ["google", "duckduckgo"]
+            }
+        }
     }
 }
 ```
@@ -208,7 +219,7 @@ Engine data in full format can contain following key-values:
                     // # so {key: "option", val: "searchall"},
                 ],
                 "full_url": "http://www.example.com/search/{0}", // # optional, the entire url using get method
-                "use_other_engine": {   // # optional, use another engine to do the operation
+                "use_other_engine": {   // # optional, use another engine to do the operation. (if use array here, then do many operations by a button at once)
                     "source": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
                     "engine": "engine name", 
                     "btn": "button name"   // # Optional. Absence will make fallback to the first button
@@ -259,6 +270,7 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 - **Ajax-only** websites support ([details](#Ajax-Instructions))
 - Support **multi-line** inputting and sending
 - Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
+- Do many operations at once by a button
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 

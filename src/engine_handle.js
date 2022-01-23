@@ -371,10 +371,15 @@ async function goEngBtn(engine,btn,keyword,source=null)
     
     // ====JUDGE UOEF===begin===
     if (data.use_other_engine !== undefined){
-        if ( typeof(data.use_other_engine) === "string" ) {
-            data.use_other_engine = { "engine" : data.use_other_engine };
+        if (Array.isArray(data.use_other_engine)  ) {
+            data.use_other_engine.forEach( function(ele) {
+                go_parse_use_other_engine(ele, keyword);
+            });
+        } else {
+            go_parse_use_other_engine(data.use_other_engine, keyword)
         }
-        goEngBtn( data.use_other_engine.engine, data.use_other_engine.btn , keyword, data.use_other_engine.source);
+        
+        
         return;
     }
     
@@ -548,6 +553,13 @@ async function goEngBtn(engine,btn,keyword,source=null)
         
         
     }
+}
+function go_parse_use_other_engine(element, keyword) {
+    if ( typeof(element) === "string" ) 
+    {
+        element = { "engine" : element };
+    }
+    goEngBtn( element.engine, element.btn , keyword, element.source);
 }
 
 function go_full_url(keyword, full_url, charset="UTF-8",referer=false){

@@ -170,6 +170,17 @@
         "addr": "https://developer.chrome.com/docs/extensions/reference/",
         "action": "https://developer.chrome.com/docs/extensions/reference/",
         "ajax": ".search-box__input"
+    },
+    
+    "label_many": { "lstr": "Many Engines at once" },
+    "many_once" : {
+        "dname": "Many Engines at once",
+        "btns": {
+            "gg_ddg": {
+                "label": "Google + DDG",
+                "use_other_engine": ["google", "duckduckgo"]
+            }
+        }
     }
 }
 ```
@@ -212,7 +223,7 @@ JSON格式。
                     // # 则 {key: "option", val: "searchall"},
                 ],
                 "full_url": "http://www.example.com/search/{0}",   // # 可选，使用get method时的整个url
-                "use_other_engine": {   // # 可选，使用另一个引擎来操作
+                "use_other_engine": {   // # 可选，使用另一个引擎来操作。（如果是个数组，则可一次调用多个操作）
                     "source": "bigsearch/user/browser",   // # 可选，另一个引擎的数据来源（3个可能来源数据库）：大术专搜内建库（缺省）/用户自定库/浏览器内置库
                     "engine": "引擎名", 
                     "btn": "按钮名"    // # 可选。无则使用第一个按钮
@@ -262,6 +273,7 @@ JSON格式。
 - 支持 **Ajax-only** 的网站（[详情](#Ajax说明)）
 - 支持**多行**文本输入及发送
 - 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
+- 一个按钮一次调用多个操作
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 

@@ -578,6 +578,16 @@ const example_adv = `{
     "addr": "https://developer.chrome.com/docs/extensions/reference/",
     "action": "https://developer.chrome.com/docs/extensions/reference/",
     "ajax": ".search-box__input"
+  },
+  "label_many": { "lstr": "Many Engines at once" },
+  "many_once" : {
+    "dname": "Many Engines",
+    "btns": {
+      "gg_ddg": {
+        "label": "Google + DDG",
+        "use_other_engine": ["google", "duckduckgo"]
+      }
+    }
   }
 }`;
 
