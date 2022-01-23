@@ -258,7 +258,7 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
   - Combining above two to search websites that don't support search
 - **Ajax-only** websites support ([details](#Ajax-Instructions))
 - Support **multi-line** inputting and sending
-- Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and components-used))
+- Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 
