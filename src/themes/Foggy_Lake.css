@@ -146,12 +146,14 @@ body.addon.en {
 #engines_o_cont:hover {
 /*     box-shadow: 0px 0px 5px #999; */
 }
-#engines_table:hover .enginename_td {
+#engines_table:hover .enginename_td,
+.engines_table_focus .enginename_td {
     background-color: rgba(255,255,255, 0.25);
     border-radius: 2px;
 }
 
-#catas_cont:hover
+#catas_cont:hover,
+.catas_cont_focus
 {
     background-color: rgba(255,255,255,0.25);
     border-radius: 3px;

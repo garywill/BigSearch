@@ -591,9 +591,10 @@ a {
     scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
     min-width: 100px;
 }
-#hist:hover {
+#hist:hover, .hist_focus {
     background-color: rgba(255,255,255,0.6);
 }
+
 .hist_item { 
     font-size: 14px; 
     padding: 5px 3px; 
