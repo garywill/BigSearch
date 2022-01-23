@@ -166,8 +166,12 @@ function rm_not_userlang(){
 
 // =======================================
 var themeHandler = {};
-function init_themeHandler() {
-    themeHandler = new function themeHandlerClass () {
+
+async function init_themeHandler() {
+    
+    themeHandler = await themeHandlerClass();
+    
+    async function themeHandlerClass () {
         this.div_choose_themes = document.getElementById("div_choose_themes");
         
         this.themes = {
@@ -252,6 +256,32 @@ function init_themeHandler() {
         this.setRadioChecked = async function (theme) {
             document.querySelector(`.radios_themes[value=${theme}`).checked = true;
         };
+        
+        this.getUserTheme = async function () {
+            if (window.run_env == "http_web" ) {
+                return localStorage['theme'];
+            } else {
+                var theme = (await get_addon_setting_local('theme') ) ;
+                return theme;
+            }
+        };
+        this.resetUserTheme = async function () {
+            if (window.run_env == "http_web" ) {
+                delete localStorage['theme'];
+            } else {
+                await chrome.storage.local.remove('theme');
+                delete localStorage['theme'];
+            }
+        };
+        this.setUserTheme = async function (theme) {
+            if (window.run_env == "http_web" ) {
+                localStorage['theme'] = theme;
+            } else {
+                await chrome.storage.local.set( { 'theme': theme } );
+                localStorage['theme'] = theme;
+            }
+        };
+        
         this.init_theme = function(theme) {
             if (!theme || theme == "default" || this.themes[theme] === undefined) 
                 theme = this.getDefaultTheme();
@@ -283,12 +313,29 @@ function init_themeHandler() {
             csstag.setAttribute("href", `themes/${file}.css`); // TODO file time
             document.head.appendChild(csstag);
         }
-        this.onRadioChange = function () {
+        this.onRadioChange = async function () {
             themeHandler.init_theme(this.value);
-            localStorage['theme'] = this.value;
+            
             if (this.value == "default" )
-                delete localStorage['theme'];
+                await themeHandler.resetUserTheme();
+            else 
+                await themeHandler.setUserTheme(this.value);
         }
+        
+        // ===================================================
+        
+        
+        if (window.run_env != "http_web") {
+            // migrate theme from localStorage to storage.local
+            // NOTE delete in the future
+            if (! (await get_addon_setting_local('theme') ) && localStorage['theme'] )
+                chrome.storage.local.set( {'theme': localStorage['theme'] } );
+            
+            if (await get_addon_setting_local('theme'))
+                localStorage['theme'] = (await get_addon_setting_local('theme'));
+        }
+        
+        // ===================================================
         
         var themes_names = Object.keys(this.themes);
         for (var i=0; i<themes_names.length; i++)
@@ -305,10 +352,12 @@ function init_themeHandler() {
             var radio_id = `id_themeradio__${tm}`;
             radio.id = radio_id;
             
-            if ( localStorage['theme'] === tm  )
+            if ( (await this.getUserTheme() ) === tm  )
                 radio.checked = true;
             
-            if ( tm == "default" && ( ! localStorage['theme'] || localStorage['theme'] == "default" ) )
+            if ( tm == "default" && 
+                ( ! (await this.getUserTheme()) || (await this.getUserTheme()) == "default" )
+            )
                 radio.checked = true;
             
             radio.onchange = this.onRadioChange;
@@ -326,10 +375,10 @@ function init_themeHandler() {
             
         }
         
-        this.init_theme(localStorage['theme']);
+        this.init_theme( await this.getUserTheme() );
         
-        document.getElementById("btn_randomtheme").onclick = function() {
-            const oldName = localStorage['theme'];
+        document.getElementById("btn_randomtheme").onclick = async function() {
+            const oldName = await themeHandler.getUserTheme();
             
             const tNames = Object.keys(themeHandler.themes);
             
@@ -346,9 +395,15 @@ function init_themeHandler() {
             
             themeHandler.init_theme(newName);
             themeHandler.setRadioChecked(newName);
-            localStorage['theme'] = newName;
+            await themeHandler.setUserTheme(newName);
         }
-    } ();
+        
+        return this;
+    
+    }
+    
+    
+    
 }
 
 
