@@ -29,6 +29,8 @@ body {
     color: #888;
 }
 
+#bottom-place:hover ~ #container .btmbtn ,
+#bottom-place:hover ~ #container .btmbtn a ,
 #bottom:hover .btmbtn,
 #bottom:hover .btmbtn a{
     text-shadow: 1px 1px black, 2px 0px white, 2px 1px white, -1px 0px white, 0px -1px white;

@@ -101,3 +101,7 @@ body::-webkit-scrollbar-track-piece {
 
 #btmbtns {padding-top: 0px; }
 #hot_badge { display:none; }
+
+#footer { 
+    font-size: 6px;
+}
