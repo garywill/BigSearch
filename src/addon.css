@@ -23,6 +23,8 @@
     
     --table-width-max: 450px;
     --table-width: var(--table-width-max);
+    
+    --hist-ban-2-height: calc( var(--hist-ban-font-size) * 0.7 ) ;
 }
 .addon.en {
     --table-width-max: 420px;

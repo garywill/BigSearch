@@ -41,6 +41,7 @@ body {
     
     --hist-cont-height: var(--wrapper-height);
     --hist-ban-font-size: 16px;
+    --hist-ban-2-height: 0px;
 
     --table-width: 660px;
     --table-width-max: 700px;
@@ -582,7 +583,7 @@ a {
 #hist { 
     /*! max-width: 250px; */ 
     border-radius: 4px;
-    height: calc( var(--wrapper-height) - var(--general-btn-font-size) - var(--hist-ban-font-size)); 
+    height: calc( var(--wrapper-height) - var(--general-btn-font-size) - var(--hist-ban-font-size) - var(--hist-ban-2-height) ); 
     overflow-y: scroll; 
     border: 1px solid gray;
     background-color: rgba(255,255,255,0.4);
