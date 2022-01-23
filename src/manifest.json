@@ -16,6 +16,7 @@
     "optional_permissions": [
         "search",
         "clipboardRead",
+        "activeTab",
         "*://*/*"
     ],
     "icons": {
@@ -31,6 +32,12 @@
         "_execute_browser_action": {
             "suggested_key": {
                 "default": "Ctrl+Alt+S"
+            }
+        },
+        "selection_as_search": {
+            "description": "Set selected text as search term",
+            "suggested_key": {
+                "default": "Ctrl+Alt+D"
             }
         }
     },

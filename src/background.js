@@ -62,6 +62,57 @@ async function set_contextmenu() {
         });
     }
 }
+
+//--------------------
+
+chrome.commands.onCommand.addListener(async function (command) {
+    if (command == "selection_as_search") {
+        chrome.permissions.request({
+            permissions: ["activeTab"]
+        });
+
+        chrome.tabs.executeScript({
+            code: '(' + getSelectionText.toString() + ')()',
+            allFrames: false,
+            matchAboutBlank: true
+        }, function (results) {
+            console.log(results[0]);
+            if (typeof(results[0]) === "string")
+                setStor("input_content", results[0]);
+                //chrome.browserAction.openPopup() ;
+        });
+        
+    }
+});
+
+function getSelectionText() {
+    var activeEl = document;
+    do {
+        activeEl = activeEl.activeElement;
+        console.log( activeEl);
+        if (activeEl.tagName == "IFRAME")
+            activeEl = activeEl.contentDocument;
+    } while (activeEl.toString() == "[object HTMLDocument]")
+    
+    if (activeEl.tagName == "BODY")
+        activeEl = activeEl.parentNode.parentNode;
+    
+    var activeElTagName = activeEl.tagName;
+    
+    var text = null;
+    
+    if (
+        (activeElTagName == "TEXTAREA") || (activeElTagName == "INPUT" &&
+        /^(?:text|search|password|tel|url)$/i.test(activeEl.type)) &&
+        (typeof activeEl.selectionStart == "number")
+    ) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (activeEl.getSelection) {
+        text = activeEl.getSelection().toString();
+    }
+    return text;
+}
+
 //-------
 
 async function set_checkupdate() {

@@ -65,9 +65,10 @@ Or, use as universal web searching home, portal for people expecting good search
 - 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, context menu) 
   > - Not in Firefox incognito mode
   > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut)
-- ⌨️ **Keyboard shortcut** to open (browser addon). Default key is： 
-  - Firefox: Ctrl+Alt+S ([how to change](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647))
-  - Chrome & others：Ctrl+Shift+S (to change: [chrome://extensions/shortcuts](chrome://extensions/shortcuts))
+- ⌨️ **Keyboard shortcut** (browser extension) 
+  - Open popup. Firefox: `Ctrl+Alt+S`  | Chrome & others：`Ctrl+Shift+S` 
+  - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D` | Chrome & others：`Ctrl+Shift+D`
+  ([change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` )
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 
 ### Safety & Privacy

@@ -15,6 +15,7 @@
     ],
     "optional_permissions": [
         "clipboardRead",
+        "activeTab",
         "*://*/*"
     ],
     "incognito": "split",
@@ -31,6 +32,12 @@
         "_execute_browser_action": {
             "suggested_key": {
                 "default": "Ctrl+Shift+S"
+            }
+        },
+        "selection_as_search": {
+            "description": "Set selected text as search term",
+            "suggested_key": {
+                "default": "Ctrl+Shift+D"
             }
         }
     },
