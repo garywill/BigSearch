@@ -31,7 +31,11 @@ body {
     --wrapper-height: calc( 100vh - ( var(--above-wrapper) + var(--bottom-padding-top) + var(--btmbtns-font-size) ) - 15px - var(--when-btmdialog-open) );
     
     --intitle-height: 38px;
+    
     --inputbox-height: 34px;
+    --inputbox-border-cl: #b5b2b2;
+    --inputbox-border-cl-focus: rgb(140, 163, 255);
+    
     --btns-below-input-height: 19px;
     --btns-copypaste-gap: 5px;
     
@@ -208,6 +212,7 @@ a {
 #input_cont {
     text-align: left; 
     position: relative;
+    border-radius: 3px;
 }
 #inputbox {  
     height: var(--inputbox-height); 
@@ -221,8 +226,12 @@ a {
     box-sizing: border-box;
     height: var(--input-ml-height);
     resize: none;
+    border-radius: 3px;
 }
-#inputbox {
+#inputbox , #input_ml {
+    outline: 0;
+    border-style: solid;
+    border-color: var(--inputbox-border-cl);
     background-color: #a1d8f4b8;;
     color: #5353f9;
 }
@@ -232,7 +241,7 @@ a {
 }
 .cur_inputbox:focus {
     background-color: rgba(255, 255, 255, 1) !important;
-    /* border-color: rgb(255, 226, 140); */
+    border-color: var(--inputbox-border-cl-focus) !important;
 }
 
 #inputbox_shell {
@@ -496,6 +505,7 @@ a {
 
 #catas_cont {  
     /*! padding-left: 4px; */ 
+    border-radius: 3px;
     text-align: left; 
     word-break: keep-all; 
     overflow-y: auto;

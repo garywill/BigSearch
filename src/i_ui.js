@@ -206,11 +206,17 @@ async function init_themeHandler() {
             "Light_and_Grey_2": {
                 need_theme: "Light_and_Grey"
             },
+            "Light_and_Grey_3": {
+                need_theme: "Light_and_Grey_2"
+            },
             "Light_and_Black": {
                 need_theme: "Light_and_Grey"
             },
             "Grey_Table": {
                 d_name: "Focus (focus on the table)"
+            },
+            "Dark": {
+                need_sty: ["bold"],
             },
             "no": {
                 d_name: "No Theme (ugly)"

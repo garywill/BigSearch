@@ -73,10 +73,8 @@ body {
     /* text-shadow: #c1d7ff 1px 1px 2px; */
 }
 
-
-#inputbox {  
-    box-shadow: 1px 1px 2px #60a7fb; 
-    border-color: white;
+.cur_inputbox:focus {
+    box-shadow: 1px 1px 2px #91919155; 
 }
 
 /*
@@ -156,12 +154,12 @@ body.addon.en {
 .catas_cont_focus
 {
     background-color: rgba(255,255,255,0.25);
-    border-radius: 3px;
+    
 }
 /*#engines_cont:hover {
     background-color: rgba(200,200,200, 0.2);
 }*/
 #input_cont:hover {
     background-color: rgba(255,255,255,0.5);
-    border-radius: 3px;
+    
 }

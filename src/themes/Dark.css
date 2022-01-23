@@ -1,0 +1,115 @@
+body {
+    --bg-cl: #0b0b0b;
+    color: #c6c6c6;
+
+    --header-bg-cl: #000;
+    --header-text-cl: #a6a6a6;
+    --header-box-shadow-cl: rgba(113, 110, 110, 0.3);
+
+    --intitle-cl: #cacaca;
+    
+    --inputbox-border-cl: #3e3e3e;
+    --inputbox-border-cl-focus: #515499;
+
+    --engine-tr-bg-cl: #030303;
+/*     --engine-tr-hover-bg-cl: #0c91142e; */
+    --engine-tr-hover-bg-cl: #020609;
+
+    --enginename-td-cl: #8a8a8a;
+    --enginename-td-cl-when-tr-hover: #c4c4c4;
+
+    /*--labelrow-cl: #b9b5b5;
+    --labelrow-bg-cl: #393939;*/
+    --labelrow-cl: #000;
+    --labelrow-bg-cl: #3c3c3e;
+
+    --ebtns-weight: unset;
+    --gobutton-bg-cl: #000;
+    --gobutton-bg-cl-hover: #353434;
+    --gobutton-cl: #c8c2c2;
+    --gobutton-cl-hover: #eeeeee;
+    /* --gobutton-cl-when-tr-hover: white; */
+
+    --lastp-cl: orange;
+    --lastp-bg-cl: transparent;
+    --lastp-text-shadow: unset;
+    --lastp-bg-cl-hover: var(--gobutton-bg-cl-hover);
+
+    --cata-btns-cl: #666;
+    --cata-btns-bg-cl: #080808;
+    --cata-btns-tshadow: 0px 0px 1px #aaa;
+    --cata-btns-hover-cl: #ccc;
+    --cata-btns-hover-bg-cl: rgba(219, 220, 225, 0.05);
+    --cata-btns-highlight-cl: #ddd;
+    --cata-btns-highlight-bg-cl: #49494a85;
+    --cata-btns-highlight-underline-cl: #9c9c9d;
+        
+    --hist-item-hover-bg-cl: #111;
+
+    --scrollbar-cl: #4c5b79;
+    --scrollbar-cl-bg: #262626;
+}
+
+.engine_tr {
+    box-shadow: 0px 1px rgba(36, 36, 36, 0.5);
+}
+.gobutton {
+    border-radius: 4px;
+    border: 1px solid #333;
+    box-shadow: rgba(27, 31, 36, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+}
+.main_btns, .main_btns a {
+    color: #57606a;
+}
+
+#input_cont {
+    border-radius: 9px;
+}
+#input_cont:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+#input_cont:hover .btns_copypaste_img {
+    filter: grayscale(70%) brightness(1.5);
+}
+
+#inputbox, #input_ml {
+    background-color: #1c1b28;
+    color: #9393d7;
+}
+.cur_inputbox {
+    color: white !important;
+    background-color: #111 !important;
+}
+.cur_inputbox:focus {
+    background-color: #030303 !important;
+}
+
+
+.btns_copypaste_img {
+    filter: grayscale(90%) brightness(0.8);
+}
+
+#engines_o_cont{
+    border-bottom: 1px solid #373737;
+}
+#hr_above_table{
+    border-top: 1px solid #373737;
+}
+
+#engines_cont {
+    box-shadow: 4px 3px 7px #373551;
+}
+
+#hist {
+    background-color: rgb(4,4,4);
+}
+#hist:hover, .hist_focus {
+    background-color: black;
+}
+.hist_item {
+    color: #777;
+}
+
+.btm_dialog {
+    background-color: black;
+}

@@ -1,0 +1,15 @@
+body {
+    --bg-cl: #d9d9d9;
+    
+    --engine-tr-bg-cl: #e6e3e3;
+    --engine-tr-hover-bg-cl: #d0dfe6;
+
+    --gobutton-bg-cl: #d0d0d0;
+
+}
+
+
+#engines_cont {
+    background-color: #e3e3e3;
+}
+
