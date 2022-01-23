@@ -94,8 +94,7 @@ function getSelectionText() {
             activeEl = activeEl.contentDocument;
     } while (activeEl.toString() == "[object HTMLDocument]")
     
-    if (activeEl.tagName == "BODY")
-        activeEl = activeEl.parentNode.parentNode;
+    var docNode = activeEl.ownerDocument;
     
     var activeElTagName = activeEl.tagName;
     
@@ -107,8 +106,8 @@ function getSelectionText() {
         (typeof activeEl.selectionStart == "number")
     ) {
         text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
-    } else if (activeEl.getSelection) {
-        text = activeEl.getSelection().toString();
+    } else if (docNode.getSelection) {
+        text = docNode.getSelection().toString();
     }
     return text;
 }
