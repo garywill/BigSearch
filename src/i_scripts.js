@@ -568,11 +568,11 @@ const example_adv = `{
     "btns": {
       "search_apps": {
         "label": "Search Apps",
+        "kw_format": "{0} site:apple.com/*app",
         "use_other_engine": {
           "engine": "google",
           "btn": "search"
-        },
-        "kw_format": "{0} site:apple.com/*app"
+        }
       }
     }
   },

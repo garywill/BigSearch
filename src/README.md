@@ -188,19 +188,7 @@ Also, mixing short formatted and full formatted elements is supported.
         }
     },
 
-    "label_cptsw" : { "lstr": "Computer Software" },
-    "flathub": {
-        "dname": "Flathub",
-        "addr": "https://flathub.org/apps",
-        "btns": {
-            "search": {
-                "label": "Search",
-                "full_url": "https://flathub.org/apps/search/{0}"
-            }
-        }
-    },
-
-    "label_mbap" : { "lstr": "Mobile App" },
+    "label_mbap" : { "lstr": "Cross-engine" },
     "itunesapps": {
         "dname": "iTunes Apps (Google)",
         "addr": "https://www.apple.com/itunes/charts/free-apps/",
