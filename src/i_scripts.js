@@ -614,9 +614,10 @@ onrd.push(function(){
     document.getElementById("btn_parse_json").addEventListener('click', async function () {
         
         const textarea = document.getElementById("textarea_json");
+        var parsedJsonObj;
         
         try{
-            JSON.parse(textarea.value);
+            parsedJsonObj = JSON.parse(textarea.value);
         }catch(err){
             alert(
                 i18n(["好像有一点什么错误！！！\n输入的内容无法解析为符合严格格式的JSON。\n", "Ooops !!!\nSomething in yout input is wrong. Can't be parsed as strict JSON format.\n"])
@@ -626,19 +627,21 @@ onrd.push(function(){
             return;
         }
         
+        var stringifiedJson = JSON.stringify(parsedJsonObj);
+        var formattedJson = JSON.stringify(parsedJsonObj, null, 2);
         if (window.run_env == "http_web")
         {
-            setStor("usercustom_engines", textarea.value); 
-            document.getElementById("textarea_json_saved").value = textarea.value;
+            setStor("usercustom_engines", stringifiedJson); 
+            document.getElementById("textarea_json_saved").value = formattedJson;
             alert(i18n([ "OK！\n解析并保存成功", "OK!\nSucessfully parsed and saved"]));
         }else{
             var compressed;
             //compressed = LZString.compressToUint8Array(textarea.value);
-            compressed = LZUTF8.compress(textarea.value, {outputEncoding: "StorageBinaryString"});
             //console.log("compressed data length:", compressed.length);
+            compressed = LZUTF8.compress(stringifiedJson, {outputEncoding: "StorageBinaryString"});
             try{
                 await chrome.storage.sync.set({"usercustom_engines": compressed });
-                document.getElementById("textarea_json_saved").value = textarea.value;
+                document.getElementById("textarea_json_saved").value = formattedJson;
                 alert(i18n([ "OK！\n解析并保存成功", "OK!\nSucessfully parsed and saved"]));
             }catch(err) {
                 alert(err);

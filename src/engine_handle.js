@@ -22,18 +22,19 @@ var got_browser_engines = [] ;
 async function read_usercustom_engines() {
     if (window.run_env == "http_web")
     {
-        if (getStor("usercustom_engines") ) {
-            usercustom_engines = JSON.parse(getStor("usercustom_engines"));
-            document.getElementById("textarea_json_saved").value = getStor("usercustom_engines");
+        const gotStored = getStor("usercustom_engines");
+        if ( gotStored ) {
+            usercustom_engines = JSON.parse(gotStored);
+            document.getElementById("textarea_json_saved").value = JSON.stringify(usercustom_engines, null,2);
         }
-    }else{
+    }else{ // addon
         const read_addon_settings_usercuston_engines = await get_addon_setting("usercustom_engines");
         if (read_addon_settings_usercuston_engines ) {
             //usercustom_engines = JSON.parse(LZString.decompressFromUint8Array(await get_addon_setting("usercustom_engines")));
             
             usercustom_engines = JSON.parse( LZUTF8.decompress(read_addon_settings_usercuston_engines, {inputEncoding: "StorageBinaryString"}) );
             
-            document.getElementById("textarea_json_saved").value = LZUTF8.decompress(read_addon_settings_usercuston_engines, {inputEncoding: "StorageBinaryString"});
+            document.getElementById("textarea_json_saved").value = JSON.stringify(usercustom_engines, null,2);
         }
     }
     usercustom_engines_list = engines_object_tolist(usercustom_engines);
