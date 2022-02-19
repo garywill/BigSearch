@@ -235,7 +235,11 @@ function createLabelTr(l_str)
 function createETableByCata(cata, dbname=null, object_id=null, object_class=null, object_style=null)
 {
     var table = document.createElement("table");
-    table.name = cata;
+//     table.name = cata; 
+    table.setAttribute("dbname", dbname);
+    table.setAttribute("cata", cata);
+    table.setAttribute("name", cata); //NOTE don't use this
+    
     if (object_id) table.id = object_id;
     if (object_class) table.className = object_class;
     if (object_style) table.style = object_style;
@@ -268,13 +272,20 @@ function createCataBtn(cata, dbname=null)
 {
     //var div = document.createElement("div");
     
+    if (!dbname) 
+        dbname="bigsearch";
+    
     var button = document.createElement("button");
     //div.appendChild(button);
     button.className = "cata_btns";
-    button.name = cata;
-    if (dbname) button.setAttribute("dbname",dbname );
+    button.setAttribute("cata",cata);
+    button.setAttribute("name",cata);  // NOTE don't use this 
+    
+    if (dbname) 
+        button.setAttribute("dbname",dbname );
     button.id = "cata_btn_" + cata;
-    if (dbname) button.id = button.id + "_dbname_" + dbname;
+    if (dbname) 
+        button.id = button.id + "_dbname_" + dbname;
     
     button.addEventListener('click', function () {cata_onclick(this);});
         

@@ -75,11 +75,15 @@ onrd.push( function() {
     init_inputHandler();
 });
 
+onrd.push(async function() {
+    await init_lastuseHandler();
+});
+
 onrd.push(async function(){
     await make_cata_btns();
     
-    cata_onclick( document.getElementById("cata_btn_general") );
-    
+//     cata_onclick( document.getElementById("cata_btn_general_dbname_bigsearch") );
+    lastuseHandler.loadLastBrowse();
 });
 
 onrd.push(function(){
@@ -95,7 +99,7 @@ onrd.push(function(){
 });
 
 onrd.push(function(){
-	setlp();
+    lastuseHandler.loadLastClick();
     scroll_to_lastp();
 });
 
@@ -895,20 +899,22 @@ async function ebtn_onclick(obj)
 {
     document.getElementById("permis_toast_o").style.display = "none";
     
+    const engine =obj.getAttribute("e");
+    const btn = obj.getAttribute("b");
+    const dbname = obj.getAttribute("dbname");
+    
 	var inputval = inputHandler.getValue();
 	if (inputval=="")
 	{
 		alert(i18n(["搜索框内容为空！\n如要进行操作（如搜索），输入后，再点击表格右列对应的按钮", "The input field is empty!\nTo do an action (e.g. search), input text, then click a button on the right column of table"]))
-		inputHandler.setFocus();
-		return;
 	}
-	
-	ebtn_onclick_gosearch();
+	else 
+    {
+        ebtn_onclick_gosearch();
+    }
     
 	async function ebtn_onclick_gosearch() {
-        const engine =obj.getAttribute("e");
-        const btn = obj.getAttribute("b");
-        const dbname = obj.getAttribute("dbname");
+        
         try{
             await goEngBtn( engine, btn, inputval , dbname);
         } catch(err) { console.error(`ERROR when trying to call ${engine}/${btn}`); console.error(err); }
@@ -917,69 +923,149 @@ async function ebtn_onclick(obj)
     if(!mobile) 
         setTimeout(inputHandler.setFocus,1);
     
-	setTimeout( function() {
-        setc_lastp( obj.getAttribute("e") , obj.getAttribute("b") ); 
-        setlp();  
-    },10);
+    
+    async function saveLastClick() {
+        const table_element = document.getElementById("engines_table");
+        const table_dbname = table_element.getAttribute("dbname")
+        const table_cata = table_element.getAttribute("cata")
+        lastuseHandler.saveLastClick(table_dbname, table_cata, engine, btn);
+    };
 	
 	setTimeout( function() {
         add_hist2c(inputval);
         displayhist();
     },20);
     
+    await saveLastClick();
+    lastuseHandler.loadLastClick();
+    
     stati_goclicked(obj); // async
 }
 
-function setlp()
-{
-    try{
-        if(document.getElementById("lastp")) document.getElementById("lastp").id="";
-        var le="",lb="";
-        
-        //var engs=getElementsByClassName(document.getElementById("engines_table"),"engine_tr");
-        var engs=document.getElementById("engines_table").querySelectorAll(".engine_tr");
-        if(engs.length>0)
-
-            if(getStor("le"))
-            {
-                le=getStor("le");
-                if(getStor("lb")) lb=getStor("lb");
+var lastuseHandler;
+async function init_lastuseHandler() {
+    
+    lastuseHandler = await lastuseHandlerClass();
+    
+    async function lastuseHandlerClass() {
+        var R = {};
+        R.storageObj = {
+            lastBrowse: { target: [], time: null }, // NOTE only for addon
+            lastClick: {}, // eg:   "bigsearch|general": ["baidu", "sch"]
+            lastInput: {content: null, time: null}, // NOTE only for addon
+        };
+        R.save = function () {
+            localStorage['lastuse'] = JSON.stringify(R.storageObj);
+        };
+        R.load = function () {
+            var parsed = {};
+            try{
+                parsed = JSON.parse(localStorage['lastuse']);
+            }catch(err) { }
+            
+            if (Object.keys(parsed).length>0) {
+                //R.storageObj = parsed;
+                Object.assign(R.storageObj, parsed);
+            }
+            
+            return R.storageObj; // just for console output
+        };
+        R.saveLastClick = function(dbname, cata, engine, btn) {
+            R.storageObj.lastClick[`${dbname}|${cata}`] = [engine, btn];
+            R.save();
+        };
+        R.loadLastClick = async function(dbname, cata) {
+            if ( ! (dbname && cata) ) {
+                const table_element = document.getElementById("engines_table");
+                const table_dbname = table_element.getAttribute("dbname")
+                const table_cata = table_element.getAttribute("cata")
+                dbname = table_dbname;
+                cata = table_cata;
+            }
+            
+            var got = R.storageObj.lastClick[`${dbname}|${cata}`];
+            var engine;
+            var btn;
+            if (got)
+                [engine, btn] = got;
+            
+            const table_element = document.getElementById("engines_table");
+            
+            var button_ele;
+            
+            button_ele = table_element.querySelector(`.gobutton[e=${engine}][b=${btn}]`);
+            if (!button_ele)
+                button_ele = table_element.querySelector(`.gobutton[e=${engine}]`);
+            
+            if (!button_ele)
+                button_ele = table_element.querySelector(`.gobutton`);
+            
+            if (button_ele) {
+                var oldLastp = table_element.querySelector("#lastp");
+                if (oldLastp)
+                    oldLastp.id = null;
+                
+                button_ele.id = "lastp";
+            }
+                
+//             return button_ele;
+//             return [engine, btn];
+        };
+        R.saveLastBrowse = function(dbname, cata) {
+            if (window.run_env == "http_web" )
+                return false;
+            
+            R.storageObj.lastBrowse = { 
+                target: [dbname, cata],
+                time: Date.now(),
+            };
+            R.save();
+        };
+        R.loadLastBrowse = function() { // after load() executed
+            var button;
+            
+            if (window.run_env == "http_web" ) {
+                button = document.querySelector(`.cata_btns[dbname=bigsearch]`);
             }
             else
             {
-                //getElementsByClassName(engs[0],"gobutton")[0].id="lastp";
-                engs[0].querySelectorAll(".gobutton")[0].id="lastp";
-                return 0;
+                var [dbname, cata] = R.storageObj.lastBrowse.target;
+                
+                button = document.querySelector(`.cata_btns[dbname=${dbname}][cata=${cata}]`);
+                if (!button)
+                    button = document.querySelector(`.cata_btns[dbname=${dbname}]`);
+                if (!button)
+                    button = document.querySelector(`.cata_btns[dbname=bigsearch]`);
             }
+            
+            if (!button)
+                button = document.querySelector(`.cata_btns`);
+            
+            if (button)
+                button.click();
+            
+            //return [dbname, cata];
+//             return button;
+        };
+        R.setLastClick = function(engine, btn) {
+            
+        };
+        R.setLastInput = function(content) {
+            
+        };
+        R.checkExpire = function() {
+            
+        };
         
+        //--------------------
         
-        for (var i=0;i<engs.length;i++)
-        {
-            if(engs[i].getAttribute("e")==le)
-            {
-                if(lb!="")
-                {
-                    //var btns=getElementsByClassName(engs[i],"gobutton");
-                    var btns = engs[i].querySelectorAll(".gobutton") ;
-                    for (var u=0;u<btns.length;u++)
-                    {
-                        if(btns[u].getAttribute("b")==lb)
-                        {
-                            btns[u].id="lastp";
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    //getElementsByClassName(engs[i],"gobutton")[0].id="lastp";
-                    engs[i].querySelectorAll(".gobutton")[0].id="lastp";
-                }
-                break;
-            }
-        }
-    }catch(err){}
+        R.load();
+        //R.checkExpire();
+        
+        return R;
+    }
 }
+
 async function scroll_to_lastp() {
     var div = document.getElementById("engines_o_cont");
     var lastp = document.getElementById("lastp");
@@ -1000,6 +1086,9 @@ function setc_lastp(sete,setb)
 
 async function cata_onclick(btnobj)
 {
+    const dbname=btnobj.getAttribute("dbname");
+    const cata=btnobj.getAttribute("cata");
+    
     const engines_cont = document.getElementById("engines_cont");
     
     //engines_cont.innerHTML = "";
@@ -1044,13 +1133,16 @@ async function cata_onclick(btnobj)
     });
     btnobj.classList.add("cata_btn_highlight");
     
-    setlp();
+    lastuseHandler.loadLastClick(dbname, cata);
+
     scroll_to_lastp();
     
     if (!mobile)
         inputHandler.setFocus();
     
     //table_cont_style();
+    
+    lastuseHandler.saveLastBrowse(dbname, cata);
 }
 async function fetch_browser_engines() {
     got_browser_engines = ( await browser.search.get() );
