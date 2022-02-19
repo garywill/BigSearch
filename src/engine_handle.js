@@ -375,7 +375,7 @@ async function goEngBtn(engine,btn,keyword,source=null)
     {
         for ( var i=0; i<data.kw_replace.length; i++ )
         {
-            keyword = keyword.replace( data.kw_replace[i][0], data.kw_replace[i][1]) ;
+            keyword = keyword.replaceAll( data.kw_replace[i][0], data.kw_replace[i][1]) ;
         }
     }
     
