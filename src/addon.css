@@ -104,7 +104,12 @@ body::-webkit-scrollbar-track-piece {
 }
 
 #btmbtns {padding-top: 0px; }
-#hot_badge, .btmemoji { display:none; }
+
+/* .btmemoji , */
+#hot_badge { 
+    display:none; 
+    
+}
 
 #btn_webext,
 #btn_editgui{ 
