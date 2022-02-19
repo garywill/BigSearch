@@ -38,6 +38,36 @@ async function read_usercustom_engines() {
         }
     }
     usercustom_engines_list = engines_object_tolist(usercustom_engines);
+    
+        // NOTE delete in the future
+        // tell use to rename 'source' to 'dbname'
+        var NEED_TO_ALERT=false;
+        for ( var Eobj in usercustom_engines ) {
+            CHECK_NEED_OUT(usercustom_engines[Eobj]);
+            if (usercustom_engines[Eobj].btns) {
+                for (var BTN in usercustom_engines[Eobj].btns) {
+                    CHECK_NEED_OUT(usercustom_engines[Eobj].btns[BTN]);
+                }
+            }
+        }
+        function CHECK_NEED_OUT(obj) {
+            if (obj.use_other_engine) {
+                if (Array.isArray(obj.use_other_engine)) {
+                    for (var Aobj in obj.use_other_engine) {
+                        CHECK_NEED(obj.use_other_engine[Aobj]);
+                    }
+                } else {
+                    CHECK_NEED(obj.use_other_engine);
+                }
+                
+            }
+        }
+        function CHECK_NEED(Uobj) {
+            if (Uobj.source !== undefined) 
+                NEED_TO_ALERT = true;
+        }
+        if (NEED_TO_ALERT) 
+            alert("Notice: \n\nYou have 'use_other_engine' -> ... -> 'source' key in your custom JSON.\nIn new specification, 'source' has been renamed to 'dbname'.\nPlease modify your JSON for it to work. (Sorry for inconvinience)");
 }
 //read_usercustom_engines();
 
