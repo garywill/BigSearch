@@ -1,10 +1,12 @@
 body {
-    --bg-cl: #e7e7e7;
+    --bg-cl: #d9d9d9;
     
-    --header-bg-cl: #aeaeae;
+    --header-bg-cl: #9b9a9a;
     --header-text-cl: white;
     
     --intitle-cl: #616161;
+    
+    --cata-btns-cl: #575757;
     
     --labelrow-bg-cl: #858585;
     --labelrow-cl: white;
@@ -37,6 +39,15 @@ body {
 
 #engines_table {
     background-color: #888800;
+}
+
+.gobutton { 
+    padding: 2px 7px;  
+
+}
+.labelrow td { 
+    padding-top: 0px; 
+    padding-bottom: 0px; 
 }
 
 .btn-http-highlight span {

@@ -1,4 +1,4 @@
-[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
 
 # 大术专搜
 
@@ -30,6 +30,7 @@
 ## 演示与截图
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
+
 [Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
 | 截图                                                                                |                                                                                           |                                                                                   |
@@ -51,7 +52,7 @@
 
 [开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-（ **↑ 有经验的用户看直观的横向比较，可能快过图文说明**）
+（ ↑ 有经验的用户看直观的横向比较，可能快过图文说明）
 
 ## 特性
 
@@ -67,8 +68,9 @@
   > - Firefox无痕模式中无
   > - Chrome中点了右键菜单后，再点击工具栏中的图标（或使用快捷键）
 - ⌨️ **快捷键**（浏览器扩展）
-  - 唤出界面。Firefox: `Ctrl+Alt+S` | Chrome及其他：`Ctrl+Shift+S` 
-  - 将选择文本设定为搜索词（然后再使用唤出界面）。Firefox: `Ctrl+Alt+D` | Chrome及其他：`Ctrl+Shift+D`
+  - 唤出界面。Firefox: `Ctrl+Alt+S`  Chrome及其他：`Ctrl+Shift+S` 
+  - 将选择文本设定为搜索词（然后再使用唤出界面）。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
+  
   （[Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` ） 
 - 🖥️ 支持**桌面**设备（扩展或网页）和**移动**设备（网页）
 

@@ -1,6 +1,6 @@
 English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_zh.md)
 
-[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
 
 # Big Search
 
@@ -29,6 +29,7 @@ Ways to use:
 ## Demo and Screenshots
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
+
 [Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
 | Screenshots                                                                       |                                                                                           |                                        |
@@ -50,7 +51,7 @@ Or, use as universal web searching home, portal for people expecting good search
 
 [Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-(**↑ Experienced users may prefer intuitive horizontal comparison than text doc**)
+(↑ Experienced users may prefer intuitive horizontal comparison than text doc)
 
 ## Features
 
@@ -66,8 +67,9 @@ Or, use as universal web searching home, portal for people expecting good search
   > - Not in Firefox incognito mode
   > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut)
 - ⌨️ **Keyboard shortcut** (browser extension) 
-  - Open popup. Firefox: `Ctrl+Alt+S`  | Chrome & others：`Ctrl+Shift+S` 
-  - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D` | Chrome & others：`Ctrl+Shift+D`
+  - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others：`Ctrl+Shift+S` 
+  - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others：`Ctrl+Shift+D`
+  
   ([change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` )
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 

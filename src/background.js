@@ -76,7 +76,7 @@ chrome.commands.onCommand.addListener(async function (command) {
             allFrames: false,
             matchAboutBlank: true
         }, function (results) {
-            console.log(results[0]);
+            //console.log(results[0]);
             if (typeof(results[0]) === "string")
                 setStor("input_content", results[0]);
                 //chrome.browserAction.openPopup() ;
@@ -89,7 +89,7 @@ function getSelectionText() {
     var activeEl = document;
     do {
         activeEl = activeEl.activeElement;
-        console.log( activeEl);
+        //console.log( activeEl);
         if (activeEl.tagName == "IFRAME")
             activeEl = activeEl.contentDocument;
     } while (activeEl.toString() == "[object HTMLDocument]")
