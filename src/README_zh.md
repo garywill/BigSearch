@@ -35,7 +35,7 @@
 ## 开始安装使用
 
 使用方式有：
-   
+
 1. 浏览器扩展（**推荐**）
    
    安装扩展以发挥所有功能
@@ -46,20 +46,18 @@
 2. 网页版：网页版功能稍有限，使用不如扩展方便。网页版可在手机浏览器使用
    - 主站： [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga)
    - 备用站： [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
-   
-   
-   
+
 ## 演示与截图
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
 [Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
-| 使用扩展    | 可选UI风格 朴素或fancy | 搜索选择内容  |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)  | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |
-| 免安装网页使用                                                                           | 移动版(试验)(web)                                                                              | 汉语类别(嘿嘿～)                                                                     |
-| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg) |
+| 使用扩展                                                                              | 可选UI风格 朴素及丰富                                                                            | 搜索选择内容                                                                                    |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)            | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |
+| 免安装网页使用                                                                           | 移动版(试验)(web)                                                                            | 汉语类别(嘿嘿～)                                                                                 |
+| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg)         |
 
 正努力地解决一切浏览器与搜索引擎之间的需求。<br>
 让你最充分地利用不同的网络搜索引擎或查询系统。<br>
@@ -104,17 +102,20 @@
 
 ## 如何编辑搜索引擎
 
-一般来说，只需要会简单的JSON，和GET/POST这一基本http request知识。
+只使用基本功能的普通用户可以直接打开[在线GUI引擎编辑工具（link1）](https://acsearch.ga/editengine.php) （[link2](http://acsearch.tk/editengine.php)）。
 
-添加编辑一个搜索引擎的方法以下两者皆适用：
-1. 大术专搜内置搜索引擎
-2. 用户自定义的私人引擎
+以下讲述JSON格式的编辑引擎说明。使用JSON能够发挥所有功能。方法以下两者皆适用：
+
+1. 用户自定义的私人引擎
+2. 大术专搜内置搜索引擎（`enginesdata.js`）
 
 <p align="center">大术专搜 👨‍💻　万页在手 🗺️　　网之所询 🌐　无不可收</p>
-  
+
 ### 例子
 
 #### 简短形式
+
+只需要很简单的JSON，及基本HTTP `GET Method`知识。
 
 ```yaml
 {
@@ -187,7 +188,7 @@
             }
         }
     },
-    
+
     "label_usaj": { "lstr": "Engine with Ajax" },
     "chrome_ext_dev": {
         "dname": "Chrome Ext Dev Doc",
@@ -195,7 +196,7 @@
         "action": "https://developer.chrome.com/docs/extensions/reference/",
         "ajax": ".search-box__input"
     },
-    
+
     "label_many": { "lstr": "Many Engines at once" },
     "many_once" : {
         "dname": "Many Engines at once",
@@ -307,7 +308,6 @@ JSON格式。
 
 当然，**普通人也完全可以轻松使用**。
 
-
 ## For Developers
 
 > 用户使用了JSON自定义引擎后，我们鼓励用户也将数据提交回上游源代码。引擎数据为AGPL自由代码。
@@ -329,7 +329,7 @@ JSON格式。
 
 ### 采用的第三方库和组件
 
-**Fast** and **lightweight**: NO heavy framework or library dependencies. Although it has UI themes of both simplicify & fancy, all main features and UI are pure JS + CSS. ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+**快速**且**轻量**: 不使用任何大型库或框架。尽管UI既有简洁又有丰富风格，所有主要功能和UI皆是纯JS+CSS。  ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
 
 <details>
 
@@ -339,16 +339,15 @@ JSON格式。
   Copyright (c) 2021, Rotem Dan
   Released under the MIT license.
   ```
-  
+
 - [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (37kB webp. Default background photo)
   
   by Quang Nguyen Vinh
-  
 
 - [Unicons icon](https://github.com/Iconscout/unicons) (svg)
   
   Unicons by [Iconscout](https://iconscout.com/)
-  
+
 </details>
 
 ### 国际化

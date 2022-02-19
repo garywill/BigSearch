@@ -49,6 +49,7 @@ body {
 #desktop_mobile_cont, #intitle
 { display:none;}
 
+
 #inputpaste {
 display:unset;
     
@@ -101,6 +102,10 @@ body::-webkit-scrollbar-track-piece {
 
 #btmbtns {padding-top: 0px; }
 #hot_badge { display:none; }
+
+#btn_editgui{ 
+    display:none;
+}
 
 #footer { 
     font-size: 6px;

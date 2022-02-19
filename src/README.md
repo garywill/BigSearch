@@ -54,11 +54,11 @@ Ways to use:
 
 [Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
-| Use Extension    | UI Styles, Simplicity or Fancy | Context selection search  | 
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |  
-| Use web app without install                                                       | Mobile (testing) (web app)                                                                 |                                        |
-| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   |                                        |
+| Use Extension                                                                     | UI Styles, Simplicity or Fancy                                                          | Context selection search                                                                  |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)            | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |
+| Use web app without install                                                       | Mobile (testing) (web app)                                                              |                                                                                           |
+| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) |                                                                                           |
 
 Making effort to solve all needs between browsers and search engines.<br>
 Easily make best use of different web search engines or inquery systems.<br>
@@ -103,15 +103,18 @@ Or, use as universal web searching home, portal for people expecting good search
 
 ## How to edit search engines
 
-Generally, you only need to write JSON and have basic http request knowledge about GET/POST. 
+Ordinary users who only use basic features can directly use our [online gui engine-editing tool (link1)](https://acsearch.ga/editengine.php) ([link2](http://acsearch.tk/editengine.php)).
 
-The method described here to add or edit an engine is for both:
-1. Big Search built-in search engines
-2. User-defined private engines
+Following paragraphs is about JSON-format engine data specification. Using JSON you can use all features of this tool. The method is for both:
+
+1. User-defined private engines
+2. Big Search built-in search engines (`enginesdata.js`)
 
 ### Examples
 
 #### Short Format
+
+You only need to write very simple JSON and have basic HTTP knowledge on `GET Method`.
 
 ```yaml
 {
@@ -167,7 +170,7 @@ Also, mixing short formatted and full formatted elements is supported.
             }
         }
     },
-    
+
     "label_mbap" : { "lstr": "Mobile App" },
     "itunesapps": {
         "dname": "iTunes Apps (Google)",
@@ -183,7 +186,7 @@ Also, mixing short formatted and full formatted elements is supported.
             }
         }
     },
-    
+
     "label_usaj": { "lstr": "Engine with Ajax" },
     "chrome_ext_dev": {
         "dname": "Chrome Ext Dev Doc",
@@ -191,7 +194,7 @@ Also, mixing short formatted and full formatted elements is supported.
         "action": "https://developer.chrome.com/docs/extensions/reference/",
         "ajax": ".search-box__input"
     },
-    
+
     "label_many": { "lstr": "Many Engines at once" },
     "many_once" : {
         "dname": "Many Engines at once",
