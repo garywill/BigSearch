@@ -72,7 +72,7 @@ catas = {
             { type:"label", lstr:"中土五岳" , visible_lang: "zh"},
             { type:"engine", name:"baidu", visible_lang: "zh"},
             { type:"engine", name:"sogou", visible_lang: "zh"},
-            { type:"engine", name:"360so", visible_lang: "zh"},
+            { type:"engine", name:"so360", visible_lang: "zh"},
             { type:"label", lstr:"村融四海", visible_lang: "zh"},
             { type:"label", lstr:"General", visible_lang: "en"},
             { type:"engine", name:"bing"},
@@ -254,7 +254,7 @@ sEngines = {
             }
         }
     },
-    "360so": {
+    "so360": {
         "dname": "360搜索",
         "addr": "https://www.so.com/",
         "action": "https://www.so.com/s",
