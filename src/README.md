@@ -4,7 +4,7 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 # Big Search
 
-Handily use / switch **any one** or **multiple (uninterruptedly)** **search engines** (or search any websites) via a **flexible tool**.
+Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites) via a **flexible tool**.
 
 <p align="center">
 Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
@@ -16,10 +16,13 @@ With some <b>special technical features</b> also.
 <!--ts-->
    * [Start to install &amp; use](#start-to-install--use)
    * [Basic Features Demo and Screenshots](#basic-features-demo-and-screenshots)
+   * [Features](#features)
+      * [Basic](#basic)
+      * [More](#more)
+      * [Even more: What's special about it](#even-more-whats-special-about-it)
+      * [Safety &amp; Privacy](#safety--privacy)
    * [List of engines](#list-of-engines)
    * [Similar tools &amp; methods comparison](#similar-tools--methods-comparison)
-   * [Features](#features)
-   * [Safety &amp; Privacy](#safety--privacy)
    * [How to edit search engines](#how-to-edit-search-engines)
       * [Examples](#examples)
          * [Short Format](#short-format)
@@ -27,9 +30,9 @@ With some <b>special technical features</b> also.
       * [Specification of Editing Engines Data](#specification-of-editing-engines-data)
          * [Specifications](#specifications)
          * [Ajax Instructions](#ajax-instructions)
-   * [Technical Features (What's special about it)](#technical-features-whats-special-about-it)
    * [For Developers](#for-developers)
       * [What's Next Step](#whats-next-step)
+      * [Technical Diagram](#technical-diagram)
       * [Third-party libraries and components used](#third-party-libraries-and-components-used)
       * [Globalization](#globalization)
       * [History, Code Status, and License](#history-code-status-and-license)
@@ -57,29 +60,20 @@ Ways to use:
 | Context selection search | Try web app without install                                                       | Mobile (testing) (web app)  |
 | ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) |   
 
-Making effort to solve all needs between browsers and search engines.<br>
-Easily make best use of different web search engines or inquery systems.<br>
-Or, use as universal web searching home, portal for people expecting good search quality & breadth.
-
-## List of engines
-
-[See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
-
-## Similar tools & methods comparison
-
-[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
-
-(↑ Experienced users may prefer intuitive horizontal comparison, to quickly know what's special about it)
-
 ## Features
 
-- 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. (And **even** [**works** with those that **don't** support GET/POST](#Ajax-Instructions))
+### Basic
+
+- 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. 
   > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc. Or the stock of a supermarket near your home (if it supports). Customizable. 50+ built-in.
 - 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable in extension)
 - 🔎 Support using **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
-- 🗂️ Search engines **categorization**
-- 🖋️ Single-line or **multi-line** input and sending
+
+### More
+
+- 🖋️ Single-line or **multi-line** text edit/input and sending
   > Useful when for e.g. you want to have article paragraphs translated
+- 🗂️ Search engines **categorization**
 - 📋 Save, **reuse** and manage your input history (only saved locally in the browser localStorage)
 - 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, context menu) 
   > - Not in Firefox incognito mode
@@ -89,15 +83,35 @@ Or, use as universal web searching home, portal for people expecting good search
   - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others：`Ctrl+Shift+D`
   
   ([change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` )
-- 🔎 Do many operations at once by one button
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 
-## Safety & Privacy
+### Even more: What's special about it
+
+- 🔎 **Even works with** those Ajax-only websites that **don't** provide GET/POST interface to public ([details](#Ajax-Instructions))
+- 🔎 Do many operations at once by one button
+- ✨ Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
+- 💪 Uses **JSON** as unified search engines database (both built-in and user-defined). Has strong **flexibility** in engine data: ([details](#Specification-of-Editing-Engines-Data))
+  - 🔲 **Multiple buttons** for **one engine**: more than one operations for one engine. (Buttons inherit data from engine. Some key-value data ​​in button can override the ones in engine name)
+  - 📞 **Cross-engine** use: Call another engine (or it's certain button action) to do the action
+  - 🔏 String-formatting or character-replacing user's input, according to engine's need
+  - 🔎 Combining above two to search websites that don't support search
+
+### Safety & Privacy
 
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed. (browser extension)
-- 🛡️ Pure **client-side** tool functions fully. No necessary server. No collecting user's input. (browser extension and web app)
+- 🛡️ Pure **client-side** tool functions fully. No necessary server. **No** collecting user's input or ad analyzing. (browser extension and web app)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy.
-- 🛡️ Browser extension **does not inject** anything to web sites. (except when using engines that require Ajax)
+- 🛡️ Browser extension **does not inject** anything to web sites. (except when using Ajax-only engine)
+
+## List of engines
+
+[See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+
+## Similar tools & methods comparison
+
+[Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
+
+Experienced users may prefer intuitive horizontal comparison, to quickly know what's special about it
 
 ## How to edit search engines
 
@@ -220,7 +234,7 @@ Engine data in full format can contain following key-values:
 <summary>Specifications</summary>
 
 ```yaml
-// # Some key/value ​​in the button can override the key/value in the engine name
+// # Some key-value ​​in the button can override the key-value in the engine name
 {
     "engine_name": {
         "dname": "Engine display name",
@@ -286,26 +300,6 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 </details>
 
-## Technical Features (What's special about it)
-
-- Uses **JSON** as unified search engines database (**both** built-in and user-defined)
-- Has strong flexibility in engine data:
-  - **Multiple buttons** for **one engine**: more than one operations
-  - **Cross-engine** use: Call another engine (or it's certain button action) to do the action
-  - String formatting user's input, according to engine's need
-  - Combining above two to search websites that don't support search
-- **Ajax-only** websites support ([details](#Ajax-Instructions))
-- Support **multi-line** inputting and sending
-- Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
-- Do many operations at once by one button
-
-![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
-
-Therefore, this tool is more satisfying to **technician** people comparing to similar tools. 
-
-Of course, it is **also completely easy for ordinary people to use**. 
-
-
 ## For Developers
 
 > We encourage user to submit their customized search engines data to us after they format as JSON. Search engines data is AGPL licensed FLOSS.
@@ -324,6 +318,10 @@ This tool still can be improved to do something more:
 - Add non-search navigation feature
 - Be compatible with others e.g. OpenSearch. Add or convert by 1-click
 - Be able to be used via CLI in terminal (nodejs)
+
+### Technical Diagram
+
+![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 
 ### Third-party libraries and components used
 

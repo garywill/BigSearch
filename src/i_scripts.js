@@ -700,6 +700,27 @@ onrd.push(async function(){
     }
 });
 
+onrd.push(function() {
+    const eles_selector = ["#bottom", "#bottom-place", "#header", "#intitle", ".labelrow", "#btn_use_examples_adv", "#hist"];
+    eles_selector.forEach(function(selStr) {
+        const got = document.querySelectorAll(selStr);
+        //console.log(got);
+        if ( HTMLCollection.prototype.isPrototypeOf(got) || NodeList.prototype.isPrototypeOf(got) ) {
+            got.forEach(function(ele) {
+                addTitle(ele);
+            });
+        } else if (got instanceof Element) {
+            addTitle(got);
+        }
+    });
+    
+    function addTitle(ele) {
+        const tiptext = i18n(["大术专搜 不只是 一个简单的搜索请求发送器。请访问源代码页面以了解其一些“独门特技”。", "Big Search is more than a simple web search request sender. Visit the source code page to know what's special about it."]);
+        if (ele.getAttribute("title") === null)
+            ele.setAttribute("title", tiptext);
+            
+    }
+});
 
 var csieqon = 0;
 onrd.push(function(){
