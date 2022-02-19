@@ -81,8 +81,7 @@ Ways to use:
 - ⌨️ **Keyboard shortcut** (browser extension) 
   - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others：`Ctrl+Shift+S` 
   - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others：`Ctrl+Shift+D`
-  
-  ([change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` )
+  > [change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` 
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 
 ### Even more: What's special about it
@@ -321,7 +320,11 @@ This tool still can be improved to do something more:
 
 ### Technical Diagram
 
+<details>
+
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
+
+</details>
 
 ### Third-party libraries and components used
 
