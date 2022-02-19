@@ -95,6 +95,8 @@ function engines_object_tolist(engines_obj) {
         if (e_obj['lstr'] !== undefined)
         {
             list.push({type:"label", lstr: e_obj['lstr']});
+        }else if (e_obj['fav'] !== undefined) {
+            list.push({type:"fav", name: e_obj['fav']});
         }else{
             list.push({type:"engine", name: name});
         }
@@ -248,6 +250,12 @@ function createETableByCata(cata, source=null, object_id=null, object_class=null
             {
                 try{
                     table.appendChild( createEngineTr(ele.name, source) );
+                }catch(err){console.error(err);}
+            }
+            else if(ele.type == "fav")
+            {
+                try{
+                    table.appendChild( createEngineTr(ele.name, "bigsearch") );
                 }catch(err){console.error(err);}
             }
         }
