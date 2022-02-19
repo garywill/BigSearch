@@ -4,7 +4,7 @@
 
 <p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手中万列 🖱️ 任心点选</p>
 
-以 **灵活**又**顺手** 的方式 在(切换) **任意一个** 或 **(连续)多个** 搜索引擎（或任意网站）进行搜索。
+以 **灵活**又**顺手** 的方式 在(切换) **任意一个** 或 **(连续)多个** 搜索引擎（或任意网站）进行搜索，并带有些“独门特技”的工具。
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
@@ -12,7 +12,7 @@
 
 <!--ts-->
    * [开始安装使用](#开始安装使用)
-   * [演示与截图](#演示与截图)
+   * [基本功能演示与截图](#基本功能演示与截图)
    * [已收录引擎](#已收录引擎)
    * [相似工具和方法比较](#相似工具和方法比较)
    * [功能及特性](#功能及特性)
@@ -24,7 +24,7 @@
       * [编辑引擎数据说明](#编辑引擎数据说明)
          * [数据说明](#数据说明)
          * [Ajax说明](#ajax说明)
-   * [技术特色](#技术特色)
+   * [技术特色（有何特别之处）](#技术特色有何特别之处)
    * [For Developers](#for-developers)
       * [What's Next Step?](#whats-next-step)
       * [采用的第三方库和组件](#采用的第三方库和组件)
@@ -37,27 +37,23 @@
 使用方式有：
 
 1. 浏览器扩展（**推荐**）
-   
-   安装扩展以发挥所有功能
-   
    - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
    - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb)  或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、搜狗浏览器(部分)、360浏览器(部分) 等 
 
-2. 网页版：网页版功能稍有限，使用不如扩展方便。网页版可在手机浏览器使用
+2. 网页版：网页版功能有限，使用不如扩展方便。网页版可在手机浏览器使用
    - 主站： [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga)
    - 备用站： [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
 
-## 演示与截图
+## 基本功能演示与截图
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
-[Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
-| 使用扩展                                                                              | 可选UI风格 朴素及丰富                                                                            | 搜索选择内容                                                                                    |
+| 使用扩展                                                                              | 可选UI风格 朴素及丰富                                                                            | 编辑搜索引擎 |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)            | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |
-| 免安装网页使用                                                                           | 移动版(试验)(web)                                                                            | 汉语类别(嘿嘿～)                                                                                 |
-| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg)         |
+| ![chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png)  |
+| 搜索选择内容    | 免安装网页试用                                                                           | 移动版(试验)(web)  | 
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | 
 
 正努力地解决一切浏览器与搜索引擎之间的需求。<br>
 让你最充分地利用不同的网络搜索引擎或查询系统。<br>
@@ -71,7 +67,7 @@
 
 [开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-（ ↑ 有经验的用户看直观的横向比较，可能快过图文说明）
+（ ↑ 有经验的用户可以看直观的横向比较，快速了解一些其“独门”特色）
 
 ## 功能及特性
 
@@ -91,6 +87,7 @@
   - 将选择文本设定为搜索词（然后再使用唤出界面）。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
   
   （[Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` ） 
+- 🔎 可以一个按钮一次调用多个操作
 - 🖥️ 支持**桌面**设备（扩展或网页）和**移动**设备（网页）
 
 ## 安全性和隐私
@@ -289,7 +286,7 @@ JSON格式。
 
 </details>
 
-## 技术特色
+## 技术特色（有何特别之处）
 
 - 使用统一的**JSON**作为引擎数据库（包括 自带的 及 用户自定义的）
 - 在引擎数据方面的强大的灵活性：
@@ -316,10 +313,10 @@ JSON格式。
 
 ### What's Next Step?
 
-目前可见的一些发展空间：
+目前可见的一些改进、完善、发展空间：
 
+- 完善编辑引擎的在线GUI (vue)
 - Omnibox 
-- 除自定义引擎的JSON输入框外，搞个GUI。
 - 能够在浏览器（原生）侧边栏使用（要先改进布局问题。需要响应式）
 - 套壳做个桌面app，调用用户指定的浏览器
 - 手机原生App（any ideas?)
@@ -371,7 +368,7 @@ JSON格式。
 
 <details>
 
-这工具的代码一部分最早可追溯到2008年左右。2015年首次将网页功能发布在网上可公开使用。2020年代初，才发现webExtension和JS已经标准化，于是做出了浏览器扩展版本。（是的，慢慢地发展，不是全职的）
+这工具的代码一部分最早可追溯到2008年左右。2015年首次将网页功能发布在网上可公开使用。2020年代初，才发现webExtension和JS已经标准化，于是做出了浏览器扩展版本并开了Github repo。（是的，慢慢地发展，不是全职的）
 
 有过（并可能仍会有）重构。尽管部分代码仍有岁月的痕迹，但**一直很现代并很好用**。
 

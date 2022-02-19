@@ -7,15 +7,15 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 Handily use / switch **any one** or **multiple (uninterruptedly)** **search engines** (or search any websites) via a **flexible tool**.
 
 <p align="center">
-Search everywhere 🗺️ for everything 👨‍💻, as you choose & 🖱️ click.<br>
-Breadth & Focus.
+Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
+With some <b>special technical features</b> also.
 </p>
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 <!--ts-->
    * [Start to install &amp; use](#start-to-install--use)
-   * [Demo and Screenshots](#demo-and-screenshots)
+   * [Basic Features Demo and Screenshots](#basic-features-demo-and-screenshots)
    * [List of engines](#list-of-engines)
    * [Similar tools &amp; methods comparison](#similar-tools--methods-comparison)
    * [Features](#features)
@@ -27,7 +27,7 @@ Breadth & Focus.
       * [Specification of Editing Engines Data](#specification-of-editing-engines-data)
          * [Specifications](#specifications)
          * [Ajax Instructions](#ajax-instructions)
-   * [Our Special Technical Features](#our-special-technical-features)
+   * [Technical Features (What's special about it)](#technical-features-whats-special-about-it)
    * [For Developers](#for-developers)
       * [What's Next Step](#whats-next-step)
       * [Third-party libraries and components used](#third-party-libraries-and-components-used)
@@ -40,7 +40,6 @@ Breadth & Focus.
 Ways to use:
 
 1. Browser extension (**recommended**)
-   Install extension to let it fully function
    - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
    - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) or [download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main). For: Google Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.
 
@@ -48,17 +47,15 @@ Ways to use:
    - Main site: [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga)
    - Standby site: [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
    
-## Demo and Screenshots
+## Basic Features Demo and Screenshots
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
-[Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
-
-| Use Extension                                                                     | UI Styles, Simplicity or Fancy                                                          | Context selection search                                                                  |
+| Use Extension                                                                     | UI Styles, Simplicity or Fancy                                                          | Edit Search Engines   |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)            | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |
-| Use web app without install                                                       | Mobile (testing) (web app)                                                              |                                                                                           |
-| ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) |                                                                                           |
+| ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png)  |
+| Context selection search | Try web app without install                                                       | Mobile (testing) (web app)  |
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) |   
 
 Making effort to solve all needs between browsers and search engines.<br>
 Easily make best use of different web search engines or inquery systems.<br>
@@ -72,7 +69,7 @@ Or, use as universal web searching home, portal for people expecting good search
 
 [Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-(↑ Experienced users may prefer intuitive horizontal comparison than text doc)
+(↑ Experienced users may prefer intuitive horizontal comparison, to quickly know what's special about it)
 
 ## Features
 
@@ -92,6 +89,7 @@ Or, use as universal web searching home, portal for people expecting good search
   - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others：`Ctrl+Shift+D`
   
   ([change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` )
+- 🔎 Do many operations at once by one button
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 
 ## Safety & Privacy
@@ -105,7 +103,7 @@ Or, use as universal web searching home, portal for people expecting good search
 
 Ordinary users who only use basic features can directly use our [online gui engine-editing tool (link1)](https://acsearch.ga/editengine.php) ([link2](http://acsearch.tk/editengine.php)).
 
-Following paragraphs is about JSON-format engine data specification. Using JSON you can use all features of this tool. The method is for both:
+Following paragraphs of this section are about JSON-format engine data specification. Using JSON you can use all features of this tool. The method is for both:
 
 1. User-defined private engines
 2. Big Search built-in search engines (`enginesdata.js`)
@@ -288,7 +286,7 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 </details>
 
-## Our Special Technical Features
+## Technical Features (What's special about it)
 
 - Uses **JSON** as unified search engines database (**both** built-in and user-defined)
 - Has strong flexibility in engine data:
@@ -299,7 +297,7 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 - **Ajax-only** websites support ([details](#Ajax-Instructions))
 - Support **multi-line** inputting and sending
 - Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
-- Do many operations at once by a button
+- Do many operations at once by one button
 
 ![tech_diagram](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/tech.png)
 
@@ -318,8 +316,8 @@ Of course, it is **also completely easy for ordinary people to use**.
 
 This tool still can be improved to do something more:
 
+- Improve the online editing-engine GUI (vue)
 - Omnibox
-- GUI to custom user engines, beside the custom engine JSON edit field
 - Browser (native) sidebar panel (before that need to change UI. Need responsive)
 - Desktop stanalone app, opening URL with user-assigned browser
 - Mobile native app (any idea?)
@@ -372,7 +370,7 @@ If you want to add a search engine that only targets users in a certain language
 
 <details>
 
-A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension. (Yes it's developed slowly and gently, not full-time.)
+A part of the code of this tool can be traced back to around 2008. Web app published to be usable to the public on Internet in 2015. Not until early 2020s, I found webExtension and JS standarized, so made this tool a browser extension and setup a Github repo for it. (Yes it's developed slowly and gently, not full-time.)
 
 Some code has been ever (and may still getting) refactored. Although there's still some some aged parts, this tool has **always been modern, handy & useful**.
 
