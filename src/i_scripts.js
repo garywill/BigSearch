@@ -993,9 +993,9 @@ async function init_lastuseHandler() {
             
             var button_ele;
             
-            button_ele = table_element.querySelector(`.gobutton[e=${engine}][b=${btn}]`);
+            button_ele = table_element.querySelector(`.gobutton[e='${engine}'][b='${btn}']`);
             if (!button_ele)
-                button_ele = table_element.querySelector(`.gobutton[e=${engine}]`);
+                button_ele = table_element.querySelector(`.gobutton[e='${engine}']`);
             
             if (!button_ele)
                 button_ele = table_element.querySelector(`.gobutton`);
@@ -1031,9 +1031,9 @@ async function init_lastuseHandler() {
             {
                 var [dbname, cata] = R.storageObj.lastBrowse.target;
                 
-                button = document.querySelector(`.cata_btns[dbname=${dbname}][cata=${cata}]`);
+                button = document.querySelector(`.cata_btns[dbname=${dbname}][cata='${cata}']`);
                 if (!button)
-                    button = document.querySelector(`.cata_btns[dbname=${dbname}]`);
+                    button = document.querySelector(`.cata_btns[dbname='${dbname}']`);
                 if (!button)
                     button = document.querySelector(`.cata_btns[dbname=bigsearch]`);
             }
