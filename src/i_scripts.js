@@ -908,9 +908,9 @@ async function ebtn_onclick(obj)
 	async function ebtn_onclick_gosearch() {
         const engine =obj.getAttribute("e");
         const btn = obj.getAttribute("b");
-        const source = obj.getAttribute("source");
+        const dbname = obj.getAttribute("dbname");
         try{
-            await goEngBtn( engine, btn, inputval , source);
+            await goEngBtn( engine, btn, inputval , dbname);
         } catch(err) { console.error(`ERROR when trying to call ${engine}/${btn}`); console.error(err); }
     }
     
@@ -1007,7 +1007,7 @@ async function cata_onclick(btnobj)
     if (oldTable)
         oldTable.parentNode.removeChild(oldTable);
     
-    if (btnobj.getAttribute("source")=="user")
+    if (btnobj.getAttribute("dbname")=="user")
     {
         
         document.getElementById("div_custom_json").style.display="";
@@ -1023,7 +1023,7 @@ async function cata_onclick(btnobj)
     }
     
     
-    if (btnobj.getAttribute("source")=="browser")
+    if (btnobj.getAttribute("dbname")=="browser")
     {
         document.getElementById("div_search_permi").style.display = "none";
         if ( ! await browser.permissions.contains( { permissions: ["search"] } ) )
@@ -1036,7 +1036,7 @@ async function cata_onclick(btnobj)
         document.getElementById("div_search_permi").style.display = "none";
     }
     
-    engines_cont.appendChild( createETableByCata( btnobj.getAttribute('name'), btnobj.getAttribute('source'), 'engines_table'));
+    engines_cont.appendChild( createETableByCata( btnobj.getAttribute('name'), btnobj.getAttribute('dbname'), 'engines_table'));
     
 
     Array.from( document.getElementsByClassName("cata_btns") ).forEach(function(ele){
@@ -1200,12 +1200,12 @@ async function do_stati()
                 }catch(err){}
                 mtm.inited = true;
             },
-            goevent: function(source) {
+            goevent: function(dbname) {
                 if (!mtm.inited)
                     return;
                 try{
                     fetch(
-                        mtm.mtm_url + `?rec=1&pv_id=${mtm.pvid}&_id=${mtm.uid}&rand=${getRandomInt(100)}&idsite=7&e_c=clickbtn&e_a=go&e_n=${source}&e_v=${Object.keys(usercustom_engines).length}`
+                        mtm.mtm_url + `?rec=1&pv_id=${mtm.pvid}&_id=${mtm.uid}&rand=${getRandomInt(100)}&idsite=7&e_c=clickbtn&e_a=go&e_n=${dbname}&e_v=${Object.keys(usercustom_engines).length}`
                     , { mode: 'no-cors' } );
                 }catch(err){}
             }
@@ -1220,11 +1220,11 @@ async function do_stati()
 
 async function stati_goclicked (obj) {
     
-    const source = obj.getAttribute("source");
+    const dbname = obj.getAttribute("dbname");
     const e = obj.getAttribute("e");
     const b = obj.getAttribute("b");
     
-    if ( window.run_env == "http_web" &&  source == "bigsearch" )
+    if ( window.run_env == "http_web" &&  dbname == "bigsearch" )
     {
         try{ _czc.push(["_trackPageview", "search/" + e + '/' + b, "index.php"]); } catch(err){}
         try{ _paq.push(['trackEvent', 'search', e, b, Object.keys(usercustom_engines).length]);  } catch(err){}
@@ -1234,7 +1234,7 @@ async function stati_goclicked (obj) {
     if ( window.run_env != "http_web" ) {
         if ( ( await get_addon_setting('noaddonstatistics') ) !== true ) {
             
-            mtm.goevent(source);
+            mtm.goevent(dbname);
         }
     }
 }

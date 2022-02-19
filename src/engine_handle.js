@@ -40,16 +40,16 @@ async function read_usercustom_engines() {
 }
 //read_usercustom_engines();
 
-function db(source="bigsearch") {
+function db(dbname="bigsearch") {
     var catas_db = {};
     var engines_db = {};
     
-    if ( !source || source == "bigsearch")
+    if ( !dbname || dbname == "bigsearch")
     {
         catas_db = catas;
         engines_db = sEngines
     }
-    else if ( source == "user")
+    else if ( dbname == "user")
     {
         catas_db = {
             "user": {
@@ -59,7 +59,7 @@ function db(source="bigsearch") {
         };
         engines_db = usercustom_engines;
     }
-    else if ( source == "browser" )
+    else if ( dbname == "browser" )
     {
         var browser_engines = {};
         var browser_engines_list = {};
@@ -108,7 +108,7 @@ function engines_object_tolist(engines_obj) {
 
 const defaultBtn = {"search":{"label":i18n(["搜索", "Search"])}};
 
-function createEngineTr(e_name,source=null){
+function createEngineTr(e_name,dbname=null){
     var tr = document.createElement("tr");
     tr.className = "engine_tr";
     tr.setAttribute("e",e_name);
@@ -120,43 +120,43 @@ function createEngineTr(e_name,source=null){
     
     var span_in_td_dname = document.createElement("span");
     td_dname.appendChild(span_in_td_dname);
-    span_in_td_dname.title = db(source).sEngines[e_name].tip ? db(source).sEngines[e_name].tip : i18n(["点此打开其首页。\n要进行操作（如搜索），请输入后点击右列相应的按钮\n\n如果想要将大术专搜内置的引擎“设为常用”或“重新排序”，请使用“用户自定”功能。使用其中的在线GUI编辑器可以轻松操作", 'Click to open its homepage.\n To do an action (e.g. search), input text then click a button on the right column\n\nIf want to "set as favorite" or "re-order" Big Search build-in engines, use "User Custom". Use its online editing-engine GUI to easily do it']);
+    span_in_td_dname.title = db(dbname).sEngines[e_name].tip ? db(dbname).sEngines[e_name].tip : i18n(["点此打开其首页。\n要进行操作（如搜索），请输入后点击右列相应的按钮\n\n如果想要将大术专搜内置的引擎“设为常用”或“重新排序”，请使用“用户自定”功能。使用其中的在线GUI编辑器可以轻松操作", 'Click to open its homepage.\n To do an action (e.g. search), input text then click a button on the right column\n\nIf want to "set as favorite" or "re-order" Big Search build-in engines, use "User Custom". Use its online editing-engine GUI to easily do it']);
     
     var engine_home_link = document.createElement("a");
     span_in_td_dname.appendChild(engine_home_link);
     span_in_td_dname.className = "engine_home_link";
     engine_home_link.target = "_blank";
     
-    if ( db(source).sEngines[e_name].addr )
-        engine_home_link.href = db(source).sEngines[e_name].addr;
+    if ( db(dbname).sEngines[e_name].addr )
+        engine_home_link.href = db(dbname).sEngines[e_name].addr;
     
     engine_home_link.setAttribute("name", e_name);
     
-    if ( !source || source == "bigsearch")
+    if ( !dbname || dbname == "bigsearch")
         engine_home_link.addEventListener('click', eng_link_onclick );
         //engine_home_link.addEventListener('click', function() { stati_click_e(this) ; } );
     
-    if ( typeof ( db(source).sEngines[e_name] ) === "string" )
+    if ( typeof ( db(dbname).sEngines[e_name] ) === "string" )
         engine_home_link.textContent = e_name;
     else
-        engine_home_link.textContent = db(source).sEngines[e_name].dname;
+        engine_home_link.textContent = db(dbname).sEngines[e_name].dname;
     
-    if(db(source).sEngines[e_name].d_addi_html)
+    if(db(dbname).sEngines[e_name].d_addi_html)
     {
-        //engine_home_link.innerHTML = engine_home_link.innerHTML + "&nbsp;<span class='d_addi_html' style='font-size: 90%;' >" + db(source).sEngines[e_name].d_addi_html + "</span>";
+        //engine_home_link.innerHTML = engine_home_link.innerHTML + "&nbsp;<span class='d_addi_html' style='font-size: 90%;' >" + db(dbname).sEngines[e_name].d_addi_html + "</span>";
         var span = document.createElement("span");
         span.className="d_addi_html";
         span.style="font-size: 90%; padding-left:5px;" ;
         
         
-        switch ( typeof (db(source).sEngines[e_name].d_addi_html) ) {
+        switch ( typeof (db(dbname).sEngines[e_name].d_addi_html) ) {
             case "string":
-                span.textContent = db(source).sEngines[e_name].d_addi_html;
+                span.textContent = db(dbname).sEngines[e_name].d_addi_html;
                 break;
             case "object":
-                if (Array.isArray(db(source).sEngines[e_name].d_addi_html) )
+                if (Array.isArray(db(dbname).sEngines[e_name].d_addi_html) )
                 {
-                    db(source).sEngines[e_name].d_addi_html.forEach( function(ele) {
+                    db(dbname).sEngines[e_name].d_addi_html.forEach( function(ele) {
                         var link = document.createElement("a");
                         link.textContent = ele['text'];
                         link.href = ele['href'];
@@ -180,11 +180,11 @@ function createEngineTr(e_name,source=null){
     
     td_enginebuttons.className = "engbtns_td";
     
-    if ( db(source).sEngines[e_name].btns === undefined )
+    if ( db(dbname).sEngines[e_name].btns === undefined )
     {
         createBtnsAndAppend(td_enginebuttons,defaultBtn);
     }else{
-        createBtnsAndAppend(td_enginebuttons,db(source).sEngines[e_name].btns);
+        createBtnsAndAppend(td_enginebuttons,db(dbname).sEngines[e_name].btns);
     }
     
     
@@ -198,10 +198,10 @@ function createEngineTr(e_name,source=null){
                 btn.className = "gobutton";
                 btn.setAttribute("e",e_name);
                 btn.setAttribute("b",key);
-                if (source) 
-                    btn.setAttribute("source",source);
+                if (dbname) 
+                    btn.setAttribute("dbname",dbname);
                 else
-                    btn.setAttribute("source", "bigsearch");
+                    btn.setAttribute("dbname", "bigsearch");
                 btn.addEventListener('click', function () {ebtn_onclick(this);} );
                 
                 if (btns[key].btn_tip)
@@ -232,7 +232,7 @@ function createLabelTr(l_str)
     return tr;
 }
 
-function createETableByCata(cata, source=null, object_id=null, object_class=null, object_style=null)
+function createETableByCata(cata, dbname=null, object_id=null, object_class=null, object_style=null)
 {
     var table = document.createElement("table");
     table.name = cata;
@@ -240,7 +240,7 @@ function createETableByCata(cata, source=null, object_id=null, object_class=null
     if (object_class) table.className = object_class;
     if (object_style) table.style = object_style;
     
-    db(source).catas[cata].engines.forEach(function(ele){
+    db(dbname).catas[cata].engines.forEach(function(ele){
         if (isVisible(ele))
         {
             if (ele.type == "label")
@@ -249,7 +249,7 @@ function createETableByCata(cata, source=null, object_id=null, object_class=null
             }else if(ele.type == "engine")
             {
                 try{
-                    table.appendChild( createEngineTr(ele.name, source) );
+                    table.appendChild( createEngineTr(ele.name, dbname) );
                 }catch(err){console.error(err);}
             }
             else if(ele.type == "fav")
@@ -264,7 +264,7 @@ function createETableByCata(cata, source=null, object_id=null, object_class=null
     return table;
 }
 
-function createCataBtn(cata, source=null)
+function createCataBtn(cata, dbname=null)
 {
     //var div = document.createElement("div");
     
@@ -272,15 +272,15 @@ function createCataBtn(cata, source=null)
     //div.appendChild(button);
     button.className = "cata_btns";
     button.name = cata;
-    if (source) button.setAttribute("source",source );
+    if (dbname) button.setAttribute("dbname",dbname );
     button.id = "cata_btn_" + cata;
-    if (source) button.id = button.id + "_source_" + source;
+    if (dbname) button.id = button.id + "_dbname_" + dbname;
     
     button.addEventListener('click', function () {cata_onclick(this);});
         
     var span = document.createElement("span");
     button.appendChild(span);
-    span.textContent = db(source).catas[cata].label;
+    span.textContent = db(dbname).catas[cata].label;
     
     //return div;
     return button;
@@ -288,13 +288,13 @@ function createCataBtn(cata, source=null)
 
 ///////////////////////////////////////////////////////////
 
-function getDataForGo(engine,btn,source=null)
+function getDataForGo(engine,btn,dbname=null)
 {
     const data_btnOverEng = ["addr","dname","tip","action","method","charset","kw_key","kw_replace","kw_format","params","full_url","use_other_engine","allow_referer","ajax"];
     const data_btnOnly = ["label","btn_tip"];
     const data_engOnly = [];
     
-    var engine = db(source).sEngines[engine];
+    var engine = db(dbname).sEngines[engine];
     if (engine.btns === undefined)
         engine.btns = defaultBtn;
     
@@ -332,7 +332,7 @@ function getDataForGo(engine,btn,source=null)
     
     return data;
 }
-async function goEngBtn(engine,btn,keyword,source=null)
+async function goEngBtn(engine,btn,keyword,dbname=null)
 {
     var newTabIndex;
     var newTabBringFront;
@@ -345,7 +345,7 @@ async function goEngBtn(engine,btn,keyword,source=null)
     }
     
     
-    if ( source == "browser" ) {
+    if ( dbname == "browser" ) {
         const newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
         browser.search.search({
             query: keyword,
@@ -356,7 +356,7 @@ async function goEngBtn(engine,btn,keyword,source=null)
         return;
     }
     
-    var data = getDataForGo(engine,btn, source);
+    var data = getDataForGo(engine,btn, dbname);
     /*
      * replace
      * format
@@ -575,7 +575,7 @@ function go_parse_use_other_engine(element, keyword) {
     {
         element = { "engine" : element };
     }
-    goEngBtn( element.engine, element.btn , keyword, element.source);
+    goEngBtn( element.engine, element.btn , keyword, element.dbname);
 }
 
 function go_full_url(keyword, full_url, charset="UTF-8",referer=false){

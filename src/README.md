@@ -261,7 +261,7 @@ Engine data in full format can contain following key-values:
                 ],
                 "full_url": "http://www.example.com/search/{0}", // # optional, the entire url using get method
                 "use_other_engine": {   // # optional, use another engine to do the operation. (if use array here, then do many operations by a button at once)
-                    "source": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
+                    "dbname": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
                     "engine": "engine name", 
                     "btn": "button name"   // # Optional. Absence will make fallback to the first button
                 },
