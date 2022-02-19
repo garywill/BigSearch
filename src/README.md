@@ -52,13 +52,15 @@ Ways to use:
    
 ## Basic Features Demo and Screenshots
 
-![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
-
-| Use Extension                                                                     | UI Styles, Simplicity or Fancy                                                          | Edit Search Engines   |
+| Use Extension                                                                     | UI Styles, Simplicity or Fancy                                                          |   |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png)  |
+| ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |   |
 | Context selection search | Try web app without install                                                       | Mobile (testing) (web app)  |
-| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) |   
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) |
+| Edit search engines  | Special search methods, flexibility & extensibility |  | 
+| ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
+
+![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
 ## Features
 

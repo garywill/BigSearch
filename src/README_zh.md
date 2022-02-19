@@ -49,14 +49,15 @@
 
 ## 基本功能演示与截图
 
-![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
-
-
-| 使用扩展                                                                              | 可选UI风格 朴素及丰富                                                                            | 编辑搜索引擎 |
+| 使用扩展                                                                              | 可选UI风格 朴素及丰富                                                                            |  |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png)  |
+| ![chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |   |
 | 搜索选择内容    | 免安装网页试用                                                                           | 移动版(试验)(web)  | 
 | ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | 
+| 编辑搜索引擎 | 特别搜索方式 灵活、可扩展 |  | 
+| ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
+
+![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
 ## 功能及特性
 
