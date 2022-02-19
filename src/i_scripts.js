@@ -1062,12 +1062,8 @@ function init_btmDialogToggler() {
     btmDialogToggler = new function btmDialogTogglerClass() {
         
         this.onBtnClick = function() {
-            
-            Array.from(document.querySelectorAll(".btm_dialog:not(#" + this.id + "_dialog)")).forEach(function(ele) {
-                ele.style.display = "none";
-            });
-            
-            if (this.id == "btn_donate") {
+            var btn_id = this.id;
+            if (btn_id == "btn_donate") {
                 const donate_pic = "https://gitlab.com/garywill/receiving/raw/master/receivingcode.png";
                 // https://gitlab.com/garywill/receiving/raw/master/receivingcode.png
                 // https://raw.githubusercontent.com/garywill/receiving/master/receivingcode.png
@@ -1075,14 +1071,14 @@ function init_btmDialogToggler() {
                     document.getElementById("img_receivingcode").setAttribute("src",donate_pic); 
             }
             
-            if (this.id == "btn_webext") {
+            if (btn_id == (window.run_env == "http_web" ? "btn_webext" : "btn_about")  ) {
                 var imgs = document.getElementById("div_addon_badges").querySelectorAll("img");
                 Array.from(imgs).forEach(function(ele) {
                     if (ele.getAttribute("src") != ele.getAttribute("nsrc") )
                         ele.setAttribute("src", ele.getAttribute("nsrc"));
                 });
             }
-            switch(this.id)
+            switch(btn_id)
             {
                 case "btn_donate":
                 case "btn_about":
@@ -1091,23 +1087,29 @@ function init_btmDialogToggler() {
                 case "btn_theme":
                 case "btn_source":
                 case "btn_webext":
-                    btmDialogToggler.toggle( document.getElementById(this.id + "_dialog") );
+                    btmDialogToggler.toggle( document.getElementById(btn_id + "_dialog") );
+                    Array.from(document.querySelectorAll(".btm_dialog:not(#" + btn_id + "_dialog)")).forEach(function(ele) {
+                        ele.style.display = "none";
+                    });
                     break;
             }
             
-            switch(this.id)
+            switch(btn_id)
             {
                 case "btn_donate":
                 case "btn_webext":
                 case "btn_theme":
                 case "btn_randomtheme":
                 case "btn_source":
-                    stati_custom_page(this.id);
+                    stati_custom_page(btn_id);
                     break;
             }
         };
         this.toggle = function(object) {
-            if (getComputedStyle(object).display != "none") {
+            
+            
+            
+            if ( !object || getComputedStyle(object).display != "none") {
                 this.close(object);
             } else {
                 this.open(object);
@@ -1118,8 +1120,8 @@ function init_btmDialogToggler() {
             document.body.classList.add("when-btm-open");
         };
         this.close = function(object) {
-            object.style.display = "none";
             document.body.classList.remove("when-btm-open");
+            object.style.display = "none";
         };
     }();
 
