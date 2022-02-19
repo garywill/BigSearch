@@ -620,7 +620,7 @@ onrd.push(function(){
             parsedJsonObj = JSON.parse(textarea.value);
         }catch(err){
             alert(
-                i18n(["好像有一点什么错误！！！\n输入的内容无法解析为符合严格格式的JSON。\n", "Ooops !!!\nSomething in yout input is wrong. Can't be parsed as strict JSON format.\n"])
+                i18n(["❌ 好像有一点什么错误！！！ ❌\n输入的内容无法解析为符合严格格式的JSON。\n", "❌ Ooops !!! ❌\nSomething in yout input is wrong. Can't be parsed as strict JSON format.\n"])
                 + "\n"
                 + err
             );
@@ -629,22 +629,30 @@ onrd.push(function(){
         
         var stringifiedJson = JSON.stringify(parsedJsonObj);
         var formattedJson = JSON.stringify(parsedJsonObj, null, 2);
-        if (window.run_env == "http_web")
+        if (window.run_env == "http_web") // http web
         {
             setStor("usercustom_engines", stringifiedJson); 
             document.getElementById("textarea_json_saved").value = formattedJson;
-            alert(i18n([ "OK！\n解析并保存成功", "OK!\nSucessfully parsed and saved"]));
-        }else{
+            
+            if ( getStor("usercustom_engines") === stringifiedJson )
+                alert(i18n([ "✅ OK！ ✅\n解析并保存成功", "✅ OK! ✅\nSucessfully parsed and saved"]));
+            else
+                alert("❌ Oh no! Error! ❌\n\nFailed to save your data\n\nWere you trying to save a too large data?");
+        }else{ // addon
             var compressed;
             //compressed = LZString.compressToUint8Array(textarea.value);
-            //console.log("compressed data length:", compressed.length);
             compressed = LZUTF8.compress(stringifiedJson, {outputEncoding: "StorageBinaryString"});
+            //console.log("compressed data length:", compressed.length);
             try{
                 await chrome.storage.sync.set({"usercustom_engines": compressed });
                 document.getElementById("textarea_json_saved").value = formattedJson;
-                alert(i18n([ "OK！\n解析并保存成功", "OK!\nSucessfully parsed and saved"]));
+                
+                if ( ( await get_addon_setting("usercustom_engines") ) === compressed )
+                    alert(i18n([ "✅ OK！ ✅\n解析并保存成功", "✅ OK! ✅\nSucessfully parsed and saved"]));
+                else
+                    alert("❌ Oh no! Error! ❌\n\nFailed to save your data\n\nWere you trying to save a too large data? The limitation is about 20-30 kB.\n\nContact developer if you still have problems.");
             }catch(err) {
-                alert(err);
+                alert("❌ " + err + " ❌");
                 return;
             }
         }
