@@ -1,6 +1,6 @@
 English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_zh.md)
 
-[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+[![firefox](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![chrome](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=ms%20edge%20%28NO%20update%29&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
 
 # Big Search
 
@@ -13,7 +13,29 @@ Breadth & Focus.
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
-## To use
+<!--ts-->
+   * [Start to install &amp; use](#start-to-install--use)
+   * [Demo and Screenshots](#demo-and-screenshots)
+   * [List of engines](#list-of-engines)
+   * [Similar tools &amp; methods comparison](#similar-tools--methods-comparison)
+   * [Features](#features)
+   * [Safety &amp; Privacy](#safety--privacy)
+   * [How to edit search engines](#how-to-edit-search-engines)
+      * [Examples](#examples)
+         * [Short Format](#short-format)
+         * [Full Format](#full-format)
+      * [Specification of Editing Engines Data](#specification-of-editing-engines-data)
+         * [Specifications](#specifications)
+         * [Ajax Instructions](#ajax-instructions)
+   * [Our Special Technical Features](#our-special-technical-features)
+   * [For Developers](#for-developers)
+      * [What's Next Step](#whats-next-step)
+      * [Third-party libraries and components used](#third-party-libraries-and-components-used)
+      * [Globalization](#globalization)
+      * [History, Code Status, and License](#history-code-status-and-license)
+<!--te-->
+
+## Start to install & use
 
 Ways to use:
 
@@ -32,11 +54,10 @@ Ways to use:
 
 [Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
-| Screenshots                                                                       |                                                                                           |                                        |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
 | Use Extension    | UI Styles, Simplicity or Fancy | Context selection search  | 
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
 | ![screenshot_en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |  
-| Use web app without install                                                       | Mobile UI (beta) (web app)                                                                 |                                        |
+| Use web app without install                                                       | Mobile (testing) (web app)                                                                 |                                        |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   |                                        |
 
 Making effort to solve all needs between browsers and search engines.<br>
@@ -73,7 +94,7 @@ Or, use as universal web searching home, portal for people expecting good search
   ([change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` )
 - 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
 
-### Safety & Privacy
+## Safety & Privacy
 
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed. (browser extension)
 - 🛡️ Pure **client-side** tool functions fully. No necessary server. No collecting user's input. (browser extension and web app)
@@ -188,6 +209,8 @@ Also, mixing short formatted and full formatted elements is supported.
 
 ### Specification of Editing Engines Data
 
+#### Specifications
+
 In JSON format.
 
 Engine data in full format can contain following key-values:
@@ -281,11 +304,18 @@ Therefore, this tool is more satisfying to **technician** people comparing to si
 
 Of course, it is **also completely easy for ordinary people to use**. 
 
-## What's Next
 
-Maybe it can do something more:
+## For Developers
 
-- Omnibox (??)
+> We encourage user to submit their customized search engines data to us after they format as JSON. Search engines data is AGPL licensed FLOSS.
+
+> If you want some search engines to be included by us, add/submit it to `enginesdata.js`. It is the core data of Big Search.
+
+### What's Next Step
+
+This tool still can be improved to do something more:
+
+- Omnibox
 - GUI to custom user engines, beside the custom engine JSON edit field
 - Browser (native) sidebar panel (before that need to change UI. Need responsive)
 - Desktop stanalone app, opening URL with user-assigned browser
@@ -293,12 +323,6 @@ Maybe it can do something more:
 - Add non-search navigation feature
 - Be compatible with others e.g. OpenSearch. Add or convert by 1-click
 - Be able to be used via CLI in terminal (nodejs)
-
-## For Developers
-
-> We encourage user to submit their customized search engines data to us after they format as JSON. Search engines data is AGPL licensed FLOSS.
-
-> If you want some search engines to be included by us, add/submit it to `enginesdata.js`. It is the core data of Big Search.
 
 ### Third-party libraries and components used
 

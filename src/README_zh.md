@@ -1,4 +1,4 @@
-[![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=edge%20add-on&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+[![firefox](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![chrome](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=ms%20edge%20%28NO%20update%29&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
 
 # 大术专搜
 
@@ -10,7 +10,29 @@
 
 > 图标含意：篆书的「**術**」（术）字 + 代表搜索/查询的放大镜
 
-## 使用
+<!--ts-->
+   * [开始安装使用](#开始安装使用)
+   * [演示与截图](#演示与截图)
+   * [已收录引擎](#已收录引擎)
+   * [相似工具和方法比较](#相似工具和方法比较)
+   * [功能及特性](#功能及特性)
+   * [安全性和隐私](#安全性和隐私)
+   * [如何编辑搜索引擎](#如何编辑搜索引擎)
+      * [例子](#例子)
+         * [简短形式](#简短形式)
+         * [完整形式](#完整形式)
+      * [编辑引擎数据说明](#编辑引擎数据说明)
+         * [数据说明](#数据说明)
+         * [Ajax说明](#ajax说明)
+   * [技术特色](#技术特色)
+   * [For Developers](#for-developers)
+      * [What's Next Step?](#whats-next-step)
+      * [采用的第三方库和组件](#采用的第三方库和组件)
+      * [国际化](#国际化)
+      * [历史、代码状况、许可证](#历史代码状况许可证)
+<!--te-->
+
+## 开始安装使用
 
 使用方式有：
    
@@ -33,9 +55,8 @@
 
 [Watch demo video on Youtube](https://www.youtube.com/watch?v=hn5BkviAyvQ)
 
-| 截图                                                                                |                                                                                           |                                                                                   |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | 使用扩展    | 可选UI风格 朴素或fancy | 搜索选择内容  |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | ![screenshot_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)  | ![screenshot_context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) |
 | 免安装网页使用                                                                           | 移动版(试验)(web)                                                                              | 汉语类别(嘿嘿～)                                                                     |
 | ![screenshot_web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![screenshot_mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg)   | ![screenshot_han](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/han.jpg) |
@@ -54,7 +75,7 @@
 
 （ ↑ 有经验的用户看直观的横向比较，可能快过图文说明）
 
-## 特性
+## 功能及特性
 
 - 🔎 可将任意搜索引擎、查询网站集于一处（连续）操作，任何支持**GET/POST**的网站。（**甚至**[**兼容**那些**不**支持GET/POST的](#Ajax说明)）
   > 例如 百度、Google、哔哩哔哩、网易云音乐、淘宝、有道、Github、IEEE、你家附近某店货物查询（如果有）等。可自定义。已收录50+个
@@ -74,7 +95,7 @@
   （[Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` ） 
 - 🖥️ 支持**桌面**设备（扩展或网页）和**移动**设备（网页）
 
-### 安全性和隐私
+## 安全性和隐私
 
 - 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
 - 🛡️ **纯客户端**功能完整，不需服务器，无搜集用户搜索内容（包括网页及扩展）
@@ -192,6 +213,8 @@
 
 ### 编辑引擎数据说明
 
+#### 数据说明
+
 JSON格式。
 
 使用 完整形式 的引擎数据可以包含以下键值：
@@ -284,11 +307,18 @@ JSON格式。
 
 当然，**普通人也完全可以轻松使用**。
 
-## What's Next?
 
-有些或许还可以做：
+## For Developers
 
-- Omnibox (??)
+> 用户使用了JSON自定义引擎后，我们鼓励用户也将数据提交回上游源代码。引擎数据为AGPL自由代码。
+
+> `enginesdata.js`是收录搜索引擎的数据，若要添加搜索引擎使被收录，往这里添加。
+
+### What's Next Step?
+
+目前可见的一些发展空间：
+
+- Omnibox 
 - 除自定义引擎的JSON输入框外，搞个GUI。
 - 能够在浏览器（原生）侧边栏使用（要先改进布局问题。需要响应式）
 - 套壳做个桌面app，调用用户指定的浏览器
@@ -296,12 +326,6 @@ JSON格式。
 - 增加非搜索导航功能
 - 兼容OpenSearch等，一键自动添加或转换
 - 在终端内调用的CLI（nodejs）
-
-## For Developers
-
-> 用户使用了JSON自定义引擎后，我们鼓励用户也将数据提交回上游源代码。引擎数据为AGPL自由代码。
-
-> `enginesdata.js`是收录搜索引擎的数据，若要添加搜索引擎使被收录，往这里添加。
 
 ### 采用的第三方库和组件
 
