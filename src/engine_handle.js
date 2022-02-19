@@ -116,11 +116,11 @@ function createEngineTr(e_name,source=null){
     var td_dname = document.createElement("td");
     tr.appendChild(td_dname);
     td_dname.className = "enginename_td";
-    td_dname.title = i18n(['要进行操作（如搜索），请输入后点击右列相应的按钮', 'To do an action (e.g. search), input text then click a button on the right column']);
+    td_dname.title = i18n(['要进行操作（如搜索），请输入后点击右列相应的按钮\n\n如果想要将大术专搜内置的引擎“设为常用”或“重新排序”，请使用“用户自定”功能。使用其中的在线GUI编辑器可以轻松操作', 'To do an action (e.g. search), input text then click a button on the right column\n\nIf want to "set as favorite" or "re-order" Big Search build-in engines, use "User Custom". Use its online editing-engine GUI to easily do it']);
     
     var span_in_td_dname = document.createElement("span");
     td_dname.appendChild(span_in_td_dname);
-    span_in_td_dname.title = db(source).sEngines[e_name].tip ? db(source).sEngines[e_name].tip : i18n(["点此打开其首页。\n要进行操作（如搜索），请输入后点击右列相应的按钮", "Click to open its homepage.\n To do an action (e.g. search), input text then click a button on the right column"]);
+    span_in_td_dname.title = db(source).sEngines[e_name].tip ? db(source).sEngines[e_name].tip : i18n(["点此打开其首页。\n要进行操作（如搜索），请输入后点击右列相应的按钮\n\n如果想要将大术专搜内置的引擎“设为常用”或“重新排序”，请使用“用户自定”功能。使用其中的在线GUI编辑器可以轻松操作", 'Click to open its homepage.\n To do an action (e.g. search), input text then click a button on the right column\n\nIf want to "set as favorite" or "re-order" Big Search build-in engines, use "User Custom". Use its online editing-engine GUI to easily do it']);
     
     var engine_home_link = document.createElement("a");
     span_in_td_dname.appendChild(engine_home_link);
