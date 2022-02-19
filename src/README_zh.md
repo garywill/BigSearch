@@ -4,7 +4,8 @@
 
 <p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手中万列 🖱️ 任心点选</p>
 
-以 **灵活**又**顺手** 的方式 在(切换) **任意一个** 或 **(连续)多个** 搜索引擎（或任意网站）进行搜索，并带有些“**独门特技**”的工具。
+以 **灵活**又**顺手** 的方式 在(切换) **任意一个** 或 **(连续)多个** 搜索引擎（或任意网站）进行搜索，<br>
+并带有些“**独门特技**”（灵活性 及 扩展性）的工具。
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
@@ -88,18 +89,18 @@
 - 🔎 **甚至兼容**那些**不**对外开放GET/POST接口（称为Ajax-only）的网站（[详情](#Ajax说明)）
 - 🔎 可以一个按钮一次调用多个操作
 - ✨ 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
-- 💪 使用统一的**JSON**作为引擎数据库（包括 内置的 及 用户自定义的）。在引擎数据方面的强大的**灵活性**：（[详情](#编辑引擎数据说明)）
+- 💪 使用统一的**JSON**作为引擎数据库（包括 内置的 及 用户自定义的）。在引擎数据方面的强大的**灵活性**及**扩展性**：（[详情](#编辑引擎数据说明)）
   - 🔲 **一引擎，多按钮**：对于一个引擎，可以支持不同的操作。（各按钮继承引擎的数据，并且按钮之下的某些键值可覆盖引擎名下的键值数据作用）
   - 📞 **跨引擎**调用：可调用另一引擎（中的某一按钮）动作
-  - 🔏 可针对引擎需要，对用户输入进行字符串格式化，或字符替换
+  - 🔏 可针对引擎需要，对用户输入进行字符串格式化，或字符替换，编码选择
   - 🔎 若适当结合利用以上两点，可对某一不支持搜索的网站进行搜索
 
 ### 隐私安全
 
 - 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
-- 🛡️ **纯客户端**功能完整，不需服务器。**无**搜集用户搜索内容或广告兴趣分析等（包括网页及扩展）
 - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
 - 🛡️ 浏览器扩展**不**向网页注入任何代码（除使用Ajax-only的引擎时外）
+- 🛡️ **纯客户端**功能完整，不需服务器。无论何时**无**搜集用户搜索内容，**无**广告兴趣分析。甚至用户可以选择完全禁止统计
 
 ## 已收录引擎
 
@@ -109,13 +110,13 @@
 
 [开源的多引擎网络搜索工具比较](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-有经验的用户可以看直观的横向比较，快速了解一些其“独门”特色
+有经验的用户可以看直观的横向比较，快速了解一些其“独门”特色。（也可以顺便了解其他工具）
 
 ## 如何编辑搜索引擎
 
-只使用基本功能的普通用户可以直接打开[在线GUI引擎编辑工具（link1）](https://acsearch.ga/editengine.php) （[link2](http://acsearch.tk/editengine.php)）。
+[在线GUI引擎编辑工具（link 1）](https://acsearch.ga/editengine.php) （[link 2](http://acsearch.tk/editengine.php)）
 
-以下讲述JSON格式的编辑引擎说明。使用JSON能够发挥所有功能。方法以下两者皆适用：
+以下讲述JSON格式的编辑引擎说明。以下两者皆适用：
 
 1. 用户自定义的私人引擎
 2. 大术专搜内置搜索引擎（`enginesdata.js`）
@@ -128,13 +129,29 @@
 
 只需要很简单的JSON，及基本HTTP `GET Method`知识。
 
-```yaml
+```json
 {
     "百度": "https://www.baidu.com/s?wd={0}",
     "Google": "https://www.google.com/search?q={0}",
     "Yahoo Search": "https://search.yahoo.com/search?q={0}"
 }
 ```
+
+<details>
+<summary>关于简短形式的一些扩展</summary>
+
+以上虽然简单且正确，但如果你是程序员，建议不要将key和显示名称混用。例如，应该至少用：
+
+```json
+{
+    "baidu": {
+        "dname": "百度",
+        "full_url": "https://www.baidu.com/s?wd={0}"
+    }
+}
+```
+
+</details>
 
 #### 完整形式
 
@@ -145,7 +162,7 @@
 <details>
 <summary>完整形式例子</summary>
 
-```yaml
+```json
 {
     "yahoo": {
         "dname": "Yahoo Search",
@@ -191,11 +208,11 @@
         "btns": {
             "search_apps": {
                 "label": "Search Apps",
+                "kw_format": "{0} site:apple.com/*app",
                 "use_other_engine": {
                     "engine": "google",
                     "btn": "search"
-                },
-                "kw_format": "{0} site:apple.com/*app"
+                }
             }
         }
     },
@@ -288,13 +305,13 @@ JSON格式。
 
 例1：指定输入框的querySelector，并进行关键词输入，模拟回车动作
 
-```yaml
+```json
 "ajax": "#search-box-input"
 ```
 
 例2：先延时2s，输入，再延时1s，然后模拟点击按钮
 
-```yaml
+```json
 "ajax": [2000, "#search-box-input", 1000, "#submit-button"]
 ```
 
@@ -310,8 +327,9 @@ JSON格式。
 
 目前可见的一些改进、完善、发展空间：
 
-- 完善编辑引擎的在线GUI (vue)
+- 完善编辑引擎的在线GUI 
 - Omnibox 
+- 选一个快又小的框架（any ideas?）
 - 能够在浏览器（原生）侧边栏使用（要先改进布局问题。需要响应式）
 - 套壳做个桌面app，调用用户指定的浏览器
 - 手机原生App（any ideas?)

@@ -4,7 +4,7 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 # Big Search
 
-Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites) via a **flexible tool**.
+Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites) via a **flexible** & **extensible** tool.
 
 <p align="center">
 Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
@@ -66,7 +66,7 @@ Ways to use:
 
 ### Basic
 
-- 🔎 Use any search engines or inquery websites (multiple simultaneously) from one page. Any websites that support **GET/POST** request. 
+- 🔎 Use any search engines or inquery websites (multiple uninterruptedly) from one UI. Any websites that support **GET/POST**. 
   > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc. Or the stock of a supermarket near your home (if it supports). Customizable. 50+ built-in.
 - 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable in extension)
 - 🔎 Support using **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
@@ -88,21 +88,21 @@ Ways to use:
 
 ### Even more: What's special about it
 
-- 🔎 **Even works with** those Ajax-only websites that **don't** provide GET/POST interface to public ([details](#Ajax-Instructions))
+- 🔎 **Even works with** those websites that **don't** provide GET/POST interface to public (so-called Ajax-only websites) ([details](#Ajax-Instructions))
 - 🔎 Do many operations at once by one button
 - ✨ Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
-- 💪 Uses **JSON** as unified search engines database (both built-in and user-defined). Has strong **flexibility** in engine data: ([details](#Specification-of-Editing-Engines-Data))
+- 💪 Uses **JSON** as unified search engines database (both built-in and user-defined). Has strong **flexibility** & **extensibility** in engine data: ([details](#Specification-of-Editing-Engines-Data))
   - 🔲 **Multiple buttons** for **one engine**: more than one operations for one engine. (Buttons inherit data from engine. Some key-value data ​​in button can override the ones in engine name)
   - 📞 **Cross-engine** use: Call another engine (or it's certain button action) to do the action
-  - 🔏 String-formatting or character-replacing user's input, according to engine's need
+  - 🔏 String-formatting or character-replacing user's input, according to engine's need. And, charset specifying.
   - 🔎 Combining above two to search websites that don't support search
 
 ### Safety & Privacy
 
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed. (browser extension)
-- 🛡️ Pure **client-side** tool functions fully. No necessary server. **No** collecting user's input or ad analyzing. (browser extension and web app)
-- 🛡️ Hide HTTP Referrer by default to protect user privacy.
-- 🛡️ Browser extension **does not inject** anything to web sites. (except when using Ajax-only engine)
+- 🛡️ Browser extension **does not inject** anything to web sites (except when using Ajax-only engine)
+- 🛡️ Hide HTTP Referrer by default to protect user privacy
+- 🛡️ Pure **client-side** tool functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely
 
 ## List of engines
 
@@ -112,13 +112,13 @@ Ways to use:
 
 [Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-Experienced users may prefer intuitive horizontal comparison, to quickly know what's special about it
+Experienced users may prefer intuitive horizontal comparison, to quickly know what's special about it. (Also know about others btw)
 
 ## How to edit search engines
 
-Ordinary users who only use basic features can directly use our [online gui engine-editing tool (link1)](https://acsearch.ga/editengine.php) ([link2](http://acsearch.tk/editengine.php)).
+[Online gui engine-editing tool (link 1)](https://acsearch.ga/editengine.php) ([link 2](http://acsearch.tk/editengine.php))
 
-Following paragraphs of this section are about JSON-format engine data specification. Using JSON you can use all features of this tool. The method is for both:
+Following paragraphs of this section are about JSON-format engine data specification. For both:
 
 1. User-defined private engines
 2. Big Search built-in search engines (`enginesdata.js`)
@@ -129,12 +129,28 @@ Following paragraphs of this section are about JSON-format engine data specifica
 
 You only need to write very simple JSON and have basic HTTP knowledge on `GET Method`.
 
-```yaml
+```json
 {
     "Google": "https://www.google.com/search?q={0}",
     "Yahoo Search": "https://search.yahoo.com/search?q={0}"
 }
 ```
+
+<details>
+<summary>More about short format</summary>
+
+Although above is simple and correct, if you're programmer it's not recommended to use display name as key. We should at least, for example:
+
+```json
+{
+    "yahoo": {
+        "dname": "Yahoo Search",
+        "full_url": "https://search.yahoo.com/search?q={0}"
+    }
+}
+```
+
+</details>
 
 #### Full Format
 
@@ -145,7 +161,7 @@ Also, mixing short formatted and full formatted elements is supported.
 <details>
 <summary>Full format examples</summary>
 
-```yaml
+```json
 {
     "yahoo": {
         "dname": "Yahoo Search",
@@ -191,11 +207,11 @@ Also, mixing short formatted and full formatted elements is supported.
         "btns": {
             "search_apps": {
                 "label": "Search Apps",
+                "kw_format": "{0} site:apple.com/*app",
                 "use_other_engine": {
                     "engine": "google",
                     "btn": "search"
-                },
-                "kw_format": "{0} site:apple.com/*app"
+                }
             }
         }
     },
@@ -289,13 +305,13 @@ Big Search browser extension supports searching in such Ajax-only websites. And 
 
 Eg 1: Specify the querySelector of input box. It will automatically input search term and trigger pressing Enter event.
 
-```yaml
+```json
 "ajax": "#search-box-input"
 ```
 
 Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
-```yaml
+```json
 "ajax": [2000, "#search-box-input", 1000, "#submit-button"]
 ```
 
@@ -311,8 +327,9 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 This tool still can be improved to do something more:
 
-- Improve the online editing-engine GUI (vue)
+- Improve the online editing-engine GUI 
 - Omnibox
+- Choose a fast & lightweight framework (any ideas)
 - Browser (native) sidebar panel (before that need to change UI. Need responsive)
 - Desktop stanalone app, opening URL with user-assigned browser
 - Mobile native app (any idea?)

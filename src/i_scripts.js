@@ -730,7 +730,7 @@ onrd.push(function() {
     });
     
     function addTitle(ele) {
-        const tiptext = i18n(["大术专搜 不只是 一个简单的搜索请求发送器。请访问源代码页面以了解其一些“独门特技”。", "Big Search is more than a simple web search request sender. Visit the source code page to know what's special about it."]);
+        const tiptext = i18n(["大术专搜 不只是 一个简单的搜索请求发送器。可以访问源代码页面以了解其一些“独门特技”。", "Big Search is more than a simple web search request sender. Visit the source code page to know what's special about it."]);
         if (ele.getAttribute("title") === null)
             ele.setAttribute("title", tiptext);
             
