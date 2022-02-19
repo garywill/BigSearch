@@ -176,6 +176,12 @@ async function init_themeHandler() {
         
         this.themes = {
             "default" : {  },
+            "Mac": {
+                need_sty: ["bold"],
+            },
+            "Keyboard": {
+                need_sty: ["bold"],
+            },
             "Foggy_Lake__Blue": {
                 d_name: "Foggy Lake - Colorful Blue + Green",
                 need_theme: "Foggy_Lake",
@@ -223,14 +229,23 @@ async function init_themeHandler() {
             },
             
         };
-        this.getDefaultTheme = function() {
-            if (window.run_env == "http_web")
-                if ( ! mobile ) // desktop http
-                    return "Foggy_Lake__Blue";
+        
+        this._defaultTheme = "no";
+        this.decideDefaultTheme = function() {
+            if (window.run_env == "http_web") {
+                const randomBetween = ["Foggy_Lake__Blue", "Mac", "Keyboard"];
+                if ( ! mobile ) { // desktop http
+                    var random = Math.floor( Math.random() * (randomBetween.length) );
+                    this._defaultTheme = randomBetween[random];
+                    
+                }
                 else  // mobile http
-                    return "Light_and_Grey";
-            else  // addon 
-                return "Foggy_Lake__Green";
+                    this._defaultTheme = "Light_and_Grey";
+            } else  // addon 
+                this._defaultTheme =  "Foggy_Lake__Green";
+        };
+        this.getDefaultTheme = function() {
+            return this._defaultTheme;
         };
         this.getThemeDisplayName = function(theme) {
             var tmInfo = this.themes[theme]
@@ -239,7 +254,9 @@ async function init_themeHandler() {
             
             if (theme == "default") {
                 label_text = i18n(["默认" , "Default"]);
-                label_text += `: [ ${this.getThemeDisplayName(this.getDefaultTheme())} ]`
+                label_text += " [ " 
+                    + i18n(["此次为： " , "This time: "])
+                    + `${this.getThemeDisplayName(this.getDefaultTheme())} ]` ;
                 
             }
             else 
@@ -342,6 +359,13 @@ async function init_themeHandler() {
         }
         
         // ===================================================
+        
+        if (window.run_env != "http_web") {
+            delete this.themes['Mac'];
+            delete this.themes['Keyboard'];
+        }
+        
+        this.decideDefaultTheme();
         
         var themes_names = Object.keys(this.themes);
         for (var i=0; i<themes_names.length; i++)

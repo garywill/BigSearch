@@ -1,0 +1,47 @@
+
+
+body {
+    --header-bg-cl: #24292fcc;
+    --header-text-cl: white;
+    --header-padding-v: 10px;
+    
+    --cata-btns-tshadow: 1px 1px 1px #ccc;
+    
+    --bg-img: url('themes/keyboard.jpeg');
+    
+    --labelrow-bg-cl: #dddc;
+    --engine-tr-hover-bg-cl: #ebf9ff77;
+    
+    --enginename-td-cl: #444;
+    
+    --ebtns-weight: unset;
+    --gobutton-cl: black;
+/*     --gobutton-bg-cl: #f6f8fa; */
+    --gobutton-bg-cl: #f9f9fb;
+    
+    --lastp-btm-line-cl: #d0d7de;
+    --lastp-cl: #dbf0e1;
+    --lastp-bg-cl: #2da44e;
+    --lastp-bg-cl-hover: #159030;
+    --lastp-text-shadow: unset;
+    
+    --hist-item-hover-bg-cl: #fff;
+}
+.btn-http-highlight span {
+    text-shadow: 1px 1px #000, 2px 2px white, 2px -1px white,-2px -1px #f2f1f1 !important;
+}
+
+#engines_cont {
+    background-color: rgba(255,255,255,0.2);
+}
+.engine_tr {
+    box-shadow: 0px 1px rgba(185, 185, 185, 0.5);
+}
+.gobutton {
+    border-radius: 6px;
+    border: 1px solid #d0d7de;
+    box-shadow: rgba(27, 31, 36, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+}
+.btns_copypaste_img {
+    filter: grayscale(50%) brightness(1.1);
+}
