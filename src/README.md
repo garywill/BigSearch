@@ -78,8 +78,8 @@ Ways to use:
 - 🗂️ Search engines **categorization**
 - 📋 Save, **reuse** and manage your input history (only saved locally in the browser localStorage)
 - 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, context menu) 
-  > - Not in Firefox incognito mode
-  > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut)
+  > - No in Firefox incognito mode ([bug 1380812](https://bugzilla.mozilla.org/show_bug.cgi?id=1380812))
+  > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut) ([defect of Chrome](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283))
 - ⌨️ **Keyboard shortcut** (browser extension) 
   - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others：`Ctrl+Shift+S` 
   - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others：`Ctrl+Shift+D`
