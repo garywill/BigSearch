@@ -99,6 +99,9 @@ body::-webkit-scrollbar-track-piece {
     min-width: 10px;
 }
 
+.btm_dialog {
+    max-height: 70vh;
+}
 
 #btmbtns {padding-top: 0px; }
 #hot_badge, .btmemoji { display:none; }

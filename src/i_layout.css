@@ -365,6 +365,18 @@ a {
     background-color:var(--scrollbar-cl-bg);
 }
 
+.btm_dialog::-webkit-scrollbar {
+    width: 4px;  
+}
+
+.btm_dialog::-webkit-scrollbar-thumb {
+    background-color:var(--scrollbar-cl);
+}
+
+.btm_dialog::-webkit-scrollbar-track-piece {
+    background-color:var(--scrollbar-cl-bg);
+}
+
 
 #engines_cont {
     display:inline-block; 
@@ -685,6 +697,8 @@ a {
     margin-top: 10px;
     font-size: 15px;
     position: relative;
+    scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
+    overflow-y: auto;
 }
 .btm_dialog_close_btn {
     position: absolute;
