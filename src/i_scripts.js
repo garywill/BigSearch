@@ -1202,6 +1202,7 @@ function init_btmDialogToggler() {
 }
 
 async function eng_link_onclick() {
+    //stati_click_e(this);
 }
 
 
