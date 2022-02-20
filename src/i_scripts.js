@@ -462,19 +462,21 @@ onrd.push(function(){
 });
 
 onrd.push(function(){
-	Array.from( document.getElementsByClassName("btm_dialog") ).forEach( function(ele) {
-        var close_btn = document.createElement("img");
-        close_btn.className = "btm_dialog_close_btn";
-        close_btn.setAttribute("src", "icon/multiply.svg");
-        
-        close_btn.onclick = function() {
-            btmDialogToggler.close(this.parentNode);
+    window.setTimeout(function() {
+        Array.from( document.getElementsByClassName("btm_dialog") ).forEach( function(ele) {
+            var close_btn = document.createElement("img");
+            close_btn.className = "btm_dialog_close_btn";
+            close_btn.setAttribute("src", "icon/multiply.svg");
             
-        }
-        
-        ele.appendChild(close_btn);
-        
-    });
+            close_btn.onclick = function() {
+                btmDialogToggler.close(this.parentNode);
+                
+            }
+            
+            ele.appendChild(close_btn);
+            
+        });
+    }, 2000);
 });
 
 onrd.push(function(){
