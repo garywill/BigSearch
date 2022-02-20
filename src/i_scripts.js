@@ -1201,6 +1201,9 @@ function init_btmDialogToggler() {
     
 }
 
+async function eng_link_onclick() {
+}
+
 
 
 var mtm = null;
