@@ -36,6 +36,7 @@ This is the current list of engines. We are keeping adding ~
 - **🔠Translates**: DeepL Translate | Cambridge Dictionary | Google Translate
 - **📑Knowledge**: Web of Science | EI | IEEE Xplore | Google Scholar | Bing Academic | Wkipedia
 - **🛒Shopping**: Amazon | eBay | Alibaba | Walmart | Best Buy | Newegg
+- **📈Finance**: Investing.com | AICoin
 
 ### 中文
 
@@ -47,4 +48,4 @@ This is the current list of engines. We are keeping adding ~
 - **📑资料论文**： 中国知网、万方数据、CSSCI、百度学术、维基百科
 - **🀄漢言華語**： 汉典、古今文字集成、萌典、粵典、CantoDict、汉语方言发音字典、中國哲學書電子化計劃、漢籍(漢リポ)
 - **🛒网上购物**： 淘宝天猫、京东、唯品会、当当网、苏宁易购
-- **📈财经走势**： 英为财情、雪球、非小号、AICoin
+- **📈财经走势**： 雪球、非小号
