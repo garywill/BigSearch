@@ -233,14 +233,6 @@ async function init_themeHandler() {
         this._defaultTheme = "no";
         this.decideDefaultTheme = function() {
             if (window.run_env == "http_web") {
-                const randomBetween = ["Foggy_Lake__Blue", "Mac", "Keyboard"];
-                if ( ! mobile ) { // desktop http
-                    var random = Math.floor( Math.random() * (randomBetween.length) );
-                    this._defaultTheme = randomBetween[random];
-                    
-                }
-                else  // mobile http
-                    this._defaultTheme = "Light_and_Grey";
             } else  // addon 
                 this._defaultTheme =  "Foggy_Lake__Green";
         };

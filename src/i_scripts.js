@@ -631,13 +631,6 @@ onrd.push(function(){
         var formattedJson = JSON.stringify(parsedJsonObj, null, 2);
         if (window.run_env == "http_web") // http web
         {
-            setStor("usercustom_engines", stringifiedJson); 
-            document.getElementById("textarea_json_saved").value = formattedJson;
-            
-            if ( getStor("usercustom_engines") === stringifiedJson )
-                alert(i18n([ "✅ OK！ ✅\n解析并保存成功", "✅ OK! ✅\nSucessfully parsed and saved"]));
-            else
-                alert("❌ Oh no! Error! ❌\n\nFailed to save your data\n\nWere you trying to save a too large data?");
         }else{ // addon
             var compressed;
             //compressed = LZString.compressToUint8Array(textarea.value);
@@ -680,13 +673,13 @@ onrd.push(function() {
         document.getElementsByClassName("cata_btn_highlight")[0].click();
     };
 });
-onrd.push(function(){
-    if (document.getElementById("tosimp"))
-    {
-        document.getElementById("tosimp").onclick=simp_trad_click;
-        document.getElementById("totrad").onclick=simp_trad_click;
-    }
-});
+// onrd.push(function(){
+//     if (document.getElementById("tosimp"))
+//     {
+//         document.getElementById("tosimp").onclick=simp_trad_click;
+//         document.getElementById("totrad").onclick=simp_trad_click;
+//     }
+// });
 onrd.push(async function(){
     await init_themeHandler();
     setTimeout(scroll_to_lastp,500);
@@ -737,22 +730,6 @@ onrd.push(function() {
     }
 });
 
-var csieqon = 0;
-onrd.push(function(){
-    document.getElementById("hist_ban").onclick = function(){
-        csieqon++;
-        if (csieqon > 10 && window.run_env == "http_web"){
-            setStor("beatnowhere","true");
-            alert("你想点哪里？");
-        }
-    };
-});
-
-onrd.push(function(){
-	Array.from( document.getElementsByClassName("webext_link") ).forEach( function(ele) {
-        ele.onclick = on_webext_link_click;
-    });
-});
 
 onrd.push(async function(){
     setTimeout(do_stati,300);
@@ -1197,16 +1174,6 @@ function init_btmDialogToggler() {
                     break;
             }
             
-            switch(btn_id)
-            {
-                case "btn_donate":
-                case "btn_webext":
-                case "btn_theme":
-                case "btn_randomtheme":
-                case "btn_source":
-                    stati_custom_page(btn_id);
-                    break;
-            }
         };
         this.toggle = function(object) {
             
@@ -1232,13 +1199,6 @@ function init_btmDialogToggler() {
     
 }
 
-async function eng_link_onclick() {
-    //stati_click_e(this);
-}
-
-function on_webext_link_click(){
-    stati_custom_page(this.id);
-}
 
 
 var mtm = null;
@@ -1256,22 +1216,6 @@ async function do_stati()
     
         
     if (window.run_env == "http_web") {
-        document.getElementById("stati").src="https://s4.cnzz.com/z_stat.php?id=1278876233&web_id=1278876233";
-        document.getElementById("stati_51").src = "https://ia.51.la/go1?id=20905905&pvFlag=1";
-        try{
-            var _paq = window._paq = window._paq || [];
-            // tracker methods like "setCustomDimension" should be called before "trackPageView" 
-            _paq.push(["setCookieDomain", "*.acsearch.ga"]);
-            _paq.push(['trackPageView']);
-            _paq.push(['enableLinkTracking']);
-            (function() {
-                var u="https://acsearch.cf/mpx/";
-                _paq.push(['setTrackerUrl', u+'matomo.php']);
-                _paq.push(['setSiteId', '4']);
-                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-            })();
-        }catch(err){}
     }
     else
     {
@@ -1331,8 +1275,6 @@ async function stati_goclicked (obj) {
     
     if ( window.run_env == "http_web" &&  dbname == "bigsearch" )
     {
-        try{ _czc.push(["_trackPageview", "search/" + e + '/' + b, "index.php"]); } catch(err){}
-        try{ _paq.push(['trackEvent', 'search', e, b, Object.keys(usercustom_engines).length]);  } catch(err){}
     }
         
     
@@ -1343,18 +1285,7 @@ async function stati_goclicked (obj) {
         }
     }
 }
-/*
-function stati_click_e(obj)
-{
-    var e = obj.getAttribute("name");
-    try{ _czc.push(["_trackPageview", "enter_engn/" + e , "index.php"]); } catch(err){}
-}
-*/
-function stati_custom_page(str)
-{
-    try{ _czc.push(["_trackPageview", str , "index.php"]); } catch(err){}
-    //_paq.push(['trackEvent', str, '', '', Object.keys(usercustom_engines).length]); 
-}
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);

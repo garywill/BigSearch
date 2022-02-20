@@ -22,11 +22,6 @@ var got_browser_engines = [] ;
 async function read_usercustom_engines() {
     if (window.run_env == "http_web")
     {
-        const gotStored = getStor("usercustom_engines");
-        if ( gotStored ) {
-            usercustom_engines = JSON.parse(gotStored);
-            document.getElementById("textarea_json_saved").value = JSON.stringify(usercustom_engines, null,2);
-        }
     }else{ // addon
         const read_addon_settings_usercuston_engines = await get_addon_setting("usercustom_engines");
         if (read_addon_settings_usercuston_engines ) {
@@ -470,8 +465,6 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
     {
         
         if (window.run_env == "http_web") {
-            alert( i18n([ "所调用引擎需要Ajax，只能在浏览器扩展中调用", "The engine you're trying to use needs Ajax, which you need to use from browser addon"]) );
-            return;
         }
         
         var permis_have;
