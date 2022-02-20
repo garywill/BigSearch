@@ -4,14 +4,22 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 # Big Search
 
-Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites) via a **flexible** & **extensible** tool.
+Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites).
+
+**Besides** what any multi-engine web search tool can do, it **also**:
+- 🖋️ Single-line or **multi-line** text
+- 🖥️ Desktop (browser extension / web app) and mobile (web app)
+- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **Ajax-render** websites)
+- 🔎 Do many operations at once by one button
+- 💪 JSON as search engines database (both built-in & user-defined. **GUI** editing also available). Flexibility & extensibility in engine data & search method
+
+and so on. Go on for details...
+
+![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 <p align="center">
 Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
-With some <b>special technical features</b> also.
 </p>
-
-![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 <!--ts-->
    * [Start to install &amp; use](#start-to-install--use)
@@ -27,7 +35,7 @@ With some <b>special technical features</b> also.
       * [Examples](#examples)
          * [Short Format](#short-format)
          * [Full Format](#full-format)
-      * [Specification of Editing Engines Data](#specification-of-editing-engines-data)
+      * [Specification of Editing Engines Data and Special Search Methods](#specification-of-editing-engines-data-and-special-search-methods)
          * [Specifications](#specifications)
          * [Instructions for searching Ajax-render websites](#instructions-for-searching-ajax-render-websites)
    * [For Developers](#for-developers)
@@ -41,9 +49,7 @@ Ways to use:
    - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
    - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) or [download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main). For: Google Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.
 
-2. Web App: For demo purpose. Web app can't function fully like extension. Web app can be used on mobile browsers
-   - Main site: [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga)
-   - Standby site: [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
+2. Web App: For demo purpose. Web app can't function fully like extension. Web app can be used on mobile browsers.   Main site: [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga) | Standby site: [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
    
 ## Basic Features Demo and Screenshots
 
@@ -62,7 +68,7 @@ Ways to use:
 ### Basic
 
 - 🔎 Use any search engines or inquery websites (multiple uninterruptedly) from one UI. Any that support **GET/POST**. (50+ built-in)
-- 🔎 **User** custom search engine ([details](#How-to-edit-search-engines-GUI-or-JSON))) (syncronizable in extension)
+- 🔎 **User** custom search engine ([details](#How-to-edit-search-engines-GUI-or-JSON)) (syncronizable in extension)
 - 🔎 Use **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
 
 ### More
@@ -84,10 +90,10 @@ Ways to use:
 
 ### Even more: What's special about it
 
-- 🔎 **Even works with** websites that **don't** provide GET/POST interface to public (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
+- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
 - 🔎 Do many operations at once by one button
 - ✨ Good-looking, powerful & **lightweight** ([details](#Third-party-libraries-and-components-used))
-- 💪 **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). Strong **flexibility** & **extensibility** in engine data: ([details](#Specification-of-Editing-Engines-Data))
+- 💪 **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). **Flexibility** & **extensibility** in engine data & search method: ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Mehods))
   - 🔲 **Multiple buttons** for **one engine**: more than one operations for one engine. (Buttons inherit data from engine. Some key-value data ​​in button can override the ones in engine name)
   - 📞 **Cross-engine** use: Call another engine (or it's certain button action) to do the action
   - 🔏 String-formatting or character-replacing user's input, according to engine's need. And, charset specifying.
@@ -102,7 +108,7 @@ Ways to use:
 
 ## List of engines
 
-50 + , currently. [See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+50+ , currently. [See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
 ## Similar tools & methods comparison
 
@@ -223,13 +229,13 @@ Also, mixing short formatted and full formatted elements is supported.
 
 </details>
 
-### Specification of Editing Engines Data
+### Specification of Editing Engines Data and Special Search Methods
 
 #### Specifications
 
 In JSON format.
 
-Engine data in full format can contain following key-values:
+Engine data in full format can contain following key-values (special search methods included):
 
 <details>
 <summary>Specifications</summary>
@@ -239,40 +245,52 @@ Engine data in full format can contain following key-values:
 {
     "engine_name": {
         "dname": "Engine display name",
-        "addr": "Homepage URL",
+        "addr": "Homepage URL",  // # optional
         "tip": "Engine tip text", // # optional
-        "action": "default action url",
+        
+        "action": "form action url",
         // # For example, https://search-engine.com/search?q=input_content,
         // # The action is https://search-engine.com/search
         "kw_key": "The key name of the keyword in the query string", // # In above example, it is q
+        
+        "full_url": "http://www.example.com/search/{0}", // # optional. Only when GET method. Will override above two. The entire url 
+        
+        "method": "get/post", // # optional. default is get
+        
+        "charset": "UTF-8/gb2312/gb18030/big5/iso-xxxx....", // # optional. default UTF-8
+        
         "allow_referer": false, // # false(default)/true optional
-        "method": "get/post", // # The default is get
-        "charset": "UTF-8/gb2312/gb18030/big5/iso-xxxx....", // # default UTF-8
+        
         "kw_replace": [[" ", "-"]], // # Optional, characters that need to be replaced in the search term. In this example, replace spaces with '-'
         "kw_format": "formatted string with {0}", // # optional. {0} is like %s
 
-        "btns": { // # If there is no such item, a "search" button is displayed, and clicking the button will do the default action
+        "params":[ // # Optional, the key/value other than the keyword in the query string required for this operation. POST method may need
+            {"key": "key", "val": "value"},
+            // # For example, https://search-engine.com/search?q=input_content&option=searchall
+            // # so {key: "option", val: "searchall"},
+        ],
+        
+        "use_other_engine": {   // # optional, use another engine to do the operation.
+            "dbname": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
+            "engine": "engine name", 
+            "btn": "button name"   // # Optional. Absence will make fallback to the first button
+            // # this entire object can be simplified to an engine name
+        },
+        // #  (if use array here, then do many operations at once)
+        
+        "ajax": ......  // # Optional. Read the Ajax-render websites instructions
+            
+        "btns": { // # optional. If there is no such item, a "Search" button is displayed, and clicking the button will do the default action
             "Button name": {
                 "label": "Button display text",
-                "btn_tip": "Tip text",
-                "params":[ // # Optional, the key/value other than the keyword in the query string required for this operation
-                    {"key": "key", "val": "value"},
-                    // # For example, https://search-engine.com/search?q=input_content&option=searchall
-                    // # so {key: "option", val: "searchall"},
-                ],
-                "full_url": "http://www.example.com/search/{0}", // # optional, the entire url using get method
-                "use_other_engine": {   // # optional, use another engine to do the operation. (if use array here, then do many operations by a button at once)
-                    "dbname": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
-                    "engine": "engine name", 
-                    "btn": "button name"   // # Optional. Absence will make fallback to the first button
-                },
-                "ajax": ......  // # Optional. Read the Ajax-render websites instructions
+                "btn_tip": "Tip text", // # optional
+                
+                "..." : "..." // # here in a btn can be key-value pairs, which will override those in engine
             },
+            ....
         }
-
     },
-    ......
-};
+}
 ```
 
 </details>
