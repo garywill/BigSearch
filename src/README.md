@@ -23,7 +23,7 @@ With some <b>special technical features</b> also.
       * [Safety &amp; Privacy](#safety--privacy)
    * [List of engines](#list-of-engines)
    * [Similar tools &amp; methods comparison](#similar-tools--methods-comparison)
-   * [How to edit search engines](#how-to-edit-search-engines)
+   * [How to edit search engines (GUI or JSON)](#how-to-edit-search-engines-gui-or-json)
       * [Examples](#examples)
          * [Short Format](#short-format)
          * [Full Format](#full-format)
@@ -61,43 +61,44 @@ Ways to use:
 
 ### Basic
 
-- 🔎 Use any search engines or inquery websites (multiple uninterruptedly) from one UI. Any websites that support **GET/POST**. 
-  > E.g: Google, DuckDuckGo, Youtube, eBay, Github etc. Or the stock of a supermarket near your home (if it supports). Customizable. 50+ built-in.
-- 🔎 **User** adding custom-defined search engine ([details](#How-to-edit-search-engines)) (syncronizable in extension)
-- 🔎 Support using **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
+- 🔎 Use any search engines or inquery websites (multiple uninterruptedly) from one UI. Any that support **GET/POST**. (50+ built-in)
+- 🔎 **User** custom search engine ([details](#How-to-edit-search-engines-GUI-or-JSON))) (syncronizable in extension)
+- 🔎 Use **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
 
 ### More
 
-- 🖋️ Single-line or **multi-line** text edit/input and sending
-  > Useful when for e.g. you want to have article paragraphs translated
+- 🖋️ Single-line or **multi-line** text input & send
+  > Useful when e.g. want to translate article
 - 🗂️ Search engines **categorization**
-- 📋 Save, **reuse** and manage your input history (only saved locally in the browser localStorage)
-- 🖱️ Quickly use user **selected text** on webpage as search term (browser extension, context menu) 
+- 📋 Save (locally), **reuse** and manage search history. Reusing method: double-click behavior
+  - In single-line edit: replace input box text
+  - In multi-line edit: insert to cursor
+- 🖱️ Quickly use **selected text** (single-line or multi-line) as search term
   > - No in Firefox incognito mode ([bug 1380812](https://bugzilla.mozilla.org/show_bug.cgi?id=1380812))
   > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut) ([defect of Chrome](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283))
 - ⌨️ **Keyboard shortcut** (browser extension) 
-  - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others：`Ctrl+Shift+S` 
-  - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others：`Ctrl+Shift+D`
+  - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others:`Ctrl+Shift+S` 
+  - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
   > [change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` 
-- 🖥️ Support both **desktop** (browser extension & web app) and **mobile** (web app only) devices
+- 🖥️ **Desktop** (browser extension & web app) and **mobile** (web app only)
 
 ### Even more: What's special about it
 
-- 🔎 **Even works with** those websites that **don't** provide GET/POST interface to public (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
+- 🔎 **Even works with** websites that **don't** provide GET/POST interface to public (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
 - 🔎 Do many operations at once by one button
-- ✨ Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
-- 💪 Uses **JSON** as unified search engines database (both built-in and user-defined). Has strong **flexibility** & **extensibility** in engine data: ([details](#Specification-of-Editing-Engines-Data))
+- ✨ Good-looking, powerful & **lightweight** ([details](#Third-party-libraries-and-components-used))
+- 💪 **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). Strong **flexibility** & **extensibility** in engine data: ([details](#Specification-of-Editing-Engines-Data))
   - 🔲 **Multiple buttons** for **one engine**: more than one operations for one engine. (Buttons inherit data from engine. Some key-value data ​​in button can override the ones in engine name)
   - 📞 **Cross-engine** use: Call another engine (or it's certain button action) to do the action
   - 🔏 String-formatting or character-replacing user's input, according to engine's need. And, charset specifying.
-  - 🔎 Combining above two to search websites that don't support search
+  - 🔎 Combining above two to search websites that don't provide search
 
 ### Safety & Privacy
 
-- 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed. (browser extension)
-- 🛡️ Browser extension **does not inject** anything to web (except when searching Ajax-render websites)
+- 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed.
+- 🛡️ **No injection** to web (except when searching Ajax-render websites)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
-- 🛡️ Pure **client-side** tool functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely
+- 🛡️ **Client side** functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely
 
 ## List of engines
 
@@ -107,11 +108,11 @@ Ways to use:
 
 [Comparison of open source web searching (multi-engines) tools](https://github.com/garywill/BigSearch/blob/list/list.md)
 
-Experienced users may prefer intuitive horizontal comparison, to quickly know what's special about it. (Also know about others btw)
+Experienced users may prefer intuitive horizontal comparison to quickly know what's special. (Also know about others btw)
 
-## How to edit search engines
+## How to edit search engines (GUI or JSON)
 
-[Online gui engine-editing tool (link 1)](https://acsearch.ga/editengine.php) ([link 2](http://acsearch.tk/editengine.php))
+[Online GUI engine-editing tool (link 1)](https://acsearch.ga/editengine.php) ([link 2](http://acsearch.tk/editengine.php))
 
 Following paragraphs of this section are about JSON-format engine data specification. For both:
 
@@ -278,9 +279,9 @@ Engine data in full format can contain following key-values:
 
 #### Instructions for searching Ajax-render websites
 
-Some websites doesn't accept GET or POST. Visitor need to open their page and input, then they show search results on page via Ajax.
+Some websites doesn't accept GET or POST. Visitor need to open their page then input, they then show results via Ajax.
 
-Big Search browser extension supports searching in such Ajax-render websites. And very easy to configure.
+Big Search can deal with such Ajax-render websites. And easy to configure:
 
 <details>
 
@@ -302,9 +303,7 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 ## For Developers
 
-> We encourage user to submit their customized search engines data to us after they format as JSON. Search engines data is AGPL licensed FLOSS.
-
-> If you want some search engines to be included by us, add/submit it to `enginesdata.js`. It is the core data of Big Search.
+> We encourage user to submit their customized search engines data to source code after they format as JSON (submit to file `enginesdata.js`). Search engines data is AGPL licensed FLOSS.
 
 ### What's Next Step
 
@@ -316,7 +315,6 @@ This tool still can be improved to do something more:
 - Browser (native) sidebar panel (before that need to change UI. Need responsive)
 - Desktop stanalone app, opening URL with user-assigned browser
 - Mobile native app (any idea?)
-- Add non-search navigation feature
 - Be compatible with others e.g. OpenSearch. Add or convert by 1-click
 - Be able to be used via CLI in terminal (nodejs)
 
