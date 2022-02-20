@@ -219,12 +219,11 @@ catas = {
     },
     "finance": {
         label: '📈' + i18n(["财经走势", "Finance"]),
-        visible_lang: "zh",
         engines: [
             { type:"engine", name:"investing"},
-            { type:"engine", name:"xueqiu"},
+            { type:"engine", name:"xueqiu", visible_lang: "zh"},
             { type:"label", lstr:i18n(["区块链", "Blockchain"])},
-            { type:"engine", name:"feixiaohao"},
+            { type:"engine", name:"feixiaohao", visible_lang: "zh"},
             { type:"engine", name:"aicoin"},
             
         ],
@@ -1741,21 +1740,21 @@ sEngines = {
     },
     "aicoin": {
         dname: "AICoin",
-        addr: "https://www.aicoin.cn/",
-        action: "https://www.aicoin.cn/search",
+        addr: "https://www.aicoin.com/",
+        action: "https://www.aicoin.com/search",
         kw_key: "s",
     },
     "investing": {
-        dname: "英为财情",
-        addr: "https://cn.investing.com",
-        action: "https://cn.investing.com/search/",
+        dname: i18n(["英为财情", "Investing.com"]),
+        addr: "https://www.investing.com",
+        action: "https://www.investing.com/search/",
         kw_key: "q",
         btns: {
             "sch": {
-                label: "所有结果",
+                label: i18n(["所有结果", "All Results"]),
             },
             "quotes": {
-                label: "行情",
+                label: i18n(["行情","Quotes"]),
                 params: [
                     {
                         key: "tab",
@@ -1764,7 +1763,7 @@ sEngines = {
                 ],
             },
             "news": {
-                label: "新闻",
+                label: i18n(["新闻","News"]),
                 params: [
                     {
                         key: "tab",
@@ -1773,7 +1772,7 @@ sEngines = {
                 ],
             },
             "articles": {
-                label: "分析",
+                label: i18n(["分析","Analysis"]),
                 params: [
                     {
                         key: "tab",
