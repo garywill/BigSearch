@@ -6,7 +6,7 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites).
 
-**Besides** what any multi-engine web search tool can do, it **also**:
+✅ For both daily & work. 🌟 **Besides** what any multi-engine web search tool can do, it **also**✨:
 - 🖋️ Single-line or **multi-line** text
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **Ajax-render** websites)
@@ -20,6 +20,9 @@ and so on. Go on for details...
 <p align="center">
 Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
 </p>
+
+<details>
+<summary>Table of Content</summary>
 
 <!--ts-->
    * [Start to install &amp; use](#start-to-install--use)
@@ -41,6 +44,8 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
    * [For Developers](#for-developers)
 <!--te-->
 
+</details>
+
 ## Start to install & use
 
 Ways to use:
@@ -53,11 +58,11 @@ Ways to use:
    
 ## Basic Features Demo and Screenshots
 
-| Use Extension                                                                     | UI Styles, Simplicity or Fancy                                                          |   |
+| Use Extension   |  Breadth & Focus   | UI style choosable               |  
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |   |
+| ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![breadth_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth.jpg)  | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | 
 | Context selection search | Try web app without install                                                       | Mobile (testing) (web app)  |
-| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) |
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) |  |
 | Edit search engines  | Special search methods, flexibility & extensibility |  | 
 | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
 
@@ -93,7 +98,7 @@ Ways to use:
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
 - 🔎 Do many operations at once by one button
 - ✨ Good-looking, powerful & **lightweight** ([details](#Third-party-libraries-and-components-used))
-- 💪 **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). **Flexibility** & **extensibility** in engine data & search method: ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Mehods))
+- 💪 **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). **Flexibility** & **extensibility** in engine data & search method: ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Methods))
   - 🔲 **Multiple buttons** for **one engine**: more than one operations for one engine. (Buttons inherit data from engine. Some key-value data ​​in button can override the ones in engine name)
   - 📞 **Cross-engine** use: Call another engine (or it's certain button action) to do the action
   - 🔏 String-formatting or character-replacing user's input, according to engine's need. And, charset specifying.

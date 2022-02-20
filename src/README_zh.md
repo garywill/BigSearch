@@ -4,7 +4,7 @@
 
 以 灵活又顺手 的方式 在(切换) **任意一个** 或 (连续)**多个** 搜索引擎（或任意网站）进行搜索
 
-**除了**一个 多搜索引擎工具 该有的基本功能**外**，它**还有**：
+✅ 明了易用，收录广，适用日常及工作。 🌟 **除了**一个 多搜索引擎工具 该有的基本功能**外**，它**还有**✨：
 - 🖋️ 文本单行或**多行**
 - 🖥️ 桌面（扩展或网页）和移动（网页）
 - 🔎 **甚至兼容**那些**不**开放GET/POST接口（称为**Ajax-render**）的网站
@@ -18,6 +18,9 @@
 <p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手中万列 🖱️ 任心点选</p>
 
 > 图标含意：篆书的「**術**」（术）字 + 代表搜索/查询的放大镜
+
+<details>
+<summary>目录</summary>
 
 <!--ts-->
    * [开始安装使用](#开始安装使用)
@@ -39,6 +42,8 @@
    * [For Developers](#for-developers)
 <!--te-->
 
+</details>
+
 ## 开始安装使用
 
 使用方式有：
@@ -51,11 +56,11 @@
 
 ## 基本功能演示与截图
 
-| 使用扩展                                                                              | 可选UI风格 朴素及丰富                                                                            |  |
+| 使用扩展    |  可深可广   | UI风格可选 | 
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg)   | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |   |
+| ![chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg)  | ![breadth_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth_chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |  
 | 搜索选择内容    | 免安装网页试用                                                                           | 移动版(试验)(web)  | 
-| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.jpg) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | 
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | 
 | 编辑搜索引擎 | 特别搜索方式 灵活、可扩展 |  | 
 | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
 
