@@ -35,6 +35,8 @@ body {
     
     --scrollbar-cl: #999;
     --scrollbar-cl-bg: #cecece;
+    
+    --hist-item-hover-bg-cl: white;
 }
 
 #engines_table {
