@@ -27,13 +27,8 @@
          * [完整形式](#完整形式)
       * [编辑引擎数据说明](#编辑引擎数据说明)
          * [数据说明](#数据说明)
-         * [Ajax说明](#ajax说明)
+         * [搜索Ajax-render的网站](#搜索ajax-render的网站)
    * [For Developers](#for-developers)
-      * [What's Next Step?](#whats-next-step)
-      * [技术框图](#技术框图)
-      * [采用的第三方库和组件](#采用的第三方库和组件)
-      * [国际化](#国际化)
-      * [历史、代码状况、许可证](#历史代码状况许可证)
 <!--te-->
 
 ## 开始安装使用
@@ -86,7 +81,7 @@
 
 ### 还有更多：特别之处
 
-- 🔎 **甚至兼容**那些**不**对外开放GET/POST接口（称为Ajax-only）的网站（[详情](#Ajax说明)）
+- 🔎 **甚至兼容**那些**不**对外开放GET/POST接口（称为Ajax-render）的网站（[详情](#搜索Ajax-render的网站)）
 - 🔎 可以一个按钮一次调用多个操作
 - ✨ 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
 - 💪 使用统一的**JSON**作为引擎数据库（包括 内置的 及 用户自定义的）。在引擎数据方面的强大的**灵活性**及**扩展性**：（[详情](#编辑引擎数据说明)）
@@ -99,12 +94,12 @@
 
 - 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
 - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
-- 🛡️ 浏览器扩展**不**向网页注入任何代码（除使用Ajax-only的引擎时外）
+- 🛡️ 浏览器扩展**不**向网页注入任何代码（除搜索Ajax-render网站时外）
 - 🛡️ **纯客户端**功能完整，不需服务器。无论何时**无**搜集用户搜索内容，**无**广告兴趣分析。甚至用户可以选择完全禁止统计
 
 ## 已收录引擎
 
-[查看收录引擎列表](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+目前 50 + 。[查看收录引擎列表](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
 ## 相似工具和方法比较
 
@@ -205,7 +200,7 @@
         }
     },
 
-    "label_usaj": { "lstr": "Engine with Ajax" },
+    "label_usaj": { "lstr": "Search Ajax-render web" },
     "chrome_ext_dev": {
         "dname": "Chrome Ext Dev Doc",
         "addr": "https://developer.chrome.com/docs/extensions/reference/",
@@ -271,7 +266,7 @@ JSON格式。
                     "engine": "引擎名", 
                     "btn": "按钮名"    // # 可选。无则使用第一个按钮
                 },
-                "ajax": ......  // # 可选。详见专门的Ajax说明
+                "ajax": ......  // # 可选。详见专门的搜索Ajax-render网站说明
             },
 
         }
@@ -282,14 +277,14 @@ JSON格式。
 
 </details>
 
-#### Ajax说明
+#### 搜索Ajax-render的网站
 
 有些网站无GET或POST，需要打开它们的页面后再输入，然后它们通过Ajax的形式展现搜索结果。
 
 大术专搜的浏览器扩展支持这类只能通过Ajax进行的搜索，并极易配置。
 
 <details>
-<summary>Ajax说明</summary>
+<summary>搜索Ajax-render网站说明</summary>
 
 例1：指定输入框的querySelector，并进行关键词输入，模拟回车动作
 

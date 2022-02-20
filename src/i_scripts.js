@@ -578,7 +578,7 @@ const example_adv = `{
       }
     }
   },
-  "label_usaj": { "lstr": "Engine with Ajax" },
+  "label_usaj": { "lstr": "Search Ajax-render web" },
   "chrome_ext_dev": {
     "dname": "Chrome Ext Dev Doc",
     "addr": "https://developer.chrome.com/docs/extensions/reference/",
@@ -1202,7 +1202,6 @@ function init_btmDialogToggler() {
 }
 
 async function eng_link_onclick() {
-    //stati_click_e(this);
 }
 
 

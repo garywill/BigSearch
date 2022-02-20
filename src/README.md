@@ -29,13 +29,8 @@ With some <b>special technical features</b> also.
          * [Full Format](#full-format)
       * [Specification of Editing Engines Data](#specification-of-editing-engines-data)
          * [Specifications](#specifications)
-         * [Ajax Instructions](#ajax-instructions)
+         * [Instructions for searching Ajax-render websites](#instructions-for-searching-ajax-render-websites)
    * [For Developers](#for-developers)
-      * [What's Next Step](#whats-next-step)
-      * [Technical Diagram](#technical-diagram)
-      * [Third-party libraries and components used](#third-party-libraries-and-components-used)
-      * [Globalization](#globalization)
-      * [History, Code Status, and License](#history-code-status-and-license)
 <!--te-->
 
 ## Start to install & use
@@ -88,7 +83,7 @@ Ways to use:
 
 ### Even more: What's special about it
 
-- 🔎 **Even works with** those websites that **don't** provide GET/POST interface to public (so-called Ajax-only websites) ([details](#Ajax-Instructions))
+- 🔎 **Even works with** those websites that **don't** provide GET/POST interface to public (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
 - 🔎 Do many operations at once by one button
 - ✨ Good-looking, powerful and **lightweight** ([details](#Third-party-libraries-and-components-used))
 - 💪 Uses **JSON** as unified search engines database (both built-in and user-defined). Has strong **flexibility** & **extensibility** in engine data: ([details](#Specification-of-Editing-Engines-Data))
@@ -100,13 +95,13 @@ Ways to use:
 ### Safety & Privacy
 
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed. (browser extension)
-- 🛡️ Browser extension **does not inject** anything to web sites (except when using Ajax-only engine)
+- 🛡️ Browser extension **does not inject** anything to web (except when searching Ajax-render websites)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
 - 🛡️ Pure **client-side** tool functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely
 
 ## List of engines
 
-[See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+50 + , currently. [See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
 ## Similar tools & methods comparison
 
@@ -204,7 +199,7 @@ Also, mixing short formatted and full formatted elements is supported.
         }
     },
 
-    "label_usaj": { "lstr": "Engine with Ajax" },
+    "label_usaj": { "lstr": "Search Ajax-render web" },
     "chrome_ext_dev": {
         "dname": "Chrome Ext Dev Doc",
         "addr": "https://developer.chrome.com/docs/extensions/reference/",
@@ -270,7 +265,7 @@ Engine data in full format can contain following key-values:
                     "engine": "engine name", 
                     "btn": "button name"   // # Optional. Absence will make fallback to the first button
                 },
-                "ajax": ......  // # Optional. Read the Ajax Instructions for detail
+                "ajax": ......  // # Optional. Read the Ajax-render websites instructions
             },
         }
 
@@ -281,15 +276,15 @@ Engine data in full format can contain following key-values:
 
 </details>
 
-#### Ajax Instructions
+#### Instructions for searching Ajax-render websites
 
 Some websites doesn't accept GET or POST. Visitor need to open their page and input, then they show search results on page via Ajax.
 
-Big Search browser extension supports searching in such Ajax-only websites. And very easy to configure.
+Big Search browser extension supports searching in such Ajax-render websites. And very easy to configure.
 
 <details>
 
-<summary>Ajax instructions</summary>
+<summary>Ajax-render websites instructions</summary>
 
 Eg 1: Specify the querySelector of input box. It will automatically input search term and trigger pressing Enter event.
 
