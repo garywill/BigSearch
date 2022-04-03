@@ -121,7 +121,7 @@ function getStor(cname)
     if (!use_localstorage) return "";
     
     var got = false;
-    
+
     try{
         got = localStorage.getItem(cname);
         if (got)
@@ -258,47 +258,17 @@ function del_hist(hist2d)
 
 function getCookie_my(cname) 
 {
-//this will NOT unescape cookie
-//it returns raw string 
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) 
-			return c.substring(name.length,c.length);
-    }
-    return "";
 } 
 
 function setCookie_my(c_name,value,expiredays)
 {
-//this will escape string
-	var expireStr="";
-	
-	if(expiredays=="session") expireStr="";
-	else
-	{
-		if(expiredays==null) expiredays=1000;
-		
-		var exdate=new Date();
-		exdate.setDate(exdate.getDate()+expiredays);
-		
-		expireStr = ";expires="+exdate.toGMTString()
-	}
-	
-	document.cookie=c_name+ "=" +escape(value)+ "; SameSite=Lax" + expireStr;
-		//((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
 }
 
 function delCookie_my(name)
 {
-	var exp = new Date();
-	exp.setTime(exp.getTime() - 1);
-	//var cval=getCookie_my(name);
-	//if(cval!=null)
-	document.cookie= name + "=" + ";expires="+exp.toGMTString();
 }
+
+//------------------
 
 function removeUrlParts(s) // 'http://example.com:8888/a/b/c' --> 'http://example.com:8888/'
 {
