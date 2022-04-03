@@ -1,6 +1,6 @@
-English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_zh.md)
-
 [![firefox](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![chrome](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=ms%20edge%20%28NO%20update%29&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+
+English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_zh.md)
 
 # Big Search
 

@@ -194,6 +194,7 @@ catas = {
             { type:"engine", name:"works.hk"},
             { type:"engine", name:"cantodict"},
             { type:"engine", name:"voicedic"},
+            { type:"engine", name:"wantwords"},
             { type:"label", lstr:"帛竹卷經" },
             { type:"engine", name:"ctext"},
             { type:"engine", name:"kanripo"},
@@ -1629,6 +1630,17 @@ sEngines = {
             "Wenzhouese": {
                 "label": "温州话",
                 "ajax": ["input[type=radio][name=language][value=Wenzhouese]",100,".s_ipt",100,".s_btn"]
+            }
+        }
+    },
+    "wantwords": {
+        dname: "万词王",
+        addr: "https://wantwords.net/",
+        btns: {
+            "inverse": {
+                label: "反向词典",
+                action: "https://wantwords.net/",
+                ajax: "#description"
             }
         }
     },
