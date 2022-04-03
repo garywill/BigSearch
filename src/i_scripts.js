@@ -967,6 +967,8 @@ async function init_lastuseHandler() {
         R.loadLastClick = async function(dbname, cata) {
             if ( ! (dbname && cata) ) {
                 const table_element = document.getElementById("engines_table");
+                if (!table_element)
+                    return;
                 const table_dbname = table_element.getAttribute("dbname")
                 const table_cata = table_element.getAttribute("cata")
                 dbname = table_dbname;
