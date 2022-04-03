@@ -1146,22 +1146,19 @@ function init_btmDialogToggler() {
     btmDialogToggler = new function btmDialogTogglerClass() {
         
         this.onBtnClick = function() {
-            var btn_id = this.id;
-            if (btn_id == "btn_donate") {
-                const donate_pic = "https://gitlab.com/garywill/receiving/raw/master/receivingcode.png";
-                // https://gitlab.com/garywill/receiving/raw/master/receivingcode.png
-                // https://raw.githubusercontent.com/garywill/receiving/master/receivingcode.png
-                if ( document.getElementById("img_receivingcode").getAttribute("src") != donate_pic)
-                    document.getElementById("img_receivingcode").setAttribute("src",donate_pic); 
-            }
             
-            if (btn_id == (window.run_env == "http_web" ? "btn_webext" : "btn_about")  ) {
-                var imgs = document.getElementById("div_addon_badges").querySelectorAll("img");
+            var btn_id = this.id;
+            if ( btn_id == "btn_donate" ||
+                btn_id == (window.run_env == "http_web" ? "btn_webext" : "btn_about") ||
+                btn_id == "btn_usage"
+            ) {
+                var imgs = document.getElementById(btn_id + "_dialog").querySelectorAll("img[nsrc]");
                 Array.from(imgs).forEach(function(ele) {
                     if (ele.getAttribute("src") != ele.getAttribute("nsrc") )
                         ele.setAttribute("src", ele.getAttribute("nsrc"));
                 });
             }
+            
             switch(btn_id)
             {
                 case "btn_donate":
