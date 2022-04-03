@@ -72,7 +72,7 @@ Ways to use:
 
 ### Basic
 
-- 🔎 Use any search engines or inquery websites (multiple uninterruptedly) from one UI. Any that support **GET/POST**. (50+ built-in)
+- 🔎 Use any search engines or inquery websites (multiple uninterruptedly) from one UI. Any that support **GET/POST**. (60+ built-in)
 - 🔎 **User** custom search engine ([details](#How-to-edit-search-engines-GUI-or-JSON)) (syncronizable in extension)
 - 🔎 Use **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
 
@@ -109,11 +109,11 @@ Ways to use:
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed.
 - 🛡️ **No injection** to web (except when searching Ajax-render websites)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
-- 🛡️ **Client side** functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely
+- 🛡️ **Client side** functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely (analystics already disabled in incognito mode)
 
 ## List of engines
 
-50+ , currently. [See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
+60+ , currently. [See list of build-in search engines](https://github.com/garywill/BigSearch/blob/list/list.md#list-of-build-in-search-engines-in-big-search)
 
 ## Similar tools & methods comparison
 
