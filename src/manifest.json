@@ -11,13 +11,24 @@
     },
     "permissions": [
         "storage",
-        "contextMenus"
+        "contextMenus",
+        "*://*.acsearch.ga/editengine.php",
+        "*://*.acsearch.tk/editengine.php"
     ],
     "optional_permissions": [
         "search",
         "clipboardRead",
         "activeTab",
         "*://*/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.acsearch.ga/editengine.php*",
+                "*://*.acsearch.tk/editengine.php*"
+            ],
+            "js": ["ck.js",  "lzutf8.js", "contentscript_editgui.js"]
+        }
     ],
     "icons": {
         "128": "icon.png"

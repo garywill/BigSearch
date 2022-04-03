@@ -19,16 +19,15 @@ var usercustom_engines = {};
 
 var got_browser_engines = [] ;
 
+
 async function read_usercustom_engines() {
     if (window.run_env == "http_web")
     {
     }else{ // addon
-        const read_addon_settings_usercuston_engines = await get_addon_setting("usercustom_engines");
-        if (read_addon_settings_usercuston_engines ) {
-            //usercustom_engines = JSON.parse(LZString.decompressFromUint8Array(await get_addon_setting("usercustom_engines")));
-            
-            usercustom_engines = JSON.parse( LZUTF8.decompress(read_addon_settings_usercuston_engines, {inputEncoding: "StorageBinaryString"}) );
-            
+        var ext_json = await ext_read_usercustom_engines();
+        if (ext_json ) {
+            ext_json = JSON.parse(ext_json);
+            usercustom_engines = ext_json;
             document.getElementById("textarea_json_saved").value = JSON.stringify(usercustom_engines, null,2);
         }
     }

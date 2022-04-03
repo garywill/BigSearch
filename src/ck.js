@@ -93,8 +93,43 @@ async function getInstallType(){
     }
 }
 
+//========================
+async function ext_read_usercustom_engines() { 
+    const read_addon_settings_usercuston_engines = await get_addon_setting("usercustom_engines");
+    if (read_addon_settings_usercuston_engines ) {
+        // return uncompressed minified json
+        return LZUTF8.decompress(read_addon_settings_usercuston_engines, {inputEncoding: "StorageBinaryString"}) ;
+    }
+}
 
-
+async function ext_save_json_to_usercustom(json) {
+    var parsedJsonObj;
+        
+    try{
+        parsedJsonObj = JSON.parse(json);
+    }catch(err){
+        return false;
+    }
+    
+    var stringifiedJson = JSON.stringify(parsedJsonObj); // stringify to make sure minified
+    var compressed = LZUTF8.compress(stringifiedJson, {outputEncoding: "StorageBinaryString"});
+    
+    try{
+        await chrome.storage.sync.set({"usercustom_engines": compressed });
+    
+        if ( ( await get_addon_setting("usercustom_engines") ) === compressed ) {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }catch(err) { 
+        return false;
+    }
+    
+}
+//========================
 const use_localstorage = true;
 
 
