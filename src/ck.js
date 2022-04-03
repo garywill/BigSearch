@@ -94,7 +94,7 @@ async function getInstallType(){
 }
 
 //========================
-async function ext_read_usercustom_engines() { 
+async function addon_read_usercustom_engines() { 
     const read_addon_settings_usercuston_engines = await get_addon_setting("usercustom_engines");
     if (read_addon_settings_usercuston_engines ) {
         // return uncompressed minified json
@@ -102,7 +102,7 @@ async function ext_read_usercustom_engines() {
     }
 }
 
-async function ext_save_json_to_usercustom(json) {
+async function addon_save_json_to_usercustom(json) {
     var parsedJsonObj;
         
     try{

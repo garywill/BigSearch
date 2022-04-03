@@ -24,7 +24,7 @@ async function read_usercustom_engines() {
     if (window.run_env == "http_web")
     {
     }else{ // addon
-        var ext_json = await ext_read_usercustom_engines();
+        var ext_json = await addon_read_usercustom_engines();
         if (ext_json ) {
             ext_json = JSON.parse(ext_json);
             usercustom_engines = ext_json;

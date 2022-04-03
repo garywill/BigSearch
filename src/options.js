@@ -35,6 +35,13 @@ async function on_optionpage_load() {
 
     });
     
+    if (settings['disable_editguicom'] === true) 
+        document.getElementById("checkbox-disable-editguicom").checked = true;
+
+    document.getElementById("checkbox-disable-editguicom").addEventListener("change", function () {
+        chrome.storage.sync.set({"disable_editguicom": document.getElementById("checkbox-disable-editguicom").checked });
+    });
+    
     document.getElementById("curver").textContent = chrome.runtime.getManifest()['version'] ;
 }
 
