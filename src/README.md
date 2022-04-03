@@ -6,14 +6,16 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites).
 
-✅ For both daily & work. 🌟 **Besides** what any multi-engine web search tool can do, it **also**✨:
+✅ For both daily & work.
+
+🌟 **Besides** what any multi-engine web search tool can do, it **also**✨:
 - 🖋️ Single-line or **multi-line** text
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **Ajax-render** websites)
 - 🔎 Do many operations at once by one button
 - 💪 JSON as search engines database (both built-in & user-defined. **GUI** editing also available). Flexibility & extensibility in engine data & search method
 
-and so on. Go on for details...
+and so on... Go on for readme
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
@@ -25,7 +27,7 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
 <summary>Table of Contents</summary>
 
 <!--ts-->
-   * [Start to install &amp; use](#start-to-install--use)
+   * [Start to Install &amp; Use](#start-to-install--use)
    * [Basic Features Demo and Screenshots](#basic-features-demo-and-screenshots)
    * [Features](#features)
       * [Basic](#basic)
@@ -46,7 +48,7 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
 
 </details>
 
-## Start to install & use
+## Start to Install & Use
 
 Ways to use:
 
@@ -72,7 +74,7 @@ Ways to use:
 
 ### Basic
 
-- 🔎 Use any search engines or inquery websites (multiple uninterruptedly) from one UI. Any that support **GET/POST**. (60+ built-in)
+- 🔎 Use **any** search engines or inquery websites (multiple uninterruptedly) from one UI. Any that support GET/POST. (60+ built-in)
 - 🔎 **User** custom search engine ([details](#How-to-edit-search-engines-GUI-or-JSON)) (syncronizable in extension)
 - 🔎 Use **browser-installed** search engines (browser extension, so can directly use those you've added into browser, Firefox only)
 
