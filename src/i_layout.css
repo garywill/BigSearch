@@ -332,6 +332,7 @@ a {
 
 #engines_o_cont{
     border-bottom: 1px solid #d0d7de88;
+    position: relative;
 
     max-height: var(--engines-o-cont-height-max);
     overflow-y: auto;

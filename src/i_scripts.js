@@ -1060,6 +1060,7 @@ async function init_lastuseHandler() {
 
 async function scroll_to_lastp() {
     var div = document.getElementById("engines_o_cont");
+    var engines_cont = document.getElementById("engines_cont");
     var lastp = document.getElementById("lastp");
     
     if ( ! lastp) {
@@ -1067,7 +1068,7 @@ async function scroll_to_lastp() {
         return;
     }
 
-    var distance = lastp.offsetTop + lastp.parentNode.offsetTop;
+    var distance = lastp.offsetTop + lastp.parentNode.offsetTop + engines_cont.offsetTop;
     div.scrollTop = distance - div.clientHeight + parseInt(getComputedStyle(lastp).height);
 }
 function setc_lastp(sete,setb)
