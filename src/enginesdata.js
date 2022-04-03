@@ -739,7 +739,7 @@ sEngines = {
                 ]
             },
             "to_en": {
-                "label": i18n(["译为英文", "to English"]),
+                "label": i18n(["译为英文", "To English"]),
                 "params": [
                     {key: "hl", val: "zh-CN"},
                     {key: "op", val: "translate"},

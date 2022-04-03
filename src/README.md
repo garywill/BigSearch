@@ -22,7 +22,7 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
 </p>
 
 <details>
-<summary>Table of Content</summary>
+<summary>Table of Contents</summary>
 
 <!--ts-->
    * [Start to install &amp; use](#start-to-install--use)
