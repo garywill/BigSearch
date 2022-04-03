@@ -95,23 +95,8 @@ async function getInstallType(){
 
 
 
-var use_localstorage = false;
+const use_localstorage = true;
 
-function storageAvailable(type) {
-    var storage;
-    try {
-        storage = window[type];
-        var x = '__storage_test__';
-        storage.setItem(x, x);
-        storage.removeItem(x);
-        return true;
-    }
-    catch(e) {
-        return false;
-    }
-}
-
-if ( storageAvailable("localStorage")) use_localstorage = true;
 
 //////
 
