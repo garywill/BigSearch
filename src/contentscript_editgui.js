@@ -35,7 +35,7 @@ async function init()
                 }, document.location.href);
             }
             
-            if (recMessage == "setExtUsercustom") {
+            if (recMessage == "setExtUsercustom" || recMessage == "setAddonUsercustom") {
                 var saveresult = await addon_save_json_to_usercustom(event.data.usercustomJson);
                 
                 if (saveresult)
