@@ -26,7 +26,9 @@ async function start_go()
                 else if ( web_element.tagName == "INPUT" )
                 {
                     if ( web_element.getAttribute("type") === null ||
-                        web_element.getAttribute("type").toLowerCase() == "text" )
+                        ["text", "search"]
+                            .includes( web_element.getAttribute("type").toLowerCase() )
+                    )
                     {
                         await doInput(ajax_arr_ele);
                     }
