@@ -6,6 +6,7 @@ var slow = 10;
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
 async function start_go()
 {
     if ( typeof(ajax) === "string" )
@@ -26,7 +27,7 @@ async function start_go()
                 else if ( web_element.tagName == "INPUT" )
                 {
                     if ( web_element.getAttribute("type") === null ||
-                        ["text", "search"]
+                        ["", "text", "search", "number", "tel", "email", "url", "password", "range", "date", "datetime-local", "time" , "week", "datetime", "hidden"]
                             .includes( web_element.getAttribute("type").toLowerCase() )
                     )
                     {
@@ -36,10 +37,13 @@ async function start_go()
                     {
                         web_element.checked="checked";
                     }
-                    else if (web_element.getAttribute("type").toLowerCase() == "submit")
+                    else if (["submit", "button", "reset"]
+                            .includes( web_element.getAttribute("type").toLowerCase() )
+                    )
                     {
                         web_element.click();
                     }
+                    // TODO checkbox image file
                 }
                 else if ( web_element.tagName == "BUTTON" )
                 {
