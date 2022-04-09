@@ -9,7 +9,7 @@ async function sleep(ms) {
 async function start_go()
 {
     if ( typeof(ajax) === "string" )
-        doInput(ajax);
+        await doInput(ajax, true);
     else if ( Array.isArray(ajax) )
     {
         for (var i=0; i<ajax.length; i++)
@@ -21,7 +21,7 @@ async function start_go()
                 var web_element = document.querySelectorAll(ajax_arr_ele)[0];
                 if ( web_element.tagName == "TEXTAREA" )
                 {
-                    await doInput(ajax_arr_ele);
+                    await doInput(ajax_arr_ele, i==ajax.length-1);
                 }
                 else if ( web_element.tagName == "INPUT" )
                 {
@@ -30,7 +30,7 @@ async function start_go()
                             .includes( web_element.getAttribute("type").toLowerCase() )
                     )
                     {
-                        await doInput(ajax_arr_ele);
+                        await doInput(ajax_arr_ele, i==ajax.length-1);
                     }
                     else if (web_element.getAttribute("type").toLowerCase() == "radio")
                     {
@@ -53,46 +53,50 @@ async function start_go()
         }
     }
 }
-async function doInput(queryStr, index=0) 
+async function doInput(queryStr, pressEnter=true) 
 {
     
     var web_inputbox;
     
     await sleep(slow * 5);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
+    web_inputbox = document.querySelectorAll(queryStr)[0];
     web_inputbox.focus();
     
     
     await sleep(slow * 2);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
+    web_inputbox = document.querySelectorAll(queryStr)[0];
     web_inputbox.dispatchEvent ( new Event( "input", { bubbles:true } ) );
     
     await sleep(slow * 2);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
+    web_inputbox = document.querySelectorAll(queryStr)[0];
     web_inputbox.dispatchEvent ( new Event( "change", { bubbles:true } ) );
     
     await sleep(slow * 5);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
+    web_inputbox = document.querySelectorAll(queryStr)[0];
     web_inputbox.value = keyword ;
     
     await sleep(slow * 2);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
+    web_inputbox = document.querySelectorAll(queryStr)[0];
     web_inputbox.dispatchEvent ( new Event( "input", { bubbles:true } ) );
     
     await sleep(slow * 2);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
+    web_inputbox = document.querySelectorAll(queryStr)[0];
     web_inputbox.dispatchEvent ( new Event( "change", { bubbles:true } ) );
     
-    await sleep(slow * 5);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
-    web_inputbox.dispatchEvent ( new KeyboardEvent( "keypress", { key: "Enter", keyCode: 13, bubbles: true } ) );
-    
-    await sleep(slow * 5);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
-    web_inputbox.dispatchEvent ( new KeyboardEvent( "keydown", { key: "Enter", keyCode: 13, bubbles: true } ) );
-    
-    await sleep(slow * 1);
-    web_inputbox = document.querySelectorAll(queryStr)[index];
-    web_inputbox.dispatchEvent ( new KeyboardEvent( "keyup", { key: "Enter", keyCode: 13, bubbles: true } ) );
+    if (pressEnter) 
+    {
+        await sleep(slow * 5);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keypress", { key: "Enter", keyCode: 13, bubbles: true } ) );
+        
+        await sleep(slow * 5);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keydown", { key: "Enter", keyCode: 13, bubbles: true } ) );
+        
+        await sleep(slow * 1);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keyup", { key: "Enter", keyCode: 13, bubbles: true } ) );
+    }
 }
+
 setTimeout(start_go, before_start);
