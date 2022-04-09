@@ -1431,6 +1431,11 @@ sEngines = {
             "go": {
                 "label": "Go",
                 "full_url": "https://formulae.brew.sh/formula/{0}"
+            },
+            "search": {
+                label: "Search",
+                action: "https://formulae.brew.sh/",
+                ajax: "#search-bar"
             }
         }
     },
