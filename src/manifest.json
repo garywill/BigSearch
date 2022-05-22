@@ -60,6 +60,11 @@
         "page": "background.html",
         "persistent": true
     },
+    "sidebar_action": {
+        "default_title": "__MSG_extensionName__",
+        "default_panel": "addon-popup.html?showas=sidebar",
+        "default_icon": "icon.png"
+    },
     "browser_specific_settings": {
         "gecko": {
             "id": "{45a03d78-2183-4d73-afe4-cfda260d1308}"
