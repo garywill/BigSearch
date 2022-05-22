@@ -71,6 +71,11 @@ function set_string_format_prototype() {
     }
 }
 
+onrd.push(async  function() {
+    await pre_layout();
+});
+
+
 onrd.push( function() {
     init_inputHandler();
 });
