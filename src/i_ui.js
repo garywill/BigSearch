@@ -181,7 +181,7 @@ async function init_UIHandler() {
      
         R.init_histOpenClose = function() {
             
-            R.histAlwaysShow = true; 
+            //R.histAlwaysShow = true; 
             
             R.ele_openhist = document.getElementById("openhist"); // open history btn
             R.ele_hist = document.getElementById("hist");
@@ -228,6 +228,8 @@ async function init_UIHandler() {
             R.ele_histFloater.onclick = function(){
                 R.closeHistFloater();
             };
+            
+            R.setHistAlwaysShow();
         }
         
         R.init_catasOpenClose = function() {
@@ -261,7 +263,6 @@ async function init_UIHandler() {
         R.init_histOpenClose();
         R.init_catasOpenClose();
 
-        R.setHistAlwaysShow();
         
         return R;
     }
