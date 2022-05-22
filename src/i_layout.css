@@ -62,6 +62,8 @@ body {
     --cata-btns-cl: grey;
     --cata-btns-bg-cl: transparent;
     
+    --cata-sidebar-hover-bg-cl: rgba(255,255,255,0.8);
+    
     --cata-btns-hover-cl: black;
     --cata-btns-highlight-cl: black;
     --cata-btns-highlight-underline-cl: black;
@@ -524,6 +526,24 @@ a {
 }
 .general_btn:hover > * {
     text-decoration: underline;
+}
+
+#cata_td {
+
+}
+#cata_td.cata_td_collapse {
+    max-width: 2.7em;
+}
+#cata_td.cata_td_collapse #catabtns_header{
+    visibility: hidden;
+}
+#cata_td.cata_td_collapse #catas_cont:hover {
+    background-color: var(--cata-sidebar-hover-bg-cl); 
+    width: max-content;
+    z-index: 999;
+}
+
+#catas_cont:hover {  
 }
 
 #catas_cont {  

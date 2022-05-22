@@ -37,6 +37,7 @@ body {
 
     --cata-btns-cl: #666;
     --cata-btns-bg-cl: #080808;
+    --cata-sidebar-hover-bg-cl: rgba(0,0,0 ,0.8);
     --cata-btns-tshadow: 0px 0px 1px #aaa;
     --cata-btns-hover-cl: #ccc;
     --cata-btns-hover-bg-cl: rgba(219, 220, 225, 0.05);
