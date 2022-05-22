@@ -685,6 +685,7 @@ onrd.push(function() {
 onrd.push(async function(){
     await init_themeHandler();
     setTimeout(scroll_to_lastp,500);
+    setTimeout(scroll_to_cata_highlight,500);
 });
 
 onrd.push(async function(){
@@ -1075,6 +1076,17 @@ function setc_lastp(sete,setb)
 {
 	setStor("le",sete);
 	setStor("lb",setb);
+}
+
+async function scroll_to_cata_highlight() {
+    var cont = document.getElementById("catas_cont");
+    var highlighted = cont.getElementsByClassName("cata_btn_highlight")[0];
+    
+    if (!highlighted)
+        return;
+    
+    var distance = highlighted.offsetTop;
+    cont.scrollTop = distance - cont.clientHeight + parseInt( getComputedStyle(highlighted).height);
 }
 
 async function cata_onclick(btnobj)

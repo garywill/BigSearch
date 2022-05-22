@@ -529,6 +529,7 @@ a {
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
     /*! padding-right: 10px; */
+    position: relative;
 }
 #catas_cont::-webkit-scrollbar {
     width: 4px;  
