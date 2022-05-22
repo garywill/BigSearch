@@ -17,9 +17,10 @@
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
-<p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手中万列 🖱️ 任心点选</p>
+<p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手敲几下 🖱️ 纵横去往</p> 
 
 > 图标含意：篆书的「**術**」（术）字 + 代表搜索/查询的放大镜
+
 > 名称含意：1.在搜索方面有强大的技术技巧 2.亦可以搜索「术」这类内容 （起了个很装逼/扮嘢/作势的名字～）
 
 <details>
@@ -53,7 +54,7 @@
 
 1. 浏览器扩展（**推荐**）
    - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
-   - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb)  或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、搜狗浏览器(部分)、360浏览器(部分) 等 
+   - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb)  或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、~~搜狗浏览器~~(部分)、360极速浏览器(部分) 等 
 
 2. 网页版：演示作用为主，网页版不能像扩展一样完全工作。网页版可在手机浏览器使用。 主站： [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga) | 备用站： [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
 
@@ -306,12 +307,12 @@ JSON格式。
 
 有些网站无GET或POST，需要打开它们的页面后输入，它们然后通过Ajax展现结果。
 
-大术专搜支持收录和调用这类，且易配置：
+大术专搜支持收录和调用这类网站（通过往浏览器里的页面注入js，实现输入、点击、表单提交的自动化），且易配置：
 
 <details>
 <summary>搜索Ajax-render网站说明</summary>
 
-例1：指定输入框的querySelector，并进行关键词输入，模拟回车动作
+例1：指定输入框的css selector，并进行关键词输入，模拟回车动作
 
 ```json
 "ajax": "#search-box-input"
@@ -338,7 +339,6 @@ JSON格式。
 - 完善编辑引擎的在线GUI 
 - Omnibox 
 - 选一个快又小的框架（any ideas?）
-- 能够在浏览器（原生）侧边栏使用（要先改进布局问题。需要响应式）
 - 套壳做个桌面app，调用用户指定的浏览器
 - 手机原生App（any ideas?)
 - 兼容OpenSearch等，一键自动添加或转换

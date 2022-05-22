@@ -62,7 +62,7 @@ Ways to use:
 
 | Use Extension   |  Breadth & Focus   | UI style choosable               |  
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![breadth_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth.jpg)  | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | 
+| ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![breadth](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth.jpg)  | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | 
 | Context selection search | Try web app without install                                                       | Mobile (testing) (web app)  |
 | ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) |  |
 | Edit search engines  | Special search methods, flexibility & extensibility |  | 
@@ -306,13 +306,13 @@ Engine data in full format can contain following key-values (special search meth
 
 Some websites doesn't accept GET or POST. Visitor need to open their page then input, they then show results via Ajax.
 
-Big Search can deal with such Ajax-render websites. And easy to configure:
+Big Search can deal with such Ajax-render websites (by injecting js to browser web, to automate inputting, clicking, form submitting). And easy to configure:
 
 <details>
 
 <summary>Ajax-render websites instructions</summary>
 
-Eg 1: Specify the querySelector of input box. It will automatically input search term and trigger pressing Enter event.
+Eg 1: Specify the css selector of input box. It will automatically input search term and trigger pressing Enter event.
 
 ```json
 "ajax": "#search-box-input"
@@ -337,7 +337,6 @@ This tool still can be improved to do something more:
 - Improve the online editing-engine GUI 
 - Omnibox
 - Choose a fast & lightweight framework (any ideas)
-- Browser (native) sidebar panel (before that need to change UI. Need responsive)
 - Desktop stanalone app, opening URL with user-assigned browser
 - Mobile native app (any idea?)
 - Be compatible with others e.g. OpenSearch. Add or convert by 1-click
