@@ -263,6 +263,10 @@ async function init_UIHandler() {
         R.init_histOpenClose();
         R.init_catasOpenClose();
 
+        if (showas == "sidebar") {
+            R.unsetHistAlwaysShow();
+            R.setCatasSidebar();
+        }
         
         return R;
     }
