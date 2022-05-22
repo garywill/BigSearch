@@ -436,7 +436,7 @@ a {
 }
 .enginename_td { 
     padding:0px 10px 0px 5px; 
-    min-width:130px; 
+/*     min-width:130px;  */
     /* white-space:nowrap; */
 }
 .enginename_td a { 
