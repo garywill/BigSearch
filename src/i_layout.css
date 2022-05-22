@@ -65,6 +65,8 @@ body {
     --cata-btns-hover-cl: black;
     --cata-btns-highlight-cl: black;
     --cata-btns-highlight-underline-cl: black;
+    --cata-btns-highlight-bg-cl: #eeeeee;
+
     
     --labelrow-bg-cl: #ddd;
     
@@ -555,8 +557,9 @@ a {
     width: 100%;
     white-space: nowrap;
     text-decoration:none; 
-    border:0px;
     outline: none; 
+    border:0px;
+    border-right: 2px solid transparent;
     
     color: var(--cata-btns-cl);
     background-color: var(--cata-btns-bg-cl); 
@@ -573,6 +576,7 @@ a {
     color: var(--cata-btns-highlight-cl); 
     background-color: var(--cata-btns-highlight-bg-cl);
     text-shadow: var(--cata-btns-highlight-tshadow);
+    border-right: 2px solid var(--cata-btns-highlight-underline-cl) ;
 }
 .cata_btn_highlight span { 
     border-bottom: 2px solid var(--cata-btns-highlight-underline-cl);

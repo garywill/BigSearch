@@ -14,6 +14,8 @@ body {
 /*     --gobutton-bg-cl: #f6f8fa; */
     --gobutton-bg-cl: var(--bg-cl);
     
+    --cata-btns-highlight-bg-cl: #fcfcfc;
+    
     --lastp-btm-line-cl: #d0d7de;
     --lastp-cl: #dbf0e1;
     --lastp-bg-cl: #2da44e;

@@ -6,6 +6,8 @@ body {
     --header-padding-v: 10px;
     
     --cata-btns-tshadow: 1px 1px 1px #ccc;
+    --cata-btns-highlight-bg-cl: #eeeeee;
+    
 }
 #header {  
     box-shadow: unset;
