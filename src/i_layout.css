@@ -161,6 +161,7 @@ a {
 
 
 #intitle , #intitle a{ 
+    overflow: hidden;
     text-decoration: none;
     height: var(--intitle-height);
     max-height: var(--intitle-height);
@@ -552,6 +553,9 @@ a {
 #catabtns_header { 
     /*! margin-bottom: 30px; */ 
     height: var(--catas-head-height);
+}
+#catabtns_header span{ 
+    word-break: keep-all;
 }
 
 .cata_btns {
