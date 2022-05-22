@@ -21,6 +21,8 @@ async function layout_init()
     
     init_viewport();
     
+    await init_UIHandler();
+    
     if(mobile) 
     {
         document.getElementById("btn_mobile").style.display = "none";
@@ -28,25 +30,12 @@ async function layout_init()
     
         document.getElementById("mobile_catasbtn_pos").appendChild( document.getElementById("catas_cont") );
         
-        document.getElementById("floater_td").appendChild(  document.getElementById("hist_cont") );
-        
+        UIHandler.unsetHistAlwaysShow();
         
         //layout_refresh();
         
         //set_table_observer();
-        
-        document.getElementById("openhist").onclick = function(){
-            document.getElementById("floater").style.display="block";
-        };
-        document.getElementById("floater").onclick = function(){
-            document.getElementById("floater").style.display="none";
-        };
-        document.getElementById("hist_cont").onclick = function(){
-            event.stopPropagation();
-        };
-        
-        
-        
+
         
     }else{
         document.getElementById("btn_desktop").style.display = "none";
@@ -163,6 +152,78 @@ function rm_not_userlang(){
         })
     }
 };
+
+// =======================================
+
+var UIHandler = {};
+async function init_UIHandler() {
+    
+    UIHandler = await UIHandlerClass();
+    
+    async function UIHandlerClass() {
+        var R = {};
+        
+        R.ele_content = document.getElementById("content");
+     
+        R.init_histOpenClose = function() {
+            
+            R.histAlwaysShow = true; 
+            
+            R.ele_openhist = document.getElementById("openhist"); // open history btn
+            R.ele_hist = document.getElementById("hist");
+            R.ele_hist_cont = document.getElementById("hist_cont");
+            R.ele_histTd = document.getElementById("hist_td");
+            R.ele_histFloaterTd = document.getElementById("floater_td");
+            R.ele_histFloater = document.getElementById("floater");
+            
+            R.setHistAlwaysShow = function() {
+                R.histAlwaysShow = true;
+                R.ele_content.classList.remove("content_hide_hist");
+                R.ele_hist.classList.remove("hist_hidemode");
+                R.ele_hist_cont.classList.remove("hist_cont_hidemode");
+                R.ele_openhist.classList.add("openhist_hide");
+                
+                R.ele_histTd.appendChild( R.ele_hist_cont  );
+            };
+            
+            R.unsetHistAlwaysShow = function() {
+                R.histAlwaysShow = false;
+                R.ele_content.classList.add("content_hide_hist");
+                R.ele_hist.classList.add("hist_hidemode");
+                R.ele_hist_cont.classList.add("hist_cont_hidemode");
+                R.ele_openhist.classList.remove("openhist_hide");
+                
+                R.ele_histFloaterTd.appendChild( R.ele_hist_cont );
+            };
+            
+            R.openHistFloater = function() {
+                R.ele_histFloater.style.display="block";
+            }
+            R.closeHistFloater = function() {
+                R.ele_histFloater.style.display="none";
+            }
+            
+            R.ele_hist_cont.onclick = function(){
+                event.stopPropagation();
+            };
+            
+            R.ele_openhist.onclick = function(){
+                if (! R.histAlwaysShow)
+                    R.openHistFloater();
+            };
+            R.ele_histFloater.onclick = function(){
+                R.closeHistFloater();
+            };
+        }
+     
+        R.init_histOpenClose();
+
+        R.setHistAlwaysShow();
+        
+        return R;
+    }
+    
+}
 
 // =======================================
 var themeHandler = {};

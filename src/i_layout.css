@@ -205,6 +205,12 @@ a {
     display: grid; 
     grid-template-columns: min-content 2fr 0px 1fr 10px;
 }
+#content.content_hide_hist {
+    grid-template-columns: min-content 2fr 0px 0px 10px;
+}
+#content.content_hide_hist #hist_td {
+    display: none;
+}
 
 
 
@@ -624,6 +630,20 @@ a {
 #hist:hover, .hist_focus {
     background-color: rgba(255,255,255,0.6);
 }
+#hist.hist_hidemode {
+    max-width: 500px; 
+    min-width:150px; 
+    width:80vw;
+}
+#hist_cont.hist_cont_hidemode {  
+    display: inline-block;
+    background-color: rgba(255,255,255,1); 
+    text-align:left;
+}
+#hist_cont.hist_cont_hidemode #hist_grow{  
+    display: none;
+}
+
 
 .hist_item { 
     font-size: 14px; 
@@ -664,7 +684,34 @@ a {
 }
 #inputclear:hover, #inputselect:hover, #inputcopy:hover{ text-decoration: underline; }
 #inputpaste {display:none;}
-#openhist{display:none} 
+#openhist{
+    margin-left: auto;
+} 
+#openhist.openhist_hide {
+    display:none;
+}
+#openhist.openhist_hide_duetoM {
+    display:none;
+}
+#floater{ 
+  
+    position: fixed;
+
+    background-color: rgba(255,255,255,0.7);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height:100vh;
+    text-align:center;
+}
+#floater_table  {
+    width: 100vw;
+    height:100vh;
+}
+#floater_td {
+    text-align:center;
+    vertical-align: middle;
+}
 
 #bottom {
   padding-top: var(--bottom-padding-top);

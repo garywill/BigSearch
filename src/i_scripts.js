@@ -355,15 +355,15 @@ function init_inputHandler() {
             }
         };
         this.updateUI = function() { // mobile history btn
-            if ( ! mobile) // desktop
-                document.getElementById("openhist").style.display = "none";
-            else  // mobile
-            {
-                if (this.ml_mode && ! this.ml_ui)
-                    document.getElementById("openhist").style.display = "none";
-                else
-                    document.getElementById("openhist").style.display = "block";
+
+            if (this.ml_mode && ! this.ml_ui) {
+                document.getElementById("openhist").classList.add("openhist_hide_duetoM");
             }
+            else
+            {
+                document.getElementById("openhist").classList.remove("openhist_hide_duetoM");
+            }
+            
         }
         
         // when open ml UI btn clicked
@@ -838,8 +838,6 @@ function displayhist()
                 newDiv.onclick=function()
                 {
                     onHistItemDblClk(this.value);
-                    
-                    document.getElementById("floater").style.display="none";
                 }
             }
             
@@ -883,6 +881,8 @@ function onHistItemDblClk(str) {
         inputHandler.setValueAtCursor( ' ' + str + ' ');
     else
         inputHandler.setValue(str);
+    
+    UIHandler.closeHistFloater();
     
     inputHandler.setFocus();
 }
