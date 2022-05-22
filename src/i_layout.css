@@ -18,7 +18,7 @@ body {
     --header-margin-bottom: 5px;
     --nav-padding-h: 30px;
     
-    --tdgap: 10px;
+    --tdgap: 5px;
     
     --general-btn-font-size: 15px;
     --desktop-mobile-cont-height: calc( var(--general-btn-font-size) + 4px );
@@ -47,7 +47,7 @@ body {
     --hist-ban-font-size: 16px;
     --hist-ban-2-height: 0px;
 
-    --table-width: 660px;
+    --table-width: 100%;
     --table-width-max: 700px;
     --catas-head-height: 40px;
     
@@ -197,12 +197,13 @@ a {
   display: inline-block;
 }
 #content {  
-    width: 100%;
-    display:flex; 
+    width: 1000px;
+    max-width: 100vw;
     text-align:left;
-    /*! align-content: center; */
-    justify-content: center;
     gap: var(--tdgap);
+
+    display: grid; 
+    grid-template-columns: min-content 2fr 0px 1fr 10px;
 }
 
 
@@ -583,17 +584,17 @@ a {
     border-bottom: 2px solid var(--cata-btns-highlight-underline-cl);
 }
 
+#center_td {
+
+}
 #hist_td {  
-    /* padding-left: 50px; */
-    /*! padding-top:var(--hist-td-padding-top); */ 
-    /* background-color: yellow; */
     max-width: 250px;
-    width: 100%;
 }
 #hist_cont {
     height: var(--hist-cont-height);
 }
 #hist_ban { 
+    width: min-content;
     font-size: var(--hist-ban-font-size);
     white-space: nowrap;
 }
@@ -609,7 +610,9 @@ a {
     word-wrap: anywhere;
 }
 #hist { 
-    /*! max-width: 250px; */ 
+    max-width: 250px; 
+    min-width: 100px;
+    
     border-radius: 4px;
     height: calc( var(--wrapper-height) - var(--general-btn-font-size) - var(--hist-ban-font-size) - var(--hist-ban-2-height) ); 
     overflow-y: scroll; 
@@ -617,7 +620,6 @@ a {
     background-color: rgba(255,255,255,0.4);
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
-    min-width: 100px;
 }
 #hist:hover, .hist_focus {
     background-color: rgba(255,255,255,0.6);

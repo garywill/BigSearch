@@ -21,14 +21,9 @@
     
     --catas-head-height: 0px;
     
-    --table-width-max: 450px;
-    --table-width: var(--table-width-max);
-    
     --hist-ban-2-height: calc( var(--hist-ban-font-size) * 0.7 ) ;
 }
-.addon.en {
-    --table-width-max: 420px;
-}
+
 body {
     width: 800px; 
     min-height: 600px;
@@ -56,22 +51,6 @@ display:unset;
 }
 
 
-#engines_table
-{ 
-    max-width: var(--table-width); 
-    min-width: calc( var(--table-width) - 50px );
-    
-}
-
-#input_o_cont, #input_cont, #inputbox ,
-#engines_cont, #engines_o_cont
-{ 
-    min-width: var(--table-width); 
-    width: var(--table-width); 
-    max-width: var(--table-width);
-    
-}
-
 body::-webkit-scrollbar {
     width: 4px;  
     height: 0;
@@ -85,13 +64,11 @@ body::-webkit-scrollbar-track-piece {
 
 
 #hist_td{  
-    /* padding-left: 20px; */
     padding-top:0px; 
 }
 #hist div .hist_entry_span_buttons { right: 0; }
 
 #hist { 
-    /* width: 220px; */
 }
 #hist_tip { display:block;}
 #hist div .hist_entry_span_buttons { font-size: 10px; } 
