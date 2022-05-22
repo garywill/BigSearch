@@ -229,8 +229,37 @@ async function init_UIHandler() {
                 R.closeHistFloater();
             };
         }
+        
+        R.init_catasOpenClose = function() {
+            R.catasStatus = "normal";  // normal | sidebar | mobile
+            R.ele_cata_td = document.getElementById("cata_td");
+            R.ele_catas_cont = document.getElementById("catas_cont");
+            R.ele_mobile_catasbtn_pos = document.getElementById("mobile_catasbtn_pos");
+            
+            R.setCatasNormal = function() {
+                if (R.catasStatus == "sidebar")
+                    R.ele_cata_td.classList.remove("cata_td_collapse");
+                else if (R.catasStatus == "mobile")
+                    R.ele_cata_td.appendChild( R.ele_catas_cont );
+                
+                R.catasStatus = "normal";
+            }
+            R.setCatasSidebar = function() {
+                if (R.catasStatus == "normal")
+                    R.ele_cata_td.classList.add("cata_td_collapse");
+                
+                R.catasStatus = "sidebar";
+            }
+            R.setCatasMobile = function() {
+                if (R.catasStatus == "normal")
+                    R.ele_mobile_catasbtn_pos.appendChild( R.ele_catas_cont );
+
+                R.catasStatus = "mobile";
+            }
+        }
      
         R.init_histOpenClose();
+        R.init_catasOpenClose();
 
         R.setHistAlwaysShow();
         
