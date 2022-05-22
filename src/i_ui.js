@@ -14,6 +14,20 @@
  */
 
 const mobile = getStor("mobile") === "true"?true:false;
+var showas = "";
+
+async function pre_layout() {
+    const urlParams = new URLSearchParams(window.location.search);
+    showas = urlParams.get("showas");
+    
+    if (window.run_env != "http_web") 
+    {
+        if (showas != "sidebar") {
+            document.body.style.width = "800px";
+            document.body.style.minHeight = "600px";
+        }
+    }
+}
 
 async function layout_init()
 {
