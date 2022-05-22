@@ -42,9 +42,9 @@ async function layout_init()
         document.getElementById("btn_mobile").style.display = "none";
         document.getElementById("mobile_css_tag").setAttribute("href",mobilecss);
     
-        document.getElementById("mobile_catasbtn_pos").appendChild( document.getElementById("catas_cont") );
         
         UIHandler.unsetHistAlwaysShow();
+        UIHandler.setCatasMobile();
         
         //layout_refresh();
         
