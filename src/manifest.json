@@ -27,7 +27,7 @@
                 "*://*.acsearch.ga/editengine.php*",
                 "*://*.acsearch.tk/editengine.php*"
             ],
-            "js": ["ck.js",  "lzutf8.js", "contentscript_editgui.js"]
+            "js": ["ck.js",  "lzutf8.js", "js/contentscript_editgui.js"]
         }
     ],
     "icons": {
