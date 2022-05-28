@@ -159,7 +159,6 @@ function createEngineTr(e_name,dbname=null){
     
     if ( !dbname || dbname == "bigsearch")
         engine_home_link.addEventListener('click', eng_link_onclick );
-        //engine_home_link.addEventListener('click', function() { stati_click_e(this) ; } );
     
     if ( typeof ( db(dbname).sEngines[e_name] ) === "string" )
         engine_home_link.textContent = e_name;
