@@ -14,6 +14,18 @@ body.sidebar {
     word-break: break-word;
     line-break: anywhere;
 }
+.labelrow td {
+    padding: unset;
+    text-align: center;
+    font-size: clamp(13px, 2.7vw + 7px, 15px);
+
+}
+.engine_tr {
+    font-size: clamp(12px, 2.7vw + 7px, 16px);
+}
+.gobutton {
+    font-size: clamp(13px, 2.7vw + 7px, 16px);
+}
 
 #bottom, #footer, #td_gap_hist_right, #td_gap_hist_left {
     display: none;
