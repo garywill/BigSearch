@@ -1,0 +1,12 @@
+body.sidebar {
+    --tdgap: 0px;
+}
+#engines_table * {
+    word-wrap: break-word;
+    word-break: break-word;
+    line-break: anywhere;
+}
+
+#bottom, #footer, #td_gap_hist_right, #td_gap_hist_left {
+    display: none;
+}

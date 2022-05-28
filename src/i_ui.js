@@ -54,6 +54,9 @@ async function layout_init()
     }else{
         document.getElementById("btn_desktop").style.display = "none";
     }
+    
+    if (showas == "sidebar" ) 
+        document.getElementById("sidebar_css_tag").setAttribute("href", "addon_sidebar.css");
 }
 
 function init_body_class() {
@@ -66,6 +69,9 @@ function init_body_class() {
         document.body.classList.add("mobile");
     else
         document.body.classList.add("desktop");
+    
+    if (showas == "sidebar")
+        document.body.classList.add("sidebar");
     
     document.body.classList.add(window.lang);
 }
@@ -266,6 +272,7 @@ async function init_UIHandler() {
         if (showas == "sidebar") {
             R.unsetHistAlwaysShow();
             R.setCatasSidebar();
+            
         }
         
         return R;
