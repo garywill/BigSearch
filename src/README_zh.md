@@ -312,7 +312,7 @@ JSON格式。
 <details>
 <summary>搜索Ajax-render网站说明</summary>
 
-例1：指定输入框的css selector，并进行关键词输入，模拟回车动作
+例1：指定输入框的css selector。将自动进行关键词输入，模拟回车动作
 
 ```json
 "ajax": "#search-box-input"

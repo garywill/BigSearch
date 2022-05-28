@@ -195,9 +195,13 @@ catas = {
             { type:"engine", name:"cantodict"},
             { type:"engine", name:"voicedic"},
             { type:"engine", name:"wantwords"},
+            { type:"engine", name:"zitools"},
             { type:"label", lstr:"帛竹卷經" },
             { type:"engine", name:"ctext"},
             { type:"engine", name:"kanripo"},
+            { type:"label", lstr:"汉符编码" },
+            { type:"engine", name:"unicode"},
+            { type:"engine", name:"zi-hi"},
         ],
     }, 
     "buy": {
@@ -1692,6 +1696,42 @@ sEngines = {
             }
         },
         
+    },
+    "unicode": {
+        "dname": "Unicode.org",
+        "addr": "http://www.unicode.org/cgi-bin/GetUnihanData.pl",
+        "kw_key": "a",
+        "btns": {
+            "unihan": {
+                "label": "Unihan",
+                "action": "https://www.unicode.org/cgi-bin/GetUnihanData.pl",
+                "btn_tip": "https://www.unicode.org/cgi-bin/GetUnihanData.pl",
+                "kw_key": "codepoint"
+            },
+            "char_prop": {
+                "label": "Character Properties",
+                "action": "https://util.unicode.org/UnicodeJsps/character.jsp",
+                "btn_tip": "https://util.unicode.org/UnicodeJsps/character.jsp",
+                "kw_key": "a"
+            },
+            "confusable": {
+                "label": "Confusables",
+                "action": "https://util.unicode.org/UnicodeJsps/confusables.jsp",
+                "btn_tip": "https://util.unicode.org/UnicodeJsps/confusables.jsp",
+                "kw_key": "a"
+            }
+        }
+    },
+    "zi-hi" : {
+        dname: "字嗨", 
+        addr: "https://zi-hi.com/sp/uni/", 
+        action: "https://zi-hi.com/sp/uni/", 
+        kw_key: "s", 
+    }, 
+    "zitools": {
+        dname: "字統网",
+        addr: "https://zi.tools/", 
+        full_url: "https://zi.tools/zi/{0}", 
     },
     "choco": {
         dname: "Chocolatey",
