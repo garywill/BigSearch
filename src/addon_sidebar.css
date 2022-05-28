@@ -1,6 +1,14 @@
 body.sidebar {
     --tdgap: 0px;
+    --btns-copypaste-gap: 0px;
 }
+
+#btn_ml_input, #btn_save_ml, #btn_save_ml_sl {
+    width: unset;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #engines_table * {
     word-wrap: break-word;
     word-break: break-word;
