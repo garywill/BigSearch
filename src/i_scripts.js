@@ -13,6 +13,29 @@
  * Source code: https://github.com/garywill/BigSearch
  */
 
+function addListenerNDelay(eventOwner, eventName, msDelay, callbackFunction) 
+{
+    var triggerIgnoringTime = 0;                                            
+
+    var callbackWrapper =  async function () {
+        triggerIgnoringTime ++;
+        if ( triggerIgnoringTime > 1)
+        {
+//             console.log("Ignoring time ~");
+            return;
+        }
+        
+        await callbackFunction();
+        setTimeout(async function() { 
+            if ( triggerIgnoringTime > 1)
+            {
+                await callbackFunction();
+            }
+            triggerIgnoringTime = 0; 
+        }, msDelay);
+    }
+    eventOwner.addEventListener(eventName, callbackWrapper);
+}
 
 var onrd = new Array(); //on document ready
 document.addEventListener('DOMContentLoaded', async (event) => {
@@ -275,7 +298,9 @@ onrd.push(function(){
 });
 
 onrd.push(function(){
-	window.onfocus=windowonfocus;
+    addListenerNDelay(window, "focus", 1000, function() {
+        displayhist();
+    });
 });
 
 onrd.push(async function(){
@@ -285,17 +310,23 @@ onrd.push(async function(){
 
 onrd.push(function(){
     setTimeout(function() {
-        window.onresize = onWindowResize;
+        addListenerNDelay(window, "resize", 200, onWindowResize);
     },500);
 });
 
 onrd.push(function(){ 
-    // in addon, when popup open and close, read and save temperary input
     // NOTE this must be after inputHandler inited
+    read_stored_input_content();
+});
+onrd.push(function(){ 
     if (window.run_env != "http_web" /* && ! chrome.extension.inIncognitoContext */ ) 
     {
-        inputHandler.init_mode( getStor("input_content") );
-  
+        window.addEventListener("focus", function(){
+            if ( getStor("input_content") !=  inputHandler.getValue() )
+            {
+                read_stored_input_content();
+            }
+        });
         window.addEventListener("blur", function(){
             setStor("input_content", inputHandler.getValue());
         });
@@ -529,21 +560,13 @@ async function make_cata_btns() {
 }
 
 
-
-
-
-
-
-function window_set_onfocus()
-{
-	window.onfocus=windowonfocus;
-}
-function windowonfocus()
-{
-	window.onfocus=null;
-	
-	displayhist();
-	setTimeout(window_set_onfocus,3000);
+function read_stored_input_content() {
+    // in addon, when popup open and close, read and save temperary input
+    // NOTE this must be after inputHandler inited
+    if (window.run_env != "http_web" /* && ! chrome.extension.inIncognitoContext */ ) 
+    {
+        inputHandler.init_mode( getStor("input_content") );
+    }
 }
 
 

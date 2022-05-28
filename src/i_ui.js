@@ -116,18 +116,7 @@ function layout_refresh()
 
 function onWindowResize()
 {
-    return; // !!!!!!!!!!
-    /*
-    window.onresize = null;
-    setTimeout(function() {
-        if (
-            window.run_env == "http_web" ||
-            (window.run_env != "http_web" && isFirefox)
-        )
-            window.onresize = onWindowResize;
-        layout_refresh();
-    }, 200);
-    */
+
 }
 
 
