@@ -333,6 +333,7 @@ onrd.push(function(){
     }
 });
 
+
 onrd.push(function(){
     document.getElementById("btn_input_json").addEventListener('click', function () {
         document.getElementById("div_json_parse").style.display="";
@@ -571,10 +572,10 @@ function read_stored_input_content() {
 
 
 
+
 async function fetch_browser_engines() {
     got_browser_engines = ( await browser.search.get() );
 }
-
 
 
  

@@ -133,5 +133,3 @@ async function cata_onclick(btnobj)
 
 async function eng_link_onclick() {
 }
-
-

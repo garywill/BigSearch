@@ -45,10 +45,7 @@ async function layout_init()
         
         UIHandler.unsetHistAlwaysShow();
         UIHandler.setCatasMobile();
-        
-        //layout_refresh();
-        
-        //set_table_observer();
+
 
         
     }else{
@@ -91,27 +88,6 @@ function init_viewport() {
     document.getElementById("viewport_tag").setAttribute("content", content);
 }
 
-var table_observer = null;
-function set_table_observer() {
-    table_observer = new MutationObserver(table_observer_callback);
-    
-    table_observer.observe(
-        document.getElementById("engines_cont"), 
-        { attributes: false, childList: true, subtree: true }
-    );
-}
-function table_observer_callback() {
-    //table_observer.disconnect();
-    //setTimeout(set_table_observer,200);
-
-    layout_refresh();
-}
-
-
-function layout_refresh()
-{
-   
-}
 
 
 function onWindowResize()
