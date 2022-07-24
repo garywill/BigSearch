@@ -202,6 +202,7 @@ catas = {
             { type:"label", lstr:"汉符编码" },
             { type:"engine", name:"unicode"},
             { type:"engine", name:"zi-hi"},
+            { type:"engine", name:"ccvisualize"},
         ],
     }, 
     "buy": {
@@ -1732,6 +1733,18 @@ sEngines = {
         dname: "字統网",
         addr: "https://zi.tools/", 
         full_url: "https://zi.tools/zi/{0}", 
+    },
+    "ccvisualize": {
+        dname: "CC可视化", 
+        addr: "https://garywill.github.io/cc-visualize/", 
+        tip: "在全文中查看字符信息，如Unicode码、所属区块、收录的Unicode版本\n找出大段文本（Unicode的）中的非寻常字符，如 不可打印字符、非汉非ASCII、日本和制汉字、PUA、兼容汉字符 等\n以及直观的全文批量汉字繁简关联关系全览\n既适合程序员，也适合中文电子文字整编人员", 
+        action: "https://garywill.github.io/cc-visualize/",
+        kw_key: "s", 
+        btns: {
+            "inspect" : {
+                label: "检视"
+            }
+        }
     },
     "choco": {
         dname: "Chocolatey",
