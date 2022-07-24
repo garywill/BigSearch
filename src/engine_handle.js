@@ -615,11 +615,10 @@ function go_full_url(keyword, full_url, charset="UTF-8",referer=false){
     var iconvd_keyword;
     
     iconvd_keyword = keyword; 
-    if (charset != "UTF-8") console.warn("full_url doesn't support non UTF-8 yet!");
+    if (charset != "UTF-8")
+        console.warn("full_url doesn't support non UTF-8 yet!");
     
-    iconvd_keyword = iconvd_keyword.replaceAll("\r\n", "%0d%0a");
-    iconvd_keyword = iconvd_keyword.replaceAll("\n", "%0d%0a");
-    iconvd_keyword = iconvd_keyword.replaceAll("\r", "%0d%0a");
+    iconvd_keyword = encodeURIComponent(iconvd_keyword);
     
     var url2open;
     url2open = full_url.format(iconvd_keyword);
