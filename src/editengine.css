@@ -1,0 +1,125 @@
+body {
+    font-family: sans-serif ,"DejaVu Sans", "Arial" , "WenQuanYi Micro Hei","文泉驿微米黑","Microsoft YaHei" ,"微软雅黑" ,"SimHei" , "黑体";
+/*     background-color: var(--bg-cl); */
+    
+    display: flex;
+    justify-content: center;
+}
+/*@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+}*/
+h1 {
+    text-align: center;
+}
+/*a {
+    color: unset;
+}*/
+#container {
+    display: inline-block;
+/*     margin-left: auto; */
+/*     margin-right: auto; */
+}
+
+#user_json_field {
+    width: 95vw;
+    max-width: 1000px;
+/*     resize: vertical; */
+    height: 100px;
+}
+
+.gui_table_content_td , 
+.gui_table_content_td textarea {
+    min-width: 40vw;
+}
+.engine_simple_fullurl {
+/*     width: 100%; */
+}
+
+.gui_table_content_td button{
+    padding: 0;
+}
+
+.engine_display_name, .labelrow_display_name {
+    font-weight: bold;
+}
+
+.tr_add ,
+.tr_add td {
+    text-align: center;
+    padding: 0px;
+    border: 0px;
+    font-size: x-small;
+}
+.tr_add button {
+    color: #333;
+    font-size: 10px;
+}
+
+.tr_add_between button {
+    visibility: hidden;
+}
+.tr_add_between:hover button {
+    visibility: unset;
+}
+
+.tr_droppable button{
+    visibility: hidden;
+}
+.tr_droppable {
+    background-color: blue;
+}
+
+.td_sequence_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.btn_drag_row {
+    color:grey;
+}
+    
+.btn_add_row, .btn_updown  {
+    padding: 0px 5px;
+    border: 1px;
+}
+
+.row-user td{
+    padding: 1px;
+}
+.row-engine:hover td{
+    background-color: #e9ecf5;
+}
+.engine_simple_fullurl {
+    margin-bottom: 6px;
+}
+
+.buildin-btns-td {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.buidin-btn-cont {
+    border: 1px solid grey;
+    border-radius: 6px;
+    padding: 0px 5px;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+input[type=text],textarea {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #bec1e9;
+}
+
+.btn_adding_templ {
+    width: 100%;
+}
+
+.fenced-code-block {
+    font-size: .875em;
+    color: #d63384;   
+}

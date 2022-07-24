@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Custom Engine - Big Search</title>
+        <link rel="icon" type="image/png" href="icon.png"/>
+
+        
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+
+        
+        <!--引用Vue.js-->
+<!--         <script type="text/javascript" src="https://vuejs.org/js/vue.js"></script> -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+        
+        
+        <script type="text/javascript">
+            window.run_env = "http_web";
+        </script>
+        
+        <script type='text/javascript' src='ck.js'></script> 
+<script type='text/javascript' src='i_ui.js'></script> 
+<script type='text/javascript' src='enginesdata.js'></script> 
+<script type='text/javascript' src='engine_handle.js'></script> 
+<script type='text/javascript' src='editengine.js'></script> 
+<link rel='stylesheet' type='text/css' href='editengine.css'></link> 
+    </head>
+    <body><div class="container" >
+            <div id="webhead">
+                <h1>Big Search - Edit Custom Engine</h1>
+                <br>
+                <blockquote class="blockquote-footer float-end">
+                    <button id="btn_detect" class="float-end">⟳</button>
+                    <div id="div_bsAddon_stat" class="float-end"></div>
+                </blockquote>
+                <br>
+                
+                <details>
+                <summary style="color:gray;">About (click to read)</summary>
+                    <p><strong>Big Search</strong> is a browser extension (or web app) to handily use any one or multiple (uninterruptedly) search engines. Also provides high customization ability &amp; flexibility.</p>
+                    <blockquote class="blockquote-footer"><p>Big Search is <strong>more than</strong> a simple GET/POST request sender. Visit the source code page to get a full knowledge about what's <b>special</b> about it (and about its engines data <b>specification</b>, if you would like).</p></blockquote>
+
+                    <p class="blockquote-footer">
+                    <a  target="_blank" href="https://addons.mozilla.org/firefox/addon/big-search/"><img src="https://img.shields.io/amo/v/big-search?style=flat-square&amp;color=success"   alt="firefox" /></a> 
+                    <a  target="_blank" href="https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb"><img src="https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&amp;color=success"   alt="chrome" /></a> 
+                    |
+                    <a target="_blank"  href="https://github.com/garywill/BigSearch">Big Search project home &amp; source code &amp; doc</a> 
+                    |
+                    <a target="_blank" href="index.php">Open Big Search web app (for demo) home</a> 
+                    
+                    </p>
+                    
+                    <blockquote class="blockquote-footer">
+                    <p>Some other editing tools that might be useful: <a  target="_blank" href="https://ogaoga.github.io/json-visual-editor/">JSON Visual Editor</a> | <a  target="_blank" href="http://jsoneditoronline.org">JSON Editor Online</a></p>
+                    </blockquote>
+                    <hr>
+                </details><br><br>
+
+                
+                
+               
+                
+            </div>
+
+            <details>
+            <summary style="color:gray;">Expand/Collapse JSON textarea (expert only)</summary>
+                <h2>JSON field</h2>
+                <div><button id="copy_json" class="btn btn-sm btn-secondary"
+                    onclick="copy_json();"
+                >Copy JSON</button></div>
+                <div>
+                    <code><textarea id="user_json_field" row="10">{ }</textarea></code>
+                </div>
+                <div>
+                    <button id="json_2_gui" class="btn btn-sm btn-secondary " onclick="btn_clk_parse_user_json();">JSON to editing-table ↓</button>
+                    <button id="json_2_gui_n_save_to_addon" class="btn btn-sm btn-secondary " onclick="btn_clk_parse_user_json_n_save_to_addon();">JSON to editing-table ↓ &amp; Save to extension (<b>override</b>) ↗</button>
+                    <button id="gui_2_json" class="btn btn-sm btn-secondary " onclick="btn_clk_gui2json();">  ↑ Editing-table to JSON</button>
+                    <button id="dl_json"  class="btn btn-primary " style="display:none;">Save JSON as file</button>
+                </div>
+                <hr>
+                
+            </details>
+            <br><br><br>
+            
+            <div>
+            Notice: <br>
+            This GUI has no ask, no warning, and no any notice before doing load/save/delete/override operations yet. <b>Be mindful before click</b>.<br>
+            So, please keep your JSON safe as copies somewhere. 
+            
+            </div>
+
+            <div >
+
+                <h2>Editing-engines GUI Table for Big Search</h2>
+                
+                <div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="load_from_ext();">↘ Load from extension</button>
+                        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" disabled="true">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item btn-sm" type="button">Load from web app</button></li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="load_example();">Load example ↴</button>
+                        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item btn-sm" type="button" onclick="load_example('en');">Load commonly used engines collection</button></li>
+                            <li><button class="dropdown-item btn-sm" type="button" onclick="load_example('chi');">加载例子（中文常用引擎）</button></li>
+                            <li><button class="dropdown-item btn-sm" type="button" onclick="load_example('adv');">Load advanced example</button></li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group float-end">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="save_table_to_addon();">Save to extension (<b>override</b>) ↗</button>
+                        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item btn-sm" type="button" hidden>Save to web app (override)</button></li>
+                            <li><button class="dropdown-item btn-sm" type="button" onclick="finish_n_copy();">Copy as JSON</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="bs_gui">
+                
+                    <table id="gui_table" class="table  table-sm  table-bordered">
+                        <thead class="table-secondary table-bordered">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Key (programatical name)</th>
+
+                                <th>Display Name</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template v-for="(row, index) in userJsonArr" v-cloak >
+<!--                                 <tr v-bind:rindex="index" v-html="add_tr_html"></tr> -->
+
+                                <tr class="tr_add tr_add_between" v-bind:rindex="index"
+                                    ondragenter="tr_add_ondragenter(event, this);"
+                                    ondragover="tr_add_ondragover(event, this);"
+                                    ondragleave="tr_add_ondragleave(event, this);"
+                                    ondrop="tr_add_ondrop(event, this);"
+                                >
+                                    <td  colspan='5' v-bind:rindex="index">
+                                        <button v-bind:rindex="index" class=' btn-outline-secondary btn-sm btn_add_row' v-on:click="addRowByTemplate(index,'simple')" title="Add new engine here (simple GET)">+ 🌐</button> &nbsp;
+                                        <button v-bind:rindex="index" class=' btn-outline-secondary btn-sm btn_add_row' v-on:click="addRowByTemplate(index,'labelrow')" title="Add new label row here">+ 🏷️</button> &nbsp;
+                                        <button v-bind:rindex="index" class=' btn-outline-secondary btn-sm btn_add_row'
+                                        v-on:click='setRindex2add(index)'
+                                            data-bs-toggle="modal" data-bs-target="#addRowModal"
+                                            onclick='' title="Add new by more templates">+ 👨‍💻...</button>
+                                    </td>
+                                </tr>
+                                <tr 
+                                    v-bind:class="{ 
+                                        'row-user': true,
+                                        'table-light': row.gui_type.startsWith('engine'),
+                                        'row-engine': row.gui_type.startsWith('engine'),
+                                        'table-info': row.gui_type == 'labelrow',
+                                        'table-warning': row.gui_type == 'fav_engine' }" 
+                                    v-bind:rindex="index"
+                                    
+                                >
+                                    <td  ><button class="btn btn-sm btn-danger" style="padding: 0; margin: 0;" title="Delete this engine (or row)" v-on:click="delRow(index)">X</button>
+                                    </td>
+                                    
+                                    <td v-bind:rindex="index" style="cursor: grab;" draggable="true" ondragstart="onGuiTrDragStart(event,this);"
+                                    class="td_sequence"
+                                    >
+                                        <div class="td_sequence_div">
+                                            <div style="font-size: 10px;">
+                                                <div style="white-space:nowrap;">
+                                                    <button class="btn_updown" v-on:click="rowMove(index,0)" >⇈</button>
+                                                    <button class="btn_updown" v-on:click="rowMoveUp(index)" >↑</button>
+                                                </div>
+                                                <div style="white-space:nowrap;">
+                                                    <button class="btn_updown" v-on:click="rowMove(index,-1)" >⇊</button>
+                                                    <button class="btn_updown" v-on:click="rowMoveDown(index)" >↓</button>
+                                                </div>
+                                            </div>
+                                            <div style="width: 100%; text-align: right;">
+                                                <span hidden class="btn_drag_row" v-bind:rindex="index"   >↑↓</span>
+                                                <b >{{ index+1 }}</b>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    
+                                    <!--key column-->
+                                    <td>
+                                        
+                                        
+                                        <code><input type="text" v-bind:rindex="index" class="" name="userName" placeholder="Unique programatical key name" v-model="row.key" /></code>
+                                        <button v-if="0" title="Generate a key name with random">Gen</button>
+                                    </td>
+
+                                    <!--display name column-->
+                                    <td>
+                                        <template v-if="row.gui_type.startsWith('engine_') ">
+                                            <code hidden>dname</code>
+                                            <b><input type="text" v-bind:rindex="index" class="engine_display_name" name="" v-model="row.bsObj.dname" /></b>
+                                        </template>
+                                        <template v-if="row.gui_type == 'labelrow'">
+                                            <code hidden>lstr</code>
+                                            <input type="text" v-bind:rindex="index" class="labelrow_display_name" name=""  v-model="row.bsObj.lstr" />
+                                        </template>
+                                        <span v-if="row.gui_type == 'fav_engine' ">
+                                            <b>{{ sEngines[row.bsObj.fav] ? sEngines[row.bsObj.fav]['dname'] : ''}}</b>
+                                        </span>
+                                    </td>
+                                    
+                                    <!--content column-->
+                                    <td class="gui_table_content_td">
+                                        <!--CONTENT-->
+                                        
+                                        <div  v-if="row.gui_type == 'engine_simple' " style="display:flex;">
+                                            <span title="Engine (simple GET)" >🌐&nbsp;</span>
+                                            <code style="flex-grow: 2;"><input style="width: 100%;" type="text" v-bind:rindex="index" class="engine_simple_fullurl" name="" v-model="row.bsObj.full_url" v-if="row.gui_type == 'engine_simple'" placeholder="E.g. https://www.google.com/search?q={0}" /></code>
+                                            <button hidden class="btn btn-secondary btn-sm" v-on:click="simple2expert(index)">switch to full</button>
+                                        </div>
+                                        <div>
+                                            <span v-if="row.gui_type == 'engine_expert' " >👨‍💻 Engine (full format) 🌐</span>
+                                            
+                                            <span v-if="row.gui_type == 'labelrow' " >🏷️ Label row</span>
+                                        </div>
+                                        <div v-if="row.gui_type == 'fav_engine' ">
+                                            <span  title="Link to a Big Search build-in engine">🔖 </span>
+                                            <code><input type="text" v-bind:rindex="index" class="" name="" v-model="row.bsObj.fav"  placeholder="" /></code>
+                                        </div>
+                                        <div v-if="row.gui_type=='engine_expert'">
+                                            <code><textarea v-bind:rindex="index"  class="textarea_engine_expert_content" wrap="off" v-model="row.gui_json_except_content" ></textarea></code>
+                                            <div>
+                                                Button(s): 
+                                                <span v-if="row.gui_json_expert_btns === undefined"><i>Default</i> <button class="btn btn-sm btn-secondary" v-on:click="createExampleBtn(index)">edit button</button></span>
+                                                
+                                                <div v-else>
+                                                <code><textarea v-bind:rindex="index" class="textarea_engine_btns_content" v-model="row.gui_json_expert_btns" ></textarea></code>
+                                                <div><button v-on:click="delBtns(index)" class="btn btn-sm btn-danger">delete buttons</button></div>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </template>
+<!--                             <tr rindex="-1" v-html="add_tr_html"></tr> -->
+                            
+                            <tr class="tr_add" rindex="-1" 
+                                ondragenter="tr_add_ondragenter(event, this);"
+                                ondragover="tr_add_ondragover(event, this);"
+                                ondragleave="tr_add_ondragleave(event, this);"
+                                ondrop="tr_add_ondrop(event, this);"
+                            >
+                                <td  colspan='5' rindex="-1">
+                                    <button rindex="-1" class=' btn-outline-secondary btn-sm btn_add_row' v-on:click="addRowByTemplate(-1,'simple')">+ Add engine (simple GET) 🌐 </button> &nbsp;
+                                    <button rindex="-1" class=' btn-outline-secondary btn-sm btn_add_row' v-on:click="addRowByTemplate(-1,'labelrow')" title="Add new label row here">+ 🏷️</button> &nbsp;
+                                    <button rindex="-1" class=' btn-outline-secondary btn-sm btn_add_row' v-on:click='setRindex2add(-1)'
+                                        data-bs-toggle="modal" data-bs-target="#addRowModal"
+                                        title="Add new engine by more templates"
+                                    >+ 👨‍💻...</button>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    
+                    <!-- Modal -->
+<div class="modal " id="addRowModal" tabindex="-1" aria-labelledby="addRowModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addRowModalLabel">Add new engine or row: choose a template</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table id="addRow_templatesTable" class="table table-bordered">
+           
+        </table>
+      
+    
+<p>Big Search can do more than above. Some other features haven't been put into this GUI yet. So you can read the doc on the source code page and write your <b>JSON</b> if you want to use those many other features.</p>
+
+      </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>-->
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+makeTemplateTable();
+</script>
+
+                </div><hr>
+                
+                <br><br><br><br><br><br>
+                
+                <h2>Big Search build-in engines</h2>
+                <div id="buildin_gui">
+                
+                    
+                    
+                    <blockquote class="blockquote-footer">
+                        <p>You can also "set as favorite" Big Search's build-in engines (adding their links into custom engines list), by clicking the star⭐ buttons</p>
+                        <p hidden>Below are Big Search's build-in search engines (60+ currently)</p>
+                    </blockquote>
+                    
+                    <div>
+                        <button class="btn btn-sm btn-outline-primary" onclick="expand_all_buildin_catas(true);">Expand all</button>
+                        <button class="btn btn-sm btn-outline-primary" onclick="expand_all_buildin_catas(false);">Collapse all</button>
+                        
+                        
+                        <form class="btn-group btn-group-sm float-end" role="group">
+                            <input type="radio" id="radio_en" v-on:change="onLangRadioChange" value="en" v-model="lang"  class="btn-check"/><label for="radio_en" class="btn btn-secondary">English</label>
+                            <input type="radio" id="radio_zh" v-on:change="onLangRadioChange" value="zh" v-model="lang"  class="btn-check"/><label for="radio_zh" class="btn btn-secondary">中文</label>
+                        </form>
+                    </div>
+                    
+                    <div class="accordion" id="">
+                        <template v-for="(cata,index) in catas">
+                            <template v-if="isVisible(cata)">
+                                <div class="accordion-item ">
+                                
+                                    <h3 class="accordion-header" id="">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" v-bind:data-bs-target="'#detail_'+index" aria-expanded="false" aria-controls="">
+                                            Catagory: &nbsp; {{ cata.label }}
+                                        </button>
+                                    </h3>
+                                    
+                                    <div v-bind:id="'detail_'+index" class="accordion-collapse collapse buildin-cata-details" aria-labelledby="">
+                                        <table id="buildin_table" class="table table-sm table-bordered table-hover">
+                                            <thead class="table-secondary table-bordered">
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Engine | key (programatical name)</th>
+                                                    <th>Search buttons (and buttons keys)</th>
+                                                </tr>
+                                                
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="row in cata.engines">
+                                                    <template v-if="row.type=='engine' && isVisible(row)">
+                                                        <td><button v-on:click="onclick_favbtn(row.name)">⭐</button></td>
+                                                        <td>
+                                                            <b>{{ sEngines[row.name].dname }} </b> &nbsp;
+                                                            <code v-bind:title="JSON.stringify(sEngines[row.name], null, 4)">{{ row.name }}</code></td>
+                                                        <td class="buildin-btns-td">
+                                                            <template v-for="(btn,btnkey) in sEngines[row.name].btns" > 
+                                                                <template v-if="isVisible(btn)">
+                                                                    <div class="buidin-btn-cont">
+                                                                        <span>{{ btn.label }}</span> <code v-bind:title="JSON.stringify(btn, null, 4)">{{ btnkey }}</code>
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                            <div v-if="! sEngines[row.name].btns"><i>Default</i></div>
+                                                        </td>
+                                                    </template>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            
+                            </template>
+                        </template>
+                    </div>
+                    
+                </div><hr>
+                
+                <br><br><br><br><br><br>
+            </div>
+            
+            <div hidden>
+                <b>Let's begin customizing search engine:</b>
+                <ul>
+                <li><strong>Step 0</strong> Paste your own customized engines (if you have) into the JSON textarea. Click "JSON to editing-GUI"</li>
+                
+                <li><strong>Step 1</strong> Edit custom engines at the GUI table</li>
+                <li><strong>Step 2</strong> Convert your edit to JSON &amp; copy</li>
+                <li><strong>Step 3</strong> Paste JSON into Big Search's user custom field</li>
+                </ul>
+            </div>
+            
+          
+            
+
+        </div>  </body>
+        
+        
+        
+</html>
