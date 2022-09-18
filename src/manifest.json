@@ -3,7 +3,7 @@
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "manifest_version": 2,
-    "version": "2.9.12",
+    "version": "2.9.15",
     "homepage_url": "https://garywill.github.io",
     "developer": {
         "name": "Garywill",
