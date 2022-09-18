@@ -115,7 +115,12 @@ function getSelectionText() {
 //-------
 
 async function set_checkupdate() {
-    if ( (await get_addon_setting("checkupdate")) !== true )
+    if ( (await get_addon_setting("checkupdate")) !== true 
+        && ! (
+            (await get_addon_setting("checkupdate")) === undefined
+            && (  isFromStore(".microsoft.com") || isFromStore(".opera.com")  ) 
+        )
+    )
         return;
     
     parseGotNewsXml();
@@ -344,17 +349,17 @@ async function parseGotNewsXml()
 
     }
     
-    function isFromStore(storeDomain) {
-        const buildin_update = chrome.runtime.getManifest()['update_url'] ;
-        if ( typeof ( buildin_update ) == "string" ){
-            const buildin_update_host = buildin_update.split('/')[2];
-            if ( buildin_update_host.endsWith(storeDomain) )
-                return true;
-        }
-        return false;
+}
+    
+    
+function isFromStore(storeDomain) {
+    const buildin_update = chrome.runtime.getManifest()['update_url'] ;
+    if ( typeof ( buildin_update ) == "string" ){
+        const buildin_update_host = buildin_update.split('/')[2];
+        if ( buildin_update_host.endsWith(storeDomain) )
+            return true;
     }
-    
-    
+    return false;
 }
 
 function clearShowingNews(if_del_xml=false) {
