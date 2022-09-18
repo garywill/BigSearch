@@ -1,4 +1,4 @@
-[![firefox](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![chrome](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) [![](https://img.shields.io/badge/dynamic/json?labelColor=dimgray&style=flat-square&color=inactive&label=ms%20edge%20%28NO%20update%29&prefix=v&query=%24.version&url=https%3A%2F%2Fmicrosoftedge.microsoft.com%2Faddons%2Fgetproductdetailsbycrxid%2Fpdmlapcmibobkkchijgfeongemmepkbc)](https://microsoftedge.microsoft.com/addons/detail/pdmlapcmibobkkchijgfeongemmepkbc) ![](https://img.shields.io/github/languages/code-size/garywill/BigSearch)
+[![firefox](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![chrome](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) 
 
 # 大术专搜
 
@@ -27,7 +27,7 @@
 <!--ts-->
    * [开始安装使用](#开始安装使用)
    * [老用户FAQ](#老用户faq)
-      * [Q: 选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面](#q-选择文本后点击右键菜单没反应还要点击一下工具栏按钮才打开界面)
+      * [Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面](#q-chrome等浏览器中选择文本后点击右键菜单没反应还要点击一下工具栏按钮才打开界面)
    * [基本功能演示与截图](#基本功能演示与截图)
    * [功能及特性](#功能及特性)
       * [基本](#基本)
@@ -62,7 +62,7 @@
 <details>
 <summary>我是老用户，点击展开</summary>
 
-### Q: 选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面
+### Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面
 
 A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283)。请在选择了文本后，使用按键组合`Ctrl+Shift+D`然后`Ctrl+Shift+S`来作为暂时的快捷操作
 
