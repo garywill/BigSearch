@@ -9,7 +9,7 @@
 🌟 **除了** 一个 多搜索引擎工具 该有的 基本功能 **外**，它**还有**✨：
 - 🖋️ 文本单行或**多行**
 - 🖥️ 桌面（扩展或网页）和移动（网页）
-- 🔎 **甚至兼容**那些**不**开放GET/POST接口（称为**Ajax-render**）的网站
+- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**Ajax-render**）
 - 🔎 一个按钮一次调用多个操作
 - 💪 JSON作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 灵活性 及 扩展性
 
@@ -23,11 +23,11 @@
 
 > 名称含意：1.在搜索方面有强大的技术技巧 2.亦可以搜索「术」这类内容 （起了个很装逼/扮嘢/作势的名字～）
 
-<details>
-<summary>目录</summary>
 
 <!--ts-->
    * [开始安装使用](#开始安装使用)
+   * [老用户FAQ](#老用户faq)
+      * [Q: 选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面](#q-选择文本后点击右键菜单没反应还要点击一下工具栏按钮才打开界面)
    * [基本功能演示与截图](#基本功能演示与截图)
    * [功能及特性](#功能及特性)
       * [基本](#基本)
@@ -46,7 +46,6 @@
    * [For Developers](#for-developers)
 <!--te-->
 
-</details>
 
 ## 开始安装使用
 
@@ -57,6 +56,17 @@
    - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb)  或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、~~搜狗浏览器~~(部分)、360极速浏览器(部分) 等 
 
 2. 网页版：演示作用为主，网页版不能像扩展一样完全工作。网页版可在手机浏览器使用。 主站： [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga) | 备用站： [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
+
+## 老用户FAQ
+
+<details>
+<summary>我是老用户，点击展开</summary>
+
+### Q: 选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面
+
+A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283)。请在选择了文本后，使用按键组合`Ctrl+Shift+D`然后`Ctrl+Shift+S`来作为暂时的快捷操作
+
+</details>
 
 ## 基本功能演示与截图
 
@@ -97,7 +107,7 @@
 
 ### 还有更多：特别之处
 
-- 🔎 **甚至兼容**那些**不**开放GET/POST接口（称为Ajax-render）的网站（[详情](#搜索Ajax-render的网站)）
+- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**Ajax-render**）（[详情](#搜索Ajax-render的网站)）
 - 🔎 一个按钮一次调用多个操作
 - ✨ 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
 - 💪 **JSON**作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 **灵活性**及**扩展性**：（[详情](#编辑引擎数据及各种搜索方式说明)）
@@ -126,6 +136,8 @@
 ## 如何编辑搜索引擎（GUI或JSON）
 
 [在线GUI引擎编辑工具（link 1）](https://acsearch.ga/editengine.php) （[link 2](http://acsearch.tk/editengine.php)）
+
+一般人用以上GUI编辑器即可。若不用（例如你是高级用户，或想使用进阶特性），可以继续阅读以下关于JSON数据的说明。
 
 以下讲述JSON格式的编辑引擎说明。以下两者皆适用：
 

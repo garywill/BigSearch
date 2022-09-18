@@ -127,6 +127,8 @@ Experienced users may prefer intuitive horizontal comparison to quickly know wha
 
 [Online GUI engine-editing tool (link 1)](https://acsearch.ga/editengine.php) ([link 2](http://acsearch.tk/editengine.php))
 
+Generally, just use above GUI editor. If you don't want to (e.g. you are advanced user and want to use advanced features), please go on and read below.
+
 Following paragraphs of this section are about JSON-format engine data specification. For both:
 
 1. User-defined private engines
