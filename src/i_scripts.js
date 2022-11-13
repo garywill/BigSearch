@@ -341,77 +341,6 @@ onrd.push(function(){
     });
 });
 
-onrd.push( function() {
-const example = `{
-  "Google": "https://www.google.com/search?q={0}",
-  "Yahoo Search": "https://search.yahoo.com/search?q={0}"
-}`;
-const example_adv = `{
-  "google": {
-    "dname": "Google",
-    "addr": "https://www.google.com",
-    "action": "https://www.google.com/search",
-    "kw_key": "q",
-    "btns": {
-      "search": {
-        "label": "Google Search"
-      },
-      "lucky": {
-        "label": "I'm Feeling Lucky",
-        "params": [
-          {"key":"btnI", "val": "1"}
-        ]
-      }
-    }
-  },
-  "label_mbap": { "lstr": "Cross-engine" },
-  "itunesapps": {
-    "dname": "iTunes Apps (Google)",
-    "addr": "https://www.apple.com/itunes/charts/free-apps/",
-    "btns": {
-      "search_apps": {
-        "label": "Search Apps",
-        "kw_format": "{0} site:apple.com/*app",
-        "use_other_engine": {
-          "engine": "google",
-          "btn": "search"
-        }
-      }
-    }
-  },
-  "label_usaj": { "lstr": "Search Ajax-render web" },
-  "chrome_ext_dev": {
-    "dname": "Chrome Ext Dev Doc",
-    "addr": "https://developer.chrome.com/docs/extensions/reference/",
-    "action": "https://developer.chrome.com/docs/extensions/reference/",
-    "ajax": ".search-box__input"
-  },
-  "label_many": { "lstr": "Many Engines at once" },
-  "many_once" : {
-    "dname": "Many Engines",
-    "btns": {
-      "gg_ddg": {
-        "label": "Google + DDG",
-        "use_other_engine": ["google", "duckduckgo"]
-      }
-    }
-  }
-}`;
-
-    document.getElementById("btn_use_examples").addEventListener('click', add_example_to_text);
-    document.getElementById("btn_use_examples_adv").addEventListener('click', add_example_to_text);
-                                                                 
-    function add_example_to_text() {
-        var str_add = "";
-        if (this.id == "btn_use_examples")
-            str_add = example;
-        if (this.id == "btn_use_examples_adv")
-            str_add = example_adv;
-        
-        const textarea_json = document.getElementById("textarea_json");
-        textarea_json.value += "\n" + str_add;
-    }
-});
     
 onrd.push(function(){
     document.getElementById("btn_parse_json").addEventListener('click', async function () {
@@ -513,7 +442,7 @@ onrd.push(async function(){
 });
 
 onrd.push(function() {
-    const eles_selector = ["#bottom", "#bottom-place", "#header", "#intitle", ".labelrow", "#btn_use_examples_adv", "#hist"];
+    const eles_selector = ["#bottom", "#bottom-place", "#header", "#intitle", ".labelrow", "#hist"];
     eles_selector.forEach(function(selStr) {
         const got = document.querySelectorAll(selStr);
         //console.log(got);
