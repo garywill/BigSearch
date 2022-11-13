@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>Big Search redirecting</title>
+        <script type="text/javascript" src="ck.js"></script>
+        <script type="text/javascript" src="i_ui.js"></script>
+        <script type="text/javascript" src="enginesdata.js"></script>
+        <script type="text/javascript" src="engine_handle.js"></script>
+        <script type="text/javascript" src="lzutf8.js"></script>
+        <script type="text/javascript" src="connecting.js"></script>
+        
+        <style>
+            .dim , #textarea_kw{
+                color: #8a8a8a
+            }
+            #textarea_kw {
+                width: 100%;
+                border: none;
+                background-color: transparent;
+            }
+        </style>
+    </head>
+    <body>
+        <span class="lang lang-zh  dim">大术专搜 -- ..连接中 </span>
+        <span class="lang lang-en  dim">Big Search -- ..Connecting to </span>
+        <button id="btn_retry" style="visibility: hidden;">Retry</button> 
+        <span class="dim"> ... --→  </span>
+        
+        &nbsp;&nbsp;&nbsp;
+        <span id="span_engineDisplayName"></span> 
+        &nbsp;&nbsp;&nbsp;
+        &lt;<span id="span_buttonDisplayName"></span>&gt;
+        &nbsp;&nbsp;&nbsp;
+        
+        <span id="span_mouseclickE"></span> 
+        
+        <br>
+        <br>
+        
+        <span class="lang lang-zh  dim"></span>
+        <span class="lang lang-en  dim"></span>
+        <br>
+        <code><pre id="textarea_kw" readonly="true"></pre></code>
+        
+        
+    </body>
+</html>

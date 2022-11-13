@@ -368,10 +368,12 @@ function getDataForGo(engine,btn,dbname=null)
     
     return data;
 }
+
+
+var newTabIndex;
+var newTabBringFront;
 async function goEngBtn(engine,btn,keyword,dbname=null)
 {
-    var newTabIndex;
-    var newTabBringFront;
     if (window.run_env != "http_web") {
         newTabIndex = 0;
         if (isFirefox)
@@ -443,16 +445,7 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
             go_full_url(keyword, data.full_url, data.charset,use_referer);
         else
         {
-            const call_function_str = 
-                "go_full_url("
-                + JSON.stringify(keyword)
-                + "," + JSON.stringify(data.full_url) 
-                + "," + JSON.stringify(data.charset)
-                + "," + JSON.stringify(use_referer)
-                + ");"
-            ;   
-            
-            await browser_newtab_go( go_full_url, call_function_str, set_string_format_prototype  );
+            await open_connecting_page(dbname, engine, btn, keyword);
         }
         return;
     }
@@ -525,85 +518,104 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
     if (window.run_env == "http_web")
         form_submit(fparams, data.action, data.charset, data.method, use_referer);
     else{
-        const call_function_str = 
-            "form_submit(" 
-            + JSON.stringify(fparams) 
-            + "," + JSON.stringify(data.action) 
-            + "," + JSON.stringify(data.charset)
-            + "," + JSON.stringify(data.method)
-            + "," + JSON.stringify(use_referer)
-            + ");"
-        ;
-        await browser_newtab_go( form_submit, call_function_str, null);
+            await open_connecting_page(dbname, engine, btn, keyword);
+        
+//         const call_function_str = 
+//             "form_submit(" 
+//             + JSON.stringify(fparams) 
+//             + "," + JSON.stringify(data.action) 
+//             + "," + JSON.stringify(data.charset)
+//             + "," + JSON.stringify(data.method)
+//             + "," + JSON.stringify(use_referer)
+//             + ");"
+//         ;
+//         await browser_newtab_go( form_submit, call_function_str, null);
         
     }
     
-    async function browser_newtab_go(func, call_function_str,  prefunc=null, dname="", btnlabel="" ) 
-    {
-        var page_title = ""
-        var body_text = ""
-        if (dname)
-        {
-            page_title = dname + i18n([ " ..连接中.. - 大术专搜" , "..Connecting to.. - Big Search" ]) ;
-            body_text = i18n([ "大术专搜 -- ..连接中.. --→  " , "Big Search -- ..Connecting to.. --→  " ]) + dname + "  " + btnlabel ;
-        }else{
-            page_title = i18n([ "目标站点连接中 - 大术专搜" , "Connecting to target website - Big Search" ]) ;
-            body_text = i18n([ "大术专搜 -- ..连接目标站点中.." , "Big Search -- ..Connecting to target website.." ]) ;
-        }
-        
-        var newTab;
-        if (isFirefox)
-        {
-            var inject_js_for_text = ""
-            inject_js_for_text = `document.title="${page_title}"; document.body.textContent="${body_text}" ;`
-            
-            newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
-            
-            await chrome.tabs.executeScript( newTab.id, { 
-                matchAboutBlank: true,
-                code: inject_js_for_text
-                    + parse_prefunc()
-                    + func.toString()
-                    + call_function_str
-            } );
-        } 
-        else if (isChrome) 
-        {
-            newTab = await ( new Promise((resolve, reject) => {
-                chrome.tabs.create(
-                    {
-                        url: 
-                            "data:text/html," + 
-                            encodeURIComponent(
-                                "<!DOCTYPE html> <head><meta charset='utf-8'>" 
-                                + "<title>" + page_title + "</title>"
-                                + "<script>" 
-                                + parse_prefunc()
-                                + func.toString()
-                                + "</script></head><body>" 
-                                + "<script>" + call_function_str  + "</script>"
-                                + body_text
-                                + "</body></html>"
-                            )
-                        , 
-                        active: newTabBringFront,
-                        index: newTabIndex
-                    }, 
-                    (r) => { resolve(r); }
-                );
-            }) ) ;
-        }
-            
-        function parse_prefunc(){
-            if (prefunc)
-                return prefunc.toString() + prefunc.name + "();" ;
-            else 
-                return "";
-        }
-        
-        
-    }
+//     async function browser_newtab_go(func, call_function_str,  prefunc=null, dname="", btnlabel="" ) 
+//     {
+//         var page_title = ""
+//         var body_text = ""
+//         if (dname)
+//         {
+//             page_title = dname + i18n([ " ..连接中.. - 大术专搜" , "..Connecting to.. - Big Search" ]) ;
+//             body_text = i18n([ "大术专搜 -- ..连接中.. --→  " , "Big Search -- ..Connecting to.. --→  " ]) + dname + "  " + btnlabel ;
+//         }else{
+//             page_title = i18n([ "目标站点连接中 - 大术专搜" , "Connecting to target website - Big Search" ]) ;
+//             body_text = i18n([ "大术专搜 -- ..连接目标站点中.." , "Big Search -- ..Connecting to target website.." ]) ;
+//         }
+//         
+//         var newTab;
+//         if (isFirefox)
+//         {
+//             var inject_js_for_text = ""
+//             inject_js_for_text = `document.title="${page_title}"; document.body.textContent="${body_text}" ;`
+//             
+//             newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
+//             
+//             await chrome.tabs.executeScript( newTab.id, { 
+//                 matchAboutBlank: true,
+//                 code: inject_js_for_text
+//                     + parse_prefunc()
+//                     + func.toString()
+//                     + call_function_str
+//             } );
+//         } 
+//         else if (isChrome) 
+//         {
+//             newTab = await ( new Promise((resolve, reject) => {
+//                 chrome.tabs.create(
+//                     {
+//                         url: 
+//                             "data:text/html," + 
+//                             encodeURIComponent(
+//                                 "<!DOCTYPE html> <head><meta charset='utf-8'>" 
+//                                 + "<title>" + page_title + "</title>"
+//                                 + "<script>" 
+//                                 + parse_prefunc()
+//                                 + func.toString()
+//                                 + "</script></head><body>" 
+//                                 + "<script>" + call_function_str  + "</script>"
+//                                 + body_text
+//                                 + "</body></html>"
+//                             )
+//                         , 
+//                         active: newTabBringFront,
+//                         index: newTabIndex
+//                     }, 
+//                     (r) => { resolve(r); }
+//                 );
+//             }) ) ;
+//         }
+//             
+//         function parse_prefunc(){
+//             if (prefunc)
+//                 return prefunc.toString() + prefunc.name + "();" ;
+//             else 
+//                 return "";
+//         }
+//         
+//         
+//     } 
 }
+
+
+async function open_connecting_page(dbname, engine, btn, kw)
+{
+    var url = chrome.runtime.getURL("connecting.html")
+        + '?'
+        + 'e_name=' + engine
+        + ( btn ? ( '&b_name=' + btn ) : '' )
+        + ( dbname ? ( '&dbname=' + dbname) : '' )
+        + '&kw=' + encodeURIComponent(kw)
+        ;
+        
+    var newtab;
+    newTab = ( await browser.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}) );
+}
+
+
 function go_parse_use_other_engine(element, keyword) {
     if ( typeof(element) === "string" ) 
     {
