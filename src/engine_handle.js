@@ -539,7 +539,12 @@ async function open_connecting_page(dbname, engine, btn, kw)
         ;
         
     var newtab;
-    newTab = ( await browser.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}) );
+    if (isFirefox)
+        newTab = ( await browser.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}) );
+    else if (isChrome)
+        newTab = await ( new Promise((resolve, reject) => {
+            chrome.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}); 
+        }) ) ;
 }
 
 
