@@ -21,6 +21,8 @@ if (window.run_env != "http_web")
     isChrome = chrome.runtime.getURL('').startsWith('chrome-extension://');
 }
 
+const realSidebarUrl = "addon-popup.html?showas=sidebar";
+
 async function get_addon_setting_local(key) {
     return ( await get_addon_setting(key, true) ) ;
 }

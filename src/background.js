@@ -24,11 +24,24 @@ async function  on_addon_load() {
     set_contextmenu();
     
     set_checkupdate();
+    
+    set_sidebar_panel(); 
 }
 
 on_addon_load();
 
 ////////////////////////////////////
+
+
+async function set_sidebar_panel()
+{
+    if (await get_addon_setting("insistSidebar") === true)
+    {
+        await browser.sidebarAction.setPanel({panel: realSidebarUrl });
+    }
+}
+
+//-----------------------
 
 async function set_contextmenu() {
     var selection_menu_creation = {
