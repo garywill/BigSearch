@@ -9,7 +9,7 @@
 🌟 **除了** 一个 多搜索引擎工具 该有的 基本功能 **外**，它**还有**✨：
 - 🖋️ 文本单行或**多行**
 - 🖥️ 桌面（扩展或网页）和移动（网页）
-- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**Ajax-render**）
+- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**In-page-Ajax-render**）
 - 🔎 一个按钮一次调用多个操作
 - 💪 用户可通过**编程**的方式设置搜索引擎：JSON作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 灵活性 及 扩展性
 
@@ -34,7 +34,7 @@
       * [隐私安全](#隐私安全)
    * [老用户FAQ](#老用户faq)
          * [Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面](#q-chrome等浏览器中选择文本后点击右键菜单没反应还要点击一下工具栏按钮才打开界面)
-         * [Q: 到底什么是「Ajax-render」?](#q-到底什么是ajax-render)
+         * [Q: 到底什么是「In-page-Ajax-render」?](#q-到底什么是in-page-ajax-render)
    * [已收录引擎](#已收录引擎)
    * [相似工具和方法比较](#相似工具和方法比较)
    * [如何编辑搜索引擎（GUI或JSON）](#如何编辑搜索引擎gui或json)
@@ -43,7 +43,7 @@
          * [完整形式](#完整形式)
       * [编辑引擎数据及各种搜索方式说明](#编辑引擎数据及各种搜索方式说明)
          * [数据说明](#数据说明)
-         * [搜索Ajax-render的网站](#搜索ajax-render的网站)
+         * [搜索In-page-Ajax-render的网站](#搜索in-page-ajax-render的网站)
    * [For Developers](#for-developers)
 <!--te-->
 
@@ -98,7 +98,7 @@
 
 ### 还有更多：特别之处
 
-- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**Ajax-render**）（[详情](#搜索Ajax-render的网站)）
+- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**In-page-Ajax-render**）（[详情](#搜索In-page-Ajax-render的网站)）
 - 🔎 一个按钮一次调用多个操作
 - ✨ 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
 - 💪 用户可通过**编程**的方式设置搜索引擎：**JSON**作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 **灵活性**及**扩展性**：（[详情](#编辑引擎数据及各种搜索方式说明)）
@@ -111,7 +111,7 @@
 
 - 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
 - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
-- 🛡️ **不**向网页注入任何代码（除搜索Ajax-render网站时外）
+- 🛡️ **不**向网页注入任何代码（除搜索In-page-Ajax-render网站时外）
 - 🛡️ **纯客户端**功能完整，不需服务器。**无**搜集用户搜索内容，**无**广告兴趣分析。甚至用户可以选择完全禁止统计（无痕模式下已自动禁止）
 
 ## 老用户FAQ
@@ -120,9 +120,9 @@
 
 A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283)。请在选择了文本后，使用按键组合`Ctrl+Shift+D`然后`Ctrl+Shift+S`(可能需自行修改)来作为暂时的快捷操作
 
-#### Q: 到底什么是「Ajax-render」?
+#### Q: 到底什么是「In-page-Ajax-render」?
 
-A: 「Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation 的简称
+A: 「In-page-Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation 的简称
 
 
 ## 已收录引擎
@@ -228,7 +228,7 @@ A: 「Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-searc
         }
     },
 
-    "label_usaj": { "lstr": "搜 Ajax-render 的网站" },
+    "label_usaj": { "lstr": "搜 In-page-Ajax-render 的网站" },
     "chrome_ext_dev": {
         "dname": "Chrome Ext Dev Doc",
         "addr": "https://developer.chrome.com/docs/extensions/reference/",
@@ -300,7 +300,7 @@ JSON格式。
         },
         // # （如果是个数组，则可一次调用多个操作）
         
-        "ajax": ......  // # 可选。详见专门的搜索Ajax-render网站说明
+        "ajax": ......  // # 可选。详见专门的搜索In-page-Ajax-render网站说明
             
         "btns": {  // # 可选。若没有此项，则显示一个"搜索"按钮，点击按钮为默认行动
             "按钮名": {
@@ -317,14 +317,14 @@ JSON格式。
 
 </details>
 
-#### 搜索Ajax-render的网站
+#### 搜索In-page-Ajax-render的网站
 
 有些网站无GET或POST，需要打开它们的页面后输入，它们然后通过Ajax展现结果。
 
 大术专搜支持收录和调用这类网站（通过往浏览器里的页面注入js，实现输入、点击、表单提交的自动化），且易配置：
 
 <details>
-<summary>搜索Ajax-render网站说明</summary>
+<summary>搜索In-page-Ajax-render网站说明</summary>
 
 例1：指定输入框的css selector。将自动进行关键词输入，模拟回车动作
 

@@ -11,7 +11,7 @@ Handily use / switch **any one** or **multiple** (uninterruptedly) **search engi
 🌟 **Besides** what any multi-engine web search tool can do, it **also**✨:
 - 🖋️ Single-line or **multi-line** text
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
-- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **Ajax-render** websites)
+- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **In-page-Ajax-render** websites)
 - 🔎 Do many operations at once by one button
 - 💪 Users can customize their search engines **programatically**: JSON as search engines database (both built-in & user-defined. **GUI** editing also available). Flexibility & extensibility in engine data & search method
 
@@ -36,7 +36,7 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
       * [Safety &amp; Privacy](#safety--privacy)
    * [FAQ](#faq)
          * [Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)](#q-i-selected-text-and-used-context-menu-it-wont-automatically-show-popup-until-i-click-toolbar-button-on-some-browsers-like-chrome)
-         * [Q: What is "Ajax-render" ?](#q-what-is-ajax-render-)
+         * [Q: What is "In-page-Ajax-render" ?](#q-what-is-in-page-ajax-render-)
    * [List of engines](#list-of-engines)
    * [Similar tools &amp; methods comparison](#similar-tools--methods-comparison)
    * [How to edit search engines (GUI or JSON)](#how-to-edit-search-engines-gui-or-json)
@@ -45,7 +45,7 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
          * [Full Format](#full-format)
       * [Specification of Editing Engines Data and Special Search Methods](#specification-of-editing-engines-data-and-special-search-methods)
          * [Specifications](#specifications)
-         * [Instructions for searching Ajax-render websites](#instructions-for-searching-ajax-render-websites)
+         * [Instructions for searching In-page-Ajax-render websites](#instructions-for-searching-in-page-ajax-render-websites)
    * [For Developers](#for-developers)
 <!--te-->
 
@@ -102,7 +102,7 @@ Ways to use:
 
 ### Even more: What's special about it
 
-- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
+- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called In-page-Ajax-render websites) ([details](#Instructions-for-searching-In-page-Ajax-render-websites))
 - 🔎 Do many operations at once by one button
 - ✨ Good-looking, powerful & **lightweight** ([details](#Third-party-libraries-and-components-used))
 - 💪 Users can customize their search engines **programatically**: **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). **Flexibility** & **extensibility** in engine data & search method: ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Methods))
@@ -114,7 +114,7 @@ Ways to use:
 ### Safety & Privacy
 
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed.
-- 🛡️ **No injection** to web (except when searching Ajax-render websites)
+- 🛡️ **No injection** to web (except when searching In-page-Ajax-render websites)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
 - 🛡️ **Client side** functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely (analystics already disabled in incognito mode)
 
@@ -124,9 +124,9 @@ Ways to use:
 
 A: It's because of [defect of Chrome browser engine](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283). Please use key combination `Ctrl+Shift+D` then `Ctrl+Shift+S` (you may want to modify them) as workaround
 
-#### Q: What is "Ajax-render" ?
+#### Q: What is "In-page-Ajax-render" ?
 
-A: "Ajax-render" is short for "**In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation"
+A: "In-page-Ajax-render" is short for "**In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation"
 
 ## List of engines
 
@@ -230,7 +230,7 @@ Also, mixing short formatted and full formatted elements is supported.
         }
     },
 
-    "label_usaj": { "lstr": "Search Ajax-render web" },
+    "label_usaj": { "lstr": "Search In-page-Ajax-render web" },
     "chrome_ext_dev": {
         "dname": "Chrome Ext Dev Doc",
         "addr": "https://developer.chrome.com/docs/extensions/reference/",
@@ -302,7 +302,7 @@ Engine data in full format can contain following key-values (special search meth
         },
         // #  (if use array here, then do many operations at once)
         
-        "ajax": ......  // # Optional. Read the Ajax-render websites instructions
+        "ajax": ......  // # Optional. Read the In-page-Ajax-render websites instructions
             
         "btns": { // # optional. If there is no such item, a "Search" button is displayed, and clicking the button will do the default action
             "Button name": {
@@ -319,15 +319,15 @@ Engine data in full format can contain following key-values (special search meth
 
 </details>
 
-#### Instructions for searching Ajax-render websites
+#### Instructions for searching In-page-Ajax-render websites
 
 Some websites doesn't accept GET or POST. Visitor need to open their page then input, they then show results via Ajax.
 
-Big Search can deal with such Ajax-render websites (by injecting js to browser web, to automate inputting, clicking, form submitting). And easy to configure:
+Big Search can deal with such In-page-Ajax-render websites (by injecting js to browser web, to automate inputting, clicking, form submitting). And easy to configure:
 
 <details>
 
-<summary>Ajax-render websites instructions</summary>
+<summary>In-page-Ajax-render websites instructions</summary>
 
 Eg 1: Specify the css selector of input box. It will automatically input search term and trigger pressing Enter event.
 
