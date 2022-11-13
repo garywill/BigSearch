@@ -11,7 +11,7 @@
 - 🖥️ 桌面（扩展或网页）和移动（网页）
 - 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**Ajax-render**）
 - 🔎 一个按钮一次调用多个操作
-- 💪 JSON作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 灵活性 及 扩展性
+- 💪 用户可通过**编程**的方式设置搜索引擎：JSON作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 灵活性 及 扩展性
 
 等...详见下文
 
@@ -89,7 +89,7 @@
 - 🖱️ 将**选择**的文本(单行或多行)作为搜索词
   > - Firefox无痕模式中无 ([bug 1380812](https://bugzilla.mozilla.org/show_bug.cgi?id=1380812)).
   > - Chrome中点了右键菜单后，再点击工具栏中的图标（或使用快捷键） （[Chrome的缺陷](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283)）
-- ⌨️ **快捷键**（浏览器扩展）。默认为（可能需自行修改）：
+- ⌨️ 可自定的**快捷键**。默认为（可能需自行修改）：
   - 唤出界面。Firefox: `Ctrl+Alt+S`  Chrome及其他：`Ctrl+Shift+S` 
   - 将选择文本设定为搜索词（然后再使用“唤出界面”）。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
   > [Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` 
@@ -101,7 +101,7 @@
 - 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**Ajax-render**）（[详情](#搜索Ajax-render的网站)）
 - 🔎 一个按钮一次调用多个操作
 - ✨ 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
-- 💪 **JSON**作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 **灵活性**及**扩展性**：（[详情](#编辑引擎数据及各种搜索方式说明)）
+- 💪 用户可通过**编程**的方式设置搜索引擎：**JSON**作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 **灵活性**及**扩展性**：（[详情](#编辑引擎数据及各种搜索方式说明)）
   - 🔲 **一引擎，多按钮**：对于一个引擎，可以支持不同的操作。（各按钮继承引擎的数据，按钮之下的某些键值可覆盖引擎名下的键值数据作用）
   - 📞 **跨引擎**调用：可调用另一引擎（中的某一按钮的动作）来动作
   - 🔏 可针对引擎需要，对用户输入进行字符串格式化，或字符替换，编码选择
@@ -139,9 +139,9 @@ A: 「Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-searc
 
 [在线GUI引擎编辑工具（link 1）](https://acsearch.ga/editengine.php) （[link 2](http://acsearch.tk/editengine.php)） （[link 3](https://garywill.github.io/BigSearch/editengine.html)）
 
-一般人用以上GUI编辑器即可。若不用（例如你是高级用户，或想使用进阶特性），可以继续阅读以下关于JSON数据的说明。
+一般用以上GUI编辑器即可。若不用GUI（例如你是高级用户，或想使用进阶特性），可以继续阅读以下关于JSON数据的说明。
 
-以下讲述JSON格式的编辑引擎说明。以下两者皆适用：
+大术专搜用户可通过编程的方式设置搜索引擎。以下讲述JSON格式的编辑引擎说明。以下两者皆适用：
 
 1. 用户自定义的私人引擎
 2. 大术专搜内置搜索引擎（`enginesdata.js`）
@@ -350,7 +350,6 @@ JSON格式。
 
 目前可见的一些改进、完善、发展空间：
 
-- 完善编辑引擎的在线GUI 
 - Omnibox 
 - 兼容OpenSearch等，一键自动添加或转换
 

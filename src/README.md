@@ -13,7 +13,7 @@ Handily use / switch **any one** or **multiple** (uninterruptedly) **search engi
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **Ajax-render** websites)
 - 🔎 Do many operations at once by one button
-- 💪 JSON as search engines database (both built-in & user-defined. **GUI** editing also available). Flexibility & extensibility in engine data & search method
+- 💪 Users can customize their search engines **programatically**: JSON as search engines database (both built-in & user-defined. **GUI** editing also available). Flexibility & extensibility in engine data & search method
 
 and so on... Go on for readme
 
@@ -93,7 +93,7 @@ Ways to use:
 - 🖱️ Quickly use **selected text** (single-line or multi-line) as search term
   > - No in Firefox incognito mode ([bug 1380812](https://bugzilla.mozilla.org/show_bug.cgi?id=1380812))
   > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut) ([defect of Chrome](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283))
-- ⌨️ **Keyboard shortcut** (browser extension). Default keys (may need changing manually):
+- ⌨️ Configurable **keyboard shortcuts**. Default keys (may need changing manually):
   - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others:`Ctrl+Shift+S` 
   - Set selected text as search term (then use "open popup" key). Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
   > [change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` 
@@ -105,7 +105,7 @@ Ways to use:
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called Ajax-render websites) ([details](#Instructions-for-searching-Ajax-render-websites))
 - 🔎 Do many operations at once by one button
 - ✨ Good-looking, powerful & **lightweight** ([details](#Third-party-libraries-and-components-used))
-- 💪 **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). **Flexibility** & **extensibility** in engine data & search method: ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Methods))
+- 💪 Users can customize their search engines **programatically**: **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). **Flexibility** & **extensibility** in engine data & search method: ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Methods))
   - 🔲 **Multiple buttons** for **one engine**: more than one operations for one engine. (Buttons inherit data from engine. Some key-value data ​​in button can override the ones in engine name)
   - 📞 **Cross-engine** use: Call another engine (or it's certain button action) to do the action
   - 🔏 String-formatting or character-replacing user's input, according to engine's need. And, charset specifying.
@@ -142,9 +142,9 @@ Experienced users may prefer intuitive horizontal comparison to quickly know wha
 
 [Online GUI engine-editing tool (link 1)](https://acsearch.ga/editengine.php) ([link 2](http://acsearch.tk/editengine.php)) ([link 3](https://garywill.github.io/BigSearch/editengine.html))
 
-Generally, just use above GUI editor. If you don't want to (e.g. you are advanced user and want to use advanced features), please go on and read below.
+Generally, use above GUI editor. If you don't want to use GUI (e.g. you are advanced user and want to use advanced features), please go on and read below.
 
-Following paragraphs of this section are about JSON-format engine data specification. For both:
+Big Search users can edit search engines programatically. Following paragraphs of this section are about JSON-format engine data specification. For both:
 
 1. User-defined private engines
 2. Big Search built-in search engines (`enginesdata.js`)
@@ -351,7 +351,6 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 This tool still can be improved to do something more:
 
-- Improve the online editing-engine GUI 
 - Omnibox
 - Be compatible with others e.g. OpenSearch. Add or convert by 1-click
 
