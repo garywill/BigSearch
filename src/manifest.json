@@ -12,10 +12,9 @@
     "permissions": [
         "storage",
         "contextMenus",
-        "*://*.acsearch.ga/editengine.php",
-        "*://*.acsearch.tk/editengine.php", 
-        "*://garywill.github.io/BigSearch/editengine.html"
-
+        "*://*.acsearch.ga/*",
+        "*://*.acsearch.tk/*", 
+        "*://garywill.github.io/BigSearch/*"
     ],
     "optional_permissions": [
         "search",
