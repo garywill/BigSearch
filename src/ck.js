@@ -132,6 +132,24 @@ async function addon_save_json_to_usercustom(json) {
     
 }
 //========================
+
+function set_string_format_prototype() {
+    
+    String.prototype.format = function(replacements) {
+        replacements = (typeof replacements === 'object') ? replacements : Array.prototype.slice.call(arguments, 0);
+        return formatString(this, replacements);
+    }
+    var formatString = function (str, replacements) {
+        replacements = (typeof replacements === 'object') ? replacements : Array.prototype.slice.call(arguments, 1);
+        return str.replace(/\{\{|\}\}|\{(\w+)\}/g, function(m, n) {
+            if (m == '{{') { return '{'; }
+            if (m == '}}') { return '}'; }
+            return replacements[n];
+        });
+    }
+}
+
+
 const use_localstorage = true;
 
 
