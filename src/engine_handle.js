@@ -433,6 +433,7 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
         
         return;
     }
+    // ====JUDGE UOEF===finish===
     
     var use_referer = data.allow_referer;
     
@@ -454,7 +455,6 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
         }
         return;
     }
-    // ====JUDGE UOEF===finish===
     
     
     

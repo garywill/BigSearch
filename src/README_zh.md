@@ -135,7 +135,7 @@ A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questi
 
 ## 如何编辑搜索引擎（GUI或JSON）
 
-[在线GUI引擎编辑工具（link 1）](https://acsearch.ga/editengine.php) （[link 2](http://acsearch.tk/editengine.php)）
+[在线GUI引擎编辑工具（link 1）](https://acsearch.ga/editengine.php) （[link 2](http://acsearch.tk/editengine.php)） （[link 3](https://garywill.github.io/BigSearch/editengine.html)）
 
 一般人用以上GUI编辑器即可。若不用（例如你是高级用户，或想使用进阶特性），可以继续阅读以下关于JSON数据的说明。
 

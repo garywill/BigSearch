@@ -125,7 +125,7 @@ Experienced users may prefer intuitive horizontal comparison to quickly know wha
 
 ## How to edit search engines (GUI or JSON)
 
-[Online GUI engine-editing tool (link 1)](https://acsearch.ga/editengine.php) ([link 2](http://acsearch.tk/editengine.php))
+[Online GUI engine-editing tool (link 1)](https://acsearch.ga/editengine.php) ([link 2](http://acsearch.tk/editengine.php)) ([link 3](https://garywill.github.io/BigSearch/editengine.html))
 
 Generally, just use above GUI editor. If you don't want to (e.g. you are advanced user and want to use advanced features), please go on and read below.
 

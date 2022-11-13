@@ -3,7 +3,7 @@
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "manifest_version": 2,
-    "version": "2.9.15",
+    "version": "2.12.0",
     "homepage_url": "https://garywill.github.io",
     "developer": {
         "name": "Garywill",
@@ -64,11 +64,7 @@
         "page": "background.html",
         "persistent": true
     },
-    "sidebar_action": {
-        "default_title": "__MSG_extensionName__",
-        "default_panel": "addon-popup.html?showas=sidebar",
-        "default_icon": "icon.png"
-    },
+
     "browser_specific_settings": {
         "gecko": {
             "id": "{45a03d78-2183-4d73-afe4-cfda260d1308}"
