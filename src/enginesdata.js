@@ -700,6 +700,7 @@ sEngines = {
     "deepl": {
         dname: "DeepL Translate",
         addr: "https://www.deepl.com/translator",
+        kw_replace: [ ["/", "\\/"] ], 
         btns: {
             "trans_zh": {
                 "label": "译为中文",
