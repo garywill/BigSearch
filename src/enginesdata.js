@@ -106,6 +106,7 @@ catas = {
             { type:"engine", name:"docker"},
             { type:"engine", name:"flathub"},
             { type:"engine", name:"snapcraft"},
+            { type:"engine", name:"pkgs.org"},
             { type:"engine", name:"nix"},
             { type:"engine", name:"guix"},
             
@@ -1451,6 +1452,12 @@ sEngines = {
         "action": "https://snapcraft.io/search",
         "kw_key": "q"
     },
+    "pkgs.org": {
+        "dname": "pkgs.org",
+        "addr": "https://pkgs.org",
+        "action": "https://pkgs.org/search/", 
+        "kw_key": "q",
+    }, 
     "nix": {
         "dname": "NixOS",
         "addr": "https://search.nixos.org/packages?",
