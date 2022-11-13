@@ -55,8 +55,9 @@ onrd.push(async function(){
     if (window.run_env == "http_web") 
         return;
           
-    if (await get_addon_setting("hl")) 
-        window.lang = await get_addon_setting("hl");
+    var got_addon_lang = await get_addon_setting("hl");
+    if (got_addon_lang) 
+        window.lang = got_addon_lang;
     else
         window.lang = "en";
     
