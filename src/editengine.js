@@ -436,6 +436,15 @@ onrd.push(function() {
 });
 
 function load_from_ext() {
+    var con = false;
+    if ( bs_gui.userJsonArr.length > 0 )
+        con = confirm("Do you want to load saved custom engines from extension? \nThat will override what's currently in the table below.") ;
+    else
+        con = true;
+    
+    if (!con)
+        return;    
+    
     window.postMessage({
         direction: "page-to-content",
         app: "bigsearch-edit",
@@ -443,6 +452,12 @@ function load_from_ext() {
     }, document.location.href);
 }
 function save_table_to_addon() {
+    var con = false;
+    con = confirm(`Do you want to save ${bs_gui.userJsonArr.length} custom engines to extension? \n \nThat will override your extension's current custom engines data. \n\nAre you sure to save and override?`) ;
+    
+    if (!con)
+        return;
+    
     var res = false;
     res = bs_gui.gui2json()
     if (res) {
@@ -594,6 +609,15 @@ function genRandomInt(min,max) {
 
 
 function load_example(template) {
+    var con = false;
+    if ( bs_gui.userJsonArr.length > 0 )
+        con = confirm("Do you want to load example into below table? \nThat will override what's currently in the table below.") ;
+    else
+        con = true;   
+    
+    if (!con)
+        return;
+    
     const template_default = `
 {
     "l_common" : { "lstr": "Favorite built-in engines" },

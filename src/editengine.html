@@ -89,12 +89,6 @@
             </details>
             <br><br><br>
             
-            <div>
-            Notice: <br>
-            This GUI has no ask, no warning, and no any notice before doing load/save/delete/override operations yet. <b>Be mindful before click</b>.<br>
-            So, please keep your JSON safe as copies somewhere. 
-            
-            </div>
 
             <div >
 
@@ -201,12 +195,12 @@
                                         </div>
                                     </td>
                                     
-                                    <!--key column-->
+                                    <!-- id column-->
                                     <td>
                                         
                                         
                                         <code><input type="text" v-bind:rindex="index" class="" name="userName" placeholder="Unique Id (JSON key, programatical name)" v-model="row.key" /></code>
-                                        <button v-if="0" title="Generate a key name with random">Gen</button>
+                                        <button v-if="0" title="Generate an Id with random">Gen</button>
                                     </td>
 
                                     <!--display name column-->
@@ -352,7 +346,7 @@ makeTemplateTable();
                                                 <tr>
                                                     <th></th>
                                                     <th>Engine | Id</th>
-                                                    <th>Search buttons (and buttons keys)</th>
+                                                    <th>Search buttons (and buttons Ids)</th>
                                                 </tr>
                                                 
                                             </thead>
