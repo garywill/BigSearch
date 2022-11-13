@@ -1,0 +1,43 @@
+.popup {
+    --intitle-height: 0px;
+    
+    --tdgap: 5px;
+    
+    --catas-head-height: 0px;
+    
+    --hist-ban-2-height: calc( var(--hist-ban-font-size) * 0.7 ) ;
+
+}
+
+body {
+/*    width: 800px; 
+    min-height: 600px;*/
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
+    
+}
+
+body::-webkit-scrollbar {
+    width: 4px;  
+    height: 0;
+}
+body::-webkit-scrollbar-thumb {
+    background-color:#93a7d9;
+}
+body::-webkit-scrollbar-track-piece {
+    background-color:white;
+}
+
+#catas_cont { 
+    padding-top:0px; padding-right: 0px; 
+    
+} 
+#catabtns_header , 
+#intitle
+{ display:none;}
+
+
+

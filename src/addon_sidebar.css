@@ -3,6 +3,16 @@ body.sidebar {
     --btns-copypaste-gap: 0px;
 }
 
+#catas_cont { 
+    padding-top:0px; padding-right: 0px; 
+    
+} 
+
+#catabtns_header , 
+#intitle
+{ display:none;}
+
+
 #btn_ml_input, #btn_save_ml, #btn_save_ml_sl {
     width: unset;
     margin-left: auto;
@@ -25,6 +35,11 @@ body.sidebar {
 }
 .gobutton {
     font-size: clamp(13px, 2.7vw + 7px, 16px);
+}
+
+
+.btm_dialog {
+    max-height: 70vh;
 }
 
 #bottom, #footer, #td_gap_hist_right, #td_gap_hist_left {

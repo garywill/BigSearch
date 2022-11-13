@@ -22,7 +22,7 @@ async function pre_layout() {
     
     if (window.run_env != "http_web") 
     {
-        if (showas != "sidebar") {
+        if (showas == "popup") {
             document.body.style.width = "800px";
             document.body.style.minHeight = "600px";
         }
@@ -52,7 +52,9 @@ async function layout_init()
         document.getElementById("btn_desktop").style.display = "none";
     }
     
-    if (showas == "sidebar" ) 
+    if (showas == "popup" ) 
+        document.getElementById("popup_css_tag").setAttribute("href", "popup.css");
+    else if (showas == "sidebar" ) 
         document.getElementById("sidebar_css_tag").setAttribute("href", "addon_sidebar.css");
 }
 
@@ -66,6 +68,9 @@ function init_body_class() {
         document.body.classList.add("mobile");
     else
         document.body.classList.add("desktop");
+    
+    if (showas == "popup")
+        document.body.classList.add("popup");
     
     if (showas == "sidebar")
         document.body.classList.add("sidebar");

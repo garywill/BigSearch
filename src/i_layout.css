@@ -341,7 +341,7 @@ a {
     width: 95%; 
     max-width: 100%;
     overflow: scroll;
-    scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);;
+    scrollbar-color: var(--scrollbar-cl) var(--scrollbar-cl-bg);
     resize: vertical;
 }
 
@@ -507,6 +507,8 @@ a {
     border-left: 0px;
     border-right: 0px;
     
+    position: relative;
+    
     border-bottom: var(--gobutton-btm-line);
     border-bottom-color: var(--gobutton-btm-line-cl);  
     border-bottom-style: solid;
@@ -619,6 +621,8 @@ a {
     border:0px;
     border-right: 2px solid transparent;
     
+    position: relative;
+    
     color: var(--cata-btns-cl);
     background-color: var(--cata-btns-bg-cl); 
     font-size:16px;
@@ -636,7 +640,7 @@ a {
     text-shadow: var(--cata-btns-highlight-tshadow);
     border-right: 2px solid var(--cata-btns-highlight-underline-cl) ;
 }
-.cata_btn_highlight span { 
+.cata_btn_highlight > span { 
     border-bottom: 2px solid var(--cata-btns-highlight-underline-cl);
 }
 

@@ -24,7 +24,7 @@ if (window.run_env != "http_web")
     mv = chrome.runtime.getManifest().manifest_version;
 }
 
-const realSidebarUrl = "addon-popup.html?showas=sidebar";
+const realSidebarUrl = "home.html?showas=sidebar";
 
 async function get_addon_setting_local(key) {
     return ( await get_addon_setting(key, true) ) ;

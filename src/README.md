@@ -87,7 +87,7 @@ Ways to use:
 - 🖋️ Single-line or **multi-line** text input & send
   > Useful when e.g. want to translate article
 - 🗂️ Search engines **categorization**
-- 📋 Save (locally), **reuse** and manage search history. Reusing method: double-click behavior
+- 📋 Save (locally), **reuse** and manage search history (won't save when in incognito mode). Reusing method: double-click behavior
   - In single-line edit: replace input box text
   - In multi-line edit: insert to cursor
 - 🖱️ Quickly use **selected text** (single-line or multi-line) as search term

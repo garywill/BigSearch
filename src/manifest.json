@@ -40,7 +40,7 @@
     "browser_action": {
         "default_icon": "icon_button.png",
         "default_title": "__MSG_extensionName__",
-        "default_popup": "addon-popup.html"
+        "default_popup": "home.html?showas=popup"
     },
     "commands": {
         "_execute_browser_action": {
