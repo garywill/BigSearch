@@ -107,6 +107,7 @@ catas = {
             { type:"engine", name:"flathub"},
             { type:"engine", name:"snapcraft"},
             { type:"engine", name:"pkgs.org"},
+            { type:"engine", name:"repology"},
             { type:"engine", name:"nix"},
             { type:"engine", name:"guix"},
             
@@ -1457,6 +1458,12 @@ sEngines = {
         "addr": "https://pkgs.org",
         "action": "https://pkgs.org/search/", 
         "kw_key": "q",
+    }, 
+    "repology": {
+        "dname": "Repology",
+        "addr": "https://repology.org/projects/",
+        "action": "https://repology.org/projects/", 
+        "kw_key": "search",
     }, 
     "nix": {
         "dname": "NixOS",
