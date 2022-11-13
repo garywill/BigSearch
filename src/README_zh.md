@@ -103,6 +103,7 @@ A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questi
   - 唤出界面。Firefox: `Ctrl+Alt+S`  Chrome及其他：`Ctrl+Shift+S` 
   - 将选择文本设定为搜索词（然后再使用唤出界面）。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
   > [Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` 
+- 🖱️ 在原生侧边栏里使用（仅Firefox）
 - 🖥️ **桌面**（扩展或网页）和**移动**（网页）
 
 ### 还有更多：特别之处
