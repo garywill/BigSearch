@@ -28,7 +28,8 @@ async function read_usercustom_engines() {
         if (ext_json ) {
             ext_json = JSON.parse(ext_json);
             usercustom_engines = ext_json;
-            document.getElementById("textarea_json_saved").value = JSON.stringify(usercustom_engines, null,2);
+            if (window.run_page != "connecting")
+                document.getElementById("textarea_json_saved").value = JSON.stringify(usercustom_engines, null,2);
         }
     }
     usercustom_engines_list = engines_object_tolist(usercustom_engines);
