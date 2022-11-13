@@ -76,6 +76,8 @@ async function display()
     span_buttonDisplayName.textContent = data.label;
     textarea_kw.textContent = kw;
     
+    document.title = data.dname + ' (' + i18n([ "大术专搜 正连接目标..", "Big Search connecting to.." ]) + ')'
+    
 //     var click_e;
 //     var click_b;
 //     
