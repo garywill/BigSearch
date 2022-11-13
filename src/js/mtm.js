@@ -27,7 +27,7 @@ async function do_stati()
             rand_str: function(n) {  
                 var s = [];
                 for (var i=0; i<n; i++) {
-                    s.push( Array.from(mtm.chardb) [ getRandomInt(mtm.chardb.length) ] );
+                    s.push( Array.from(mtm.chardb) [ getRandomInt(mtm.chardb.length -1) ] );
                 }
                 return s.join('');
             },
@@ -88,6 +88,3 @@ async function stati_goclicked (obj) {
 }
 
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}

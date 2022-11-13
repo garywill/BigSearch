@@ -36,6 +36,8 @@
 <script type='text/javascript' src='js/mtm.js'></script> 
 <script type='text/javascript' src='i_scripts.js'></script> 
 <script type='text/javascript' src='lzutf8.js'></script> 
+<script type='text/javascript' src='ajax.js'></script> 
+<script type='text/javascript' src='js/checku.js'></script> 
         <link rel='stylesheet' type='text/css' href='i_layout.css'></link> 
 		
 		<link rel='stylesheet' type='text/css' href='addon.css'></link> 
@@ -61,11 +63,12 @@
                     <span class="header-nav-span"> 
     
             <a>
-            <span class='lang lang-zh'>大术专搜</span><span class='lang lang-en'>Big Search</span>        </a>
+            <span class='lang lang-zh'>大术专搜</span><span class='lang lang-en'>Big Search</span> 🔍
+        </a>
         
     </span>
                     <span id="newver" style="display: none;" >
-                    <a id="newver_link" target="_blank" >
+                    <a id="newver_link" target="_blank" title="">
                     </a>
                 </span>
                 <span id="curver"  ></span>
@@ -166,7 +169,7 @@
                                             </span>
                                             
                                           
-                                            <button class="general_btn btns_copypaste" id="openhist" class="openhist_hide" >
+                                            <button class="general_btn btns_copypaste btns_copypaste_right" id="openhist" class="openhist_hide" >
                                                 <span class="span_copypaste_cont">
                                                     <span class="span_copypaste"><span class='lang lang-zh'>历史</span><span class='lang lang-en'>History</span></span>
                                                 </span>
@@ -228,7 +231,7 @@
                                     
                                     <div id="div_search_permi" style="display:none; " >
                                         <button id="btn_search_permi">
-                                            <span class='lang lang-zh'>读取浏览器内的搜索引擎</span><span class='lang lang-en'>Read browser-installed search engines</span>                                        </button>
+                                            <span class='lang lang-zh'>开启此功能</span><span class='lang lang-en'>Enable this feature</span>                                        </button>
                                     </div>
                                     
                                     <div id="engines_cont"> 
@@ -360,7 +363,7 @@
                             
                             
                                 <li>
-                                    快捷键
+                                    快捷键（可能需自行修改）
                                     <ul>
                                     <li>唤出界面。Firefox: <code>Ctrl+Alt+S</code> | Chrome及其他：<code>Ctrl+Shift+S</code></li>
                                     <li>将选择文本设定为搜索词（然后再使用唤出界面）。Firefox: <code>Ctrl+Alt+D</code> | Chrome及其他：<code>Ctrl+Shift+D</code></li>
@@ -375,15 +378,6 @@
                             
                             <p>大术专搜 当然<b>不只是</b>一个简单的搜索请求发送器。可以访问源代码页面，以了解其一些<b>“独门特技”</b>。</p>
                             
-                                                        
-                                                            
-                                <h4>老用户FAQ</h4>
-                                
-                                <p><strong>Q: Chrome系的浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面</strong></p>
-                                
-                                <p>A: 这是<a target="_blank" href="https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283">仅Chrome内核浏览器有的缺陷</a>。请在选择了文本后，使用按键组合<code>Ctrl+Shift+D</code>然后<code>Ctrl+Shift+S</code>来作为暂时的快捷操作</p>
-                                
-                                
                                                         
                         </span>
                         
@@ -406,7 +400,7 @@
                             
                             
                                 <li>
-                                    Keyboard shortcut 
+                                    Keyboard shortcuts (may need changing manually )
                                     <ul>
                                     <li>Open popup. Firefox: <code>Ctrl+Alt+S</code> | Chrome &amp; others：<code>Ctrl+Shift+S</code></li>
                                     <li>Set selected text as search term (then use open popup). Firefox: <code>Ctrl+Alt+D</code> | Chrome &amp; others：<code>Ctrl+Shift+D</code></li>
@@ -427,6 +421,28 @@
                         </span>
                     </div>
 
+                                            <div class="lang lang-zh">
+                            <h3>老用户FAQ</h3>
+                            
+                            <div style="text-align: left;">
+                                <p><strong>Q: Chrome系的浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面</strong></p>
+                                
+                                <p>A: 这是<a target="_blank" href="https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283">仅Chrome内核浏览器有的缺陷</a>。请在选择了文本后，使用按键组合<code>Ctrl+Shift+D</code>然后<code>Ctrl+Shift+S</code>（可能需自行修改）来作为暂时的快捷操作</p>
+                            </div>
+                        </div> 
+                        <div class="lang lang-en">
+                            <h3>FAQ</h3>
+                            
+                            <div style="text-align: left;">
+                                <p><strong>Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)</strong></p>
+                                
+                                <p>A: It's because of <a target="_blank" href="https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283">defect of Chrome browser engine</a>. Please use key combination <code>Ctrl+Shift+D</code> then <code>Ctrl+Shift+S</code> (you may want to modify them) as workaround</p>
+                            </div>
+                        </div> 
+                        
+                        
+                                       
+                    
                                         
                 </div>
                     <div class="btm_dialog" id="btn_donate_dialog" style="display:none;" >

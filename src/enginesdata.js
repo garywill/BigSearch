@@ -71,6 +71,7 @@ catas = {
         engines: [
             { type:"label", lstr:"中土五岳" , visible_lang: "zh"},
             { type:"engine", name:"baidu", visible_lang: "zh"},
+            { type:"engine", name:"fsou", visible_lang: "zh"},
             { type:"engine", name:"sogou", visible_lang: "zh"},
             { type:"engine", name:"360so", visible_lang: "zh"},
             { type:"label", lstr:"村融四海", visible_lang: "zh"},
@@ -101,7 +102,9 @@ catas = {
             { type:"engine", name:"choco"},
             { type:"engine", name:"scoop"},
             { type:"engine", name:"cygwin"},
+            { type:"engine", name:"ms_up_cata"},
             { type:"label", lstr:"Linux"},
+            { type:"engine", name:"manpage"},
             { type:"engine", name:"homebrew"},
             { type:"engine", name:"docker"},
             { type:"engine", name:"flathub"},
@@ -144,6 +147,7 @@ catas = {
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
             { type:"engine", name:"bilibili" , visible_lang: "zh" },
             { type:"engine", name:"music163" , visible_lang: "zh" },
+            { type:"engine", name:"fsou_img", visible_lang: "zh"},
             { type:"label", lstr:"各处民风" , visible_lang: "zh" },
             { type:"engine", name:"google_media"},
             { type:"engine", name:"youtube"},
@@ -161,6 +165,7 @@ catas = {
             { type:"engine", name:"youdao" , visible_lang: "zh"},
             { type:"engine", name:"baidu_translate" , visible_lang: "zh"},
             { type:"engine", name:"deepl"},
+            { type:"engine", name:"fsou_translate" , visible_lang: "zh"},
             { type:"engine", name:"cambridge"},
             { type:"engine", name:"google_translate"},
             { type:"engine", name:"bing_dict" , visible_lang: "zh"},
@@ -183,6 +188,10 @@ catas = {
             { type:"engine", name:"bing_ac"},
             { type:"engine", name:"wikip_zh", visible_lang: "zh"},
             { type:"engine", name:"wikip_en", visible_lang: "en"},
+            { type:"engine", name:"wolframalpha"},
+            { type:"engine", name:"hudongbaike", visible_lang: "zh"},
+            { type:"engine", name:"sogoubaike", visible_lang: "zh"},
+            { type:"engine", name:"360baike", visible_lang: "zh"},
         ],
     },
     "han": {
@@ -250,6 +259,37 @@ sEngines = {
             }
         }
     },
+    "fsou": {
+        dname: "F搜", 
+        addr: "https://fsoufsou.com/", 
+        action: "https://fsoufsou.com/search", 
+        kw_key: "q", 
+    }, 
+    "fsou_img": {
+        dname: "F搜", 
+        addr: "https://fsoufsou.com/", 
+        action: "https://fsoufsou.com/search", 
+        kw_key: "q", 
+        btns: {
+            "img": {
+                label: "图片", 
+                params: [
+                    {key: "tbn", val: "images"}, 
+                ], 
+            }, 
+        }, 
+    }, 
+    "fsou_translate": {
+        dname: "F翻译", 
+        addr: "https://fsoufsou.com/translate", 
+        action: "https://fsoufsou.com/translate", 
+        btns: {
+            "translate": {
+                label: "翻译", 
+                ajax: [1500,  "textarea#translate-input-el"]
+            }, 
+        }, 
+    }, 
     "sogou": {
         "dname": "搜狗搜索",
         "addr": "https://www.sogou.com",
@@ -1057,10 +1097,6 @@ sEngines = {
         "action": "https://zh.wikipedia.org/w/index.php",
         "kw_key": "search",
         "btns": {
-            "go": {
-                "label": "进入",
-                full_url: "https://zh.wikipedia.org/wiki/{0}"
-            },
             "search": {
                 "label": "搜索",
                 "params": [
@@ -1070,12 +1106,9 @@ sEngines = {
                     }
                 ]
             },
-            "go_en": {
-                "label": "Go",
-                "use_other_engine": {
-                    "engine": "wikip_en",
-                    "btn": "go"
-                }
+            "go": {
+                "label": "进入",
+                full_url: "https://zh.wikipedia.org/wiki/{0}"
             },
             "sch_en": {
                 "label": "Search",
@@ -1083,7 +1116,14 @@ sEngines = {
                     "engine": "wikip_en",
                     "btn": "search"
                 }
-            }
+            }, 
+            "go_en": {
+                "label": "Go",
+                "use_other_engine": {
+                    "engine": "wikip_en",
+                    "btn": "go"
+                }
+            },
         }
     },
     "wikip_en": {
@@ -1092,9 +1132,6 @@ sEngines = {
         "action": "https://en.wikipedia.org/w/index.php",
         "kw_key": "search",
         "btns": {
-            "go": {
-                "label": "Go"
-            },
             "search": {
                 "label": "Search",
                 "params": [
@@ -1103,9 +1140,63 @@ sEngines = {
                         "val": "1"
                     }
                 ]
-            }
+            }, 
+            "go": {
+                "label": "Go"
+            },
         }
     },
+    "wolframalpha": {
+        dname: "WolframAlpha", 
+        addr: "https://www.wolframalpha.com", 
+        action: "https://www.wolframalpha.com/input", 
+        kw_key: "i", 
+        btns: {
+            "nl": {
+                label: "Natural Language", 
+            }, 
+            "math": {
+                label: "Math Input", 
+                params: [
+                    {key: "i2d", val: "true"}, 
+                ], 
+            }, 
+        }, 
+    }, 
+    "hudongbaike": {
+        dname: "快懂百科", 
+        addr: "https://www.baike.com/", 
+        action: "https://www.baike.com/search", 
+        kw_key: "keyword", 
+    }, 
+    "sogoubaike": {
+        dname: "搜狗百科", 
+        addr: "https://baike.sogou.com/", 
+        action: "https://www.sogou.com/sogou", 
+        kw_key: "query", 
+        params: [
+            {key: "ie", val: "utf8"}, 
+            {key: "insite", val: "baike.sogou.com"}, 
+        ], 
+    }, 
+    "360baike": {
+        dname: "360百科", 
+        addr: "https://baike.so.com/", 
+        btns: {
+            "search": {
+                label: "搜索词条",  
+                action: "https://baike.so.com/search/", 
+                kw_key: "q", 
+            }, 
+            "enter": {
+                label: "进入词条", 
+                action: "https://baike.so.com/doc/search", 
+                kw_key: "word", 
+            }
+        }, 
+        
+    }, 
+    
     "fdroid": {
         "dname": "F-Droid",
         "addr": "https://f-droid.org/",
@@ -1432,6 +1523,37 @@ sEngines = {
             }
         }
     },
+    
+    "manpage": {
+        dname: "Man Pages", 
+        btns: {
+            "he": {
+                label: "Hurricane Electric", 
+                action: "http://man.he.net/", 
+                kw_key: "topic", 
+                params: [
+                    {key: "section", val: "all"}
+                ], 
+            }, 
+            "debian": {
+                label: "Debian", 
+                action: "https://manpages.debian.org/jump", 
+                kw_key: "q", 
+            }, 
+            "ubuntu": {
+                label: "Ubuntu", 
+                action: "https://manpages.ubuntu.com/cgi-bin/search.py", 
+                kw_key: "q", 
+            }, 
+            "opensuse": {
+                label: "openSUSE", 
+                action: "https://manpages.opensuse.org/jump", 
+                kw_key: "q", 
+            }, 
+
+        }, 
+    }, 
+    
     "homebrew": {
         "dname": "Homebrew",
         "addr": "https://formulae.brew.sh/",
@@ -1817,6 +1939,13 @@ sEngines = {
             },
         }
     },
+    "ms_up_cata": {
+        dname: "Microsoft Update Catalog", 
+        tip: `It's a service from Microsoft that provides a listing of updates that can be distributed over a corporate network. You can use it as a one-stop location for finding Microsoft software updates, drivers, and hotfixes.\n\nThe Microsoft Update Catalog lets you search on a variety of update fields and categories. These include the update title, description, applicable products, classifications, and knowledge base articles (e.g. KB9123456). When searching for hardware updates ("drivers"), you can also search for driver model, manufacturer, class, or a 4-part hardware id (e.g "PCI\VEN_14E4&DEV_1677&SUBSYS_01AD1028"). You can narrow the scope of your search by adding additional search terms.`, 
+        addr: "https://catalog.update.microsoft.com/", 
+        action: "https://catalog.update.microsoft.com/Search.aspx", 
+        kw_key: "q", 
+    }, 
     "feixiaohao": {
         dname: "非小号",
         addr: "https://www.feixiaohao.com/",

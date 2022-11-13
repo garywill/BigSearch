@@ -171,7 +171,7 @@ a {
 }
 #index_title, #index_title a  { 
     display: inline;  
-    margin-left: 10px;
+/*     margin-left: 10px; */
     color: var(--index-title-cl);
 }
 #index_subtitle { 
@@ -306,7 +306,10 @@ a {
     background-color: rgba(255,255,255, 0.7);
     color: blue;
 }
-
+.btns_copypaste_right .span_copypaste {
+    left: unset;
+    right: calc( 0px - var(--btns-below-input-height) );
+}
 
 
 #btn_ml_input {
@@ -437,7 +440,30 @@ a {
 .engine_tr:hover { 
     background-color: var(--engine-tr-hover-bg-cl); 
 }
+
+.span_egnTrNum {
+    position: absolute;
+    
+    cursor: default;
+    font-weight: lighter;
+    font-size: 12px;
+    transform: scale(0.6);
+    color: var(--enginename-td-cl);
+    top: 0;
+    left: -3px;
+    text-shadow: 1px 1px #000000c9;
+    height: 100%;
+    opacity: 0.6;
+    
+}
+.span_egnTrNum:hover {
+    opacity: unset; 
+    transform: unset;
+} 
+
 .enginename_td { 
+    position: relative;
+    
     padding:0px 10px 0px 5px; 
 /*     min-width:130px;  */
     /* white-space:nowrap; */

@@ -89,11 +89,18 @@ function db(dbname="bigsearch") {
     {
         var browser_engines = {};
         var browser_engines_list = {};
-        
-        got_browser_engines.forEach( function(obj, i) {
-            browser_engines[obj.name] = {};
-            browser_engines[obj.name]['dname'] = obj.name;
-        });
+            
+        if (isFirefox)
+        {
+            got_browser_engines.forEach( function(obj, i) {
+                browser_engines[obj.name] = {};
+                browser_engines[obj.name]['dname'] = obj.name;
+            });
+        }else if (isChrome)
+        {
+            browser_engines['chrome_default_search'] = {};
+            browser_engines['chrome_default_search'] ['dname'] = i18n( [ "浏览器默认搜索引擎", "Browser default search engine" ] );
+        }
         
         browser_engines_list = engines_object_tolist(browser_engines);
         
@@ -134,7 +141,7 @@ function engines_object_tolist(engines_obj) {
 
 const defaultBtn = {"search":{"label":i18n(["搜索", "Search"])}};
 
-function createEngineTr(e_name,dbname=null){
+function createEngineTr(e_name,dbname=null, egnTrNum=null){
     var tr = document.createElement("tr");
     tr.className = "engine_tr";
     tr.setAttribute("e",e_name);
@@ -143,6 +150,15 @@ function createEngineTr(e_name,dbname=null){
     tr.appendChild(td_dname);
     td_dname.className = "enginename_td";
     td_dname.title = i18n(['要进行操作（如搜索），请输入后点击右列相应的按钮\n\n如果想要将大术专搜内置的引擎“设为常用”或“重新排序”，请使用“用户自定”功能。使用其中的在线GUI编辑器可以轻松操作', 'To do an action (e.g. search), input text then click a button on the right column\n\nIf want to "set as favorite" or "re-order" Big Search build-in engines, use "User Custom". Use its online editing-engine GUI to easily do it']);
+    
+    if (typeof(egnTrNum) === "number")
+    { 
+        var span_egnTrNum = document.createElement("span");
+        span_egnTrNum.className = "span_egnTrNum";
+        span_egnTrNum.textContent = egnTrNum;
+        td_dname.appendChild(span_egnTrNum);
+    } 
+    
     
     var span_in_td_dname = document.createElement("span");
     td_dname.appendChild(span_in_td_dname);
@@ -269,6 +285,7 @@ function createETableByCata(cata, dbname=null, object_id=null, object_class=null
     if (object_class) table.className = object_class;
     if (object_style) table.style = object_style;
     
+    var trNum = 0;
     db(dbname).catas[cata].engines.forEach(function(ele){
         if (isVisible(ele))
         {
@@ -277,14 +294,16 @@ function createETableByCata(cata, dbname=null, object_id=null, object_class=null
                 table.appendChild( createLabelTr(ele.lstr) );
             }else if(ele.type == "engine")
             {
+                trNum ++;
                 try{
-                    table.appendChild( createEngineTr(ele.name, dbname) );
+                    table.appendChild( createEngineTr(ele.name, dbname, trNum) );
                 }catch(err){console.error(err);}
             }
             else if(ele.type == "fav")
             {
+                trNum ++;
                 try{
-                    table.appendChild( createEngineTr(ele.name, "bigsearch") );
+                    table.appendChild( createEngineTr(ele.name, "bigsearch", trNum) );
                 }catch(err){console.error(err);}
             }
         }
@@ -312,7 +331,7 @@ function createCataBtn(cata, dbname=null)
     if (dbname) 
         button.id = button.id + "_dbname_" + dbname;
     
-    button.addEventListener('click', function () {cata_onclick(this);});
+    button.addEventListener('click',async function () { await cata_onclick(this); cata_onclick_ui(this); });
         
     var span = document.createElement("span");
     button.appendChild(span);
@@ -384,13 +403,27 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
     
     
     if ( dbname == "browser" ) {
-        const newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
-        browser.search.search({
-            query: keyword,
-            engine: engine,
-            tabId: newTab.id
-        });
-
+        
+        if (isFirefox)
+        {
+            const newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
+            browser.search.search({
+                query: keyword,
+                engine: engine,
+                tabId: newTab.id
+            });
+        }else if (isChrome)
+        {
+            const newTab = await ( new Promise((resolve, reject) => {
+                chrome.tabs.create(
+                    {url:"about:blank", active: newTabBringFront, index: newTabIndex}, 
+                    (r) => { resolve(r); }
+                );
+            }) ) ;
+            
+            chrome.search.query({ text: keyword , tabId: newTab.id});
+        }
+        
         return;
     }
     
@@ -467,6 +500,21 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
                 chrome.permissions.getAll( (r) => { resolve(r); }  );
             }) );
         }
+        
+        if (mv >= 3)
+        {
+            if ( ! permis_have['permissions'].includes('scripting') )
+            {
+                var r = await chrome.permissions.request({ permissions: ["scripting"] });
+                if ( !r ) {
+                    console.error("Failed to get 'scripting' permission");
+                    return;
+                }
+                    
+            }
+        }
+        
+        
         var host_permis_needed = removeUrlParts(data.action) + '*';
         if ( ! ( permis_have['origins'].includes('*://*/*') || permis_have['origins'].includes(host_permis_needed) ) ) {
             const permis_toast_o = document.getElementById("permis_toast_o");
@@ -477,6 +525,8 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
             
             return;
         }
+        
+
         
         var newTab;
         if (isFirefox) {
@@ -490,20 +540,35 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
             }) ) ;
         }
         
-        var code_inject = "";
-        await fetch('ajax.js').then(response => response.text()).then(textString => {
-            code_inject = textString;
-        });
-        code_inject = code_inject
-            .replaceAll("_ajax_", JSON.stringify(data.ajax))
-            .replaceAll("_keyword_", JSON.stringify(keyword) ) ;
-        
-        await chrome.tabs.executeScript( newTab.id, { 
-            matchAboutBlank: false,
-            runAt: "document_idle",
-            code: code_inject
-        } );
-        
+        if (mv >= 3)
+        {
+            chrome.scripting.executeScript({
+                func: ajax_execute,
+                args: [data.ajax, keyword], 
+                target: { allFrames: false, tabId: newTab.id }, 
+            });
+        }
+        else
+        {
+            var code_inject = "";
+            var ajax_js_filecontent = "";
+            await fetch('ajax.js').then(response => response.text()).then(textString => {
+                ajax_js_filecontent = textString;
+            });
+            code_inject = `
+                const ajax = ${JSON.stringify(data.ajax)} ;
+                const keyword = ${JSON.stringify(keyword)}  ;
+                
+                ${ajax_js_filecontent}
+                
+                ajax_execute(ajax, keyword) ;
+            ` ;
+            await chrome.tabs.executeScript( newTab.id, { 
+                matchAboutBlank: false,
+                runAt: "document_idle",
+                code: code_inject
+            } );
+        }
         return;
     }
     // ====JUDGE AJAX===finish===

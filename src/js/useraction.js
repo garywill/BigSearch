@@ -81,6 +81,9 @@ async function cata_onclick(btnobj)
     if (oldTable)
         oldTable.parentNode.removeChild(oldTable);
     
+    if (isFirefox && btnobj.getAttribute("dbname")=="browser" && await browser.permissions.contains( { permissions: ["search"] } ) )
+        await fetch_browser_engines();   
+    
     if (btnobj.getAttribute("dbname")=="user")
     {
         
@@ -97,22 +100,40 @@ async function cata_onclick(btnobj)
     }
     
     
+    engines_cont.appendChild( createETableByCata( btnobj.getAttribute('name'), btnobj.getAttribute('dbname'), 'engines_table'));
+    
+    
+    
     if (btnobj.getAttribute("dbname")=="browser")
     {
         document.getElementById("div_search_permi").style.display = "none";
-        if ( ! await browser.permissions.contains( { permissions: ["search"] } ) )
+        
+        if ( 
+            ( isFirefox && ! await browser.permissions.contains( { permissions: ["search"] } ) )
+            ||
+            ( isChrome && 
+                ! await ( new Promise((resolve, reject) => {
+                    chrome.permissions.contains( { permissions: ["search"] } , function(r) {
+                        if (chrome.runtime.lastError) 
+                            return reject(chrome.runtime.lastError);
+                        resolve(r);
+                    });
+                }) )            
+            )
+        )
+        { 
             document.getElementById("div_search_permi").style.display = "";
-            
-        try {
-            await fetch_browser_engines();
-        }catch(err) { }
+            document.getElementById("engines_table").style.visibility = "hidden";
+        }
     }else{
         document.getElementById("div_search_permi").style.display = "none";
     }
+}
+async function cata_onclick_ui(btnobj)
+{
+    const dbname=btnobj.getAttribute("dbname");
+    const cata=btnobj.getAttribute("cata");
     
-    engines_cont.appendChild( createETableByCata( btnobj.getAttribute('name'), btnobj.getAttribute('dbname'), 'engines_table'));
-    
-
     Array.from( document.getElementsByClassName("cata_btns") ).forEach(function(ele){
         ele.classList.remove("cata_btn_highlight");
     });

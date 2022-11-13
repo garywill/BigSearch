@@ -13,12 +13,15 @@
  * Source code: https://github.com/garywill/BigSearch
  */
 
-var isFirefox = false;
-var isChrome = false;
+let isFirefox = false;
+let isChrome = false;
+let mv = -1;
+
 if (window.run_env != "http_web")
 {
     isFirefox = chrome.runtime.getURL('').startsWith('moz-extension://');
     isChrome = chrome.runtime.getURL('').startsWith('chrome-extension://');
+    mv = chrome.runtime.getManifest().manifest_version;
 }
 
 const realSidebarUrl = "addon-popup.html?showas=sidebar";
@@ -46,12 +49,12 @@ async function get_addon_setting(key, local=false) {
         return new Promise((resolve, reject) => {
             // Asynchronously fetch all data from storage.sync.
             storageType.get(null, (items) => {
-            // Pass any observed errors down the promise chain.
-            if (chrome.runtime.lastError) {
-                return reject(chrome.runtime.lastError);
-            }
-            // Pass the data retrieved from storage down the promise chain.
-            resolve(items);
+                // Pass any observed errors down the promise chain.
+                if (chrome.runtime.lastError) {
+                    return reject(chrome.runtime.lastError);
+                }
+                // Pass the data retrieved from storage down the promise chain.
+                resolve(items);
             });
         });
     }
@@ -84,12 +87,12 @@ async function getInstallType(){
         // Immediately return a promise and start asynchronous work
         return new Promise((resolve, reject) => {
             chrome.management.getSelf( (items) => {
-            // Pass any observed errors down the promise chain.
-            if (chrome.runtime.lastError) {
-                return reject(chrome.runtime.lastError);
-            }
-            // Pass the data retrieved down the promise chain.
-            resolve(items['installType']);
+                // Pass any observed errors down the promise chain.
+                if (chrome.runtime.lastError) {
+                    return reject(chrome.runtime.lastError);
+                }
+                // Pass the data retrieved down the promise chain.
+                resolve(items['installType']);
             });
         });
     }
@@ -150,7 +153,7 @@ function set_string_format_prototype() {
 }
 
 
-const use_localstorage = true;
+   
 
 
 //////
@@ -158,7 +161,7 @@ const use_localstorage = true;
 
 function getStor(cname) 
 {
-    if (!use_localstorage) return "";
+   
     
     var got = false;
 
@@ -173,7 +176,7 @@ function getStor(cname)
 
 function setStor(c_name,value)
 {
-    if (!use_localstorage) return false;
+   
     
 	try{
         localStorage.setItem(c_name,value);
@@ -183,7 +186,7 @@ function setStor(c_name,value)
 
 function delStor(name)
 {
-    if (!use_localstorage) return false;
+   
     try{
         localStorage.removeItem(name);
         return true;
@@ -193,7 +196,7 @@ function delStor(name)
 function gethiststr()
 {
 //get cookie "hist" raw string
-    if (!use_localstorage) return "";
+   
     
 	return getStor("hist" );
 }
@@ -221,7 +224,7 @@ function add_hist2c(hist2a)
 //if reach upper limit delete the lowest one then add
 //if not , just add
     
-    if (!use_localstorage) return false;
+   
     
     function addhiststr2c(addstr)
     {
@@ -280,7 +283,7 @@ function add_hist2c(hist2a)
 function del_hist(hist2d)
 {
 //parameter string hasn't been escaped
-    if (!use_localstorage) return false;
+   
     
 	var hists=splithists(gethiststr());
 	delStor("hist" );
@@ -320,4 +323,7 @@ function removeUrlParts(s) // 'http://example.com:8888/a/b/c' --> 'http://exampl
         console.error(err);
         return s;
     }
+}
+function getRandomInt(max) { // 0 to max
+    return Math.floor(Math.random() * (max+1) );
 }

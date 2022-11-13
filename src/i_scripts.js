@@ -388,7 +388,7 @@ onrd.push(function(){
 });
 onrd.push(function() {
     document.getElementById("btn_search_permi").onclick = async function() {
-        await browser.permissions.request({ permissions: ["search"] });
+        await chrome.permissions.request({ permissions: ["search"] });
         document.getElementsByClassName("cata_btn_highlight")[0].click();
     };
 });
@@ -413,18 +413,21 @@ onrd.push(async function(){
 onrd.push(async function(){
     if (window.run_env != "http_web")
     {
-        if ( (await get_addon_setting("checkupdate")) !== true )
+        if (chrome.extension.inIncognitoContext)
             return;
         
-        if (getStor("news_text"))
-        {
-            document.getElementById("newver_link").textContent = getStor("news_text");
+        if ( (await get_addon_setting("checkupdate")) !== true 
+            && ! (
+                (await get_addon_setting("checkupdate")) === undefined
+                && (  isFromStore(".microsoft.com") || isFromStore(".opera.com")  ) 
+            )
+        )
+            return;
+        
+        
+        show_news_text();
             
-            if ( getStor("news_link") )
-                document.getElementById("newver_link").href = getStor("news_link");
-            
-            document.getElementById("newver").style.display = "unset";
-        }
+        setTimeout(maybe_checkupdate, 10 *1000);
     }
 });
 
@@ -464,7 +467,7 @@ async function make_cata_btns() {
     document.getElementById("catas_cont").appendChild(createCataBtn("user", "user"));
     
     if (window.run_env != "http_web") {
-        if (isFirefox )
+//         if (isFirefox )
             document.getElementById("catas_cont").appendChild(createCataBtn("browser", "browser"));
     }
     

@@ -252,7 +252,13 @@ async function init_themeHandler() {
             const tNames = Object.keys(themeHandler.themes);
             
             function getNewRandomTheme() {
-                var N = getRandomInt(tNames.length -2) +1 ; // last one is 'no'. first one is default
+                // last one is 'no'. first one is 'default'. exclude those two
+                var N = getRandomInt( 
+                    (tNames.length - 2 ) // the true length of wanted range
+                    - 1 // true length -1 to be index (the function output range includes 0)
+                    )
+                    +1 // the first one is excluded. shift 1
+                    ; 
                 var name = tNames[N];
                 return name;
             }
