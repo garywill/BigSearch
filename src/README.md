@@ -34,6 +34,9 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
       * [More](#more)
       * [Even more: What's special about it](#even-more-whats-special-about-it)
       * [Safety &amp; Privacy](#safety--privacy)
+   * [FAQ](#faq)
+         * [Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)](#q-i-selected-text-and-used-context-menu-it-wont-automatically-show-popup-until-i-click-toolbar-button-on-some-browsers-like-chrome)
+         * [Q: What is "Ajax-render" ?](#q-what-is-ajax-render-)
    * [List of engines](#list-of-engines)
    * [Similar tools &amp; methods comparison](#similar-tools--methods-comparison)
    * [How to edit search engines (GUI or JSON)](#how-to-edit-search-engines-gui-or-json)
@@ -58,6 +61,7 @@ Ways to use:
 
 2. Web App: For demo purpose. Web app can't function fully like extension. Web app can be used on mobile browsers.   Main site: [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga) | Standby site: [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
    
+
 ## Basic Features Demo and Screenshots
 
 | Use Extension   |  Breadth & Focus   | UI style choosable               |  
@@ -89,9 +93,9 @@ Ways to use:
 - 🖱️ Quickly use **selected text** (single-line or multi-line) as search term
   > - No in Firefox incognito mode ([bug 1380812](https://bugzilla.mozilla.org/show_bug.cgi?id=1380812))
   > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut) ([defect of Chrome](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283))
-- ⌨️ **Keyboard shortcut** (browser extension) 
+- ⌨️ **Keyboard shortcut** (browser extension). Default keys (may need changing manually):
   - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others:`Ctrl+Shift+S` 
-  - Set selected text as search term (then use open popup). Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
+  - Set selected text as search term (then use "open popup" key). Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
   > [change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` 
 - 🖱️ Use in native sidebar (Firefox only)
 - 🖥️ **Desktop** (browser extension & web app) and **mobile** (web app only)
@@ -113,6 +117,16 @@ Ways to use:
 - 🛡️ **No injection** to web (except when searching Ajax-render websites)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
 - 🛡️ **Client side** functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely (analystics already disabled in incognito mode)
+
+## FAQ
+
+#### Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)
+
+A: It's because of [defect of Chrome browser engine](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283). Please use key combination `Ctrl+Shift+D` then `Ctrl+Shift+S` (you may want to modify them) as workaround
+
+#### Q: What is "Ajax-render" ?
+
+A: "Ajax-render" is short for "**In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation"
 
 ## List of engines
 
@@ -267,7 +281,7 @@ Engine data in full format can contain following key-values (special search meth
         
         "method": "get/post", // # optional. default is get
         
-        "charset": "UTF-8/gb2312/gb18030/big5/iso-xxxx....", // # optional. default UTF-8
+        "charset": "UTF-8/gb2312/gb18030/big5/iso-xxxx....", // # optional. default UTF-8 (NOTICE: full_url not compatible with this
         
         "allow_referer": false, // # false(default)/true optional
         
@@ -339,11 +353,7 @@ This tool still can be improved to do something more:
 
 - Improve the online editing-engine GUI 
 - Omnibox
-- Choose a fast & lightweight framework (any ideas)
-- Desktop stanalone app, opening URL with user-assigned browser
-- Mobile native app (any idea?)
 - Be compatible with others e.g. OpenSearch. Add or convert by 1-click
-- Be able to be used via CLI in terminal (nodejs)
 
 ### Technical Diagram
 
