@@ -30,11 +30,11 @@ This is the current engines list. We are keeping adding ~ (users' contribution i
 ### Global
 
 - **🌐General**: Bing | Google | Yahoo Search | Yandex | DuckDuckGo | StartPage | Ecosia | Qwant | Findx | MetaGer | Swisscows
-- **💻Programing**: Github | MDN | Chrome Extension API | StackExchange | AlternativeTo | Chocolatey | Scoop Search Apps | Cygwin packages | Homebrew | Docker Hub | Flathub | Snapcraft | NixOS | GNU Guix packages
+- **💻Programing**: Github | MDN | Chrome Extension API | StackExchange | AlternativeTo | Chocolatey | Scoop Search Apps | Cygwin packages | Microsoft Update Catalog | Man Pages | Homebrew | Docker Hub | Flathub | Snapcraft | pkgs.org | Repology | NixOS | GNU Guix packages
 - **📱Mobile Apps**: Google Play Apps | F-Droid | iTunes Apps | IzzyOnDroid F-Droid | APKDL | APKMirror | APK-DL | APKPure | Freeapk | AppsApk | Android Picks | AndroidAPKsFree
 - **📺Multimedia**: Google | Youtube | Netflix | Bing | Vimeo | Dailymotion | DTube
 - **🔠Translates**: DeepL Translate | Cambridge Dictionary | Google Translate
-- **📑Knowledge**: Web of Science | EI | IEEE Xplore | Google Scholar | Bing Academic | Wkipedia
+- **📑Knowledge**: Web of Science | EI | IEEE Xplore | Google Scholar | Bing Academic | Wkipedia | WolframAlpha
 - **🛒Shopping**: Amazon | eBay | Alibaba | Walmart | Best Buy | Newegg
 - **📈Finance**: Investing.com | AICoin
 
@@ -42,10 +42,10 @@ This is the current engines list. We are keeping adding ~ (users' contribution i
 
 除了以上各语言通用的内容外，大术专搜（Big Search）还提供 ~~（且可能是惟一）~~ 针对**中文**用户的内容。并仍在不断添加中～（当然大家的贡献很重要，欢迎贡献）
 
-- **🌐通用搜索**： 百度、搜狗搜索、360搜索
-- **📺音视频图**： 百度、哔哩哔哩、网易云音乐
-- **🔠百国语译**： 有道词典、百度翻译、必应词典
-- **📑资料论文**： 中国知网、万方数据、CSSCI、百度学术、维基百科
+- **🌐通用搜索**： 百度、F搜、搜狗搜索、360搜索
+- **📺音视频图**： 百度、哔哩哔哩、网易云音乐、F搜
+- **🔠百国语译**： 有道词典、百度翻译、F翻译、必应词典
+- **📑资料论文**： 中国知网、万方数据、CSSCI、百度学术、维基百科、快懂百科、搜狗百科、360百科
 - **🀄漢言華語**： 汉典、古今文字集成、萌典、粵典、CantoDict、汉语方言发音字典、万词王、字統网、中國哲學書電子化計劃、漢籍(漢リポ)、Unicode.org、字嗨、CC可视化
 - **🛒网上购物**： 淘宝天猫、京东、唯品会、当当网、苏宁易购
 - **📈财经走势**： 雪球、非小号
