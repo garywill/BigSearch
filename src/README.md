@@ -11,8 +11,8 @@ Handily use / switch **any one** or **multiple** (uninterruptedly) **search engi
 🌟 **Besides** what any multi-engine web search tool can do, it **also**✨:
 - 🖋️ Single-line or **multi-line** text
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
-- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **In-page-Ajax-render** websites)
-- 🔎 Do many operations at once by one button
+- 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **In-page-Ajax-render** websites) (see [FAQ](#FAQ) below)
+- 🔎 Do many operations at once by one button. Cross-engine search calling
 - 💪 Users can customize their search engines **programatically**: JSON as search engines database (both built-in & user-defined. **GUI** editing also available). Flexibility & extensibility in engine data & search method
 
 and so on... Go on for readme
@@ -67,8 +67,8 @@ Ways to use:
 | Use Extension   |  Breadth & Focus   | UI style choosable               |  
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![breadth](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth.jpg)  | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | 
-| Context selection search | Try web app without install                                                       | Mobile (testing) (web app)  |
-| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) |  |
+| Context selection search | Different UI adaptions                                                       | Mobile (testing) (web app)  |
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![3ui](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/3ui.webp) |  |
 | Edit search engines  | Special search methods, flexibility & extensibility |  | 
 | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
 
@@ -97,8 +97,7 @@ Ways to use:
   - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others:`Ctrl+Shift+S` 
   - Set selected text as search term (then use "open popup" key). Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
   > [change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` 
-- 🖱️ Use in native sidebar (Firefox only)
-- 🖥️ **Desktop** (browser extension & web app) and **mobile** (web app only)
+- 🖥️ UI adapted multiply: **Desktop** (browser extension or web app) and **mobile** (web app only). Extention can show UI in: toolbar button popup UI, standalond tab, or sidebar (browser native. Firefox only)
 
 ### Even more: What's special about it
 
@@ -127,6 +126,19 @@ A: It's because of [defect of Chrome browser engine](https://stackoverflow.com/q
 #### Q: What is "In-page-Ajax-render" ?
 
 A: "In-page-Ajax-render" is short for "**In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation"
+
+General GET/POST search flow is:
+1. You input search term and click search button
+1. Your browser loads the search term into a GET/POST query then sends it to target URL you specify
+1. Your browser opens a new tab and loads the HTML responded by the target website
+
+Big Search's In-page-Ajax-render search is:
+1. You input search term and click search button
+1. Your browser opens target website page you specified (search term not sent)
+1. Big Search injects a simple JS to the page, filling your search term into the text box on page (according to css selector you specified). Then JS triggers clicking the submit button (also according to css selector you specified) action
+1. The website page itself then uses Ajax to fetch search results, then your browser renders them on page
+
+The In-page-Ajax-render search feature can be used to search websites that do not provide GET/POST search interface to public (e.g. SPA websites), or those who require random token assigned at a search entrance form.
 
 ## List of engines
 
@@ -298,7 +310,7 @@ Engine data in full format can contain following key-values (special search meth
             "dbname": "bigsearch/user/browser",   // # Optional. Where the engines database come from (3 available databases): BigSearch build-in database (default) / User custom database / Browser-installed database
             "engine": "engine name", 
             "btn": "button name"   // # Optional. Absence will make fallback to the first button
-            // # this entire object can be simplified to an engine name
+            // # this entire object can be simplified to an engine name string
         },
         // #  (if use array here, then do many operations at once)
         
@@ -321,13 +333,10 @@ Engine data in full format can contain following key-values (special search meth
 
 #### Instructions for searching In-page-Ajax-render websites
 
-Some websites doesn't accept GET or POST. Visitor need to open their page then input, they then show results via Ajax.
+Some websites doesn't provide GET/POST search (or not respond results in HTML). Visitor need to open their page then input, they then show results via Ajax on their page. (see [FAQ](#FAQ))
 
-Big Search can deal with such In-page-Ajax-render websites (by injecting js to browser web, to automate inputting, clicking, form submitting). And easy to configure:
+Big Search can deal with such In-page-Ajax-render websites (by injecting js to your browser web, to automate inputting, clicking, form submitting). And easy to configure:
 
-<details>
-
-<summary>In-page-Ajax-render websites instructions</summary>
 
 Eg 1: Specify the css selector of input box. It will automatically input search term and trigger pressing Enter event.
 
@@ -341,7 +350,6 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 "ajax": [2000, "#search-box-input", 1000, "#submit-button"]
 ```
 
-</details>
 
 ## For Developers
 

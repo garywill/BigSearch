@@ -9,8 +9,8 @@
 🌟 **除了** 一个 多搜索引擎工具 该有的 基本功能 **外**，它**还有**✨：
 - 🖋️ 文本单行或**多行**
 - 🖥️ 桌面（扩展或网页）和移动（网页）
-- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**In-page-Ajax-render**）
-- 🔎 一个按钮一次调用多个操作
+- 🔎 **甚至兼容**那些 **不**对外开放GET/POST搜索接口 的网站（这里称其为**In-page-Ajax-render**）（详见下[FAQ](#FAQ)）
+- 🔎 一个按钮一次调用多个操作。跨引擎呼叫搜索
 - 💪 用户可通过**编程**的方式设置搜索引擎：JSON作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 灵活性 及 扩展性
 
 等...详见下文
@@ -32,7 +32,7 @@
       * [更多](#更多)
       * [还有更多：特别之处](#还有更多特别之处)
       * [隐私安全](#隐私安全)
-   * [老用户FAQ](#老用户faq)
+   * [FAQ](#faq)
          * [Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面](#q-chrome等浏览器中选择文本后点击右键菜单没反应还要点击一下工具栏按钮才打开界面)
          * [Q: 到底什么是「In-page-Ajax-render」?](#q-到底什么是in-page-ajax-render)
    * [已收录引擎](#已收录引擎)
@@ -63,8 +63,8 @@
 | 使用扩展    |  可深可广   | UI风格可选 | 
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | ![chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg)  | ![breadth_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth_chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |  
-| 搜索选择内容    | 免安装网页试用                                                                           | 移动版(试验)(web)  | 
-| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![web](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/web.png) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | 
+| 搜索选择内容    | 几种UI显示方式                                                                           | 移动版(试验)(web)  | 
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![3ui](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/3ui.webp) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | 
 | 编辑搜索引擎 | 特别搜索方式 灵活、可扩展 |  | 
 | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
 
@@ -93,12 +93,11 @@
   - 唤出界面。Firefox: `Ctrl+Alt+S`  Chrome及其他：`Ctrl+Shift+S` 
   - 将选择文本设定为搜索词（然后再使用“唤出界面”）。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
   > [Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` 
-- 🖱️ 在原生侧边栏里使用（仅Firefox）
-- 🖥️ **桌面**（扩展或网页）和**移动**（网页）
+- 🖥️ 适配多处：**桌面**（扩展或网页）和**移动**（网页）。扩展在工具栏按钮弹出界面、独立标签、侧边栏（浏览器原生。仅Firefox）多处可用
 
 ### 还有更多：特别之处
 
-- 🔎 **甚至兼容**那些**不**开放 简单web HTTP method的直接接口（即GET/POST） 的网站（这里称其为**In-page-Ajax-render**）（[详情](#搜索In-page-Ajax-render的网站)）
+- 🔎 **甚至兼容**那些 **不**对外开放GET/POST搜索接口 的网站（这里称其为**In-page-Ajax-render**）（[详情](#搜索In-page-Ajax-render的网站)）
 - 🔎 一个按钮一次调用多个操作
 - ✨ 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
 - 💪 用户可通过**编程**的方式设置搜索引擎：**JSON**作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 **灵活性**及**扩展性**：（[详情](#编辑引擎数据及各种搜索方式说明)）
@@ -114,7 +113,7 @@
 - 🛡️ **不**向网页注入任何代码（除搜索In-page-Ajax-render网站时外）
 - 🛡️ **纯客户端**功能完整，不需服务器。**无**搜集用户搜索内容，**无**广告兴趣分析。甚至用户可以选择完全禁止统计（无痕模式下已自动禁止）
 
-## 老用户FAQ
+## FAQ
 
 #### Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面
 
@@ -122,7 +121,20 @@ A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questi
 
 #### Q: 到底什么是「In-page-Ajax-render」?
 
-A: 「In-page-Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation 的简称
+A: 「In-page-Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation 的简称。
+
+普通的GET/POST搜索流程是：
+1. 你输入搜索词，点击搜索按钮
+1. 你的浏览器把搜索词装入GET/POST query中，发到你指定的目标网站
+1. 你的浏览器打开新tab并载入目标网站返回的HTML
+
+大术专搜的In-page-Ajax-render搜索功能是：
+1. 你输入搜索词，点击搜索按钮
+1. 你的浏览器打开你指定的目标网站页面（未发送搜索词）
+1. 本工具向该页面注入一个简单的JS，把你的搜索词填入页面上的文本框中（通过你指定的css selector找到它），然后JS模拟点击提交按钮（同样通过你的css selector找到）动作
+1. 网站页面本身的JS会起作用，Ajax获取搜索结果，浏览器渲染展示在该页面上
+
+本工具的In-page-Ajax-render搜索功能，可以用于搜索那些不对外开放GET/POST搜索接口的（例如SPA型网页），或者要检验在搜索入口表单分配的随机token的
 
 
 ## 已收录引擎
@@ -319,12 +331,9 @@ JSON格式。
 
 #### 搜索In-page-Ajax-render的网站
 
-有些网站无GET或POST，需要打开它们的页面后输入，它们然后通过Ajax展现结果。
+有些网站无公开的GET/POST搜索接口（或搜索结果非以HTML返回），需要打开它们的页面后输入，它们然后通过Ajax展现结果。（见[FAQ](#FAQ)）
 
-大术专搜支持收录和调用这类网站（通过往浏览器里的页面注入js，实现输入、点击、表单提交的自动化），且易配置：
-
-<details>
-<summary>搜索In-page-Ajax-render网站说明</summary>
+大术专搜支持收录和调用这类网站（通过你的浏览器往页面注入js，实现输入、点击、表单提交的自动化），且易配置：
 
 例1：指定输入框的css selector。将自动进行关键词输入，模拟回车动作
 
@@ -337,8 +346,6 @@ JSON格式。
 ```json
 "ajax": [2000, "#search-box-input", 1000, "#submit-button"]
 ```
-
-</details>
 
 <p align="center">大术专搜 👨‍💻　万页在手 🗺️　　网之所询 🌐　无不可收</p>
 

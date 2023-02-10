@@ -91,7 +91,7 @@ catas = {
         ],
     },
     "program": {
-        label: '💻' + i18n(["电脑程序", "Programing"]),
+        label: '💻' + i18n(["软件程序", "Programing"]),
         engines: [
             { type:"engine", name:"github"},
             { type:"engine", name:"mdn"},
@@ -141,7 +141,7 @@ catas = {
         ],
     }, 
     "media": {
-        label: '📺' + i18n(["音视频图", "Multimedia"]),
+        label: '📺' + i18n(["听视影图", "Multimedia"]),
         engines: [
             { type:"label", lstr:"中音簿画" , visible_lang: "zh" },
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
@@ -160,7 +160,7 @@ catas = {
         ],
     },
     "translate": {
-        label: '🔠' + i18n(["百国语译", "Translates"]),
+        label: '🔠' + i18n(["多国译典", "Translates"]),
         engines: [
             { type:"engine", name:"youdao" , visible_lang: "zh"},
             { type:"engine", name:"baidu_translate" , visible_lang: "zh"},
@@ -172,33 +172,33 @@ catas = {
         ],
     }, 
     "academy": {
-        label: '📑' + i18n(["资料论文", "Knowledge"]),
+        label: '📑' + i18n(["资科藏识", "Knowledge"]),
         engines: [
-            { type:"label", lstr:"中阁府院", visible_lang: "zh"},
+//             { type:"label", lstr:i18n(["资料专藏", "Knowledge Search Engines"])},
+            { type:"engine", name:"wikip_zh", visible_lang: "zh"},
+            { type:"engine", name:"wikip_en", visible_lang: "en"},
+            { type:"engine", name:"hudongbaike", visible_lang: "zh"},
+            { type:"engine", name:"baidu_xuesu", visible_lang: "zh"},
+            { type:"engine", name:"google_scholar"},
+            { type:"engine", name:"bing_ac"},
+            { type:"engine", name:"wolframalpha"},
+            { type:"engine", name:"sogoubaike", visible_lang: "zh"},
+            { type:"engine", name:"360baike", visible_lang: "zh"},
+            { type:"label", lstr:"中阁院府", visible_lang: "zh"},
             { type:"engine", name:"cnki", visible_lang: "zh"},
             { type:"engine", name:"wanfang", visible_lang: "zh"},
             { type:"engine", name:"cssci", visible_lang: "zh"},
-            { type:"label", lstr:i18n(["国际机构", "Global Academic"])},
+            { type:"label", lstr:i18n(["机构国际", "Global Academic"])},
             { type:"engine", name:"webofscience"},
             { type:"engine", name:"ei"},
             { type:"engine", name:"ieee"},
-            { type:"label", lstr:i18n(["资料专藏", "Knowledge Search Engines"])},
-            { type:"engine", name:"google_scholar"},
-            { type:"engine", name:"baidu_xuesu", visible_lang: "zh"},
-            { type:"engine", name:"bing_ac"},
-            { type:"engine", name:"wikip_zh", visible_lang: "zh"},
-            { type:"engine", name:"wikip_en", visible_lang: "en"},
-            { type:"engine", name:"wolframalpha"},
-            { type:"engine", name:"hudongbaike", visible_lang: "zh"},
-            { type:"engine", name:"sogoubaike", visible_lang: "zh"},
-            { type:"engine", name:"360baike", visible_lang: "zh"},
         ],
     },
     "han": {
-        label: "🀄漢言華語",
+        label: "🀄漢語華文",
         visible_lang: "zh",
         engines: [
-            { type:"label", lstr:"話辭雅字" },
+            { type:"label", lstr:"辭言字海" },
             { type:"engine", name:"zdic"},
             { type:"engine", name:"ccamc"},
             { type:"engine", name:"moedict"},
@@ -217,7 +217,7 @@ catas = {
         ],
     }, 
     "buy": {
-        label: '🛒' + i18n(["网上购物", "Shopping"]),
+        label: '🛒' + i18n(["买东买西", "Shopping"]),
         engines: [
             { type:"label", lstr:"博物九州", visible_lang: "zh"},
             { type:"engine", name:"taobao", visible_lang: "zh"},
@@ -235,7 +235,7 @@ catas = {
         ],
     },
     "finance": {
-        label: '📈' + i18n(["财经走势", "Finance"]),
+        label: '📈' + i18n(["经财起落", "Finance"]),
         engines: [
             { type:"engine", name:"investing"},
             { type:"engine", name:"xueqiu", visible_lang: "zh"},

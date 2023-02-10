@@ -8,7 +8,7 @@
         
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
@@ -18,7 +18,7 @@
         
         <!--引用Vue.js-->
 <!--         <script type="text/javascript" src="https://vuejs.org/js/vue.js"></script> -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@3.2.45/dist/vue.global.min.js" crossorigin="anonymous"></script>
         
         
         <script type="text/javascript">
@@ -29,8 +29,28 @@
 <script type='text/javascript' src='i_ui.js'></script> 
 <script type='text/javascript' src='enginesdata.js'></script> 
 <script type='text/javascript' src='engine_handle.js'></script> 
-<script type='text/javascript' src='editengine.js'></script> 
+<script type='text/javascript' src='js_ee/editengine.js'></script> 
+<script type='text/javascript' src='js_ee/bs_gui.js'></script> 
+<script type='text/javascript' src='js_ee/makeTemplateTable.js'></script> 
+<script type='text/javascript' src='js_ee/load_example.js'></script> 
+<script type='text/javascript' src='js_ee/codeedit.js'></script> 
 <link rel='stylesheet' type='text/css' href='editengine.css'></link> 
+        
+        <!--CodeMirrow-->
+        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/lib/codemirror.min.css" rel="stylesheet"  crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/lint/lint.css" rel="stylesheet"  crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/theme/eclipse.css" rel="stylesheet"  crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/theme/idea.css" rel="stylesheet"  crossorigin="anonymous">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/lib/codemirror.min.js" crossorigin="anonymous"></script>
+<!--         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/display/autorefresh.js" crossorigin="anonymous"></script> -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/edit/matchbrackets.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/mode/javascript/javascript.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsonlint@1.6.3/web/jsonlint.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/lint/lint.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/lint/json-lint.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/selection/active-line.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cm-resize@1.0.1/dist/cm-resize.min.js" crossorigin="anonymous"></script>
+        
     </head>
     <body><div class="container" >
             <div id="webhead">
@@ -69,8 +89,8 @@
                 
             </div>
 
-            <details>
-            <summary style="color:gray;">Expand/Collapse JSON textarea (expert only)</summary>
+            <details id="detailsTag_jsonarea">
+            <summary style="color:gray;">Expand/Collapse JSON textarea <span style="text-decoration: underline;">(expert only)</span></summary>
                 <h2>JSON field</h2>
                 <div><button id="copy_json" class="btn btn-sm btn-secondary"
                     onclick="copy_json();"
@@ -136,7 +156,7 @@
                             <tr>
                                 <th></th>
                                 <th></th>
-                                <th>Id</th>
+                                <th>ID</th>
 
                                 <th>Display Name</th>
                                 <th>Content</th>
@@ -162,14 +182,16 @@
                                     </td>
                                 </tr>
                                 <tr 
+                                    v-if="!row.hide"
+                                    v-key="row.uuid"
+                                    v-bind:uuid="row.uuid"
+                                    v-bind:rindex="index"
                                     v-bind:class="{ 
                                         'row-user': true,
                                         'table-light': row.gui_type.startsWith('engine'),
                                         'row-engine': row.gui_type.startsWith('engine'),
                                         'table-info': row.gui_type == 'labelrow',
                                         'table-warning': row.gui_type == 'fav_engine' }" 
-                                    v-bind:rindex="index"
-                                    
                                 >
                                     <td  ><button class="btn btn-sm btn-danger" style="padding: 0; margin: 0;" title="Delete this engine (or row)" v-on:click="delRow(index)">X</button>
                                     </td>
@@ -199,8 +221,8 @@
                                     <td>
                                         
                                         
-                                        <code><input type="text" v-bind:rindex="index" class="" name="userName" placeholder="Unique Id (JSON key, programatical name)" v-model="row.key" /></code>
-                                        <button v-if="0" title="Generate an Id with random">Gen</button>
+                                        <code><input type="text" v-bind:rindex="index" class="" name="userName" placeholder="Unique ID (JSON key, programatical name)" v-model="row.key" /></code>
+                                        <button v-if="0" title="Generate an ID with random">Gen</button>
                                     </td>
 
                                     <!--display name column-->
@@ -228,7 +250,16 @@
                                             <button hidden class="btn btn-secondary btn-sm" v-on:click="simple2expert(index)">switch to full</button>
                                         </div>
                                         <div>
-                                            <span v-if="row.gui_type == 'engine_expert' " >👨‍💻 Engine (full format) 🌐</span>
+                                            <span v-if="row.gui_type == 'engine_expert' "
+                                                data-bs-toggle="tooltip" title="ttt" 
+                                                data-bs-animation="false"
+                                                data-bs-html="true"
+                                                data-bs-custom-class="expert_tooltip"
+                                            >
+                                                👨‍💻 Engine (full format) 🌐
+                                                <img src onerror="addTooltip(this, 'expert')">
+                                            </span> 
+                                            
                                             
                                             <span v-if="row.gui_type == 'labelrow' " >🏷️ Label row</span>
                                         </div>
@@ -237,13 +268,30 @@
                                             <code><input type="text" v-bind:rindex="index" class="" name="" v-model="row.bsObj.fav"  placeholder="" /></code>
                                         </div>
                                         <div v-if="row.gui_type=='engine_expert'">
-                                            <code><textarea v-bind:rindex="index"  class="textarea_engine_expert_content" wrap="off" v-model="row.gui_json_except_content" ></textarea></code>
+                                            <div class="textarea_cont">
+                                                <code><textarea v-bind:rindex="index"  class="textarea_engine_expert_content" wrap="off" v-model="row.gui_json_expert_content" ></textarea></code>
+                                                <button hidden class="btn btn-secondary btn-sm btn_openCodeeditForTextarea" v-on:click="openCodeeditForTextarea(index, 'btns_content')">Open code editor</button>
+                                                <img src v-on:error="expert_json_textarea_to_codeedit(index, 'expert_content')">
+                                            </div>
                                             <div>
-                                                Button(s): 
-                                                <span v-if="row.gui_json_expert_btns === undefined"><i>Default</i> <button class="btn btn-sm btn-secondary" v-on:click="createExampleBtn(index)">edit button</button></span>
+                                                <span  data-bs-toggle="tooltip" title="bbb"
+                                                    data-bs-animation="false"
+                                                    data-bs-html="true"
+                                                    data-bs-custom-class="expert_tooltip"
+                                                >
+                                                    Button(s): 
+                                                    <img src onerror="addTooltip(this, 'buttons')">
+                                                </span>
+                                                <span v-if="row.gui_json_expert_btns === undefined">
+                                                    <i>Default</i> <button class="btn btn-sm btn-secondary" v-on:click="createExampleBtn(index)">edit button</button>
+                                                </span>
                                                 
                                                 <div v-else>
-                                                <code><textarea v-bind:rindex="index" class="textarea_engine_btns_content" v-model="row.gui_json_expert_btns" ></textarea></code>
+                                                    <div class="textarea_cont">
+                                                        <code><textarea v-bind:rindex="index" class="textarea_engine_btns_content" v-model="row.gui_json_expert_btns" ></textarea></code>
+                                                        <button hidden class="btn btn-secondary btn-sm btn_openCodeeditForTextarea" v-on:click="openCodeeditForTextarea(index, 'btns_content')">Open code editor</button>
+                                                        <img src v-on:error="expert_json_textarea_to_codeedit(index, 'btns_content')">
+                                                    </div>
                                                 <div><button v-on:click="delBtns(index)" class="btn btn-sm btn-danger">delete buttons</button></div>
                                                 </div>
                                                 
@@ -345,8 +393,8 @@ makeTemplateTable();
                                             <thead class="table-secondary table-bordered">
                                                 <tr>
                                                     <th></th>
-                                                    <th>Engine | Id</th>
-                                                    <th>Search buttons (and buttons Ids)</th>
+                                                    <th>Engine | ID</th>
+                                                    <th>Search buttons (and buttons IDs)</th>
                                                 </tr>
                                                 
                                             </thead>

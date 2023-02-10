@@ -31,7 +31,9 @@ h1 {
 }
 
 .gui_table_content_td , 
-.gui_table_content_td textarea {
+.gui_table_content_td textarea, 
+.gui_table_content_td .CodeMirror
+{
     min-width: 40vw;
 }
 .engine_simple_fullurl {
@@ -109,10 +111,11 @@ h1 {
     white-space: nowrap;
 }
 
-input[type=text],textarea {
+input[type=text],textarea , .CodeMirror {
     border-radius: 5px;
     border-style: solid;
     border-color: #bec1e9;
+    border-width: 2px;
 }
 
 .btn_adding_templ {
@@ -123,3 +126,22 @@ input[type=text],textarea {
     font-size: .875em;
     color: #d63384;   
 }
+
+.CodeMirror .cm-property {
+    color: #004de7;
+}
+
+
+img[src=''] {
+    width: 1px;
+    height: 1px;
+    display: block;
+}
+
+.expert_tooltip .tooltip-inner {
+    background-color: #f6ffbcaa;
+    color: black;
+    max-width: 500px;
+    text-align: left;
+}
+
