@@ -99,6 +99,18 @@ async function getInstallType(){
 }
 
 //========================
+
+
+async function get_stored_input_content()
+{
+    return await getStor("input_content") ;
+}
+async function set_stored_input_content(str)
+{
+    await setStor("input_content", str) ;
+}
+
+
 async function addon_read_usercustom_engines() { 
     const read_addon_settings_usercuston_engines = await get_addon_setting("usercustom_engines");
     if (read_addon_settings_usercuston_engines ) {

@@ -3,7 +3,7 @@
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "manifest_version": 2,
-    "version": "2.15.5",
+    "version": "3.0.5",
     "homepage_url": "https://github.com/garywill/BigSearch",
     "author": {
         "name": "Garywill",
@@ -18,9 +18,9 @@
     ],
     "optional_permissions": [
         "search",
+        "clipboardWrite", 
         "clipboardRead",
-        "activeTab",
-        "*://*/*"
+        "activeTab"
     ],
     "content_scripts": [
         {
@@ -45,15 +45,26 @@
     },
     "commands": {
         "_execute_browser_action": {
+            "description": "Click toolbar button", 
             "suggested_key": {
                 "default": "Ctrl+Shift+S"
             }
         },
+        "open_stab" : {
+            "description": "Open Big Search standalone tab"
+        },
+
         "selection_as_search": {
             "description": "Set selected text as search term",
             "suggested_key": {
                 "default": "Ctrl+Shift+D"
             }
+        },
+        "selection_as_search_then_open_popup": {
+            "description": "Set selected text as search term then open popup UI (Firefox only)"
+        },
+        "selection_as_search_then_open_stab": {
+            "description": "Set selected text as search term then open Big Search standalone tab"
         }
     },
     "options_ui": {

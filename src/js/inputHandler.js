@@ -53,6 +53,22 @@ function init_inputHandler() {
             this.syncMS();
             this.setMlView();
         };
+        this.read_stored_inputcontent_to_inputele = async function () {
+            const stored_inputcontent = await get_stored_input_content() ;
+            if ( stored_inputcontent !==  inputHandler.getValue() )
+                inputHandler.init_mode(stored_inputcontent);
+        };
+        this.init_messageReceiver = function () {
+            chrome.runtime.onMessage.addListener( async function (request, sender, sendResponse) {
+                console.debug("receive message ", showas, request, sender);
+                if ( chrome.runtime.id === sender.id && request['to'] == "home.html")
+                {
+                    if (request['command'] == "setInputBoxToText" && typeof(request['text']) === "string" )
+                        inputHandler.init_mode( request['text'] );
+                }
+            });
+        };
+        
         this.isValueMl = function (val) {  // judge a string is ml or sl
             val = val.trim();
             return (
@@ -91,8 +107,16 @@ function init_inputHandler() {
             if (mobile)
                 return;
             
+            if (useVmm && vmmHandler.inOutStatus)
+                return;
+            
             inputHandler.getInputFieldEle().focus();
         };
+        this.onGetFocus = function() {
+            if (useVmm) {
+                vmmHandler.setOff();
+            }
+        }
         
         this.syncM2S = function() {  // sync the two input fields only . doesn't change the mode
             this.inputbox.value = this.convMl2Sl( this.input_ml.value );
@@ -126,6 +150,9 @@ function init_inputHandler() {
                 if ( ! mobile ) {
                     this.inputbox.ondblclick = function () { 
                         btn_ml_input.click();
+                        
+                        if (useVmm)
+                            vmmHandler.setOff();
                     }
                 }
                 else
@@ -241,13 +268,57 @@ function init_inputHandler() {
             this.setMlMode(false);
             this.syncM2S();
             this.setMlView(false);
+            
+            this.broadcastText_onUserInput();
         }
         
         this.inputbox.addEventListener("change", function() {
             inputHandler.syncS2M();
+            if (useVmm)
+                vmmHandler.setOff();
         });
         this.input_ml.addEventListener("change", function() {
             inputHandler.syncM2S();
+            if (useVmm)
+                vmmHandler.setOff();
         });
+        
+
+        this.broadcastText_onUserInput = async function() {
+            console.debug(showas, "broadcastText_onUserInput()");
+            if (window.run_env != "http_web") {
+                await set_stored_input_content( inputHandler.getValue() );
+                chrome.runtime.sendMessage( {
+                    from : "home.html",
+                    to: "home.html", 
+                    from_showas: showas, 
+                    evt: "broadcastText_onUserInput", 
+                    command: "setInputBoxToText",
+                    text: inputHandler.getValue()
+                } );
+            } 
+        };
+        this.inputbox.addEventListener("input", this.broadcastText_onUserInput);
+        this.input_ml.addEventListener("input", this.broadcastText_onUserInput);
+        // addListenerNDelay(this.inputbox, "change", 300, this.broadcastText_onUserInput);
+        // addListenerNDelay(this.input_ml, "change", 300, this.broadcastText_onUserInput);
+        
+        
+        
+        this.inputbox.addEventListener("focus", function() {
+            inputHandler.onGetFocus();
+        }); 
+        this.input_ml.addEventListener("focus", function() {
+            inputHandler.onGetFocus();
+        }); 
+        
+        
+        this.finishEditAndBlurAllInputBoxes = function() {
+             if (this.ml_ui) {
+                 inputHandler.saveMl();
+             } 
+             inputHandler.getInputFieldEle().blur();
+        };
     } ();
 }
+

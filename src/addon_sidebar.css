@@ -1,6 +1,24 @@
 body.sidebar {
+    --intitle-height: 0px;
     --tdgap: 0px;
     --btns-copypaste-gap: 0px;
+}
+
+#corner_icons_cont {
+    top: unset;
+    right: unset;
+    bottom: calc( 0px - var(--bottom-padding-top) );
+    left: 0px;
+}
+#cornerbtn_opensidebar { display: none; }
+.span_cornerbtntip_cont {
+    right: unset;
+    left: 0px;
+}
+.span_cornerbtntip {
+    text-align: left;
+    right: unset;
+    left: 0px;
 }
 
 #catas_cont { 
@@ -42,6 +60,11 @@ body.sidebar {
     max-height: 70vh;
 }
 
-#bottom, #footer, #td_gap_hist_right, #td_gap_hist_left {
+/* #bottom, */
+.btmbtn:not(#btn_randomtheme, #btn_theme), 
+#footer, #td_gap_hist_right, #td_gap_hist_left {
     display: none;
 }
+
+
+

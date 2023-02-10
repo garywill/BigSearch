@@ -31,6 +31,9 @@ body::-webkit-scrollbar-track-piece {
     background-color:white;
 }
 
+
+#cornerbtn_openpopup { display: none; }
+
 #catas_cont { 
     padding-top:0px; padding-right: 0px; 
     

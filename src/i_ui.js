@@ -27,6 +27,8 @@ async function pre_layout() {
             document.body.style.minHeight = "600px";
         }
     }
+    if (window.run_env != "http_web" && !showas)
+        showas = 'stab'
 }
 
 async function layout_init()
@@ -56,6 +58,11 @@ async function layout_init()
         document.getElementById("popup_css_tag").setAttribute("href", "popup.css");
     else if (showas == "sidebar" ) 
         document.getElementById("sidebar_css_tag").setAttribute("href", "addon_sidebar.css");
+    else if (showas == "stab")
+        document.getElementById("sidebar_css_tag").setAttribute("href", "addon-tab.css");
+    
+    if (showas == "stab")
+        document.title = i18n( [ "大术专搜 扩展开始页", "Big Search extension start page" ] );
 }
 
 function init_body_class() {

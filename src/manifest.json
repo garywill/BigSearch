@@ -3,7 +3,7 @@
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "manifest_version": 2,
-    "version": "2.15.5",
+    "version": "3.0.5",
     "homepage_url": "https://garywill.github.io",
     "developer": {
         "name": "Garywill",
@@ -18,6 +18,7 @@
     ],
     "optional_permissions": [
         "search",
+        "clipboardWrite", 
         "clipboardRead",
         "activeTab",
         "*://*/*"
@@ -48,12 +49,29 @@
                 "default": "Ctrl+Alt+S"
             }
         },
+        "_execute_sidebar_action" : {
+            "description": "Open sidebar"
+        }, 
+        "open_stab" : {
+            "description": "Open Big Search standalone tab"
+        },
         "selection_as_search": {
-            "description": "Set selected text as search term",
+            "description": "Set selected text as search term"
+        },
+        "selection_as_search_then_open_popup": {
+            "description": "Set selected text as search term then open popup UI", 
             "suggested_key": {
                 "default": "Ctrl+Alt+D"
             }
+        },
+        "selection_as_search_then_open_sidebar": {
+            "description": "Set selected text as search term then open sidebar"
+        },
+        "selection_as_search_then_open_stab": {
+            "description": "Set selected text as search term then open Big Search standalone tab"
         }
+
+
     },
 
     "options_ui": {

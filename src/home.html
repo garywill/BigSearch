@@ -19,7 +19,7 @@
     
     <head>
         <meta HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8"/>
-         <title>Big Search addon page</title>         
+         <title>Big Search addon home page</title>         
                 
         <script type="text/javascript"  src="index-phpjs.js"  >
                     </script>
@@ -43,9 +43,10 @@
         <link rel='stylesheet' type='text/css' href='vmm.css'></link> 
 		
 		<link rel='stylesheet' type='text/css' href='addon.css'></link> 
-        <link rel='stylesheet' type='text/css' href='' id='popup_css_tag' ></link> 
+<link rel='stylesheet' type='text/css' href='' id='popup_css_tag' ></link> 
+<link rel='stylesheet' type='text/css' href='' id='addontab_css_tag' ></link> 
+<link rel='stylesheet' type='text/css' href='' id='sidebar_css_tag' ></link> 
 		<link rel='stylesheet' type='text/css' href='' id='mobile_css_tag' ></link> 
-		<link rel='stylesheet' type='text/css' href='' id='sidebar_css_tag' ></link> 
 
 
 		<link rel="icon" type="image/png" href="icon.png"/>
@@ -90,221 +91,257 @@
             </div>
 
             <div id="wrapper">
-            <div id="wrapper_in">
-                <div id="content">
-
-                            <div class="main_td" id="cata_td">
-                                <div id="catabtns_header">
-                                    <span class='lang lang-zh'>选择分类:</span><span class='lang lang-en'>Catagories:</span>                                </div>
-                                <div id="catas_cont" > </div>
-                            </div>
-                            <div class="main_td" id="center_td">
-                                
-                                    
-                                <div id="intitle" >				
-                                                                    </div>
-                                
-                          
-                                <!--COMMON INPUTBOX HERE-->
-                                <div id="input_o_cont">
-                                    <div id="input_cont">
-                                        <div id="inputbox_shell">
-                                            <input  id="inputbox" class="cur_inputbox"    />
-                                            <div id="dblclick_ml_tip" style="display:none;"><span class='lang lang-zh'>双击进入多行编辑</span><span class='lang lang-en'>Double-click to enter multi-line edit</span></div>
-                                        </div>
-                                        <div id="btns_below_input" >
-                                            <button class="general_btn btns_copypaste" id="inputclear">
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>清除</span><span class='lang lang-en'>Clean</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/trash-alt.svg"></img>
-                                            </button>
-                                            
-                                            <button class="general_btn btns_copypaste" id="inputselect">
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>全选</span><span class='lang lang-en'>Select All</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/arrows-shrink-h.svg"></img>
-                                            </button>
-                                            
-                                            <button class="general_btn btns_copypaste" id="inputcopy">
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>复制全部</span><span class='lang lang-en'>Copy All</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/file-copy-alt.svg"></img>
-                                            </button>
-                                            
-                                            <button class="general_btn btns_copypaste" id="inputpaste">
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>粘贴（在文本光标处）</span><span class='lang lang-en'>Paste (at text cursor)</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/clipboard-notes.svg"></img>
-                                            </button>
-                                            
-                                            
-                                            <button class="general_btn btns_copypaste" id="btn_ml_input">
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>多行编辑</span><span class='lang lang-en'>Multi-line Editor</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/line-spacing.svg"></img>
-                                            </button>
-                                            
-                                            
-                                            <button class="general_btn btns_copypaste" id="btn_save_ml" style="display: none; " >
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>完成多行编辑</span><span class='lang lang-en'>Finish Multi-line Edit</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/save-ml.svg"></img>
-                                            </button>
-                                            
-                                            <button class="general_btn btns_copypaste" id="btn_save_ml_sl" style="display: none; " >
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>转为单行 完成编辑</span><span class='lang lang-en'>Finish Edit & Convert to 1 Line</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/compress-lines.svg"></img>
-                                            </button>
-                                            
-                                           
-                                            
-                                            <span class="lang lang-zh" style="display:none;">
-                                                &nbsp;&nbsp;
-                                                <button class="general_btn" id="tosimp">
-                                                    简
-                                                </button>
-                                                &nbsp;
-                                                <button class="general_btn" id="totrad">
-                                                    繁
-                                                </button>
-                                            </span>
-                                            
-                                          
-                                            <button class="general_btn btns_copypaste btns_copypaste_right" id="openhist" class="openhist_hide" >
-                                                <span class="span_copypaste_cont">
-                                                    <span class="span_copypaste"><span class='lang lang-zh'>历史</span><span class='lang lang-en'>History</span></span>
-                                                </span>
-                                                <img class="btns_copypaste_img" src="icon/history-alt.svg"></img>
-                                            </button>
-                                        </div>
-                                        
-                                        <textarea id="input_ml" style="display:none"></textarea>
-                                    </div>
-                                </div>
-
-                            
-                               <div id="mobile_catasbtn_pos"> </div>
+            
+                <div id="corner_icons_cont">
+                    <div id="corner_icons_cont_in">
+                        <button class="general_btn btns_corner" id="cornerbtn_openintab">
+                            <span class="span_cornerbtntip_cont">
+                                <span class="span_cornerbtntip"><span class='lang lang-zh'>打开独立标签</span><span class='lang lang-en'>Standalone Tab</span>(beta)</span>
+                            </span>
+                            <img class="btns_cornerbtn_img" src="icon/open-in-tab.svg"></img>
+                        </button>                
+                        <button class="general_btn btns_corner" id="cornerbtn_setashome">
+                            <span class="span_cornerbtntip_cont">
+                                <span class="span_cornerbtntip"><span class='lang lang-zh'>设置为起始页</span><span class='lang lang-en'>Set as home</span></span>
+                            </span>
+                            <img class="btns_cornerbtn_img" src="icon/house-user.svg"></img>
+                        </button>                                
+                        <button class="general_btn btns_corner" id="cornerbtn_opensidebar">
+                            <span class="span_cornerbtntip_cont">
+                                <span class="span_cornerbtntip"><span class='lang lang-zh'>打开侧边栏</span><span class='lang lang-en'>Sidebar</span>(beta)</span>
+                            </span>
+                            <img class="btns_cornerbtn_img" src="icon/window-left.svg"></img>
+                        </button>                
                         
-                            
-                                <div id="engines_o_cont">
-                                    <div id="div_custom_json"  style="display:none;"  >
-                                        <div id="div_button_to_input_json" >
-                                            <button id="btn_input_json"><span class='lang lang-zh'>编辑自定义引擎</span><span class='lang lang-en'>Edit custom engines</span></button>
-                                            
-                                                                                    </div>
-                                        
-                                        <div id="div_json_parse" style="display:none;" >
-                                            <div>
-                                                                                                    <a href="https://acsearch.ga/editengine.php" target="_blank">👉
-                                                    <span class='lang lang-zh'>打开GUI编辑(在线)</span><span class='lang lang-en'>Open GUI editor (online)</span> (link 1)
-                                                    </a> | 
-                                                    <a href="http://acsearch.tk/editengine.php" target="_blank">
-                                                    (link 2)
-                                                    </a>  | 
-                                                    <a href="https://garywill.github.io/BigSearch/editengine.html" target="_blank">
-                                                    (link 3)
-                                                    </a>
-                                                    
-                                                                                                </div>
-                                            <details>
-                                            <summary><span class='lang lang-zh'>展开/收起JSON区</span><span class='lang lang-en'>Expand/Collapse JSON zone</span></summary>
-                                            
-                                                <label for="textarea_json_saved">
-                                                    <span class='lang lang-zh'>已保存的自定义引擎：</span><span class='lang lang-en'>Saved custom engines:</span>                                                </label>
-                                                <br>
-                                                <code><textarea id="textarea_json_saved" class="json_area" readonly="true" wrap="off" style="background: #e8e8e8;" rows="5" placeholder="Haven't added custom engines. When you need, use the online editing GUI. Also you can find full doc from the manual at source code page"></textarea></code>
-                                                <br>
-                                                <button id="btn_load_json"><span class='lang lang-zh'>↓读取并编辑</span><span class='lang lang-en'>↓Load &amp; Edit</span></button>
-                                                <button id="btn_parse_json"><span class='lang lang-zh'>↑解析并覆盖保存</span><span class='lang lang-en'>↑Parse, Save &amp; Override</span></button>
-                                               
-                                                
-                                                <br>
-                                                
-                                                <label for="textarea_json">
-                                                    <span class='lang lang-zh'>在此处编辑自定义引擎：</span><span class='lang lang-en'>Edit custom engines here:</span>                                                </label>
-                                                <br>
-                                                
-                                                <code><textarea id="textarea_json" class="json_area" wrap="off" rows="5" placeholder="Input/paste in JSON format. It's easy!"></textarea></code>
-                                            </details>
-                                            <hr>
-                                        </div>
-                                    </div>
-                                    
-                                    <div id="div_search_permi" style="display:none; " >
-                                        <button id="btn_search_permi">
-                                            <span class='lang lang-zh'>开启此功能</span><span class='lang lang-en'>Enable this feature</span>                                        </button>
-                                    </div>
-                                    
-                                    <div id="engines_cont"> 
-                                        <hr id="hr_above_table">
-                                    </div>
-                                </div>
-        
-
-                            </div>
-                            
-                            <div class="main_td" id="td_gap_hist_left">
-                            </div>
-                            
-                            <div class="main_td"  id="hist_td">
-                                <div id="hist_cont">
-                                    <div id="hist_ban">
-                                        <span class='lang lang-zh'>输入历史</span><span class='lang lang-en'>Input History</span>                                        <span id="hist_tip">
-                                            <span class='lang lang-zh'>双击可再次使用</span><span class='lang lang-en'>Doubleclick to use again</span>                                        </span>
-                                    </div>
-                                    <div id="hist_grow" style="height: 0px;">12345678901234567890123456789012345678901234567890123456789012345678901234567890</div>
-
-                                    <div id="hist" ></div>
-                                    
-                                    <div id="clearhist" class="general_btn main_btns">
-                                        <span class='lang lang-zh'>清空</span><span class='lang lang-en'>Clean All</span>                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="main_td" id="td_gap_hist_right">
-                            </div>
-
-                
-                </div>
-            </div>
-            </div>
-
-            <div id="bottom">
-                <div id="btmbtns" >
-                    <button class="general_btn main_btns btmbtn " id="btn_usage" name="usage"  ><a href="#usage">
-                                                    <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                                
-                    </a></button>
-                    
-                    <div>
-                    <button class="general_btn main_btns btmbtn" id="btn_theme" name="theme"  ><a href="#theme"><span class="btmemoji">👀</span>
-                        <span class='lang lang-zh'>界面风格</span><span class='lang lang-en'>UI Style</span>                    </a></button>
-                    ·
-                    <button class="general_btn main_btns btmbtn" id="btn_randomtheme" name="randomtheme"  ><a>
-                        <span class='lang lang-zh'>随机换</span><span class='lang lang-en'>Change</span> <span class="btmemoji">🔀</span>
-                    </a></button>
+                        <button class="general_btn btns_corner" id="cornerbtn_openpopup">
+                            <span class="span_cornerbtntip_cont">
+                                <span class="span_cornerbtntip"><span class='lang lang-zh'>打开悬出界面</span><span class='lang lang-en'>Popup</span></span>
+                            </span>
+                            <img class="btns_cornerbtn_img" src="icon/toolbar-popup.svg"></img>
+                        </button>                           
+                        
                     </div>
+                </div>            
+            
+                <div id="wrapper_in">
+                    <div id="content">
 
-                    <button class="general_btn main_btns btmbtn" id="btn_source" name="source"  ><a href="#source">
-                        <span class='lang lang-zh'>完整说明 | 源代码</span><span class='lang lang-en'>Full Readme | Source Code</span>                    </a></button>
+                                <div class="main_td" id="cata_td">
+                                    <div id="catabtns_header">
+                                        <span class='lang lang-zh'>选择分类:</span><span class='lang lang-en'>Catagories:</span>                                    </div>
+                                    <div id="catas_cont" > </div>
+                                </div>
+                                <div class="main_td" id="center_td">
+                                    
+                                        
+                                    <div id="intitle" >				
+                                        <h1 id="index_title" >
+                                        <a href="/"><span class='lang lang-zh'>大术专搜</span><span class='lang lang-en'>Big Search</span>🔍</a>
+                                        </h1>
+                                            <h3 id="index_subtitle" >
+                                                                                        </h3>
+                                    </div>
+                                    
+                            
+                                    <!--COMMON INPUTBOX HERE-->
+                                    <div id="input_o_cont">
+                                        <div id="input_cont">
+                                            <div id="inputbox_shell">
+                                                <input  id="inputbox" class="cur_inputbox"    />
+                                                <div id="dblclick_ml_tip" style="display:none;"><span class='lang lang-zh'>双击进入多行编辑</span><span class='lang lang-en'>Double-click to enter multi-line edit</span></div>
+                                            </div>
+                                            <div id="btns_below_input" >
+                                                <button class="general_btn btns_copypaste" id="inputclear">
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>清除</span><span class='lang lang-en'>Clean</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/trash-alt.svg"></img>
+                                                </button>
+                                                
+                                                <button class="general_btn btns_copypaste" id="inputselect">
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>全选</span><span class='lang lang-en'>Select All</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/arrows-shrink-h.svg"></img>
+                                                </button>
+                                                
+                                                <button class="general_btn btns_copypaste" id="inputcopy">
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>复制全部</span><span class='lang lang-en'>Copy All</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/file-copy-alt.svg"></img>
+                                                </button>
+                                                
+                                                <button class="general_btn btns_copypaste" id="inputpaste">
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>粘贴（在文本光标处）</span><span class='lang lang-en'>Paste (at text cursor)</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/clipboard-notes.svg"></img>
+                                                </button>
+                                                
+                                                
+                                                <button class="general_btn btns_copypaste" id="btn_ml_input">
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>多行编辑</span><span class='lang lang-en'>Multi-line Editor</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/line-spacing.svg"></img>
+                                                </button>
+                                                
+                                                
+                                                <button class="general_btn btns_copypaste" id="btn_save_ml" style="display: none; " >
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>完成多行编辑</span><span class='lang lang-en'>Finish Multi-line Edit</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/save-ml.svg"></img>
+                                                </button>
+                                                
+                                                <button class="general_btn btns_copypaste" id="btn_save_ml_sl" style="display: none; " >
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>转为单行 完成编辑</span><span class='lang lang-en'>Finish Edit & Convert to 1 Line</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/compress-lines.svg"></img>
+                                                </button>
+                                                
+                                            
+                                                
+                                                <span class="lang lang-zh" style="display:none;">
+                                                    &nbsp;&nbsp;
+                                                    <button class="general_btn" id="tosimp">
+                                                        简
+                                                    </button>
+                                                    &nbsp;
+                                                    <button class="general_btn" id="totrad">
+                                                        繁
+                                                    </button>
+                                                </span>
+                                                
+                                            
+                                                <button class="general_btn btns_copypaste btns_copypaste_right" id="openhist" class="openhist_hide" >
+                                                    <span class="span_copypaste_cont">
+                                                        <span class="span_copypaste"><span class='lang lang-zh'>历史</span><span class='lang lang-en'>History</span></span>
+                                                    </span>
+                                                    <img class="btns_copypaste_img" src="icon/history-alt.svg"></img>
+                                                </button>
+                                            </div>
+                                            
+                                            <textarea id="input_ml" style="display:none"></textarea>
+                                        </div>
+                                    </div>
+
+                                
+                                <div id="mobile_catasbtn_pos"> </div>
+                            
+                                
+                                    <div id="engines_o_cont">
+                                        <div id="div_custom_json"  style="display:none;"  >
+                                            <div id="div_button_to_input_json" >
+                                                <button id="btn_input_json"><span class='lang lang-zh'>编辑自定义引擎</span><span class='lang lang-en'>Edit custom engines</span></button>
+                                                
+                                                                                            </div>
+                                            
+                                            <div id="div_json_parse" style="display:none;" >
+                                                <div>
+                                                                                                            <a href="https://acsearch.ga/editengine.php" target="_blank">👉
+                                                        <span class='lang lang-zh'>打开GUI编辑(在线)</span><span class='lang lang-en'>Open GUI editor (online)</span> (link 1)
+                                                        </a> | 
+                                                        <a href="http://acsearch.tk/editengine.php" target="_blank">
+                                                        (link 2)
+                                                        </a>  | 
+                                                        <a href="https://garywill.github.io/BigSearch/editengine.html" target="_blank">
+                                                        (link 3)
+                                                        </a>
+                                                        
+                                                                                                        </div>
+                                                <details>
+                                                <summary><span class='lang lang-zh'>展开/收起JSON区</span><span class='lang lang-en'>Expand/Collapse JSON zone</span></summary>
+                                                
+                                                    <label for="textarea_json_saved">
+                                                        <span class='lang lang-zh'>已保存的自定义引擎：</span><span class='lang lang-en'>Saved custom engines:</span>                                                    </label>
+                                                    <br>
+                                                    <code><textarea id="textarea_json_saved" class="json_area" readonly="true" wrap="off" style="background: #e8e8e8;" rows="5" placeholder="Haven't added custom engines. When you need, use the online editing GUI. Also you can find full doc from the manual at source code page"></textarea></code>
+                                                    <br>
+                                                    <button id="btn_load_json"><span class='lang lang-zh'>↓读取并编辑</span><span class='lang lang-en'>↓Load &amp; Edit</span></button>
+                                                    <button id="btn_parse_json"><span class='lang lang-zh'>↑解析并覆盖保存</span><span class='lang lang-en'>↑Parse, Save &amp; Override</span></button>
+                                                
+                                                    
+                                                    <br>
+                                                    
+                                                    <label for="textarea_json">
+                                                        <span class='lang lang-zh'>在此处编辑自定义引擎：</span><span class='lang lang-en'>Edit custom engines here:</span>                                                    </label>
+                                                    <br>
+                                                    
+                                                    <code><textarea id="textarea_json" class="json_area" wrap="off" rows="5" placeholder="Input/paste in JSON format. It's easy!"></textarea></code>
+                                                </details>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="div_search_permi" style="display:none; " >
+                                            <button id="btn_search_permi">
+                                                <span class='lang lang-zh'>开启此功能</span><span class='lang lang-en'>Enable this feature</span>                                            </button>
+                                        </div>
+                                        
+                                        <div id="engines_cont"> 
+                                            <hr id="hr_above_table">
+                                        </div>
+                                    </div>
+            
+
+                                </div>
+                                
+                                <div class="main_td" id="td_gap_hist_left">
+                                </div>
+                                
+                                <div class="main_td"  id="hist_td">
+                                    <div id="hist_cont">
+                                        <div id="hist_ban">
+                                            <span class='lang lang-zh'>输入历史</span><span class='lang lang-en'>Input History</span>                                            <span id="hist_tip">
+                                                <span class='lang lang-zh'>双击可再次使用</span><span class='lang lang-en'>Doubleclick to use again</span>                                            </span>
+                                        </div>
+                                        <div id="hist_grow" style="height: 0px;">12345678901234567890123456789012345678901234567890123456789012345678901234567890</div>
+
+                                        <div id="hist" ></div>
+                                        
+                                        <div id="clearhist" class="general_btn main_btns">
+                                            <span class='lang lang-zh'>清空</span><span class='lang lang-en'>Clean All</span>                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="main_td" id="td_gap_hist_right">
+                                </div>
+
                     
-                    <button class="general_btn main_btns btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
-                        <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                        <span class="badge_cont" style="">
-                            <span id="hot_badge" class="badge" >HOT</span>
-                        </span>
-                    </a></button>
-                    
-                    <button class="general_btn main_btns btmbtn" id="btn_editgui" name="editgui"  ><a href="editengine.php" target="_blank">
-                        <span class='lang lang-zh'>编辑引擎</span><span class='lang lang-en'>Edit Engines</span>                    </a></button>
-                    
+                    </div>
+                </div>
+
+                <div id="bottom">
+                    <div id="btmbtns" >
+                        <button class="general_btn main_btns btmbtn " id="btn_usage" name="usage"  ><a href="#usage">
+                                                            <span class='lang lang-zh'>说明</span><span class='lang lang-en'>Usage</span>                                                        
+                        </a></button>
                         
+                        <div>
+                        <button class="general_btn main_btns btmbtn" id="btn_theme" name="theme"  ><a href="#theme"><span class="btmemoji">👀</span>
+                            <span class='lang lang-zh'>界面风格</span><span class='lang lang-en'>UI Style</span>                        </a></button>
+                        ·
+                        <button class="general_btn main_btns btmbtn" id="btn_randomtheme" name="randomtheme"  ><a>
+                            <span class='lang lang-zh'>随机换</span><span class='lang lang-en'>Change</span> <span class="btmemoji">🔀</span>
+                        </a></button>
+                        </div>
+
+                        <button class="general_btn main_btns btmbtn" id="btn_source" name="source"  ><a href="#source">
+                            <span class='lang lang-zh'>完整说明 | 源代码</span><span class='lang lang-en'>Full Readme | Source Code</span>                        </a></button>
+                        
+                        <button class="general_btn main_btns btmbtn" id="btn_webext" name="webext"  ><a href="#webext">
+                            <span class='lang lang-zh'>浏览器扩展</span><span class='lang lang-en'>Browser Addon</span>                            <span class="badge_cont" style="">
+                                <span id="hot_badge" class="badge" >HOT</span>
+                            </span>
+                        </a></button>
+                        
+                        <button class="general_btn main_btns btmbtn" id="btn_editgui" name="editgui"  ><a href="editengine.php" target="_blank">
+                            <span class='lang lang-zh'>编辑引擎</span><span class='lang lang-en'>Edit Engines</span>                        </a></button>
+                        
+                            
     <button class="general_btn main_btns btmbtn" id="btn_donate" name="donate"  >
         <a href="#donate">
             <span class='lang lang-zh'>扫码打赏 | 领支付宝红包</span><span class='lang lang-en'>Buy me coffee</span>            <span class="badge_cont" style="">
@@ -315,146 +352,146 @@
     <button class="general_btn main_btns btmbtn" id="btn_about" name="about"  ><a href="#about" >
         <span class='lang lang-zh'>关于</span><span class='lang lang-en'>About</span>    </a></button>
     
-                    </div>
-                
-                <div class="btm_dialog" id="btn_theme_dialog">
+                        </div>
                     
-                    <a name="theme" ></a>
-                    <h3> <span class='lang lang-zh'>外观主题</span><span class='lang lang-en'>UI Themes</span> </h3>
-                    
-                    <div id="div_choose_themes" style="text-align: left;" >
+                    <div class="btm_dialog" id="btn_theme_dialog">
                         
-                    </div>
+                        <a name="theme" ></a>
+                        <h3> <span class='lang lang-zh'>外观主题</span><span class='lang lang-en'>UI Themes</span> </h3>
+                        
+                        <div id="div_choose_themes" style="text-align: left;" >
+                            
+                        </div>
 
-                </div>
-                
-                <div class="btm_dialog" id="btn_source_dialog">
-                    
-                    <a name="source" ></a>
-                    <h3> <span class='lang lang-zh'>源代码 及 详尽使用说明</span><span class='lang lang-en'>Source code & Full readme and manual</span> </h3>
-                    
-                    <div style="text-align: left;">
-                        <span class='lang lang-zh'>项目介绍 、完整说明 、用户手册 及 查阅源代码：</span><span class='lang lang-en'>Project introduction, full readme, user manual or see the source code:</span>                        
-                        <ul>
-                        
-                        <li><a target="_blank" href="https://github.com/garywill/BigSearch">Github repo</a>  </li>
-                        
-                        <span class="lang lang-zh">
-                            <li> <a target="_blank" href="https://gitlab.com/garywill/bigSearch/-/blob/master/src/README_zh.md">Gitlab 镜像 repo （备用） </a>  </li>
-                            <li> <a target="_blank" href="https://jihulab.com/garywill/BigSearch/-/blob/master/src/README_zh.md">Gitlab 国内镜像（极狐） repo （备用） </a>  </li>
-                        </span>
-                        
-                        </ul>
                     </div>
-                </div>
-                
-                <div class="btm_dialog" id="btn_webext_dialog">
-                    <a name="webext" ></a>
-                                    </div>
-                
-                <div class="btm_dialog" id="btn_usage_dialog">
-                    <a name="usage" ></a>
-                    <h3><span class='lang lang-zh'>使用说明</span><span class='lang lang-en'>Usage</span></h3>
-                    <div style="text-align: left;">
-                        <span class="lang lang-zh">
-                            <p>以 <strong>灵活</strong>又<strong>顺手</strong> 的方式 在(切换) <strong>任意一个</strong> 或 <strong>(连续)多个</strong> 搜索引擎（或任意网站）进行搜索。</p>
-                            
-                            
+                    
+                    <div class="btm_dialog" id="btn_source_dialog">
+                        
+                        <a name="source" ></a>
+                        <h3> <span class='lang lang-zh'>源代码 及 详尽使用说明</span><span class='lang lang-en'>Source code & Full readme and manual</span> </h3>
+                        
+                        <div style="text-align: left;">
+                            <span class='lang lang-zh'>项目介绍 、完整说明 、用户手册 及 查阅源代码：</span><span class='lang lang-en'>Project introduction, full readme, user manual or see the source code:</span>                            
                             <ul>
-                            <li>输入后，<b>点击</b>表格<b>右列中</b>的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）。将打开新分页显示结果。<br><br></li>
-                            <li>最后使用过的按钮被加亮显示，下次敲击回车即可再次调用。<br><br></li>
-                            <li>双击搜索历史中的条目，快速将条目插入至输入框
-                                <ul>
-                                <li>单行编辑状态下，双击为替换文本</li>
-                                <li>多行编辑状态下，双击为插入至光标处<br><br></li>
-                                </ul>
-                            </li>
                             
+                            <li><a target="_blank" href="https://github.com/garywill/BigSearch">Github repo</a>  </li>
                             
-                                <li>
-                                    快捷键（可能需自行修改）
-                                    <ul>
-                                    <li>唤出界面。Firefox: <code>Ctrl+Alt+S</code> | Chrome及其他：<code>Ctrl+Shift+S</code></li>
-                                    <li>将选择文本设定为搜索词（然后再使用唤出界面）。Firefox: <code>Ctrl+Alt+D</code> | Chrome及其他：<code>Ctrl+Shift+D</code></li>
-                                    </ul>
-                                    （<a target="_blank" href="https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647">Firefox更改</a> | Chrome更改 <code>chrome://extensions/shortcuts</code> ）
-                                    <br><br>
-                                </li>
+                            <span class="lang lang-zh">
+                                <li> <a target="_blank" href="https://gitlab.com/garywill/bigSearch/-/blob/master/src/README_zh.md">Gitlab 镜像 repo （备用） </a>  </li>
+                                <li> <a target="_blank" href="https://jihulab.com/garywill/BigSearch/-/blob/master/src/README_zh.md">Gitlab 国内镜像（极狐） repo （备用） </a>  </li>
+                            </span>
                             
                             </ul>
-
-                            <a style="display:none;" href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video (Youtube)</a>
-                            
-                            <p>大术专搜 当然<b>不只是</b>一个简单的搜索请求发送器。可以访问源代码页面，以了解其一些<b>“独门特技”</b>。</p>
-                            
-                                                        
-                        </span>
-                        
-                        <span class="lang lang-en">
-                            <p>Handily use / switch <strong>any one</strong> or <strong>multiple</strong> (uninterruptedly) <strong>search engines</strong> (or search any websites) via a <strong>flexible tool</strong>.</p>
-                            
-                            
-                            <ul>
-                            <li>After finish inputting, <b>click</b> button(s) in the <b>right column</b> of the table to perform an operation (e.g. search) in the corresponding engine (or website/database). A new page will be opened to display the results. <br><br></li>
-                            <li>The last used button is highlighted, and can be used again by pressing Enter. <br><br></li>
-                            <li>Double-click an entry in the history to quickly insert the entry text to the input box 
-                                <ul>
-                                <li>In single-line edit mode, double-clicking replaces the text </li>
-                                <li>In multi-line edit mode, double-clicking inserts to cursor</li>
-                                <br><br>
-                                </ul>
-                            </li>
-                            
-                            
-                            
-                            
-                                <li>
-                                    Keyboard shortcuts (may need changing manually )
-                                    <ul>
-                                    <li>Open popup. Firefox: <code>Ctrl+Alt+S</code> | Chrome &amp; others：<code>Ctrl+Shift+S</code></li>
-                                    <li>Set selected text as search term (then use open popup). Firefox: <code>Ctrl+Alt+D</code> | Chrome &amp; others：<code>Ctrl+Shift+D</code></li>
-                                    </ul>
-                                    (<a target="_blank" href="https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647">change on Firefox</a> | change on Chrome: <code>chrome://extensions/shortcuts<code>)
-
-                                    <br><br>
-                                </li>
-
-                                                        
-                            </ul>
-                            
-                            <a style="display:none;"  href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
-                            
-                            <p>Big Search is <b>more than</b> a simple web search request sender. Visit the source code page to know <b>what's special about it</b>.</p>
-                            
-                                                        
-                        </span>
+                        </div>
                     </div>
-
-                                            <div class="lang lang-zh">
-                            <h3>老用户FAQ</h3>
-                            
-                            <div style="text-align: left;">
-                                <p><strong>Q: Chrome系的浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面</strong></p>
-                                
-                                <p>A: 这是<a target="_blank" href="https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283">仅Chrome内核浏览器有的缺陷</a>。请在选择了文本后，使用按键组合<code>Ctrl+Shift+D</code>然后<code>Ctrl+Shift+S</code>（可能需自行修改）来作为暂时的快捷操作</p>
-                            </div>
-                        </div> 
-                        <div class="lang lang-en">
-                            <h3>FAQ</h3>
-                            
-                            <div style="text-align: left;">
-                                <p><strong>Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)</strong></p>
-                                
-                                <p>A: It's because of <a target="_blank" href="https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283">defect of Chrome browser engine</a>. Please use key combination <code>Ctrl+Shift+D</code> then <code>Ctrl+Shift+S</code> (you may want to modify them) as workaround</p>
-                            </div>
-                        </div> 
-                        
-                        
-                                       
                     
-                                        
-                </div>
-                    <div class="btm_dialog" id="btn_donate_dialog" style="display:none;" >
+                    <div class="btm_dialog" id="btn_webext_dialog">
+                        <a name="webext" ></a>
+                                            </div>
+                    
+                    <div class="btm_dialog" id="btn_usage_dialog">
+                        <a name="usage" ></a>
+                        <h3><span class='lang lang-zh'>使用说明</span><span class='lang lang-en'>Usage</span></h3>
+                        <div style="text-align: left;">
+                            <span class="lang lang-zh">
+                                <p>以 <strong>灵活</strong>又<strong>顺手</strong> 的方式 在(切换) <strong>任意一个</strong> 或 <strong>(连续)多个</strong> 搜索引擎（或任意网站）进行搜索。</p>
+                                
+                                
+                                <ul>
+                                <li>输入后，<b>点击</b>表格<b>右列中</b>的按钮，即可在相应网站（或数据库）中进行相应分类的操作（如搜索）。将打开新分页显示结果。<br><br></li>
+                                <li>最后使用过的按钮被加亮显示，下次敲击回车即可再次调用。<br><br></li>
+                                <li>双击搜索历史中的条目，快速将条目插入至输入框
+                                    <ul>
+                                    <li>单行编辑状态下，双击为替换文本</li>
+                                    <li>多行编辑状态下，双击为插入至光标处<br><br></li>
+                                    </ul>
+                                </li>
+                                
+                                
+                                    <li>
+                                        快捷键（可能需自行修改）
+                                        <ul>
+                                        <li>唤出界面。Firefox: <code>Ctrl+Alt+S</code> | Chrome及其他：<code>Ctrl+Shift+S</code></li>
+                                        <li>将选择文本设定为搜索词（然后再使用唤出界面）。Firefox: <code>Ctrl+Alt+D</code> | Chrome及其他：<code>Ctrl+Shift+D</code></li>
+                                        </ul>
+                                        （<a target="_blank" href="https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647">Firefox更改</a> | Chrome更改 <code>chrome://extensions/shortcuts</code> ）
+                                        <br><br>
+                                    </li>
+                                
+                                </ul>
+
+                                <a style="display:none;" href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video (Youtube)</a>
+                                
+                                <p>大术专搜 当然<b>不只是</b>一个简单的搜索请求发送器。可以访问源代码页面，以了解其一些<b>“独门特技”</b>。</p>
+                                
+                                                                
+                            </span>
+                            
+                            <span class="lang lang-en">
+                                <p>Handily use / switch <strong>any one</strong> or <strong>multiple</strong> (uninterruptedly) <strong>search engines</strong> (or search any websites) via a <strong>flexible tool</strong>.</p>
+                                
+                                
+                                <ul>
+                                <li>After finish inputting, <b>click</b> button(s) in the <b>right column</b> of the table to perform an operation (e.g. search) in the corresponding engine (or website/database). A new page will be opened to display the results. <br><br></li>
+                                <li>The last used button is highlighted, and can be used again by pressing Enter. <br><br></li>
+                                <li>Double-click an entry in the history to quickly insert the entry text to the input box 
+                                    <ul>
+                                    <li>In single-line edit mode, double-clicking replaces the text </li>
+                                    <li>In multi-line edit mode, double-clicking inserts to cursor</li>
+                                    <br><br>
+                                    </ul>
+                                </li>
+                                
+                                
+                                
+                                
+                                    <li>
+                                        Keyboard shortcuts (may need changing manually )
+                                        <ul>
+                                        <li>Open popup. Firefox: <code>Ctrl+Alt+S</code> | Chrome &amp; others：<code>Ctrl+Shift+S</code></li>
+                                        <li>Set selected text as search term (then use open popup). Firefox: <code>Ctrl+Alt+D</code> | Chrome &amp; others：<code>Ctrl+Shift+D</code></li>
+                                        </ul>
+                                        (<a target="_blank" href="https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647">change on Firefox</a> | change on Chrome: <code>chrome://extensions/shortcuts<code>)
+
+                                        <br><br>
+                                    </li>
+
+                                                                
+                                </ul>
+                                
+                                <a style="display:none;"  href="https://www.youtube.com/watch?v=hn5BkviAyvQ" target="_blank">Watch demo video</a>
+                                
+                                <p>Big Search is <b>more than</b> a simple web search request sender. Visit the source code page to know <b>what's special about it</b>.</p>
+                                
+                                                                
+                            </span>
+                        </div>
+
+                                                    <div class="lang lang-zh">
+                                <h3>老用户FAQ</h3>
+                                
+                                <div style="text-align: left;">
+                                    <p><strong>Q: Chrome系的浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面</strong></p>
+                                    
+                                    <p>A: 这是<a target="_blank" href="https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283">仅Chrome内核浏览器有的缺陷</a>。请在选择了文本后，使用按键组合<code>Ctrl+Shift+D</code>然后<code>Ctrl+Shift+S</code>（可能需自行修改）来作为暂时的快捷操作</p>
+                                </div>
+                            </div> 
+                            <div class="lang lang-en">
+                                <h3>FAQ</h3>
+                                
+                                <div style="text-align: left;">
+                                    <p><strong>Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)</strong></p>
+                                    
+                                    <p>A: It's because of <a target="_blank" href="https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283">defect of Chrome browser engine</a>. Please use key combination <code>Ctrl+Shift+D</code> then <code>Ctrl+Shift+S</code> (you may want to modify them) as workaround</p>
+                                </div>
+                            </div> 
+                            
+                            
+                                           
+                        
+                                                
+                    </div>
+                        <div class="btm_dialog" id="btn_donate_dialog" style="display:none;" >
         <a name="donate" ></a>
         <h3><span class='lang lang-zh'>扫码领红包 + 打赏一个</span><span class='lang lang-en'>Buy me a coffee</span></h3>
         <span class='lang lang-zh'>建造不易，感谢支持！你们的赞赏是我们的动力！</span><span class='lang lang-en'>Thank you for recognizing and giving reward for our work! Your donation will be an impetus for us!</span>        
@@ -533,11 +570,10 @@
         </div>
         
     </div>
+                    
+                </div>
                 
             </div>
-            
-            
-		
 		</div>
 		
 		
@@ -554,7 +590,7 @@
 		<div id="permis_toast_o" style="display:none;" >
             <div id="permis_toast">
                 <div>
-                    <span class='lang lang-zh'>需要询问权限，以进行含有Ajax的搜索</span><span class='lang lang-en'>Need ask for permission, to search by website with Ajax</span>                </div>
+                    <span class='lang lang-zh'>需要向浏览器获取该网站的权限，以进行带有Ajax的搜索</span><span class='lang lang-en'>Need to ask browser for permission to that website, to do Ajax search on that website</span>                </div>
                 <div>
                     <span id="permis_toast_url" style="font-size: 80%" data="">URL</span>
                 </div>

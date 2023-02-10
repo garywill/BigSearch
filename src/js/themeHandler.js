@@ -21,6 +21,11 @@ async function init_themeHandler() {
     async function themeHandlerClass () {
         this.div_choose_themes = document.getElementById("div_choose_themes");
         
+        if (window.run_env != "http_web")
+        {
+            this.showasChoose = showas;
+        } 
+        
         this.themes = {
             "default" : {  },
             "Mac": {
@@ -29,15 +34,10 @@ async function init_themeHandler() {
             "Keyboard": {
                 need_sty: ["bold"],
             },
-            "Foggy_Lake__Blue": {
-                d_name: "Foggy Lake - Colorful Blue + Green",
-                need_theme: "Foggy_Lake",
-            },
             "Foggy_Lake__Green": {
                 need_theme: "Foggy_Lake",
                 need_sty: [],
             },
-            
             "Foggy_Lake": {
                 d_name: "Foggy Lake (some blue)",
                 need_sty: ["bold"],
@@ -54,7 +54,10 @@ async function init_themeHandler() {
                 d_name: "Foggy Lake (Grey + faded head)",
                 need_theme: "Foggy_Lake__Grey",
             },
-            
+            "Foggy_Lake__Blue": {
+                d_name: "Foggy Lake - Colorful Blue + Green",
+                need_theme: "Foggy_Lake",
+            },            
             "Light_and_Grey": {},
             "Light_and_Grey_2": {
                 need_theme: "Light_and_Grey"
@@ -81,7 +84,14 @@ async function init_themeHandler() {
         this.decideDefaultTheme = function() {
             if (window.run_env == "http_web") {
             } else  // addon 
-                this._defaultTheme =  "Foggy_Lake__Green";
+            { 
+                if (showas == "stab")
+                    this._defaultTheme =  "Light_and_Black";
+                else if (showas == "popup")
+                    this._defaultTheme =  "Light_and_Grey_2";
+                else if (showas == "sidebar")
+                    this._defaultTheme =  "Light_and_Grey_2";
+            } 
         };
         this.getDefaultTheme = function() {
             return this._defaultTheme;
@@ -123,7 +133,7 @@ async function init_themeHandler() {
             if (window.run_env == "http_web" ) {
                 return localStorage['theme'];
             } else {
-                var theme = (await get_addon_setting_local('theme') ) ;
+                var theme = (await get_addon_setting_local('themeSave_'+showasChoose) ) ;
                 return theme;
             }
         };
@@ -131,16 +141,16 @@ async function init_themeHandler() {
             if (window.run_env == "http_web" ) {
                 delete localStorage['theme'];
             } else {
-                await chrome.storage.local.remove('theme');
-                delete localStorage['theme'];
+                await chrome.storage.local.remove('themeSave_'+showasChoose);
             }
         };
         this.setUserTheme = async function (theme) {
             if (window.run_env == "http_web" ) {
                 localStorage['theme'] = theme;
             } else {
-                await chrome.storage.local.set( { 'theme': theme } );
-                localStorage['theme'] = theme;
+                var obj = {};
+                obj[`themeSave_${showasChoose}`] = theme;
+                await chrome.storage.local.set(obj);
             }
         };
         
@@ -184,17 +194,17 @@ async function init_themeHandler() {
                 await themeHandler.setUserTheme(this.value);
         }
         
-        // ===================================================
+
         
-        
+        // ===============================
+        // migrate from "theme" to "theme: { popup:... , sidebar: ...}"
+        // NOTE delete in the future
         if (window.run_env != "http_web") {
-            // migrate theme from localStorage to storage.local
-            // NOTE delete in the future
-            if (! (await get_addon_setting_local('theme') ) && localStorage['theme'] )
-                chrome.storage.local.set( {'theme': localStorage['theme'] } );
-            
-            if (await get_addon_setting_local('theme'))
-                localStorage['theme'] = (await get_addon_setting_local('theme'));
+            if ( typeof (await get_addon_setting_local('theme')) === "string" )
+            {
+                await chrome.storage.local.set( {'themeSave_popup': (await get_addon_setting_local('theme')) } );
+                chrome.storage.local.remove("theme");
+            }
         }
         
         // ===================================================

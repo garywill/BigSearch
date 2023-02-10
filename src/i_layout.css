@@ -194,6 +194,7 @@ a {
     height: var(--wrapper-height);
     max-height: var(--wrapper-height);
     min-height: var(--wrapper-height);
+    position: relative;
 }
 
 #wrapper_in {

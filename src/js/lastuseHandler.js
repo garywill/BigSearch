@@ -149,7 +149,7 @@ async function scroll_to_lastp() {
         return;
     }
 
-    var distance = lastp.offsetTop + lastp.parentNode.offsetTop + engines_cont.offsetTop;
+    var distance = lastp.offsetTop  + engines_cont.offsetTop;
     div.scrollTop = distance - div.clientHeight + parseInt(getComputedStyle(lastp).height);
 }
 function setc_lastp(sete,setb)

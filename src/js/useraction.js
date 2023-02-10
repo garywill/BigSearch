@@ -149,6 +149,9 @@ async function cata_onclick_ui(btnobj)
     //table_cont_style();
     
     lastuseHandler.saveLastBrowse(dbname, cata);
+    
+    if (useVmm)
+        vmmHandler.tableVmmInit();
 }
 
 

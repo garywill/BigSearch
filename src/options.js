@@ -14,6 +14,47 @@ async function on_optionpage_load() {
 
     // --------------------------
     
+    var setting_enContextMenu = await get_addon_setting_local('enContextMenu') ;
+    
+    if (setting_enContextMenu !== false)
+        document.getElementById("cbox_enContextMenu").checked = true;
+    
+    document.getElementById("cbox_enContextMenu").addEventListener("change", function () {
+        chrome.storage.local.set({"enContextMenu" : document.getElementById("cbox_enContextMenu").checked });
+    });
+    
+    // ------------------
+     
+    var setting_contextMenuBehavior = await get_addon_setting_local('contextMenuBehavior') ;
+    
+    if (!setting_contextMenuBehavior)
+        setting_contextMenuBehavior = "popup";
+    
+    document.querySelector(`#form_contextMenuBehavior input[name=contextmenu_behavior][value=${setting_contextMenuBehavior}]`).checked = true;
+    
+    Array.from (document.querySelectorAll("#form_contextMenuBehavior input[name=contextmenu_behavior]") ).forEach (function(ele) {
+        ele.addEventListener("change", function () {
+            if (ele.checked) {
+                chrome.storage.local.set( { contextMenuBehavior : ele.value } );
+            } 
+        });
+    });
+    
+    // -----------------
+    var setting_copyOnContextMenuOrKey = await get_addon_setting_local('copyOnContextMenuOrKey') ;
+    
+    if (setting_copyOnContextMenuOrKey === true)
+        document.getElementById("cbox_copyOnContextMenuOrKey").checked = true;
+    
+    document.getElementById("cbox_copyOnContextMenuOrKey").addEventListener("change", function (event) {
+        chrome.storage.local.set({"copyOnContextMenuOrKey" : event.target.checked});
+        
+        if (event.target.checked)
+            chrome.permissions.request( { permissions: ['clipboardWrite'] } , r=>console.log(r) );
+    });
+    
+    // --------------------------
+    
 
         
     if (settings['checkupdate'] === true) 

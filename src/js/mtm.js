@@ -37,18 +37,21 @@ async function do_stati()
             fake_title: 'Big Search Addon '
                 + chrome.runtime.getManifest()['version']   // adddon version
                 + ' [' + chrome.i18n.getUILanguage() + '] '  // language
-                + `${localStorage['theme'] ? ' [' + localStorage['theme'] + '] ': ''}` // in-addon theme
+                + ` ${showas} `
+                + `${(await themeHandler.getUserTheme()) ? ' [' + (await themeHandler.getUserTheme()) + '] ': ''}` // in-addon theme
                 + '(' + (await getInstallType()) + ')' // install from web store or not
             ,
             page_pg: function() {
                 mtm.pvid = mtm.rand_str(6); // generate random string everytime
                 mtm.uid = (getRandomInt( parseInt('fffffffffffffff',16) ) + parseInt('1000000000000000',16)).toString(16) ; // generate random string everytime
+                mtm.inited = true;  // wouldn't reach here if user disable stati
+                if (!showas || showas == 'stab')
+                    return;
                 try{
                     fetch(
                         mtm.mtm_url + `?rec=1&pv_id=${mtm.pvid}&_id=${mtm.uid}&rand=${getRandomInt(100)}&action_name=${mtm.fake_title}&url=${mtm.fake_url}&idsite=7`
                     , { mode: 'no-cors' } );
                 }catch(err){}
-                mtm.inited = true;  // wouldn't reach here if user disable stati
             },
             goevent: function(dbname) {
                 if (!mtm.inited)

@@ -93,8 +93,19 @@ onrd.push(async function() {
     await init_lastuseHandler();
 });
 
+var useVmm;
+onrd.push(async function() {
+    if (useVmm === true)
+        await init_vmmHandler();
+}); 
+
+
+
 onrd.push(async function(){
     await make_cata_btns();
+    
+    if (useVmm === true)    
+        vmmHandler.catasVmmInit();
     
 //     cata_onclick( document.getElementById("cata_btn_general_dbname_bigsearch") );
     lastuseHandler.loadLastBrowse();
@@ -104,13 +115,56 @@ onrd.push(function(){
     document.getElementById("inputbox").addEventListener('keypress', inputbox_press );
 });
 
-onrd.push(function(){
-    setTimeout(putmail,5000);
-});
+
 
 onrd.push(function(){
 	inputHandler.setFocus();
 });
+
+onrd.push(function(){
+    const btn_ml_input = document.getElementById("btn_ml_input");
+    const btn_save_ml = document.getElementById("btn_save_ml");
+    const btn_save_ml_sl = document.getElementById("btn_save_ml_sl");
+    
+    if (window.run_env == "http_web")
+        inputHandler.init_mode();
+    inputHandler.setMlView(false);
+    
+    btn_ml_input.onclick = function() {
+        inputHandler.openMlView();
+        
+        if (useVmm)
+            vmmHandler.setOff();
+    }
+    btn_save_ml.onclick = function() {
+        inputHandler.saveMl();
+    }
+    btn_save_ml_sl.onclick = function() {
+        inputHandler.saveMlAsSl();
+    }
+
+});
+
+onrd.push(async function(){ 
+    if (window.run_env != "http_web" /* && ! chrome.extension.inIncognitoContext */ ) 
+        await inputHandler.read_stored_inputcontent_to_inputele();
+});
+onrd.push(function(){ 
+    if (window.run_env != "http_web" /* && ! chrome.extension.inIncognitoContext */ ) 
+    {
+        window.addEventListener("focus", async function(){
+            await inputHandler.read_stored_inputcontent_to_inputele();
+        });
+        // window.addEventListener("blur", async function(){
+        //     await set_stored_input_content( inputHandler.getValue());
+        // });
+    }
+});
+onrd.push(function(){ 
+    inputHandler.init_messageReceiver();
+}); 
+
+
 
 onrd.push(function(){
     lastuseHandler.loadLastClick();
@@ -157,7 +211,7 @@ onrd.push(function(){
         try 
         {
             document.execCommand('copy');
-        }catch(err){  }
+        }catch(err){ console.warn(err); }
 	}
 });
 
@@ -190,26 +244,7 @@ onrd.push(function(){
 
 
 
-onrd.push(function(){
-    const btn_ml_input = document.getElementById("btn_ml_input");
-    const btn_save_ml = document.getElementById("btn_save_ml");
-    const btn_save_ml_sl = document.getElementById("btn_save_ml_sl");
-    
-    if (window.run_env == "http_web")
-        inputHandler.init_mode();
-    inputHandler.setMlView(false);
-    
-    btn_ml_input.onclick = function() {
-        inputHandler.openMlView();
-    }
-    btn_save_ml.onclick = function() {
-        inputHandler.saveMl();
-    }
-    btn_save_ml_sl.onclick = function() {
-        inputHandler.saveMlAsSl();
-    }
 
-});
 
 
 
@@ -271,6 +306,65 @@ onrd.push(function(){
     };
 });
 
+onrd.push(function() {
+    document.getElementById("cornerbtn_openintab").onclick =async  function() {
+        await chrome.tabs.query({
+                url:chrome.runtime.getURL('home.html'), 
+                currentWindow: true
+            }, 
+            function(result)
+            {
+                if (!result.length>0)
+                {
+                    chrome.tabs.create( { url: chrome.runtime.getURL('home.html'), active: true, index: newTabIndex  } ) ;
+                }
+                else
+                {
+                    const tabAlready = result[0];
+                    chrome.tabs.update(tabAlready.id, { active: true }) ;
+                } 
+            }
+        ) ;
+    };
+});
+onrd.push(function() {
+    document.getElementById("cornerbtn_setashome").onclick = function() {
+        const url = chrome.runtime.getURL("home.html");
+        var copyask = confirm( i18n( [ `您可以前往浏览器的设置，将主页设置为\n\n${url}\n\n点击确定复制该URL`, `You can go to browser's settings and set the homepage to\n\n${url}\n\nClick OK to copy that URL` ] ) );
+        if (copyask)
+        {
+            var fakeele =document.createElement("input");
+            fakeele.value = url;
+            fakeele.style = "max-height: 1px; max-width: 1px; position: absolute; top: -999px; left: -999px;"
+            document.getElementById("wrapper").appendChild(fakeele);
+            fakeele.focus();
+            fakeele.select();
+            try{
+                document.execCommand('copy');
+            }catch(err) { console.warn(err) } 
+            setTimeout(function() {fakeele.parentNode.removeChild(fakeele);}, 1000);
+        }
+    };
+});
+onrd.push(function() {
+    if (isFirefox)
+        document.getElementById("cornerbtn_opensidebar").onclick = function() {
+            browser.sidebarAction.open();
+        };
+    else if (isChrome)
+        document.getElementById("cornerbtn_opensidebar").style.display = "none";
+});
+onrd.push(function() {
+    if (isFirefox)
+        document.getElementById("cornerbtn_openpopup").onclick = async function() {
+            var r = await browser.browserAction.openPopup();
+            console.log(r);
+        };
+    else if (isChrome)
+        document.getElementById("cornerbtn_openpopup").style.display = "none";
+});
+
+
 onrd.push(function(){
     document.getElementById("btn_zh").onclick = function(){
         setCookie_my("hl","zh");
@@ -301,24 +395,37 @@ onrd.push(function(){
     },500);
 });
 
+
+
 onrd.push(function(){ 
-    // NOTE this must be after inputHandler inited
-    read_stored_input_content();
-});
-onrd.push(function(){ 
-    if (window.run_env != "http_web" /* && ! chrome.extension.inIncognitoContext */ ) 
+    if (useVmm) 
     {
         window.addEventListener("focus", function(){
-            if ( getStor("input_content") !=  inputHandler.getValue() )
-            {
-                read_stored_input_content();
-            }
+            vmmHandler.windowOnFocus();
         });
         window.addEventListener("blur", function(){
-            setStor("input_content", inputHandler.getValue());
+            vmmHandler.windowOnBlur();
         });
     }
 });
+
+onrd.push(async function(){ 
+    if (window.run_env != 'http_web' && showas == 'stab') {
+        chrome.runtime.onMessage.addListener(async function(request, sender, sendResponse) {
+            if ( chrome.runtime.id === sender.id 
+                && request['to'] == "home.html" 
+                && request['to_showas'] == 'stab' 
+                && request['command'] == 'stabs_report_yourselfs' 
+            )
+            {
+                chrome.runtime.sendMessage( {
+                    from: "home.html", 
+                    from_showas: "stab", 
+                });
+            }
+        } );
+    }
+}); 
 
 
 onrd.push(function(){
@@ -431,6 +538,10 @@ onrd.push(async function(){
     }
 });
 
+onrd.push(function(){
+    setTimeout(putmail,5000);
+});
+
 onrd.push(function() {
     const eles_selector = ["#bottom", "#bottom-place", "#header", "#intitle", ".labelrow", "#hist"];
     eles_selector.forEach(function(selStr) {
@@ -477,16 +588,6 @@ async function make_cata_btns() {
         if (isVisible(catas[cata]))
             document.getElementById("catas_cont").appendChild(createCataBtn(cata));
     });
-}
-
-
-function read_stored_input_content() {
-    // in addon, when popup open and close, read and save temperary input
-    // NOTE this must be after inputHandler inited
-    if (window.run_env != "http_web" /* && ! chrome.extension.inIncognitoContext */ ) 
-    {
-        inputHandler.init_mode( getStor("input_content") );
-    }
 }
 
 
