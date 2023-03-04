@@ -77,7 +77,7 @@ onrd.push(function() {
     $("#btn_detect").click(function() {
         bsAddonVersion = null;
         console.log("page: trying to fetch bs addon version..");
-        $("#div_bsAddon_stat").text(`Detecting Big Search extension ... (requires Big Search extention >= 2.8.20)`);
+        $("#div_bsAddon_stat").html(`<b style="color:#b47200;"><u>Not detected Big Search extension (requires version >= 2.8.23)... Please grant permission (from toolbar)</u></b>`);
         window.postMessage({
             direction: "page-to-content",
             app: "bigsearch-edit",
@@ -197,6 +197,7 @@ onrd.push(function() {
             },
             onclick_favbtn(engine_name) {
                 bs_gui.addFav(engine_name);
+                toast_addFav.show();
             },
             onLangRadioChange() {
                 window.lang = this.lang;

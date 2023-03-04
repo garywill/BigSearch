@@ -401,7 +401,7 @@ makeTemplateTable();
                                             <tbody>
                                                 <tr v-for="row in cata.engines">
                                                     <template v-if="row.type=='engine' && isVisible(row)">
-                                                        <td><button v-on:click="onclick_favbtn(row.name)">⭐</button></td>
+                                                        <td><button class="btn btn-secondary btn-sm btn_fav" v-on:click="onclick_favbtn(row.name)">⭐</button></td>
                                                         <td>
                                                             <b>{{ sEngines[row.name].dname }} </b> &nbsp;
                                                             <code v-bind:title="JSON.stringify(sEngines[row.name], null, 4)">{{ row.name }}</code></td>
@@ -430,6 +430,21 @@ makeTemplateTable();
                 
                 <br><br><br><br><br><br>
             </div>
+            
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                <div class="toast hide " 
+                    id="toast_addFav" data-bs-animation="false" data-bs-autohide="true" data-bs-delay="1500">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Added the built-in engine you clicked to your custom list
+                        </div>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var toast_addFav = new bootstrap.Toast($("#toast_addFav")[0])
+            </script>
             
             <div hidden>
                 <b>Let's begin customizing search engine:</b>

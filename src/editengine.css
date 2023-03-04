@@ -145,3 +145,8 @@ img[src=''] {
     text-align: left;
 }
 
+.btn_fav {
+    background-color: #fefefe;
+    border: none;
+    box-shadow: 1px 1px gray;
+}
