@@ -526,7 +526,7 @@ onrd.push(async function(){
         if ( (await get_addon_setting("checkupdate")) !== true 
             && ! (
                 (await get_addon_setting("checkupdate")) === undefined
-                && (  isFromStore(".microsoft.com") || isFromStore(".opera.com")  ) 
+                && (   isFromStore(".opera.com")  ) 
             )
         )
             return;
@@ -563,7 +563,6 @@ onrd.push(function() {
             
     }
 });
-
 
 
 /////////////////////////////////

@@ -376,7 +376,7 @@ This tool still can be improved to do something more:
 
 <details>
 
-- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (81kB not minified. Data compression library, only for user-custom engines sync)
+- [LZ-UTF8.js](https://github.com/rotemdan/lzutf8.js) (38kB not minified. Data compression library, only for user-custom engines sync)
   
   ```
   Copyright (c) 2021, Rotem Dan
