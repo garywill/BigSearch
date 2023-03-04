@@ -65,7 +65,6 @@ async function ebtn_onclick(obj)
     await saveLastClick();
     lastuseHandler.loadLastClick();
     
-    stati_goclicked(obj); // async
 }
 
 

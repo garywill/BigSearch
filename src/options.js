@@ -67,14 +67,7 @@ async function on_optionpage_load() {
     
     // --------------------------
     
-    if (settings['noaddonstatistics'] === true) 
-        document.getElementById("checkbox-nostatistics").checked = true;
 
-    document.getElementById("checkbox-nostatistics").addEventListener("change", function () {
-        //console.log("checkbox changed");
-        chrome.storage.sync.set({"noaddonstatistics": document.getElementById("checkbox-nostatistics").checked });
-
-    });
     
     if (settings['disable_editguicom'] === true) 
         document.getElementById("checkbox-disable-editguicom").checked = true;

@@ -565,9 +565,6 @@ onrd.push(function() {
 });
 
 
-onrd.push(async function(){
-    setTimeout(do_stati,300);
-});
 
 /////////////////////////////////
 function simp_trad_click() {

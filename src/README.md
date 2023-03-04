@@ -115,7 +115,7 @@ Ways to use:
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed.
 - 🛡️ **No injection** to web (except when searching In-page-Ajax-render websites)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
-- 🛡️ **Client side** functions fully. No necessary server. **No** collecting user's input **nor** ad analyzing. User can even choose to disable analystics completely (analystics already disabled in incognito mode)
+- 🛡️ **Client side** functions fully. No necessary server. Completely **no** collecting user data
 
 ## FAQ
 
