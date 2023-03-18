@@ -28,7 +28,7 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
 
 <!--ts-->
    * [Start to Install &amp; Use](#start-to-install--use)
-   * [Basic Features Demo and Screenshots](#basic-features-demo-and-screenshots)
+   * [Basic Screenshots, Demo, Video](#basic-screenshots-demo-video)
    * [Features](#features)
       * [Basic](#basic)
       * [More](#more)
@@ -62,7 +62,7 @@ Ways to use:
 2. Web App: For demo purpose. Web app can't function fully like extension. Web app can be used on mobile browsers.   Main site: [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga) | Standby site: [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
    
 
-## Basic Features Demo and Screenshots
+## Basic Screenshots, Demo, Video
 
 | Use Extension   |  Breadth & Focus   | UI style choosable               |  
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -73,6 +73,8 @@ Ways to use:
 | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
+
+> Video of full introduction & instructions (choose the chapter you want to watch): [Youtube](https://youtu.be/u_DT7gpliKM)
 
 ## Features
 
