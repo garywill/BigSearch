@@ -2,9 +2,8 @@ function inputbox_press( e ) {
 	var evt = e || window.event
 	// "e" is the standard behavior (FF, Chrome, Safari, Opera),
 	// while "window.event" (or "event") is IE's behavior
-	if ( evt.keyCode === 13 ) {
+	if ( evt.keyCode === 13 && !evt.ctrlKey && !evt.altKey && !evt.shiftKey && !evt.metaKey) {
 		inputbox_enter();
-
 	}
 	
 	function inputbox_enter()

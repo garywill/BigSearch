@@ -6,9 +6,9 @@ English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_
 
 Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites).
 
-✅ For both daily & work.
+✅ Includes daily, entertainment & work.
 
-🌟 **Besides** what any multi-engine web search tool can do, it **also**✨:
+🌟 **Besides** <ins><u>what any multi-engine web search tool can do (**GET/POST**, user **custom** engines, **built-in** Google,DuckDuckGo,Youtube,eBay,Github etc)</u></ins>, it **can also**✨:
 - 🖋️ Single-line or **multi-line** text
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **In-page-Ajax-render** websites) (see [FAQ](#FAQ) below)
@@ -115,7 +115,8 @@ Ways to use:
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed.
 - 🛡️ **No injection** to web (except when searching In-page-Ajax-render websites)
 - 🛡️ Hide HTTP Referrer by default to protect user privacy
-- 🛡️ **Client side** functions fully. No necessary server. Completely **no** collecting user data
+- 🛡️ **Client side** functions and includes data fully. No necessary 3rd-party server. Completely **no** collecting user data
+- 🛡️ User custom engine GUI editor is used online (to shrink extension size). If you want extreme security, you can choose to disable communication between them, and use manual edit.
 
 ## FAQ
 
@@ -125,7 +126,7 @@ A: It's because of [defect of Chrome browser engine](https://stackoverflow.com/q
 
 #### Q: What is "In-page-Ajax-render" ?
 
-A: "In-page-Ajax-render" is short for "**In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation"
+A: 
 
 General GET/POST search flow is:
 1. You input search term and click search button
@@ -139,6 +140,8 @@ Big Search's In-page-Ajax-render search is:
 1. The website page itself then uses Ajax to fetch search results, then your browser renders them on page
 
 The In-page-Ajax-render search feature can be used to search websites that do not provide GET/POST search interface to public (e.g. SPA websites), or those who require random token assigned at a search entrance form.
+
+"In-page-Ajax-render" is short for "**In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation"
 
 ## List of engines
 

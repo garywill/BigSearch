@@ -161,7 +161,8 @@ onrd.push(function(){
     }
 });
 onrd.push(function(){ 
-    inputHandler.init_messageReceiver();
+    if (window.run_env != 'http_web')
+        inputHandler.init_messageReceiver();
 }); 
 
 

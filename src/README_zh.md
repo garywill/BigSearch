@@ -4,9 +4,9 @@
 
 以 灵活又顺手 的方式 在(切换) **任意一个** 或 (连续)**多个** 搜索引擎（或任意网站）进行搜索。
 
-✅ 明了易用，收录广，适用日常及工作。 
+✅ 明了易用，收录广，包括日常、娱乐及工作。 
 
-🌟 **除了** 一个 多搜索引擎工具 该有的 基本功能 **外**，它**还有**✨：
+🌟 **在具有了** <ins><u>一个 多搜索引擎工具 该有的 基本功能（**GET/POST**、**自定**引擎、**内置** 百度,Google,B站,Youtube,Github,淘宝 等）</u></ins> **之后**，它**还可以**✨：
 - 🖋️ 文本单行或**多行**
 - 🖥️ 桌面（扩展或网页）和移动（网页）
 - 🔎 **甚至兼容**那些 **不**对外开放GET/POST搜索接口 的网站（这里称其为**In-page-Ajax-render**）（详见下[FAQ](#FAQ)）
@@ -70,6 +70,8 @@
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
+> 完整视频介绍说明链接（分章节视频，可直接看某一功能的使用说明）： [Bilibili](https://www.bilibili.com/video/BV16c41177WZ/) | [Youtube](https://youtu.be/F3rdps4g6Eg)
+
 ## 功能及特性
 
 ### 基本
@@ -111,7 +113,8 @@
 - 🛡️ 默认**最小权限**，仅在需要时请求敏感权限（浏览器扩展)
 - 🛡️ 默认隐藏HTTP Referrer以保护用户隐私
 - 🛡️ **不**向网页注入任何代码（除搜索In-page-Ajax-render网站时外）
-- 🛡️ **纯客户端**功能完整，不需服务器。完全**无**搜集任何用户数据
+- 🛡️ **纯客户端**功能及数据完整，不需第三方服务器。完全**无**搜集任何用户数据
+- 🛡️ 用户自定义引擎的GUI编辑器为在线使用（减小扩展体积），若追求极致的安全性，也可以将它们之间的通信禁用，采用手动编辑
 
 ## FAQ
 
@@ -121,7 +124,7 @@ A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questi
 
 #### Q: 到底什么是「In-page-Ajax-render」?
 
-A: 「In-page-Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation 的简称。
+A: 
 
 普通的GET/POST搜索流程是：
 1. 你输入搜索词，点击搜索按钮
@@ -136,6 +139,7 @@ A: 「In-page-Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-ge
 
 本工具的In-page-Ajax-render搜索功能，可以用于搜索那些不对外开放GET/POST搜索接口的（例如SPA型网页），或者要检验在搜索入口表单分配的随机token的
 
+「In-page-Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation 的简称。
 
 ## 已收录引擎
 

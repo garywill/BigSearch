@@ -314,6 +314,11 @@ sEngines = {
         "kw_key": "q",
         "btns": {
             "sch": {
+                "label": "Search",
+                "visible_lang": "en",
+            }, 
+            
+            "sch_cn": {
                 "label": "中国版搜索",
                 "visible_lang": "zh",
                 "action": "https://cn.bing.com/search",
@@ -322,11 +327,13 @@ sEngines = {
                 ]
             },
             "sch_global": {
-                "label": i18n(["Search (Global)", "Search"]),
+                "label": "Search (Global)", 
+                "visible_lang": "zh",
                 "params": [
                     {key: "ensearch", val: "1"}
                 ]
-            }
+                
+            }, 
         }
     },
     "google": {
@@ -448,12 +455,16 @@ sEngines = {
         "dname": "淘宝天猫",
         "addr": "https://www.taobao.com/",
         "action": "https://s.taobao.com/search",
-        "d_addi_html": [{ "text": "精品优惠入口", "href": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042" , "tip": "点击进入淘宝官方精品优惠主页面\n要搜索精品及优惠券，输入后点击右列中的“精品优惠”" }],
+        // "d_addi_html": [{ "text": "精品优惠入口", "href": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042" , "tip": "点击进入淘宝官方精品优惠主页面\n要搜索精品及优惠券，输入后点击右列中的“精品优惠”" }],
         "kw_key": "q",
         "allow_referer": true,
         "btns": {
+            "sch": {
+                "label": "普通搜索",
+                "dname": "淘宝",
+            },            
             "atb": {
-                "label": "精品优惠",
+                "label": "搜优惠券",
                 "dname": "淘宝",
                 "addr": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042",
                 "action": "https://ai.taobao.com/search/index.htm",
@@ -465,10 +476,6 @@ sEngines = {
                         "val": "mm_325950067_1186300468_109886250042"
                     }
                 ]
-            },
-            "sch": {
-                "label": "普通搜索",
-                "dname": "淘宝",
             },
             "shop": {
                 "label": "店铺",

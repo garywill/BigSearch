@@ -3,7 +3,7 @@
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "manifest_version": 2,
-    "version": "3.0.9",
+    "version": "3.0.12",
     "homepage_url": "https://github.com/garywill/BigSearch",
     "author": {
         "name": "Garywill",
