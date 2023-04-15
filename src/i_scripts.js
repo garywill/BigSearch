@@ -93,10 +93,10 @@ onrd.push(async function() {
     await init_lastuseHandler();
 });
 
-var useVmm;
+var useVem;
 onrd.push(async function() {
-    if (useVmm === true)
-        await init_vmmHandler();
+    if (useVem === true)
+        await init_vemHandler();
 }); 
 
 
@@ -104,8 +104,8 @@ onrd.push(async function() {
 onrd.push(async function(){
     await make_cata_btns();
     
-    if (useVmm === true)    
-        vmmHandler.catasVmmInit();
+    if (useVem === true)    
+        vemHandler.catasVemInit();
     
 //     cata_onclick( document.getElementById("cata_btn_general_dbname_bigsearch") );
     lastuseHandler.loadLastBrowse();
@@ -133,8 +133,8 @@ onrd.push(function(){
     btn_ml_input.onclick = function() {
         inputHandler.openMlView();
         
-        if (useVmm)
-            vmmHandler.setOff();
+        if (useVem)
+            vemHandler.setOff();
     }
     btn_save_ml.onclick = function() {
         inputHandler.saveMl();
@@ -399,13 +399,13 @@ onrd.push(function(){
 
 
 onrd.push(function(){ 
-    if (useVmm) 
+    if (useVem) 
     {
         window.addEventListener("focus", function(){
-            vmmHandler.windowOnFocus();
+            vemHandler.windowOnFocus();
         });
         window.addEventListener("blur", function(){
-            vmmHandler.windowOnBlur();
+            vemHandler.windowOnBlur();
         });
     }
 });

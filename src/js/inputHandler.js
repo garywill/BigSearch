@@ -107,14 +107,14 @@ function init_inputHandler() {
             if (mobile)
                 return;
             
-            if (useVmm && vmmHandler.inOutStatus)
+            if (useVem && vemHandler.inOutStatus)
                 return;
             
             inputHandler.getInputFieldEle().focus();
         };
         this.onGetFocus = function() {
-            if (useVmm) {
-                vmmHandler.setOff();
+            if (useVem) {
+                vemHandler.setOff();
             }
         }
         
@@ -151,8 +151,8 @@ function init_inputHandler() {
                     this.inputbox.ondblclick = function () { 
                         btn_ml_input.click();
                         
-                        if (useVmm)
-                            vmmHandler.setOff();
+                        if (useVem)
+                            vemHandler.setOff();
                     }
                 }
                 else
@@ -274,13 +274,13 @@ function init_inputHandler() {
         
         this.inputbox.addEventListener("change", function() {
             inputHandler.syncS2M();
-            if (useVmm)
-                vmmHandler.setOff();
+            if (useVem)
+                vemHandler.setOff();
         });
         this.input_ml.addEventListener("change", function() {
             inputHandler.syncM2S();
-            if (useVmm)
-                vmmHandler.setOff();
+            if (useVem)
+                vemHandler.setOff();
         });
         
 

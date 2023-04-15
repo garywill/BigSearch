@@ -148,8 +148,8 @@ async function cata_onclick_ui(btnobj)
     
     lastuseHandler.saveLastBrowse(dbname, cata);
     
-    if (useVmm)
-        vmmHandler.tableVmmInit();
+    if (useVem)
+        vemHandler.tableVemInit();
 }
 
 

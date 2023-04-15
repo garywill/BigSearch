@@ -4,14 +4,20 @@
 
 以 灵活又顺手 的方式 在(切换) **任意一个** 或 (连续)**多个** 搜索引擎（或任意网站）进行搜索。
 
-✅ 明了易用，收录广，包括日常、娱乐及工作。 
+新手友好，专家满意。包括日常、娱乐及工作。 
 
-🌟 **在具有了** <ins><u>一个 多搜索引擎工具 该有的 基本功能（**GET/POST**、**自定**引擎、**内置** 百度,Google,B站,Youtube,Github,淘宝 等）</u></ins> **之后**，它**还可以**✨：
+俱有 多搜索引擎工具 该有的**基本功能**，如：
+- 内置 百度,Google,B站,Youtube,Github,淘宝 等
+- GET/POST
+- 自定引擎
+
+等。 <ins><u>在具有了 以上 基本功能 **之后**，它**还可以**✨：</u></ins>
 - 🖋️ 文本单行或**多行**
+- ⌨️ 内置**类似Vimium**的特性，可用键盘快捷点击不同的搜索引擎（[详情](#vem特性内置类似vimium)）
 - 🖥️ 桌面（扩展或网页）和移动（网页）
 - 🔎 **甚至兼容**那些 **不**对外开放GET/POST搜索接口 的网站（这里称其为**In-page-Ajax-render**）（详见下[FAQ](#FAQ)）
 - 🔎 一个按钮一次调用多个操作。跨引擎呼叫搜索
-- 💪 用户可通过**编程**的方式设置搜索引擎：JSON作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 灵活性 及 扩展性
+- 💪 用户可**JSON编程**做高级自定义（亦有**GUI**易用编辑）。引擎数据 和 搜索方式 的 **高灵活性** （[详情](#编辑引擎数据及各种搜索方式说明)）
 
 等...详见下文
 
@@ -31,6 +37,7 @@
       * [基本](#基本)
       * [更多](#更多)
       * [还有更多：特别之处](#还有更多特别之处)
+      * [Vem特性（内置类似Vimium）](#vem特性内置类似vimium)
       * [隐私安全](#隐私安全)
    * [FAQ](#faq)
          * [Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面](#q-chrome等浏览器中选择文本后点击右键菜单没反应还要点击一下工具栏按钮才打开界面)
@@ -63,14 +70,14 @@
 | 使用扩展    |  可深可广   | UI风格可选 | 
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | ![chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/chi.jpg)  | ![breadth_chi](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth_chi.jpg) | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   |  
-| 搜索选择内容    | 几种UI显示方式                                                                           | 移动版(试验)(web)  | 
-| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![3ui](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/3ui.webp) | ![mobile](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/mobile.jpg) | 
+| 搜索选择内容    | 几种UI显示方式                                                                           | Vem (类似Vimium)  | 
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![3ui](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/3ui.webp) | ![vem](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/vem.webp) | 
 | 编辑搜索引擎 | 特别搜索方式 灵活、可扩展 |  | 
 | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
-> 完整视频介绍说明链接（分章节视频，可直接看某一功能的使用说明）： [Bilibili](https://www.bilibili.com/video/BV16c41177WZ/) | [Youtube](https://youtu.be/F3rdps4g6Eg)
+完整视频介绍说明链接：  [Bilibili](https://www.bilibili.com/video/BV16c41177WZ/) | [Youtube](https://youtu.be/F3rdps4g6Eg) （分章节视频，可直接看某一功能的使用说明）
 
 ## 功能及特性
 
@@ -99,14 +106,25 @@
 
 ### 还有更多：特别之处
 
+- ⌨️ Vem特性：内置**类似Vimium**的功能，可用键盘快捷点击不同的搜索引擎（[详情](#vem特性内置类似vimium)）
 - 🔎 **甚至兼容**那些 **不**对外开放GET/POST搜索接口 的网站（这里称其为**In-page-Ajax-render**）（[详情](#搜索In-page-Ajax-render的网站)）
 - 🔎 一个按钮一次调用多个操作
 - ✨ 好看强大的同时，非常**轻量级**（[详情](#采用的第三方库和组件)）
-- 💪 用户可通过**编程**的方式设置搜索引擎：**JSON**作为引擎数据库（包括 内置的 及 用户自定义的。亦提供**GUI**编辑）。引擎数据 和 搜索方式 的 **灵活性**及**扩展性**：（[详情](#编辑引擎数据及各种搜索方式说明)）
+- 💪 用户可**JSON编程**做高级自定义（亦有**GUI**易用编辑）。内置的 及 用户自定义 的引擎采用同种数据格式（[详情](#编辑引擎数据及各种搜索方式说明)）。引擎数据 和 搜索方式 的 **高灵活性**：
   - 🔲 **一引擎，多按钮**：对于一个引擎，可以支持不同的操作。（各按钮继承引擎的数据，按钮之下的某些键值可覆盖引擎名下的键值数据作用）
   - 📞 **跨引擎**调用：可调用另一引擎（中的某一按钮的动作）来动作
   - 🔏 可针对引擎需要，对用户输入进行字符串格式化，或字符替换，编码选择
   - 🔎 适当结合上两点，可搜索不提供搜索的网站
+
+### Vem特性（内置类似Vimium）
+
+若你用过 `!bang` 或 omnibox，它们都要求你背诵代号。
+
+而 大术专搜 的 Vem模式 让你 **可视化**、快捷 地 用键盘 (连续)点击不同的搜索引擎的不同按钮。使用`Shift+Enter`进入Vem模式
+
+![vem](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/vemgif.gif)
+
+> 这是个实验中的特性。这部分未翻译完成。详细见英文文档对应的本部分
 
 ### 隐私安全
 
@@ -140,6 +158,8 @@ A:
 本工具的In-page-Ajax-render搜索功能，可以用于搜索那些不对外开放GET/POST搜索接口的（例如SPA型网页），或者要检验在搜索入口表单分配的随机token的
 
 「In-page-Ajax-render」是 **In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation 的简称。
+
+> 视频说明中也有关于这部分的解读
 
 ## 已收录引擎
 
@@ -265,7 +285,10 @@ A:
 }
 ```
 
+> 视频说明中也有关于这部分的解读
+
 </details>
+
 
 ### 编辑引擎数据及各种搜索方式说明
 
@@ -331,6 +354,8 @@ JSON格式。
 }
 ```
 
+> 视频说明中也有关于这部分的解读
+
 </details>
 
 #### 搜索In-page-Ajax-render的网站
@@ -350,6 +375,8 @@ JSON格式。
 ```json
 "ajax": [2000, "#search-box-input", 1000, "#submit-button"]
 ```
+
+> 视频说明中也有关于这部分的解读
 
 <p align="center">大术专搜 👨‍💻　万页在手 🗺️　　网之所询 🌐　无不可收　（装逼时间）</p>
 

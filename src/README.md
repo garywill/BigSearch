@@ -1,19 +1,27 @@
 [![firefox](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/) [![chrome](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb)
 
+<!--readme_lang_switch begin-->
 English | [中文](https://github.com/garywill/BigSearch/blob/master/src/README_zh.md)
+<!--readme_lang_switch end-->
 
 # Big Search
 
 Handily use / switch **any one** or **multiple** (uninterruptedly) **search engines** (or search any websites).
 
-✅ Includes daily, entertainment & work.
+Friendly to novices, satisfying to experts. For daily, entertainment & work.
 
-🌟 **Besides** <ins><u>what any multi-engine web search tool can do (**GET/POST**, user **custom** engines, **built-in** Google,DuckDuckGo,Youtube,eBay,Github etc)</u></ins>, it **can also**✨:
+Includes **basic features** that a multi-engine web search tool should have:
+- Built-in Google,DuckDuckGo,Youtube,eBay,Github etc
+- GET/POST
+- Custom engines
+
+and so on. <ins><u>**Besides** above basic features, it **can also**✨: </u></ins>
 - 🖋️ Single-line or **multi-line** text
+- ⌨️ Built-in **Vimium-like** feature. You can use keys to quickly call different search engines ([details](#vem-feature-built-in-vimium-like))
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **In-page-Ajax-render** websites) (see [FAQ](#FAQ) below)
 - 🔎 Do many operations at once by one button. Cross-engine search calling
-- 💪 Users can customize their search engines **programatically**: JSON as search engines database (both built-in & user-defined. **GUI** editing also available). Flexibility & extensibility in engine data & search method
+- 💪 User **JSON programatical** advanced customization (**GUI** easy editing also). **Great flexibility**  in engine data & search method ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Methods))
 
 and so on... Go on for readme
 
@@ -33,6 +41,7 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
       * [Basic](#basic)
       * [More](#more)
       * [Even more: What's special about it](#even-more-whats-special-about-it)
+      * [Vem feature (built-in Vimium-like)](#vem-feature-built-in-vimium-like)
       * [Safety &amp; Privacy](#safety--privacy)
    * [FAQ](#faq)
          * [Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)](#q-i-selected-text-and-used-context-menu-it-wont-automatically-show-popup-until-i-click-toolbar-button-on-some-browsers-like-chrome)
@@ -67,14 +76,14 @@ Ways to use:
 | Use Extension   |  Breadth & Focus   | UI style choosable               |  
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | ![en](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/en.png) | ![breadth](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/breadth.jpg)  | ![themes](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/themes.jpg)   | 
-| Context selection search | Different UI adaptions                                                       | Mobile (testing) (web app)  |
-| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![3ui](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/3ui.webp) |  |
+| Context selection search | Different UI adaptions                                                       | Vem (Vimium-like)  |
+| ![context](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/context.png) | ![3ui](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/3ui.webp) | ![vem](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/vem.webp) |
 | Edit search engines  | Special search methods, flexibility & extensibility |  | 
 | ![edit](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit.png) | ![edit-add](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/edit-add.png) |  | 
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
-> Video of full introduction & instructions (choose the chapter you want to watch): [Youtube](https://youtu.be/u_DT7gpliKM)
+[Video of full introduction & instructions (Youtube)](https://youtu.be/u_DT7gpliKM) (choose the chapter you want to watch): 
 
 ## Features
 
@@ -103,15 +112,38 @@ Ways to use:
 
 ### Even more: What's special about it
 
+- ⌨️ Vem feature: Built-in **Vimium-like** feature. You can use keys to quickly call different search engines ([details](#vem-feature-built-in-vimium-like))
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called In-page-Ajax-render websites) ([details](#Instructions-for-searching-In-page-Ajax-render-websites))
 - 🔎 Do many operations at once by one button
 - ✨ Good-looking, powerful & **lightweight** ([details](#Third-party-libraries-and-components-used))
-- 💪 Users can customize their search engines **programatically**: **JSON** as search engines database (both built-in & user-defined. **GUI** edit available). **Flexibility** & **extensibility** in engine data & search method: ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Methods))
+- 💪 User **JSON programatical** advanced customization (**GUI** easy editing also). Both built-in & user-defined search engines data use same format ([details](#Specification-of-Editing-Engines-Data-and-Special-Search-Methods)). **Great flexibility**  in engine data & search method:
   - 🔲 **Multiple buttons** for **one engine**: more than one operations for one engine. (Buttons inherit data from engine. Some key-value data ​​in button can override the ones in engine name)
   - 📞 **Cross-engine** use: Call another engine (or it's certain button action) to do the action
   - 🔏 String-formatting or character-replacing user's input, according to engine's need. And, charset specifying.
   - 🔎 Combining above two to search websites that don't provide search
 
+### Vem feature (built-in Vimium-like)
+
+If you've used `!bang` or omnibox, they require you to memorize codes.
+
+While, Big Search's Vem mode **visually** gives you convinience & ability to use keyboard to (uninterruptedly) click different search engines' different buttons. Press `Shift+Enter` to enter Vem mode
+
+![vem](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/vemgif.gif)
+
+| Key | Function |
+| --- | --- |
+| `Shift+Enter` | Finish input and enter Vem mode (used when not in Vem mode) |
+| `Shift+Enter` | Opposite to above (used when in Vem mode) |
+| `I` | Quit Vem mode and focus inputbox |
+| `1` - `9` | Switch catagory (in Vem mode) |
+| `A` - `Z` | Press corresponding button (in Vem mode) |
+| `J` & `K` | Scroll table down/up |
+| more to be added ... |  |
+
+> Above key bindings are not formally determined. May change in the future according to user feedback
+
+Note if new engines added, button sequence may change, so as button key (`A` - `Z`).
+  
 ### Safety & Privacy
 
 - 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed.
@@ -144,6 +176,8 @@ Big Search's In-page-Ajax-render search is:
 The In-page-Ajax-render search feature can be used to search websites that do not provide GET/POST search interface to public (e.g. SPA websites), or those who require random token assigned at a search entrance form.
 
 "In-page-Ajax-render" is short for "**In-page**-submit-form-via-**Ajax**-then-XHR-gets-search-result-then-**render**-and-show-in-page-without-web-frame-navigation"
+
+> This part is also explained in the video description
 
 ## List of engines
 
@@ -268,6 +302,8 @@ Also, mixing short formatted and full formatted elements is supported.
 }
 ```
 
+> This part is also explained in the video description
+
 </details>
 
 ### Specification of Editing Engines Data and Special Search Methods
@@ -334,6 +370,8 @@ Engine data in full format can contain following key-values (special search meth
 }
 ```
 
+> This part is also explained in the video description
+
 </details>
 
 #### Instructions for searching In-page-Ajax-render websites
@@ -355,6 +393,7 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 "ajax": [2000, "#search-box-input", 1000, "#submit-button"]
 ```
 
+> This part is also explained in the video description
 
 ## For Developers
 

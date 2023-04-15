@@ -1,0 +1,78 @@
+/*
+ * By Big Search / 大术专搜
+ * (addons.mozilla.org/firefox/addon/big-search/)
+ * (acsearch.ga, acsearch.tk)
+ * 
+ * All Rights Reserved for This File
+ * If want to use this code, welcome ask original author for FLOSS license
+ * Before that, please DON'T use unauthorized code
+ * 此文件 版权所有 保留所有权利
+ * 若要使用代码，欢迎联系原作者获取 自由软件许可
+ * 在取得许可前，请勿使用未授权的代码
+ * 
+ * Source code: https://github.com/garywill/BigSearch
+ */
+
+.vemBadge {
+    pointer-events: none;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    
+    color: #2f2f2f !important;
+    text-shadow: none !important;
+    font-weight: normal ;
+    font-family: monospace , "DejaVu Sans Mono",  "Droid Sans Mono",  "Courier New", "Adobe Courier" , "Courier";
+    
+    background-color: #f1db2782;
+    border: 1px solid #64808080;
+    border-radius: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
+    
+    font-size: 12px;
+    z-index: 3;
+}
+
+
+.vemBadge_cataBtn {
+    bottom: 5px;
+}
+.vemBadge_goBtn {
+    right: -5px;
+    bottom: -3px;
+}
+/*.gobutton:hover .vemBadge_goBtn {
+    transform: scale(0.7);
+    transform-origin: right bottom;
+}*/
+
+.vemBadge_large {
+    transform: scale(1.7);
+    font-weight: bold ;
+}
+
+.vem_jk_badges_cont {
+    display: block;
+    position: sticky;
+    height: 0px;
+    width: 100%;
+}
+#vem_jk_badges_cont_j {
+    bottom: 0px;
+}
+#vem_jk_badges_cont_k {
+    top: 0px;
+}
+.vemBadge_jk {
+    position: absolute;
+    display: inline-table;
+    right: 0px;
+}
+#vem_badge_jk_j {
+    bottom: 0px;
+}
+#vem_badge_jk_k {
+    top: 0px;
+}
+
