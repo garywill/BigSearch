@@ -122,6 +122,10 @@ catas = {
             { type:"label", lstr:"Android"},
             { type:"engine", name:"google_play"},
             { type:"engine", name:"fdroid"},
+            { type:"engine", name:"coolapk" , visible_lang: "zh" },
+            { type:"engine", name:"sj_qq" , visible_lang: "zh" },
+            { type:"engine", name:"wandoujia" , visible_lang: "zh" },
+            { type:"engine", name:"hw_appgallery" , visible_lang: "zh" },
             
             { type:"label", lstr:"iOS"},
             { type:"engine", name:"itunesapps"},
@@ -1211,6 +1215,48 @@ sEngines = {
         "action": "https://search.f-droid.org/",
         "kw_key": "q"
     },
+    
+    "wandoujia": {
+        "dname": "豌豆荚",
+        "addr": "https://www.wandoujia.com/",
+        "action": "https://www.wandoujia.com/search",
+        "kw_key": "key"
+    },
+    "coolapk": {
+        dname: "酷安",
+        addr: "https://www.coolapk.com/apk/",
+        btns: {
+            "baidu": {
+                "label": "百度",
+                "kw_format": "site:(www.coolapk.com) {0}",
+                "use_other_engine": {
+                    "engine": "baidu",
+                    "btn": "sch"
+                }
+            },
+            "google": {
+                label: "Google",
+                kw_format: "{0} site:www.coolapk.com",
+                use_other_engine: {
+                    engine: "google",
+                    btn: "search"
+                }
+            },
+        }        
+    },
+    
+    "sj_qq": {
+        "dname": "腾讯应用宝",
+        "addr": "https://sj.qq.com/",
+        "action": "https://sj.qq.com/search/",
+        "kw_key": "q"
+    },
+    "hw_appgallery": {
+        "dname": "华为AppGallery",
+        "addr": "https://appgallery.huawei.com/",
+        "full_url": "https://appgallery.huawei.com/search/{0}",
+    },
+
     "izzyondroid_fdroid": {
         "dname": "IzzyOnDroid F-Droid",
         "addr": "https://apt.izzysoft.de/fdroid/",
