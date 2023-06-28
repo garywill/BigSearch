@@ -12,7 +12,6 @@
     "permissions": [
         "storage",
         "contextMenus",
-        "*://*.acsearch.ga/*",
         "*://*.acsearch.tk/*", 
         "*://garywill.github.io/BigSearch/*"
     ],
@@ -25,7 +24,6 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.acsearch.ga/editengine.php*",
                 "*://*.acsearch.tk/editengine.php*", 
                 "*://garywill.github.io/BigSearch/editengine.html*"
                 

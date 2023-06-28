@@ -63,7 +63,7 @@
    - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
    - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb)  或 [下载 .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main)。 适用于：Google Chrome、Microsoft Edge、Brave、Vivaldi、Opera、~~搜狗浏览器~~(部分)、360极速浏览器(部分) 等 
 
-2. 网页版：演示作用为主，网页版不能像扩展一样完全工作。网页版可在手机浏览器使用。 主站： [https://acsearch.ga ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=https%3A%2F%2Facsearch.ga)](https://acsearch.ga) | 备用站： [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
+2. 网页版：演示作用为主，网页版不能像扩展一样完全工作。网页版可在手机浏览器使用。 [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
 
 ## 基础屏幕截图 及演示、视频
 
@@ -173,7 +173,7 @@ A:
 
 ## 如何编辑搜索引擎（GUI或JSON）
 
-[在线GUI引擎编辑工具（link 1）](https://acsearch.ga/editengine.php) （[link 2](http://acsearch.tk/editengine.php)） （[link 3](https://garywill.github.io/BigSearch/editengine.html)）
+[在线GUI引擎编辑工具（link 1）](https://garywill.github.io/BigSearch/editengine.html) （[link 2](http://acsearch.tk/editengine.php)） 
 
 一般用以上GUI编辑器即可。若不用GUI（例如你是高级用户，或想使用进阶特性），可以继续阅读以下关于JSON数据的说明。
 
