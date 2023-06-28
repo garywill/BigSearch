@@ -1,7 +1,7 @@
 /*
  * By Big Search / 大术专搜
  * (addons.mozilla.org/firefox/addon/big-search/)
- * (acsearch.ga, acsearch.tk)
+ * (acsearch.tk)
  * 
  * All Rights Reserved for This File
  * If want to use this code, welcome ask original author for FLOSS license

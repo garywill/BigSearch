@@ -1,7 +1,7 @@
 /*
  * By Big Search / 大术专搜
  * (addons.mozilla.org/firefox/addon/big-search/)
- * (acsearch.ga, acsearch.tk)
+ * (acsearch.tk)
  * 
  * Big Search / 大术专搜 is created by
  *     garywill
