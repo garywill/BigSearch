@@ -17,7 +17,7 @@ Includes **basic features** that a multi-engine web search tool should have:
 
 and so on. <ins><u>**Besides** above basic features, it **can also**✨: </u></ins>
 - 🖋️ Single-line or **multi-line** text
-- ⌨️ Built-in **Vimium-like** feature. You can use keys to quickly call different search engines ([details](#vem-feature-built-in-vimium-like))
+- ⌨️ Every search step can be done by just keyboard, without mouse. It's UI has built-in **Vimium-like** feature. Keys can quickly call different search engines ([details](#vem-feature-built-in-vimium-like))
 - 🖥️ Desktop (browser extension / web app) and mobile (web app)
 - 🔎 **Even works with** websites that **don't** provide GET/POST interface (so-called **In-page-Ajax-render** websites) (see [FAQ](#FAQ) below)
 - 🔎 Do many operations at once by one button. Cross-engine search calling

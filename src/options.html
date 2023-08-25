@@ -8,7 +8,14 @@
             body div {
                 margin-bottom: 30px;
             }
+            hr {
+                color: #c1c1c191;
+            }
         </style>
+        
+        <script src="ck.js"></script>
+        <script src="options.js"></script>
+
     </head>
 
     <body>
@@ -21,11 +28,24 @@
         <div>
             <label for="lang-selector">Language</label>
             <select id="lang-selector">
-                <option value ="en">English</option>
-                <option value ="zh">中文</option>
+                <option value="en">English</option>
+                <option value="zh">中文</option>
             </select>
         </div>
         <br>
+        <hr>
+        
+        <div>
+            <label for="open-position-selector">New tab open position</label>
+            <select id="open-position-selector" >
+                <option value="left-all">Left of all tabs</option>
+                <option value="right-all">Right of all tabs</option>
+                <option value="left-current">Left of current tab</option>
+                <option value="right-current">Right of current tab</option>
+            </select>
+        </div>
+        <br>
+        <hr>
         
         <div>
             <input type="checkbox" id="cbox_enContextMenu">Enable context menu  <span style="text-decoration: underline;">(need restart/reenable)</span> </input> :<br>
@@ -45,6 +65,7 @@
         </div>
         <input type="checkbox" id="cbox_copyOnContextMenuOrKey">When context menu clicked (or keyword shortcut used), put selection text to clipboard also <span style="text-decoration: underline;">(need restart/reenable)</span></input>
         <br><br>
+        <hr>
         
         <div  id="div_shownew">
         <br>
@@ -54,6 +75,7 @@
         
         </div>
         <br>
+        <hr>
         
         <div>
             <input type="checkbox" id="checkbox-disable-editguicom">Disable communication with online editing-engine GUI web (need restart/reenable)</input>
@@ -62,6 +84,12 @@
             </div>
         </div>
         <br>
+        <hr>
+        
+        
+
+        
+        
         
         <br><br>
         <div>
@@ -76,16 +104,7 @@
             </div>
             <br>
             
-            <div>
-                <label for="open-position-selector">(feature in the future) Tab open position</label>
-                <select id="open-position-selector" disabled="true">
-                    <option value ="left-all">Left of all tabs</option>
-                    <option value ="right-all">Right of all tabs</option>
-                    <option value ="left-current">Left of current tab</option>
-                    <option value ="right-current">Right of current tab</option>
-                </select>
-            </div>
-            <br>
+
             
             <div>
                 <label for="back-fore-selector">(feature in the future) Bring opened tab to foreground immediatly</label>
@@ -112,8 +131,6 @@
         
     
     </div>
-    <script src="ck.js"></script>
-    <script src="options.js"></script>
     
     </body>
 </html> 

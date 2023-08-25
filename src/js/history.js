@@ -84,6 +84,9 @@ function onHistItemDblClk(str) {
     else
         inputHandler.setValue(str);
     
+    inputHandler.getInputFieldEle().dispatchEvent ( new Event( "input", { bubbles:true } ) );
+    inputHandler.getInputFieldEle().dispatchEvent ( new Event( "change", { bubbles:true } ) );
+    
     UIHandler.closeHistFloater();
     
     inputHandler.setFocus();

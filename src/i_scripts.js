@@ -317,7 +317,7 @@ onrd.push(function() {
             {
                 if (!result.length>0)
                 {
-                    chrome.tabs.create( { url: chrome.runtime.getURL('home.html'), active: true, index: newTabIndex  } ) ;
+                    chrome.tabs.create( { url: chrome.runtime.getURL('home.html'), active: true, index: 0  } ) ;
                 }
                 else
                 {

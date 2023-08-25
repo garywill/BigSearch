@@ -359,15 +359,51 @@ function getDataForGo(engine,btn,dbname=null)
 }
 
 
-var newTabIndex;
 var newTabBringFront;
 async function goEngBtn(engine,btn,keyword,dbname=null)
 {
+    var newTabIndex = -1 ;
     if (window.run_env != "http_web") {
-        newTabIndex = 0;
+        var setting_newTabPos = await get_addon_setting_local('newTabPos');
+        switch (setting_newTabPos){
+            case 'left-all': newTabIndex = 0 ;  break;
+            case 'right-all': newTabIndex = 99999999 ;  break;
+            case 'left-current': 
+            case 'right-current': 
+                await chrome.tabs.query( 
+                    { currentWindow: true , active: true},
+                    async function(r) {
+                        console.log(r);
+                        newTabIndex = r[0].index ;  
+                        if (setting_newTabPos == 'right-current')
+                            newTabIndex = r[0].index+1;
+                    }
+                ) ;
+                break;
+                
+            default: newTabIndex = 0;
+        }
+        
         newTabBringFront = false;
+        
+        //-----------------------------
+        async function zzsleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        for ( var zz=0; zz<1000; zz++) {
+            if (newTabIndex != -1)
+                break;
+            else if (zz==999)
+            {
+                console.error('Waiting for newTabIndex, but timeout !')
+                return;
+            }
+            await zzsleep(5);
+        }
+        //------------------------------
     }
     
+
     
     if ( dbname == "browser" ) {
         
@@ -445,7 +481,7 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
             go_full_url(keyword, data.full_url, data.charset,use_referer);
         else
         {
-            await open_connecting_page(dbname, engine, btn, keyword);
+            await open_connecting_page(dbname, engine, btn, keyword, newTabIndex);
         }
         return;
     }
@@ -550,17 +586,12 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
     if (window.run_env == "http_web")
         form_submit(fparams, data.action, data.charset, data.method, use_referer);
     else{
-            await open_connecting_page(dbname, engine, btn, keyword);
-        
-
-        
+            await open_connecting_page(dbname, engine, btn, keyword, newTabIndex);
     }
-    
-
 }
 
 
-async function open_connecting_page(dbname, engine, btn, kw)
+async function open_connecting_page(dbname, engine, btn, kw, newTabIndex=0)
 {
     var connectingPageUrl = chrome.runtime.getURL("connecting.html")
     
