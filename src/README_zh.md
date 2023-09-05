@@ -21,6 +21,8 @@
 
 等...详见下文
 
+视频介绍：特色概括+完整说明：  [Bilibili](https://www.bilibili.com/video/BV1J14y1k7jv/) | [Youtube](https://youtu.be/8xhLpw57ufc) （分章节视频，可直接看某一功能的使用说明）
+
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
 <p align="center">大术专搜 👨‍💻　 既专又广 🗺️　 手敲几下 🖱️ 纵横去往　（装逼时间）</p> 
@@ -77,7 +79,7 @@
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
-完整视频介绍说明链接：  [Bilibili](https://www.bilibili.com/video/BV16c41177WZ/) | [Youtube](https://youtu.be/F3rdps4g6Eg) （分章节视频，可直接看某一功能的使用说明）
+视频介绍：特色概括+完整说明：  [Bilibili](https://www.bilibili.com/video/BV1J14y1k7jv/) | [Youtube](https://youtu.be/8xhLpw57ufc) （分章节视频，可直接看某一功能的使用说明）
 
 ## 功能及特性
 
