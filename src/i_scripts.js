@@ -165,6 +165,17 @@ onrd.push(function(){
         inputHandler.init_messageReceiver();
 }); 
 
+onrd.push(function(){ 
+    if (window.run_env != 'http_web') {
+        setTimeout(async function() {
+            var setting_autoSelectInputText = await get_addon_setting_local('autoSelectInputText') ;
+        
+            if (setting_autoSelectInputText !== false)
+                inputHandler.getInputFieldEle().select(); 
+        }, 50);
+    } 
+}); 
+
 
 
 onrd.push(function(){

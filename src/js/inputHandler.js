@@ -66,6 +66,14 @@ function init_inputHandler() {
                     if (request['command'] == "setInputBoxToText" && typeof(request['text']) === "string" )
                         inputHandler.init_mode( request['text'] );
                 }
+                
+                setTimeout(async function() {
+                    var setting_autoSelectInputText = await get_addon_setting_local('autoSelectInputText') ;
+                    
+                    if (setting_autoSelectInputText !== false)
+                        inputHandler.getInputFieldEle().select(); 
+                }, 50);
+
             });
         };
         

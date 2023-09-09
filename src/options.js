@@ -71,7 +71,17 @@ async function on_optionpage_load() {
                 chrome.permissions.request( { permissions: ['clipboardWrite'] } , r=>console.log(r) );
         });
     } ) () ;
-    
+    // --------------------------
+    (async () => {
+        var setting_autoSelectInputText = await get_addon_setting_local('autoSelectInputText') ;
+        
+        if (setting_autoSelectInputText !== false)
+            document.getElementById("cbox_autoSelectInputText").checked = true;
+        
+        document.getElementById("cbox_autoSelectInputText").addEventListener("change", function (event) {
+            chrome.storage.local.set({"autoSelectInputText" : event.target.checked});
+        });
+    } ) () ;
     // --------------------------
     
 
