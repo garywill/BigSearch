@@ -98,6 +98,23 @@ catas = {
             { type:"engine", name:"chrome_ext_dev"},
             { type:"engine", name:"stackexchange"},
             { type:"engine", name:"alternativeto"},
+            { type: "label", lstr: "Browser Plugins" },
+            { type: "engine", name: "ggl_ext" },
+            { type: "engine", name: "ffx_ext" },
+            { type: "engine", name: "sfr_ext" },
+            { type: "engine", name: "ms_store" },
+            { type: "label", lstr: "Scripts" },
+            { type: "engine", name: "greasy_fork" },
+            { type: "engine", name: "slz" },
+            { type: "engine", name: "script_zn" },
+            { type: "engine", name: "script_op" },
+            { type: "engine", name: "script_ct" },
+            { type: "engine", name: "gist" },
+            { type: "label", lstr: "Styles" },
+            { type: "engine", name: "css_org_wd" },
+            { type: "engine", name: "css_org" },
+            { type: "engine", name: "css_org_achv" },
+            { type: "engine", name: "css_sch" },
             { type:"label", lstr:"Windows"},
             { type:"engine", name:"choco"},
             { type:"engine", name:"scoop"},
@@ -1936,6 +1953,127 @@ sEngines = {
             }
         }
     },
+    "ggl_ext": {
+        dname: "Chrome WebStore",
+        full_url: "https://chromewebstore.google.com/search/{0}"
+    },
+    "ffx_ext": {
+        dname: "Firefox Add-Ons",
+        full_url: "https://addons.mozilla.org/zh-CN/firefox/search/?q={0}"
+    },
+    "sfr_ext": {
+        dname: "Safari Extensions (AppStore)",
+        full_url: "https://www.apple.com/us/search/{0}"
+    },
+    "ms_store": {
+        dname: "Microsoft Store",
+        full_url: "https://www.crxsoso.com/search?keyword={0}&store=microsoft"
+    },
+    "greasy_fork": {
+        "dname": "Greasy Fork",
+        "action": "https://greasyfork.org/zh-CN/scripts",
+        "kw_key": "q",
+        "btns": {
+            "js": {
+                "label": "JS"
+            },
+            "css": {
+                "label": "CSS",
+                "params": [
+                {
+                    "key": "language",
+                    "val": "css"
+                }
+                ]
+            },
+            "all": {
+                "label": "Total",
+                "btn_tip": "按照总安装数显示所有脚本",
+                "params": [
+                {
+                    "key": "language",
+                    "val": "all"
+                },
+                {
+                    "key": "sort",
+                    "val": "total_installs"
+                }
+                ]
+            },
+            "en": {
+                "label": "English",
+                "action": "https://greasyfork.org/en/scripts"
+            },
+            "lib": {
+                "label": "Lib",
+                "btn_tip":"请用 kw_format 定制 Sphinx 模版",
+                "action": "https://greasyfork.org/zh-CN/scripts/libraries"
+            },
+            "code": {
+                "label": "Code",
+                "full_url": "https://greasyfork.org/zh-CN/scripts/code-search?c={0}"
+            },
+            "user": {
+                "label": "User",
+                "action": "https://greasyfork.org/zh-CN/users"
+            },
+            "ath": {
+                "label": "Author",
+                "action": "https://greasyfork.org/zh-CN/users",
+                "params": [
+                {
+                    "key": "author",
+                    "val": "1"
+                }
+                ]
+            }
+        }
+    },
+    "slz": {
+        dname: "Sleazy Fork",
+        full_url: "https://sleazyfork.org/zh-CN/scripts?q={0}"
+    },
+    "script_zn": {
+        dname: "UserScript.Zone",
+        full_url: "https://www.userscript.zone/search?q={0}"
+    },
+    "script_op": {
+        dname: "OpenUserJS",
+        full_url: "https://openuserjs.org/?q={0}"
+    },
+    "script_ct": {
+        dname: "Script Cat",
+        full_url: "https://scriptcat.org/search?keyword={0}"
+    },
+    "gist": {
+        dname: "Github Gist",
+        full_url: "https://gist.github.com/search?q={0}"
+    },
+    "css_wd": {
+        dname: "UserStyle World",
+        full_url: "https://userstyles.org/styles/browse?search_terms={0}"
+    },
+    "css_org": {
+        dname: "UserStyles.org",
+        full_url: "https://userstyles.world/search?q={0}"
+    },
+    "css_org_achv": {
+        dname: "UserStyles Archive",
+        full_url: "https://uso.kkx.one/browse/styles?search={0}"
+    },
+    "css_sch": {
+        "dname": "AllinOne",
+        "use_other_engine": [
+          "css_wd",
+          "css_org",
+          "css_org_achv"
+          ],
+        "btns": {
+          "every_go": {
+            "label": "Search Together"
+        }
+    }
+},
     "choco": {
         dname: "Chocolatey",
         addr: "https://chocolatey.org/packages",
