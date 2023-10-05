@@ -2051,11 +2051,11 @@ sEngines = {
     },
     "css_wd": {
         dname: "UserStyle World",
-        full_url: "https://userstyles.org/styles/browse?search_terms={0}"
+        full_url: "https://userstyles.world/search?q={0}"
     },
     "css_org": {
         dname: "UserStyles.org",
-        full_url: "https://userstyles.world/search?q={0}"
+        full_url: "https://userstyles.org/styles/browse?search_terms={0}"
     },
     "css_org_achv": {
         dname: "UserStyles Archive",
