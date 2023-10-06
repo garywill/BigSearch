@@ -2045,7 +2045,7 @@ sEngines = {
             "lib": {
                 "label": "Lib",
                 "btn_tip":"请用 kw_format 定制 Sphinx 模版",
-                "action": "https://greasyfork.org/zh-CN/scripts/libraries"
+                "action": "https://greasyfork.org/scripts/libraries"
             },
             "code": {
                 "label": "Code",
