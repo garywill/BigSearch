@@ -99,22 +99,18 @@ catas = {
             { type:"engine", name:"stackexchange"},
             { type:"engine", name:"alternativeto"},
             { type: "label", lstr: "Browser Plugins" },
-            { type: "engine", name: "ggl_ext" },
-            { type: "engine", name: "ffx_ext" },
-            { type: "engine", name: "sfr_ext" },
-            { type: "engine", name: "ms_store" },
-            { type: "label", lstr: "Scripts" },
-            { type: "engine", name: "greasy_fork" },
-            { type: "engine", name: "slz" },
-            { type: "engine", name: "script_zn" },
-            { type: "engine", name: "script_op" },
-            { type: "engine", name: "script_ct" },
-            { type: "engine", name: "gist" },
-            { type: "label", lstr: "Styles" },
-            { type: "engine", name: "css_org_wd" },
-            { type: "engine", name: "css_org" },
-            { type: "engine", name: "css_org_achv" },
-            { type: "engine", name: "css_sch" },
+            { type: "engine", name: "ggl_ext"},
+            { type: "engine", name: "ffx_ext"},
+            { type: "engine", name: "sfr_ext"},
+            { type: "label", lstr: "Scripts"},
+            { type: "engine", name: "greasy_fork"},
+            { type: "engine", name: "user_script_zone"},
+            { type: "engine", name: "open_user_js"},
+            { type: "engine", name: "script_cat", visible_lang:"zh"},
+            { type: "engine", name: "gist"},
+            { type: "label", lstr: "Styles"},
+            { type: "engine", name: "user_style_world"},
+            { type: "engine", name: "user_style_org"},
             { type:"label", lstr:"Windows"},
             { type:"engine", name:"choco"},
             { type:"engine", name:"scoop"},
@@ -1954,24 +1950,70 @@ sEngines = {
         }
     },
     "ggl_ext": {
-        dname: "Chrome WebStore",
-        full_url: "https://chromewebstore.google.com/search/{0}"
+        "dname": "Chrome WebStore",
+        "full_url": "https://chromewebstore.google.com/search/{0}",
+        "btns": {
+            "go": {
+                "label": "Search"
+            },
+            "crxsoso": {
+                "label": "Crxsoso",
+                visible_lang: "zh"
+                "full_url": "https://www.crxsoso.com/search?store=chrome&keyword={0}"
+            }
+        }
     },
     "ffx_ext": {
-        dname: "Firefox Add-Ons",
-        full_url: "https://addons.mozilla.org/zh-CN/firefox/search/?q={0}"
+        "dname": "Firefox Add-Ons",
+        "full_url": "https://addons.mozilla.org/firefox/search/?q={0}",
+        "btns": {
+            "go": {
+                "label": "Search"
+            },
+            "crxsoso": {
+                "label": "Crxsoso",
+                visible_lang: "zh",
+                "full_url": "https://www.crxsoso.com/search?store=firefox&keyword={0}"
+            }
+        }
     },
     "sfr_ext": {
-        dname: "Safari Extensions (AppStore)",
-        full_url: "https://www.apple.com/us/search/{0}"
+      "dname": "Safari Extensions",
+      "addr": "https://www.apple.com/",
+      "action": "https://www.apple.com/search",
+      "kw_format": "{0} extension",
+      "full_url":"https://www.apple.com/search/{0}?src=serp",
+      "btns": {
+        "app_store":{
+            "label":"App Store",
+            "btn_tip":"Original Search"
+        },
+        "baidu": {
+          "label": "百度",
+          "visible_lang": "zh",
+          "kw_format": "site:(apps.apple.com) {0} extension",
+          "use_other_engine": {
+            "engine": "baidu",
+            "btn": "search"
+        }
     },
-    "ms_store": {
-        dname: "Microsoft Store",
-        full_url: "https://www.crxsoso.com/search?keyword={0}&store=microsoft"
+    "google": {
+      "label": "Google",
+      "kw_format": "{0} extension site:apple.com/*app",
+      "use_other_engine": {
+        "engine": "google",
+        "btn": "search"
+    }
+}
+}
+}, 
+    "crxsoso":{
+        dname: "Crx 搜搜"
+        full_url: "https://www.crxsoso.com/search?keyword={0}"
     },
     "greasy_fork": {
         "dname": "Greasy Fork",
-        "action": "https://greasyfork.org/zh-CN/scripts",
+        "action": "https://greasyfork.org/scripts",
         "kw_key": "q",
         "btns": {
             "js": {
@@ -2000,10 +2042,6 @@ sEngines = {
                 }
                 ]
             },
-            "en": {
-                "label": "English",
-                "action": "https://greasyfork.org/en/scripts"
-            },
             "lib": {
                 "label": "Lib",
                 "btn_tip":"请用 kw_format 定制 Sphinx 模版",
@@ -2011,15 +2049,15 @@ sEngines = {
             },
             "code": {
                 "label": "Code",
-                "full_url": "https://greasyfork.org/zh-CN/scripts/code-search?c={0}"
+                "full_url": "https://greasyfork.org/scripts/code-search?c={0}"
             },
             "user": {
                 "label": "User",
-                "action": "https://greasyfork.org/zh-CN/users"
+                "action": "https://greasyfork.org/users"
             },
             "ath": {
                 "label": "Author",
-                "action": "https://greasyfork.org/zh-CN/users",
+                "action": "https://greasyfork.org/users",
                 "params": [
                 {
                     "key": "author",
@@ -2029,19 +2067,15 @@ sEngines = {
             }
         }
     },
-    "slz": {
-        dname: "Sleazy Fork",
-        full_url: "https://sleazyfork.org/zh-CN/scripts?q={0}"
-    },
-    "script_zn": {
+    "user_script_zone": {
         dname: "UserScript.Zone",
         full_url: "https://www.userscript.zone/search?q={0}"
     },
-    "script_op": {
+    "open_user_js": {
         dname: "OpenUserJS",
         full_url: "https://openuserjs.org/?q={0}"
     },
-    "script_ct": {
+    "script_cat": {
         dname: "Script Cat",
         full_url: "https://scriptcat.org/search?keyword={0}"
     },
@@ -2049,28 +2083,22 @@ sEngines = {
         dname: "Github Gist",
         full_url: "https://gist.github.com/search?q={0}"
     },
-    "css_wd": {
+    "user_style_world": {
         dname: "UserStyle World",
-        full_url: "https://userstyles.world/search?q={0}"
-    },
-    "css_org": {
-        dname: "UserStyles.org",
         full_url: "https://userstyles.org/styles/browse?search_terms={0}"
     },
-    "css_org_achv": {
-        dname: "UserStyles Archive",
-        full_url: "https://uso.kkx.one/browse/styles?search={0}"
-    },
-    "css_sch": {
-        "dname": "AllinOne",
-        "use_other_engine": [
-          "css_wd",
-          "css_org",
-          "css_org_achv"
-          ],
+    "user_style_org": {
+        "dname": "UserStyles.org",
+        "full_url": "https://userstyles.org/styles/browse?search_terms={0}",
         "btns": {
-          "every_go": {
-            "label": "Search Together"
+          "go": {
+            "label": "Search",
+            "btn_tip": "Modern Search"
+        },
+        "archive": {
+            "label": "Archive",
+            "btn_tip": "Classical Search",
+            "full_url": "https://uso.kkx.one/browse/styles?search={0}"
         }
     }
 },
