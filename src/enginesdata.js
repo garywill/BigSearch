@@ -98,17 +98,16 @@ catas = {
             { type:"engine", name:"chrome_ext_dev"},
             { type:"engine", name:"stackexchange"},
             { type:"engine", name:"alternativeto"},
-            { type: "label", lstr: "Browser Plugins" },
+            { type: "label", lstr: i18n(["浏览器扩展", "Browser Extensions"]) },
             { type: "engine", name: "ggl_ext"},
             { type: "engine", name: "ffx_ext"},
             { type: "engine", name: "sfr_ext"},
-            { type: "label", lstr: "Scripts"},
+            { type: "label", lstr: i18n(["浏览器网页脚本", "Browser UserScripts"]) },
             { type: "engine", name: "greasy_fork"},
             { type: "engine", name: "user_script_zone"},
             { type: "engine", name: "open_user_js"},
             { type: "engine", name: "script_cat", visible_lang:"zh"},
-            { type: "engine", name: "gist"},
-            { type: "label", lstr: "Styles"},
+            { type: "label", lstr: i18n(["浏览器网页样式", "Browser UserStyle"])},
             { type: "engine", name: "user_style_world"},
             { type: "engine", name: "user_style_org"},
             { type:"label", lstr:"Windows"},
@@ -1498,6 +1497,10 @@ sEngines = {
                     }
                 ]
             },
+            "gist": {
+                "label": "Gist", 
+                full_url: "https://gist.github.com/search?q={0}"
+            }, 
         }
     },
     "mdn": {
@@ -1957,8 +1960,8 @@ sEngines = {
                 "label": "Search"
             },
             "crxsoso": {
-                "label": "Crxsoso",
-                visible_lang: "zh"
+                "label": "Crx搜搜",
+                visible_lang: "zh", 
                 "full_url": "https://www.crxsoso.com/search?store=chrome&keyword={0}"
             }
         }
@@ -1971,7 +1974,7 @@ sEngines = {
                 "label": "Search"
             },
             "crxsoso": {
-                "label": "Crxsoso",
+                "label": "Crx搜搜",
                 visible_lang: "zh",
                 "full_url": "https://www.crxsoso.com/search?store=firefox&keyword={0}"
             }
@@ -1984,31 +1987,31 @@ sEngines = {
       "kw_format": "{0} extension",
       "full_url":"https://www.apple.com/search/{0}?src=serp",
       "btns": {
-        "app_store":{
-            "label":"App Store",
-            "btn_tip":"Original Search"
-        },
-        "baidu": {
-          "label": "百度",
-          "visible_lang": "zh",
-          "kw_format": "site:(apps.apple.com) {0} extension",
-          "use_other_engine": {
-            "engine": "baidu",
-            "btn": "search"
-        }
-    },
-    "google": {
-      "label": "Google",
-      "kw_format": "{0} extension site:apple.com/*app",
-      "use_other_engine": {
-        "engine": "google",
-        "btn": "search"
-    }
-}
-}
-}, 
+          "app_store":{
+              "label":"App Store",
+              "btn_tip":"Original Search"
+          },
+          "baidu": {
+              "label": "百度",
+              "visible_lang": "zh",
+              "kw_format": "site:(apps.apple.com) {0} extension",
+              "use_other_engine": {
+                  "engine": "baidu",
+                  "btn": "sch"
+              }
+          },
+          "google": {
+              "label": "Google",
+              "kw_format": "{0} extension site:apple.com/*app",
+              "use_other_engine": {
+                  "engine": "google",
+                  "btn": "search"
+              }
+          }
+      }
+    }, 
     "crxsoso":{
-        dname: "Crx 搜搜"
+        dname: "Crx 搜搜", 
         full_url: "https://www.crxsoso.com/search?keyword={0}"
     },
     "greasy_fork": {
@@ -2095,13 +2098,13 @@ sEngines = {
             "label": "Search",
             "btn_tip": "Modern Search"
         },
-        "archive": {
+        "uso_kkx_one": {
             "label": "Archive",
             "btn_tip": "Classical Search",
             "full_url": "https://uso.kkx.one/browse/styles?search={0}"
         }
-    }
-},
+        }
+    },
     "choco": {
         dname: "Chocolatey",
         addr: "https://chocolatey.org/packages",
