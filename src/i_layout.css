@@ -263,6 +263,21 @@ a {
 .inputbox_in_ml:hover  #dblclick_ml_tip {
     display: block !important;
 }
+
+#vem_tip_below_input {
+    display: none;
+    position: absolute;
+    right: 10px;
+    background-color: #68ea6445;
+    border: 1px solid #8080803d;
+    border-top: none;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top: none;
+    font-size: 12px;
+}
+
+
 #dblclick_ml_tip {
     font-size: 12px;
     position: absolute;

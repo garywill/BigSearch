@@ -1,2 +1,6 @@
  
 #cornerbtn_openintab { display: none; }
+
+#inputbox:focus ~ #vem_tip_below_input {
+    display: unset !important;
+}

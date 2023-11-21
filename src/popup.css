@@ -42,5 +42,8 @@ body::-webkit-scrollbar-track-piece {
 #intitle
 { display:none;}
 
+#inputbox:focus ~ #vem_tip_below_input {
+    display: unset !important;
+}
 
 

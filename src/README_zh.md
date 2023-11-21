@@ -126,7 +126,7 @@
 
 ![vem](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/vemgif.gif)
 
-> 这是个实验中的特性。这部分未翻译完成。详细见英文文档对应的本部分
+> 这部分未翻译完成。详细见英文文档对应的本部分
 
 ### 隐私安全
 
