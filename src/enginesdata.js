@@ -148,6 +148,7 @@ catas = {
             { type:"engine", name:"apkmirror"},
             { type:"engine", name:"apk-dl"},
             { type:"engine", name:"apkpure"},
+            { type:"engine", name:"apkshub"},
             { type:"engine", name:"freeapk"},
             { type:"engine", name:"appsapk"},
             { type:"engine", name:"androidpicks"},
@@ -162,6 +163,7 @@ catas = {
             { type:"label", lstr:"中音簿画" , visible_lang: "zh" },
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
             { type:"engine", name:"bilibili" , visible_lang: "zh" },
+            { type:"engine", name:"xigua" , visible_lang: "zh" },
             { type:"engine", name:"music163" , visible_lang: "zh" },
             { type:"engine", name:"fsou_img", visible_lang: "zh"},
             { type:"label", lstr:"各处民风" , visible_lang: "zh" },
@@ -172,6 +174,11 @@ catas = {
             { type:"engine", name:"vimeo"},
             { type:"engine", name:"dailymotion"},
             { type:"engine", name:"dtube"},
+            { type:"label", lstr:i18n(["免费许可图库", "Free License Pictures"]) },            
+            { type:"engine", name:"unsplash"},
+            { type:"engine", name:"pexels"},
+            { type:"engine", name:"pixabay"},
+            { type:"engine", name:"videvo"},
 
         ],
     },
@@ -221,7 +228,7 @@ catas = {
             { type:"engine", name:"works.hk"},
             { type:"engine", name:"cantodict"},
             { type:"engine", name:"voicedic"},
-            { type:"engine", name:"wantwords"},
+            { type:"engine", name:"shenyandayi"},
             { type:"engine", name:"zitools"},
             { type:"label", lstr:"帛竹卷經" },
             { type:"engine", name:"ctext"},
@@ -1403,6 +1410,12 @@ sEngines = {
         "action": "https://apkpure.com/cn/search",
         "kw_key": "q"
     },
+    "apkshub": {
+        dname: "APKsHub", 
+        addr: "https://apkshub.com/", 
+        action: "https://apkshub.com/search", 
+        kw_key: "q",
+    }, 
     "freeapk": {
         "dname": "Freeapk",
         "addr": "https://freeapk.mobi",
@@ -1800,55 +1813,94 @@ sEngines = {
     },
     "voicedic": {
         dname: "汉语方言发音字典",
-        addr: "https://cn.voicedic.com/",
-        action: "https://cn.voicedic.com/",
+        addr: "https://zh.voicedic.com/",
+        action: "https://zh.voicedic.com/",
         btns: {
-            "TraditionalChinese": {
-                "label": "广韵",
-                "ajax": ["input[type=radio][name=language][value=TraditionalChinese]",100,".s_ipt",100,".s_btn"]
-            },
-            "Taiwanese": {
-                "label": "闽南话",
-                "ajax": ["input[type=radio][name=language][value=Taiwanese]",100,".s_ipt",100,".s_btn"]
-            },
-            "Hakka": {
-                "label": "客家话",
-                "ajax": ["input[type=radio][name=language][value=Hakka]",100,".s_ipt",100,".s_btn"]
-            },
-            "Chaozhouese": {
-                "label": "潮州话",
-                "ajax": ["input[type=radio][name=language][value=Chaozhouese]",100,".s_ipt",100,".s_btn"]
-            },
             "Cantonese": {
                 "label": "广州话",
-                "ajax": ["input[type=radio][name=language][value=Cantonese]",100,".s_ipt",100,".s_btn"]
+                "ajax": ["input[name=language][value=Cantonese]",100,".s_ipt",100,".s_btn"]
             },
             "Shanghaiese": {
                 "label": "上海话",
-                "ajax": ["input[type=radio][name=language][value=Shanghaiese]",100,".s_ipt",100,".s_btn"]
+                "ajax": ["input[name=language][value=Shanghaiese]",100,".s_ipt",100,".s_btn"]
             },
-            "Suzhouese": {
-                "label": "苏州话",
-                "ajax": ["input[type=radio][name=language][value=Suzhouese]",100,".s_ipt",100,".s_btn"]
-            },
-            "Waitau": {
-                "label": "围头话",
-                "ajax": ["input[type=radio][name=language][value=Waitau]",100,".s_ipt",100,".s_btn"]
-            },
-            "Vusihlau": {
-                "label": "无锡话",
-                "ajax": ["input[type=radio][name=language][value=Vusihlau]",100,".s_ipt",100,".s_btn"]
-            },
-            "Langjin": {
-                "label": "南京话",
-                "ajax": ["input[type=radio][name=language][value=Langjin]",100,".s_ipt",100,".s_btn"]
-            },
-            "Wenzhouese": {
-                "label": "温州话",
-                "ajax": ["input[type=radio][name=language][value=Wenzhouese]",100,".s_ipt",100,".s_btn"]
-            }
+            "Chaozhouese": {
+                "label": "潮州话",
+                "ajax": ["input[name=language][value=Chaozhouese]",100,".s_ipt",100,".s_btn"]
+            },            
+            "minnan": {
+                "label": "闽南话",
+                "ajax": [
+                    "input[name=language][value=Minnanese]",
+                    "input[name=language][value=Twblg]",
+                    100,".s_ipt",100,".s_btn"]
+            },            
+            "hakka": {
+                "label": "客家话",
+                "ajax": [
+                    "input[name=language][value=Hakka]",
+                    "input[name=language][value=Hakkafc]",
+                    "input[name=language][value=Hakkahl]",
+                    "input[name=language][value=Hakkanjp]",
+                    "input[name=language][value=Hakkatb]",
+                    "input[name=language][value=Hakkazhon]",
+                    100,".s_ipt",100,".s_btn"]
+            },            
+            
+            
         }
     },
+    "shenyandayi": {
+        dname: "深言达意", 
+        addr: "https://www.shenyandayi.com", 
+        tip: "根据意思来搜索词或句", 
+        kw_key: "query", 
+        btns: {
+            "zh_word": {
+                action: "https://www.shenyandayi.com/wantWordsResult", 
+                label: "词和成语", 
+                params: [
+                    {key: "lang", val: "zh"}
+                ], 
+            }, 
+            "zh_sentence_modern": {
+                label: "现代句", 
+                action: "https://www.shenyandayi.com/wantQuotesResult", 
+                params: [
+                    {key: "lang", val: "zh"}, 
+                    {key: "category", val: "2001"}, 
+                ], 
+            }, 
+            "zh_sentence_ancient": {
+                label: "古诗文", 
+                action: "https://www.shenyandayi.com/wantQuotesResult", 
+                params: [
+                    {key: "lang", val: "zh"}, 
+                    {key: "category", val: "2002"}, 
+                ], 
+            }, 
+            "zh_sentence_idiom": {
+                label: "熟语", 
+                action: "https://www.shenyandayi.com/wantQuotesResult", 
+                params: [
+                    {key: "lang", val: "zh"}, 
+                    {key: "category", val: "2003"}, 
+                ], 
+            }, 
+            "zh_sentence_couplet": {
+                label: "对联", 
+                action: "https://www.shenyandayi.com/wantQuotesResult", 
+                params: [
+                    {key: "lang", val: "zh"}, 
+                    {key: "category", val: "2004"}, 
+                ], 
+            }, 
+            "wantwords": {
+                label: "万词王反向(旧)", 
+                use_other_engine: "wantwords", 
+            }, 
+        }, 
+    }, 
     "wantwords": {
         dname: "万词王",
         addr: "https://wantwords.net/",
@@ -2288,6 +2340,25 @@ sEngines = {
             },
         }
     },
+    "xigua": {
+        dname: "西瓜视频", 
+        addr: "https://www.ixigua.com/", 
+        btns: {
+            "search": {
+                label: "综合", 
+                full_url: "https://www.ixigua.com/search/{0}/", 
+            }, 
+            "movie": {
+                label: "影视", 
+                full_url: "https://www.ixigua.com/search/{0}/?typeIndex=1", 
+            }, 
+            "user": {
+                label: "用户" , 
+                full_url: "https://www.ixigua.com/search/{0}/?typeIndex=2", 
+            }, 
+            
+        }, 
+    }, 
     "music163": {
         "dname": "网易云音乐",
         "addr": "https://music.163.com",
@@ -2414,6 +2485,110 @@ sEngines = {
         addr: "https://d.tube/",
         full_url: "https://d.tube/#!/s/{0}"
     },
+    "unsplash": {
+        dname: "Unsplash", 
+        addr: "https://unsplash.com", 
+        full_url: "https://unsplash.com/s/photos/{0}", 
+    }, 
+    "pexels": {
+        dname: "Pexels", 
+        addr: "https://www.pexels.com/", 
+        btns: {
+            "photos": {
+                label: "Photos", 
+                full_url: "https://www.pexels.com/search/{0}/", 
+            }, 
+            "videos": {
+                label: "Videos", 
+                full_url: "https://www.pexels.com/search/videos/{0}/", 
+            },
+        }, 
+    }, 
+    "pixabay": {
+        dname:" Pixabay", 
+        addr: "https://pixabay.com/", 
+        btns: {
+            "images": {
+                label: "All Images", 
+                full_url: "https://pixabay.com/images/search/{0}/", 
+            }, 
+            "photos": {
+                label: "Photos", 
+                full_url: "https://pixabay.com/photos/search/{0}/", 
+            }, 
+            "illustrations": {
+                label: "Illustrations", 
+                full_url: "https://pixabay.com/illustrations/search/{0}/", 
+            }, 
+            "vectors": {
+                label: "Vectors", 
+                full_url: "https://pixabay.com/vectors/search/{0}/", 
+            }, 
+            
+            "videos": {
+                label: "Videos", 
+                full_url: "https://pixabay.com/videos/search/{0}/", 
+            }, 
+            "music": {
+                label: "Music", 
+                full_url: "https://pixabay.com/music/search/{0}/", 
+            }, 
+            "sound": {
+                label: "Sounds", 
+                full_url: "https://pixabay.com/sound-effects/search/{0}/", 
+            }, 
+            "gifs": {
+                label: "GIFs", 
+                full_url: "https://pixabay.com/gifs/search/{0}/", 
+            }, 
+        }, 
+    }, 
+    
+    "videvo": {
+        dname: "Videvo", 
+        addr: "https://www.videvo.net", 
+        action: "https://www.videvo.net/search/", 
+        kw_key: "q", 
+        btns: {
+            'videos_free': {
+                label: "Free All Videos", 
+                params: [
+                    { key: "type[0]", val: "free" }, 
+                ], 
+            }, 
+            'footages_free': {
+                label: "Free Footages", 
+                params: [
+                    { key: "mode", val: "footage" }, 
+                    { key: "type[0]", val: "free" }, 
+                ], 
+            }, 
+            'motiongraphic_free': {
+                label: "Free Motion Graphics", 
+                params: [
+                    { key: "mode", val: "motion-graphics" }, 
+                    { key: "type[0]", val: "free" }, 
+                ], 
+            }, 
+            'music_free': {
+                label: "Free Music", 
+                params: [
+                    { key: "mode", val: "music" }, 
+                    { key: "type[0]", val: "free" }, 
+                ], 
+            }, 
+            'sound_free': {
+                label: "Free Sounds", 
+                params: [
+                    { key: "mode", val: "sound-effects" }, 
+                    { key: "type[0]", val: "free" }, 
+                ], 
+            }, 
+            
+        }
+    }, 
+    
+    
 };
 
 }
