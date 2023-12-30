@@ -384,7 +384,7 @@ JSON格式。
 
 ## For Developers
 
-> 用户使用自定义后，我们鼓励将JSON提交到源码（往`enginesdata.js`文件提交）。引擎数据为AGPL自由代码。
+> 用户使用自定义后，我们鼓励将JSON提交到源码（往`enginesdata.js`文件提交）
 
 ### What's Next Step?
 
@@ -449,7 +449,7 @@ JSON格式。
 
 有过（并可能仍会有）重构。尽管部分代码仍有岁月的痕迹，但**一直很现代并很好用**。
 
-已给了搜索引擎数据`enginesdata.js`AGPL自由许可（欢迎来添加引擎数据哦🌱。或者，你觉得有什么比AGPL更适合这些数据的许可🍀）。若需要整个项目的自由许可，欢迎讨论💚（open an issue）。
+代码在AGPL许可下发布
 
 [Change log](https://addons.mozilla.org/firefox/addon/big-search/versions/)
 

@@ -1,3 +1,12 @@
+/*
+ * Big Search (大术专搜)
+ *     https://github.com/garywill/BigSearch
+ *     https://addons.mozilla.org/firefox/addon/big-search/
+ *     https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb
+ * 
+ * Licensed under AGPL (GNU Affero General Public License)
+ */
+
 body {
     --bg-cl: #0b0b0b;
     color: #c6c6c6;

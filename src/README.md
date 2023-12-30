@@ -397,7 +397,7 @@ Eg 2: Delay 2s -> Input -> Delay 1s -> Trigger clicking button event
 
 ## For Developers
 
-> We encourage user to submit their customized search engines data to source code after they format as JSON (submit to file `enginesdata.js`). Search engines data is AGPL licensed FLOSS.
+> We encourage user to submit their customized search engines data to source code after they format as JSON (submit to file `enginesdata.js`)
 
 ### What's Next Step
 
@@ -463,7 +463,7 @@ A part of the code of this tool can be traced back to around 2008. Web app publi
 
 Some code has been ever (and may still getting) refactored. Although there's still some some aged parts, this tool has **always been modern, handy & useful**.
 
-Have given the engines data `enginesdata.js` AGPL FLOSS license (so welcome adding data 🌱. Or, if you know any license properer for this data 🍀). Feel free to discuss (open an issue) if want FLOSS license for this whole project 💚.
+Code is licensed under AGPL.
 
 [Change log](https://addons.mozilla.org/firefox/addon/big-search/versions/) 
 

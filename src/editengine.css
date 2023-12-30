@@ -1,3 +1,12 @@
+/*
+ * Big Search (大术专搜)
+ *     https://github.com/garywill/BigSearch
+ *     https://addons.mozilla.org/firefox/addon/big-search/
+ *     https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb
+ * 
+ * Licensed under AGPL (GNU Affero General Public License)
+ */
+
 body {
     font-family: sans-serif ,"DejaVu Sans", "Arial" , "WenQuanYi Micro Hei","文泉驿微米黑","Microsoft YaHei" ,"微软雅黑" ,"SimHei" , "黑体";
 /*     background-color: var(--bg-cl); */

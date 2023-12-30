@@ -1,14 +1,10 @@
 /*
- * By Big Search / 大术专搜
- * (addons.mozilla.org/firefox/addon/big-search/)
- * (acsearch.tk)
+ * Big Search (大术专搜)
+ *     https://github.com/garywill/BigSearch
+ *     https://addons.mozilla.org/firefox/addon/big-search/
+ *     https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb
  * 
- * Big Search / 大术专搜 is created by
- *     garywill
- *          (Github user github.com/garywill)
- *          (garywill at disroot dot org mail box)
- *          (cnblogs(博客园) blogger www.cnblogs.com/garyw)
- * 
+
  * The code of this file is released under：
  *     1. GNU AGPL (GNU Affero General Public License)
  *     2. Our (Big Search) statement:
@@ -39,7 +35,6 @@
  *              任意部分数据，则你使用了此文件的整个项目皆为AGPL许可（包括但不限于用户界面、
  *              应用程序界面、底层引擎、背部及相关的逻辑代码 等）。
  * 
- * Source code: https://github.com/garywill/BigSearch
  */
 
 /*
