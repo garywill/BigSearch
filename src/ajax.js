@@ -17,7 +17,7 @@ async function ajax_execute(ajax, keyword)
 {
     console.debug("ajax_execute()");
     const before_start = 100;
-    var slow = 10;
+    var slow = 20;
     async function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -92,8 +92,24 @@ async function ajax_execute(ajax, keyword)
         
         await sleep(slow * 5);
         web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.click();
+        
+        await sleep(slow * 5);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
         web_inputbox.focus();
         
+        
+        await sleep(slow * 5);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keypress", { key: " ", keyCode: 32, bubbles: true } ) );
+        
+        await sleep(slow * 5);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keydown", { key: " ", keyCode: 32, bubbles: true } ) );
+        
+        await sleep(slow * 1);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keyup", { key: " ", keyCode: 32, bubbles: true } ) );
         
         await sleep(slow * 2);
         web_inputbox = document.querySelectorAll(queryStr)[0];
@@ -102,11 +118,28 @@ async function ajax_execute(ajax, keyword)
         await sleep(slow * 2);
         web_inputbox = document.querySelectorAll(queryStr)[0];
         web_inputbox.dispatchEvent ( new Event( "change", { bubbles:true } ) );
+        
+        
+        
         
         await sleep(slow * 5);
         web_inputbox = document.querySelectorAll(queryStr)[0];
         web_inputbox.value = keyword ;
         
+        
+        
+        await sleep(slow * 5);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keypress", { key: " ", keyCode: 32, bubbles: true } ) );
+        
+        await sleep(slow * 5);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keydown", { key: " ", keyCode: 32, bubbles: true } ) );
+        
+        await sleep(slow * 1);
+        web_inputbox = document.querySelectorAll(queryStr)[0];
+        web_inputbox.dispatchEvent ( new KeyboardEvent( "keyup", { key: " ", keyCode: 32, bubbles: true } ) );
+
         await sleep(slow * 2);
         web_inputbox = document.querySelectorAll(queryStr)[0];
         web_inputbox.dispatchEvent ( new Event( "input", { bubbles:true } ) );
@@ -114,6 +147,8 @@ async function ajax_execute(ajax, keyword)
         await sleep(slow * 2);
         web_inputbox = document.querySelectorAll(queryStr)[0];
         web_inputbox.dispatchEvent ( new Event( "change", { bubbles:true } ) );
+        
+
         
         if (pressEnter) 
         {

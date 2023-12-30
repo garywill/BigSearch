@@ -94,6 +94,7 @@ catas = {
         label: '💻' + i18n(["软件程序", "Programing"]),
         engines: [
             { type:"engine", name:"github"},
+            { type:"engine", name:"python"},
             { type:"engine", name:"mdn"},
             { type:"engine", name:"chrome_ext_dev"},
             { type:"engine", name:"stackexchange"},
@@ -183,7 +184,7 @@ catas = {
         ],
     },
     "translate": {
-        label: '🔠' + i18n(["多国译典", "Translates"]),
+        label: '🔠' + i18n(["多国译查", "Translates"]),
         engines: [
             { type:"engine", name:"youdao" , visible_lang: "zh"},
             { type:"engine", name:"baidu_translate" , visible_lang: "zh"},
@@ -195,7 +196,7 @@ catas = {
         ],
     }, 
     "academy": {
-        label: '📑' + i18n(["资科藏识", "Knowledge"]),
+        label: '📑' + i18n(["资科知识", "Knowledge"]),
         engines: [
 //             { type:"label", lstr:i18n(["资料专藏", "Knowledge Search Engines"])},
             { type:"engine", name:"wikip_zh", visible_lang: "zh"},
@@ -218,21 +219,24 @@ catas = {
         ],
     },
     "han": {
-        label: "🀄漢語華文",
+        label: "🀄漢言文藏",
         visible_lang: "zh",
         engines: [
-            { type:"label", lstr:"辭言字海" },
+            { type:"label", lstr:"字言辭海" },
             { type:"engine", name:"zdic"},
             { type:"engine", name:"ccamc"},
             { type:"engine", name:"moedict"},
-            { type:"engine", name:"works.hk"},
-            { type:"engine", name:"cantodict"},
-            { type:"engine", name:"voicedic"},
             { type:"engine", name:"shenyandayi"},
             { type:"engine", name:"zitools"},
             { type:"label", lstr:"帛竹卷經" },
             { type:"engine", name:"ctext"},
             { type:"engine", name:"kanripo"},
+            { type:"label", lstr:"南腔北调" },
+            { type:"engine", name:"shyyp"},
+            { type:"engine", name:"jyut_net"},
+            { type:"engine", name:"works.hk"},
+            { type:"engine", name:"cantodict"},
+            { type:"engine", name:"voicedic"},
             { type:"label", lstr:"汉符编码" },
             { type:"engine", name:"unicode"},
             { type:"engine", name:"zi-hi"},
@@ -1247,7 +1251,7 @@ sEngines = {
         btns: {
             "baidu": {
                 "label": "百度",
-                "kw_format": "site:(www.coolapk.com) {0}",
+                "kw_format": "{0}   site:(www.coolapk.com)",
                 "use_other_engine": {
                     "engine": "baidu",
                     "btn": "sch"
@@ -1255,7 +1259,7 @@ sEngines = {
             },
             "google": {
                 label: "Google",
-                kw_format: "{0} site:www.coolapk.com",
+                kw_format: "{0}    site:www.coolapk.com",
                 use_other_engine: {
                     engine: "google",
                     btn: "search"
@@ -1461,7 +1465,7 @@ sEngines = {
             "baidu": {
                 "label": "百度",
                 visible_lang: "zh",
-                "kw_format": "site:(apps.apple.com) {0}",
+                "kw_format": "{0}   site:(apps.apple.com)",
                 "use_other_engine": {
                     "engine": "baidu",
                     "btn": "sch"
@@ -1469,7 +1473,7 @@ sEngines = {
             },
             "google": {
                 label: "Google",
-                kw_format: "{0} site:apple.com/*app",
+                kw_format: "{0}   site:apple.com/*app",
                 use_other_engine: {
                     engine: "google",
                     btn: "search"
@@ -1516,6 +1520,22 @@ sEngines = {
             }, 
         }
     },
+    "python": {
+        dname: "Python", 
+        addr: "https://docs.python.org", 
+        btns: {
+            "doc": {
+                label: "Search Doc", 
+                action: "https://docs.python.org/3/search.html", 
+                kw_key: "q", 
+            }, 
+            "pypi": {
+                label: "PyPI", 
+                action: "https://pypi.org/search/", 
+                kw_key: "q", 
+            }, 
+        }
+    }, 
     "mdn": {
         "dname": "MDN",
         "addr": "https://developer.mozilla.org",
@@ -1527,7 +1547,7 @@ sEngines = {
             },
             "sch_google": {
                 "label": " Google",
-                "kw_format": "{0} site:developer.mozilla.org/en-US",
+                "kw_format": "{0}   site:developer.mozilla.org/en-US",
                 "use_other_engine": {
                     "engine": "google",
                     "btn": "search",
@@ -1560,12 +1580,12 @@ sEngines = {
             "search": {
                 label: "Search",
                 "action": "https://developer.chrome.com/docs/extensions/reference/",
-                "ajax": ".search-box__input"
+                "ajax": ".devsite-search-field"
                 
             },
             "google": {
                 label: "Google",
-                kw_format: "{0} site:developer.chrome.com/docs/extensions/*",
+                kw_format: "{0}   site:developer.chrome.com/docs/extensions/*",
                 use_other_engine: "google"
             }
         }
@@ -1647,7 +1667,7 @@ sEngines = {
             "search": {
                 label: "Search",
                 action: "https://formulae.brew.sh/",
-                ajax: "#search-bar"
+                ajax: [700, "#search-container button", 700, "#docsearch-input", 10]
             }
         }
     },
@@ -1765,6 +1785,38 @@ sEngines = {
             }
         }
     },
+    "shyyp": {
+        dname: "羊羊粤语", 
+        addr: "https://shyyp.net", 
+        btns: {
+            'search': {
+                label: "搜索", 
+                action: "https://shyyp.net/", 
+                ajax: ["#mainSearchInput", 10 ], 
+            }, 
+            "enter": {
+                label: "进入", 
+                full_url: "https://shyyp.net/w/{0}", 
+            }
+        }, 
+    }, 
+    "jyut_net": {
+        dname: "粵音資料集叢", 
+        addr: "https://jyut.net/", 
+        d_addi_html: "繁",
+        kw_key: "q", 
+        btns: {
+            "char": {
+                label: "查單字", 
+                action: "https://jyut.net/query", 
+            }, 
+            "ping": {
+                label: "粵拼查", 
+                action: "https://jyut.net/search", 
+            }, 
+            
+        }, 
+    }, 
     "cantodict": {
         "dname": "CantoDict",
         "tip": "CantoDict is a unique collaborative English/Cantonese/Mandarin dictionary",
@@ -1817,26 +1869,36 @@ sEngines = {
         action: "https://zh.voicedic.com/",
         btns: {
             "Cantonese": {
-                "label": "广州话",
-                "ajax": ["input[name=language][value=Cantonese]",100,".s_ipt",100,".s_btn"]
+                "label": "广东话",
+                "ajax": [
+                    "input[name=language][value=Cantonese]",
+                    100,".s_ipt",100,".s_btn"]
             },
-            "Shanghaiese": {
-                "label": "上海话",
-                "ajax": ["input[name=language][value=Shanghaiese]",100,".s_ipt",100,".s_btn"]
-            },
-            "Chaozhouese": {
-                "label": "潮州话",
-                "ajax": ["input[name=language][value=Chaozhouese]",100,".s_ipt",100,".s_btn"]
+            "Waitau": {
+                "label": "围头话",
+                "ajax": [
+                    "input[name=language][value=Waitau]",
+                    100,".s_ipt",100,".s_btn"]
             },            
-            "minnan": {
-                "label": "闽南话",
+            "Shanghaiese": {
+                "label": "吴语系",
+                "ajax": [
+                    "input[name=language][value=Shanghaiese]",
+                    "input[name=language][value=Suzhouese]",
+                    "input[name=language][value=Vusihlau]",
+                    "input[name=language][value=Wenzhouese]",
+                    100,".s_ipt",100,".s_btn"]
+            },
+            "Minnan": {
+                "label": "闽南语系",
                 "ajax": [
                     "input[name=language][value=Minnanese]",
                     "input[name=language][value=Twblg]",
+                    "input[name=language][value=Chaozhouese]", 
                     100,".s_ipt",100,".s_btn"]
             },            
-            "hakka": {
-                "label": "客家话",
+            "Hakka": {
+                "label": "客家语系",
                 "ajax": [
                     "input[name=language][value=Hakka]",
                     "input[name=language][value=Hakkafc]",
@@ -1845,9 +1907,13 @@ sEngines = {
                     "input[name=language][value=Hakkatb]",
                     "input[name=language][value=Hakkazhon]",
                     100,".s_ipt",100,".s_btn"]
-            },            
-            
-            
+            },
+            "Mandarin":  {
+                "label": "南京话",
+                "ajax": [
+                    "input[name=language][value=Langjin]",
+                    100,".s_ipt",100,".s_btn"]
+            },
         }
     },
     "shenyandayi": {
@@ -2046,7 +2112,7 @@ sEngines = {
           "baidu": {
               "label": "百度",
               "visible_lang": "zh",
-              "kw_format": "site:(apps.apple.com) {0} extension",
+              "kw_format": "{0} extension  site:(apps.apple.com)",
               "use_other_engine": {
                   "engine": "baidu",
                   "btn": "sch"
@@ -2054,7 +2120,7 @@ sEngines = {
           },
           "google": {
               "label": "Google",
-              "kw_format": "{0} extension site:apple.com/*app",
+              "kw_format": "{0} extension   site:apple.com/*app",
               "use_other_engine": {
                   "engine": "google",
                   "btn": "search"

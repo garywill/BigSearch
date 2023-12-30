@@ -167,7 +167,13 @@ async function set_contextmenu() {
             break;
         case "popup":
         default:
-            onMenuClickFunc_open = function() {  chrome.browserAction.openPopup() ; } ;
+            onMenuClickFunc_open = function() { 
+                // NOTE !!!! NOTICE !!  ` openPopup ` not allow above have ` await ` 
+                if (mv>=3) 
+                    chrome.action.openPopup() ; 
+                else 
+                    chrome.browserAction.openPopup() ;  
+            } ;
             break;
     }
     
@@ -203,6 +209,7 @@ async function setContextMenuOrKeyShortcutCopyBehavior()
     var setting_copyOnContextMenuOrKey = await get_addon_setting_local('copyOnContextMenuOrKey') ;
     if (setting_copyOnContextMenuOrKey)
         onMenuClickOrKeyFunc_copy = function(str) { 
+            // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
             chrome.permissions.request( { permissions: ['clipboardWrite'] } , r=>console.log(r) );
             navigator.clipboard.writeText(str) ;
         } ;
@@ -214,7 +221,13 @@ async function setContextMenuOrKeyShortcutCopyBehavior()
 
 chrome.commands.onCommand.addListener(async function (command, tab) { // 'tab' is only in mv3
     if (command == "selection_as_search_then_open_popup")
-        try { chrome.browserAction.openPopup() ; } catch(err) { console.warn(err) }
+        try { 
+            // NOTE !!!! NOTICE !!  ` openPopup ` not allow above have ` await ` 
+            if (mv>=3) 
+                chrome.action.openPopup() ; 
+            else 
+                chrome.browserAction.openPopup() ;  
+        } catch(err) { console.warn(err) }
     else if (command == "selection_as_search_then_open_sidebar")
         try { chrome.sidebarAction.open() ; } catch(err) { console.warn(err) }
         
@@ -222,10 +235,12 @@ chrome.commands.onCommand.addListener(async function (command, tab) { // 'tab' i
         
         // console.debug("onCommand selection_as_search");
         
+        // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
         await chrome.permissions.request({ permissions: ["activeTab"] });
         
         if (mv >= 3)
         {
+            // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
             await chrome.permissions.request({ permissions: ["scripting"] });
 
             chrome.scripting.executeScript( {

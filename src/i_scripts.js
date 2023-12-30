@@ -231,6 +231,7 @@ onrd.push(function(){
 	document.getElementById("inputpaste").onclick=function()
 	{
         if (window.run_env != "http_web") {
+            // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
             chrome.permissions.request({
                 permissions: ["clipboardRead"]
             });
@@ -265,6 +266,8 @@ onrd.push(function(){
     if (window.run_env != "http_web") {
         document.getElementById("btn_askpermis_ajax").onclick = async function() {
             const url = document.getElementById("permis_toast_url").getAttribute("data");
+            
+            // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
             await chrome.permissions.request({ origins: [url]  });
             
             document.getElementById("permis_toast_o").style.display = "none";
@@ -369,8 +372,11 @@ onrd.push(function() {
 onrd.push(function() {
     if (isFirefox)
         document.getElementById("cornerbtn_openpopup").onclick = async function() {
-            var r = await browser.browserAction.openPopup();
-            console.log(r);
+            // NOTE !!!! NOTICE !!  ` openPopup ` not allow above have ` await ` 
+            if (mv>=3) 
+                 chrome.action.openPopup() ; 
+            else 
+                chrome.browserAction.openPopup() ;  
         };
     else if (isChrome)
         document.getElementById("cornerbtn_openpopup").style.display = "none";
@@ -507,6 +513,7 @@ onrd.push(function(){
 });
 onrd.push(function() {
     document.getElementById("btn_search_permi").onclick = async function() {
+        // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
         await chrome.permissions.request({ permissions: ["search"] });
         document.getElementsByClassName("cata_btn_highlight")[0].click();
     };

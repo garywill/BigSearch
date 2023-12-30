@@ -359,54 +359,55 @@ function getDataForGo(engine,btn,dbname=null)
 }
 
 
-var newTabBringFront;
-async function goEngBtn(engine,btn,keyword,dbname=null)
-{
-    var newTabIndex = -1 ;
-    if (window.run_env != "http_web") {
-        var setting_newTabPos = await get_addon_setting_local('newTabPos');
-        switch (setting_newTabPos){
-            case 'left-all': newTabIndex = 0 ;  break;
-            case 'right-all': newTabIndex = 99999999 ;  break;
-            case 'left-current': 
-            case 'right-current': 
-                await chrome.tabs.query( 
-                    { currentWindow: true , active: true},
-                    async function(r) {
-                        console.log(r);
-                        newTabIndex = r[0].index ;  
-                        if (setting_newTabPos == 'right-current')
-                            newTabIndex = r[0].index+1;
-                    }
-                ) ;
-                break;
-                
-            default: newTabIndex = 0;
-        }
-        
-        newTabBringFront = false;
-        
-        //-----------------------------
-        async function zzsleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-        for ( var zz=0; zz<1000; zz++) {
-            if (newTabIndex != -1)
-                break;
-            else if (zz==999)
-            {
-                console.error('Waiting for newTabIndex, but timeout !')
-                return;
+async function calcNewTabIndex() {
+    var newTabIndex = -1;
+    var setting_newTabPos = await get_addon_setting_local('newTabPos');
+    switch (setting_newTabPos){
+        case 'left-all': newTabIndex = 0 ;  break;
+        case 'right-all': newTabIndex = 99999999 ;  break;
+        case 'left-current': 
+        case 'right-current': 
+            await chrome.tabs.query( 
+            { currentWindow: true , active: true},
+            async function(r) {
+                console.log(r);
+                newTabIndex = r[0].index ;  
+                if (setting_newTabPos == 'right-current')
+                    newTabIndex = r[0].index+1;
             }
-            await zzsleep(5);
-        }
-        //------------------------------
+            ) ;
+            break;
+            
+        default: newTabIndex = 0;
     }
     
+    
+    //-----------------------------
+    async function zzsleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    for ( var zz=0; zz<1000; zz++) {
+        if (newTabIndex != -1)
+            break;
+        else if (zz==999)
+        {
+            console.error('Waiting for newTabIndex, but timeout !');
+            break;
+        }
+        await zzsleep(5);
+    }
+    //------------------------------
+    return newTabIndex;
+}
 
+var newTabBringFront = false;
+var newTabIndex = -1 ;
+async function goEngBtn(engine,btn,keyword,dbname=null)
+{
+    
     
     if ( dbname == "browser" ) {
-        
+        newTabIndex = await calcNewTabIndex();
         if (isFirefox)
         {
             const newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
@@ -481,6 +482,7 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
             go_full_url(keyword, data.full_url, data.charset,use_referer);
         else
         {
+            newTabIndex = await calcNewTabIndex();
             await open_connecting_page(dbname, engine, btn, keyword, newTabIndex);
         }
         return;
@@ -495,6 +497,16 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
         if (window.run_env == "http_web") {
         }
         
+        
+        if (mv >= 3) {
+            // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
+            var r = await chrome.permissions.request({ permissions: ["scripting"] });
+            if ( !r ) {
+                console.error("Failed to get 'scripting' permission");
+                return;
+            }
+        }
+        
         var permis_have;
         if (isFirefox) {
             permis_have = await browser.permissions.getAll();
@@ -504,18 +516,6 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
             }) );
         }
         
-        if (mv >= 3)
-        {
-            if ( ! permis_have['permissions'].includes('scripting') )
-            {
-                var r = await chrome.permissions.request({ permissions: ["scripting"] });
-                if ( !r ) {
-                    console.error("Failed to get 'scripting' permission");
-                    return;
-                }
-                    
-            }
-        }
         
         
         var host_permis_needed = removeUrlParts(data.action) + '*';
@@ -529,7 +529,9 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
             return;
         }
         
-
+        
+        
+        newTabIndex = await calcNewTabIndex();
         
         var newTab;
         if (isFirefox) {
@@ -586,7 +588,8 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
     if (window.run_env == "http_web")
         form_submit(fparams, data.action, data.charset, data.method, use_referer);
     else{
-            await open_connecting_page(dbname, engine, btn, keyword, newTabIndex);
+        newTabIndex = await calcNewTabIndex();
+        await open_connecting_page(dbname, engine, btn, keyword, newTabIndex);
     }
 }
 

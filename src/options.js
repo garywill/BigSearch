@@ -67,8 +67,10 @@ async function on_optionpage_load() {
         document.getElementById("cbox_copyOnContextMenuOrKey").addEventListener("change", function (event) {
             chrome.storage.local.set({"copyOnContextMenuOrKey" : event.target.checked});
             
-            if (event.target.checked)
+            if (event.target.checked) {
+                // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
                 chrome.permissions.request( { permissions: ['clipboardWrite'] } , r=>console.log(r) );
+            } 
         });
     } ) () ;
     // --------------------------
