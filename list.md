@@ -30,9 +30,9 @@ This is the current engines list. We are keeping adding ~ (users' contribution i
 ### Global
 
 - **🌐General**: Bing | Google | Yahoo Search | Yandex | DuckDuckGo | StartPage | Ecosia | Qwant | Findx | MetaGer | Swisscows
-- **💻Programing**: Github | MDN | Chrome Extension API | StackExchange | AlternativeTo | Chocolatey | Scoop Search Apps | Cygwin packages | Microsoft Update Catalog | Man Pages | Homebrew | Docker Hub | Flathub | Snapcraft | pkgs.org | Repology | NixOS | GNU Guix packages
-- **📱Mobile Apps**: Google Play Apps | F-Droid | iTunes Apps | IzzyOnDroid F-Droid | APKDL | APKMirror | APK-DL | APKPure | Freeapk | AppsApk | Android Picks | AndroidAPKsFree
-- **📺Multimedia**: Google | Youtube | Netflix | Bing | Vimeo | Dailymotion | DTube
+- **💻Programing**: Github | Python | MDN | Chrome Extension API | StackExchange | AlternativeTo | Chrome WebStore | Firefox Add-Ons | Safari Extensions | Greasy Fork | UserScript.Zone | OpenUserJS | UserStyle World | UserStyles.org | Chocolatey | Scoop Search Apps | Cygwin packages | Microsoft Update Catalog | Man Pages | Homebrew | Docker Hub | Flathub | Snapcraft | pkgs.org | Repology | NixOS | GNU Guix packages
+- **📱Mobile Apps**: Google Play Apps | F-Droid | iTunes Apps | IzzyOnDroid F-Droid | APKDL | APKMirror | APK-DL | APKPure | APKsHub | Freeapk | AppsApk | Android Picks | AndroidAPKsFree
+- **📺Multimedia**: Google | Youtube | Netflix | Bing | Vimeo | Dailymotion | DTube | Unsplash | Pexels |  Pixabay | Videvo
 - **🔠Translates**: DeepL Translate | Cambridge Dictionary | Google Translate
 - **📑Knowledge**: Wkipedia | Google Scholar | Bing Academic | WolframAlpha | Web of Science | EI | IEEE Xplore
 - **🛒Shopping**: Amazon | eBay | Alibaba | Walmart | Best Buy | Newegg
@@ -43,9 +43,12 @@ This is the current engines list. We are keeping adding ~ (users' contribution i
 除了以上各语言通用的内容外，大术专搜（Big Search）还提供 ~~（且可能是惟一）~~ 针对**中文**用户的内容。并仍在不断添加中～（当然大家的贡献很重要，欢迎贡献）
 
 - **🌐通用搜索**： 百度、F搜、搜狗搜索、360搜索
-- **📺听视影图**： 百度、哔哩哔哩、网易云音乐、F搜
-- **🔠多国译典**： 有道词典、百度翻译、F翻译、必应词典
-- **📑资科藏识**： 维基百科、快懂百科、百度学术、搜狗百科、360百科、中国知网、万方数据、CSSCI
-- **🀄漢語華文**： 汉典、古今文字集成、萌典、粵典、CantoDict、汉语方言发音字典、万词王、字統网、中國哲學書電子化計劃、漢籍(漢リポ)、Unicode.org、字嗨、CC可视化
+- **💻软件程序**： Script Cat
+- **📱手机应用**： 酷安、腾讯应用宝、豌豆荚、华为AppGallery
+- **📺听视影图**： 百度、哔哩哔哩、西瓜视频、网易云音乐、F搜
+- **🔠多国译查**： 有道词典、百度翻译、F翻译、必应词典
+- **📑资科知识**： 维基百科、快懂百科、百度学术、搜狗百科、360百科、中国知网、万方数据、CSSCI
+- **🀄漢言文藏**： 汉典、古今文字集成、萌典、深言达意、字統网、中國哲學書電子化計劃、漢籍(漢リポ)、羊羊粤语、粵音資料集叢、粵典、CantoDict、汉语方言发音字典、Unicode.org、字嗨、CC可视化
 - **🛒买东买西**： 淘宝天猫、京东、唯品会、当当网、苏宁易购
 - **📈经财起落**： 雪球、非小号
+
