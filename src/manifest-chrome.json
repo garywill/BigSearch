@@ -10,6 +10,7 @@
         "url": "https://garywill.github.io"
     },
     "permissions": [
+        "search", 
         "storage",
         "contextMenus", 
         "clipboardWrite", 
@@ -18,7 +19,6 @@
         "offscreen"
     ],
     "optional_permissions": [
-        "search",
         "clipboardRead",
         "activeTab"
     ],

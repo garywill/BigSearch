@@ -10,6 +10,7 @@
         "url": "https://github.com/garywill/BigSearch"
     },
     "permissions": [
+        "search",
         "storage",
         "contextMenus", 
         "clipboardWrite", 
@@ -20,7 +21,6 @@
         "*://garywill.github.io/*"
     ],
     "optional_permissions": [
-        "search",
         "clipboardRead",
         "activeTab",
         "*://*/*"

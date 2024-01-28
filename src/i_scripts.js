@@ -538,20 +538,8 @@ onrd.push(function(){
         document.getElementById("textarea_json").value = document.getElementById("textarea_json_saved").value
     });
 });
-onrd.push(function() {
-    document.getElementById("btn_search_permi").onclick = async function() {
-        // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
-        await chrome.permissions.request({ permissions: ["search"] });
-        document.getElementsByClassName("cata_btn_highlight")[0].click();
-    };
-});
-// onrd.push(function(){
-//     if (document.getElementById("tosimp"))
-//     {
-//         document.getElementById("tosimp").onclick=simp_trad_click;
-//         document.getElementById("totrad").onclick=simp_trad_click;
-//     }
-// });
+
+
 onrd.push(async function(){
     await init_themeHandler();
     setTimeout(scroll_to_lastp,500);
