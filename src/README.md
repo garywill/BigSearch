@@ -145,9 +145,7 @@ Note if new engines added, button sequence may change, so as button key (`A` - `
   
 ### Safety & Privacy
 
-- 🛡️ Minimum default permissions. Won't ask for sensitive permissions **until** needed.
 - 🛡️ **No injection** to web (except when searching In-page-Ajax-render websites)
-- 🛡️ Hide HTTP Referrer by default to protect user privacy
 - 🛡️ **Client side** functions and includes data fully. No necessary 3rd-party server. Completely **no** collecting user data
 - 🛡️ User custom engine GUI editor is used online (to shrink extension size). If you want extreme security, you can choose to disable communication between them, and use manual edit.
 

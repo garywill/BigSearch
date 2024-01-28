@@ -7,6 +7,7 @@
  * Licensed under AGPL (GNU Affero General Public License)
  */
 
+console.log('background.js');
 
 async function  on_addon_load() {
    
@@ -116,117 +117,7 @@ async function open_or_switchTo_stab_inThisWindow(curTab)
     
 }
 //======================================
-//==== context menu ===================
-// it's said: do menu creation and even listener at top level
 
-
-var selection_menu_creation = {
-    contexts: ["selection"],
-    // id: "menu_search_selected",
-    title: "BigSearch for '%s'",
-    // visible: false , 
-};
-if (isFirefox)
-    selection_menu_creation.icons = {"32": "icon_button.png"};
-
-const menuS = ['popup', 'stab', 'sidebar'];
-for (var m of menuS) {
-    var menu_to_create = JSON.parse(JSON.stringify(selection_menu_creation));
-    menu_to_create.id = "menu_search_selected__" + m ;
-    // menu_to_create.title = `BigSearch for '%s' (${m})`; 
-    chrome.contextMenus.create( menu_to_create );
-}
-
-chrome.contextMenus.onClicked.addListener( async function onContextMenuClick(info, tab) {
-    console.log("onContextMenuClick()");
-    if (info.menuItemId.startsWith( "menu_search_selected__" ) )
-    {
-        var which_btn = info.menuItemId.split('menu_search_selected__')[1];
-        try {  
-            switch (which_btn) {
-                case "sidebar":
-                    // NOTE !!!! NOTICE !!   not allow above have ` await ` 
-                    if (isFirefox)
-                        chrome.sidebarAction.open() ; 
-                    else if (isChrome)
-                        chrome.sidePanel.open({windowId: tab.windowId});
-                    break;
-                case "stab":
-                    await open_or_switchTo_stab_inThisWindow(tab) ; 
-                    break;
-                case "popup":
-                default:
-                    // NOTE !!!! NOTICE !!  ` openPopup ` not allow above have ` await ` 
-                    chrome.action.openPopup() ; 
-                    break;
-            }
-        } catch(err) { console.warn(err) }
-        
-        try {
-            await onMenuClickOrKeyFunc_copy(info.selectionText) ; 
-        } catch(err) { console.warn(err) }
-        
-        await set_stored_input_content( info.selectionText, true);    
-        
-        try{
-            chrome.runtime.sendMessage( {
-                from : "background",
-                to: "home.html", 
-                evt: "menu_search_selected clicked", 
-                command: "setInputBoxToText",
-                text: info.selectionText
-            } );
-        }catch(err){console.warn(err);} 
-    } 
-} );
-    
-
-
-if (isFirefox) {
-    chrome.contextMenus.onShown.addListener(async function(info, tab) {
-        //console.log(info.cookieStoreId);
-        //console.log(tab);
-        if ( isFirefox && tab.incognito) {
-            for (var m of menuS) { 
-                chrome.contextMenus.update("menu_search_selected__" + m, { visible: false});
-            }
-        }else{
-            var enContextMenu = await get_addon_setting_local('enContextMenu') ;
-            if (enContextMenu !== false ) {
-                
-                var behavior = await get_addon_setting_local('contextMenuBehavior') ;
-                // console.log("saved menu behavior settings:" , behavior);
-                if (!behavior) 
-                    behavior = 'popup';
-                chrome.contextMenus.update("menu_search_selected__" + behavior, { visible: true});
-            } 
-            
-        } 
-        
-        // Note: Not waiting for returned promise.
-        chrome.contextMenus.refresh();
-    });
-}
-
-
-async function del_unneeded_menu() {
-    var enContextMenu = await get_addon_setting_local('enContextMenu') ;
-    if (enContextMenu !== false ) {
-        
-        var behavior = await get_addon_setting_local('contextMenuBehavior') ;
-        // console.log("saved menu behavior settings:" , behavior);
-        if (!behavior) 
-            behavior = 'popup';
-        for (var m of menuS) {
-            // console.debug(m);
-            if (m != behavior)
-                chrome.contextMenus.remove("menu_search_selected__" + m);
-        } 
-    } else {
-        chrome.contextMenus.removeAll();
-    }
-}
-del_unneeded_menu();
 // ---------------------
 
 async function onMenuClickOrKeyFunc_copy(str) { 
@@ -255,7 +146,7 @@ async function onMenuClickOrKeyFunc_copy(str) {
         await chrome.offscreen.closeDocument( ) ;
     }
 } ;
-// ======  context menu end ================
+
 //===================================
 // ====== key shortcut command ==========
 
@@ -314,7 +205,7 @@ async function callback__selection_as_search (results)
     {
         try {  await onMenuClickOrKeyFunc_copy(selected_text) ;  } catch(err) { console.warn(err) }
         
-        await set_stored_input_content(selected_text, true);  
+        await set_stored_input_content(selected_text, isChrome?true:false);    
         
         try {
             chrome.runtime.sendMessage( {
@@ -405,10 +296,12 @@ chrome.runtime.onMessage.addListener(  function (request, sender, sendResponse){
         }
         
         (async () => {
+            console.debug("adding onUpdated listener to tab", tabid);
             if (isFirefox)
                 await chrome.tabs.onUpdated.addListener(onTabUpdated, {tabId: tabid, properties: [ "status" ] } );
             else if(isChrome)
                 await chrome.tabs.onUpdated.addListener(onTabUpdated );
+            console.debug("after adding onUpdated listener to tab", tabid);
             
             sendResponse({r:'yes'});
         })();
@@ -416,3 +309,119 @@ chrome.runtime.onMessage.addListener(  function (request, sender, sendResponse){
         return true;
     }
 });
+
+
+// =========================================
+
+//==== context menu ===================
+// it's said: do menu creation and even listener at top level
+
+
+var selection_menu_creation = {
+    contexts: ["selection"],
+    // id: "menu_search_selected",
+    title: "BigSearch for '%s'",
+    // visible: false , 
+};
+if (isFirefox)
+    selection_menu_creation.icons = {"32": "icon_button.png"};
+
+const menuS = ['popup', 'stab', 'sidebar'];
+for (var m of menuS) {
+    var menu_to_create = JSON.parse(JSON.stringify(selection_menu_creation));
+    menu_to_create.id = "menu_search_selected__" + m ;
+    // menu_to_create.title = `BigSearch for '%s' (${m})`; 
+    try {chrome.contextMenus.create( menu_to_create ); }catch(err) { }
+}
+
+chrome.contextMenus.onClicked.addListener( async function onContextMenuClick(info, tab) {
+    console.log("onContextMenuClick()");
+    if (info.menuItemId.startsWith( "menu_search_selected__" ) )
+    {
+        var which_btn = info.menuItemId.split('menu_search_selected__')[1];
+        try {  
+            switch (which_btn) {
+                case "sidebar":
+                    // NOTE !!!! NOTICE !!   not allow above have ` await ` 
+                    if (isFirefox)
+                        chrome.sidebarAction.open() ; 
+                else if (isChrome)
+                    chrome.sidePanel.open({windowId: tab.windowId});
+                break;
+                case "stab":
+                    await open_or_switchTo_stab_inThisWindow(tab) ; 
+                    break;
+                case "popup":
+                default:
+                    // NOTE !!!! NOTICE !!  ` openPopup ` not allow above have ` await ` 
+                    chrome.action.openPopup() ; 
+                    break;
+            }
+        } catch(err) { console.warn(err) }
+        
+        try {
+            await onMenuClickOrKeyFunc_copy(info.selectionText) ; 
+        } catch(err) { console.warn(err) }
+        
+        await set_stored_input_content( info.selectionText, isChrome?true:false);    
+        
+        try{
+            chrome.runtime.sendMessage( {
+                from : "background",
+                to: "home.html", 
+                evt: "menu_search_selected clicked", 
+                command: "setInputBoxToText",
+                text: info.selectionText
+            } );
+        }catch(err){console.warn(err);} 
+    } 
+} );
+
+
+
+if (isFirefox) {
+    chrome.contextMenus.onShown.addListener(async function(info, tab) {
+        //console.log(info.cookieStoreId);
+        //console.log(tab);
+        if ( isFirefox && tab.incognito) {
+            for (var m of menuS) { 
+                chrome.contextMenus.update("menu_search_selected__" + m, { visible: false});
+            }
+        }else{
+            var enContextMenu = await get_addon_setting_local('enContextMenu') ;
+            if (enContextMenu !== false ) {
+                
+                var behavior = await get_addon_setting_local('contextMenuBehavior') ;
+                // console.log("saved menu behavior settings:" , behavior);
+                if (!behavior) 
+                    behavior = 'popup';
+                chrome.contextMenus.update("menu_search_selected__" + behavior, { visible: true});
+            } 
+            
+        } 
+        
+        // Note: Not waiting for returned promise.
+        chrome.contextMenus.refresh();
+    });
+}
+
+
+async function del_unneeded_menu() {
+    var enContextMenu = await get_addon_setting_local('enContextMenu') ;
+    if (enContextMenu !== false ) {
+        
+        var behavior = await get_addon_setting_local('contextMenuBehavior') ;
+        // console.log("saved menu behavior settings:" , behavior);
+        if (!behavior) 
+            behavior = 'popup';
+        for (var m of menuS) {
+            // console.debug(m);
+            if (m != behavior)
+                try { chrome.contextMenus.remove("menu_search_selected__" + m); }catch(err) { }
+        } 
+    } else {
+        chrome.contextMenus.removeAll();
+    }
+}
+del_unneeded_menu();
+// ======  context menu end ================

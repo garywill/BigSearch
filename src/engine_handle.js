@@ -635,8 +635,9 @@ async function ajax_set_go(keyword, action, ajax, referer=false ) // called from
     });
     
     if (!m || m?.r != 'yes') {
-        console.warn("background respose not right");
-        return;
+        console.warn("background respose not right:", m);
+        await (500);
+        // return;
     } 
     // await sleep(1);
     
