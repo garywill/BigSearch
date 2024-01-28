@@ -91,7 +91,7 @@ catas = {
             { type:"engine", name:"github"},
             { type:"engine", name:"python"},
             { type:"engine", name:"mdn"},
-            { type:"engine", name:"chrome_ext_dev"},
+            { type:"engine", name:"chrome_dev"},
             { type:"engine", name:"stackexchange"},
             { type:"engine", name:"alternativeto"},
             { type: "label", lstr: i18n(["浏览器扩展", "Browser Extensions"]) },
@@ -1568,7 +1568,30 @@ sEngines = {
             */
         }
     },
-    "chrome_ext_dev": {
+    "chrome_dev": {
+        "dname": "Chrome Dev",
+        "addr": "https://developer.chrome.com",
+        action: "https://developer.chrome.com/s/results", 
+        kw_key: 'q', 
+        btns: {
+            // "google": {
+            //     label: "Google",
+            //     kw_format: "{0}   site:developer.chrome.com/*",
+            //     use_other_engine: "google"
+            // }, 
+            "google_webext" : {
+                label: "WebExt API (Google)",
+                kw_format: "{0}   site:developer.chrome.com/docs/extensions/*",
+                use_other_engine: "google"
+            }, 
+            "search": {
+                label: "Search",
+                btn_tip: "This will give search result of blog articles and Chrome extension APIs", 
+            },
+            
+        }
+    },    
+    "chrome_ext_dev": { // no more
         "dname": "Chrome Extension API",
         "addr": "https://developer.chrome.com/docs/extensions/reference/",
         btns: {
