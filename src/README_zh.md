@@ -98,10 +98,9 @@
   - 多行编辑时：插入至光标
 - 🖱️ 将**选择**的文本(单行或多行)作为搜索词
   > - Firefox无痕模式中无 ([bug 1380812](https://bugzilla.mozilla.org/show_bug.cgi?id=1380812)).
-  > - Chrome中点了右键菜单后，再点击工具栏中的图标（或使用快捷键） （[Chrome的缺陷](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283)）
 - ⌨️ 可自定的**快捷键**。默认为（可能需自行修改）：
   - 唤出界面。Firefox: `Ctrl+Alt+S`  Chrome及其他：`Ctrl+Shift+S` 
-  - 将选择文本设定为搜索词（然后再使用“唤出界面”）。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
+  - 将选择文本设定为搜索词。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
   > [Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` 
 - 🖥️ 适配多处：**桌面**（扩展或网页）和**移动**（网页）。扩展在工具栏按钮弹出界面、独立标签、侧边栏（浏览器原生）多处可用
 

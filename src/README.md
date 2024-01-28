@@ -102,10 +102,9 @@ Ways to use:
   - In multi-line edit: insert to cursor
 - 🖱️ Quickly use **selected text** (single-line or multi-line) as search term
   > - No in Firefox incognito mode ([bug 1380812](https://bugzilla.mozilla.org/show_bug.cgi?id=1380812))
-  > - On Chrome, after clicking context menu item, click the icon on toolbar (or use keyboard shortcut) ([defect of Chrome](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283))
 - ⌨️ Configurable **keyboard shortcuts**. Default keys (may need changing manually):
   - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others:`Ctrl+Shift+S` 
-  - Set selected text as search term (then use "open popup" key). Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
+  - Set selected text as search term. Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
   > [change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` 
 - 🖥️ UI adapted multiply: **Desktop** (browser extension or web app) and **mobile** (web app only). Extention can show UI in: toolbar button popup UI, standalond tab, or sidebar (browser native)
 
