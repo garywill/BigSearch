@@ -378,9 +378,6 @@ async function calcNewTabIndex() {
     
     
     //-----------------------------
-    async function zzsleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
     for ( var zz=0; zz<1000; zz++) {
         if (newTabIndex != -1)
             break;
@@ -389,7 +386,7 @@ async function calcNewTabIndex() {
             console.error('Waiting for newTabIndex, but timeout !');
             break;
         }
-        await zzsleep(5);
+        await sleep(5);
     }
     //------------------------------
     return newTabIndex;
@@ -403,23 +400,14 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
     
     if ( dbname == "browser" ) {
         newTabIndex = await calcNewTabIndex();
-        if (isFirefox)
-        {
-            const newTab = ( await browser.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) );
+        const newTab =  await chrome.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) ;
+        if (isFirefox) {
             browser.search.search({
                 query: keyword,
                 engine: engine,
                 tabId: newTab.id
             });
-        }else if (isChrome)
-        {
-            const newTab = await ( new Promise((resolve, reject) => {
-                chrome.tabs.create(
-                    {url:"about:blank", active: newTabBringFront, index: newTabIndex}, 
-                    (r) => { resolve(r); }
-                );
-            }) ) ;
-            
+        }else if (isChrome) {
             chrome.search.query({ text: keyword , tabId: newTab.id});
         }
         
@@ -433,11 +421,11 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
      * JUDGE UOEF : ( use_other_engine | (full_url+charset+urlencode) ) ?
      * "NO" from UOEF:
      *      JUDGE AJAX: ajax ? 
-     *      "NO" from AJAX:
-     *          params
-     *          method/ajax+action+referer
-     *      "YES" from AJAX: (addon only. alert if on web app.)
-     *          ajax+action
+     *          "YES" from AJAX: (addon only. alert if on web app.)
+     *              ajax+action+referer
+     *          "NO" from AJAX:
+     *              params
+     *              method+action+referer
      */
 
     // replace
@@ -493,82 +481,27 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
         }
         
         
-        if (mv >= 3) {
-            // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
-            var r = await chrome.permissions.request({ permissions: ["scripting"] });
-            if ( !r ) {
-                console.error("Failed to get 'scripting' permission");
-                return;
-            }
-        }
-        
-        var permis_have;
-        if (isFirefox) {
-            permis_have = await browser.permissions.getAll();
-        }else if(isChrome) {
-            permis_have = await ( new Promise((resolve, reject) => {
-                chrome.permissions.getAll( (r) => { resolve(r); }  );
-            }) );
-        }
-        
-        
-        
+
+        var permis_have = await chrome.permissions.getAll();
         var host_permis_needed = removeUrlParts(data.action) + '*';
+        console.log("host_permis_needed:" , host_permis_needed);
+        console.log("permis_have: ", permis_have);
         if ( ! ( permis_have['origins'].includes('*://*/*') || permis_have['origins'].includes(host_permis_needed) ) ) {
             const permis_toast_o = document.getElementById("permis_toast_o");
             const permis_toast_url = document.getElementById("permis_toast_url");
             permis_toast_url.setAttribute("data", host_permis_needed);
             permis_toast_url.textContent = host_permis_needed;
             permis_toast_o.style.display = "";
-            
+            console.log("returning cause waiting for host permission");
             return;
         }
+        console.log("permission check ok");
         
         
         
         newTabIndex = await calcNewTabIndex();
+        await open_connecting_page(dbname, engine, btn, keyword, newTabIndex);
         
-        var newTab;
-        if (isFirefox) {
-            newTab = ( await browser.tabs.create({url:data.action, active: newTabBringFront, index: newTabIndex}) );
-        }else if (isChrome) {
-            newTab = await ( new Promise((resolve, reject) => {
-                chrome.tabs.create(
-                    {url:data.action, active: newTabBringFront, index: newTabIndex}, 
-                    (r) => { resolve(r); }
-                );
-            }) ) ;
-        }
-        
-        if (mv >= 3)
-        {
-            chrome.scripting.executeScript({
-                func: ajax_execute,
-                args: [data.ajax, keyword], 
-                target: { allFrames: false, tabId: newTab.id }, 
-            });
-        }
-        else
-        {
-            var code_inject = "";
-            var ajax_js_filecontent = "";
-            await fetch('ajax.js').then(response => response.text()).then(textString => {
-                ajax_js_filecontent = textString;
-            });
-            code_inject = `
-                const ajax = ${JSON.stringify(data.ajax)} ;
-                const keyword = ${JSON.stringify(keyword)}  ;
-                
-                ${ajax_js_filecontent}
-                
-                ajax_execute(ajax, keyword) ;
-            ` ;
-            await chrome.tabs.executeScript( newTab.id, { 
-                matchAboutBlank: false,
-                runAt: "document_idle",
-                code: code_inject
-            } );
-        }
         return;
     }
     // ====JUDGE AJAX===finish===
@@ -608,13 +541,7 @@ async function open_connecting_page(dbname, engine, btn, kw, newTabIndex=0)
     var url = urlEncoder.href;
 
         
-    var newtab;
-    if (isFirefox)
-        newTab = ( await browser.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}) );
-    else if (isChrome)
-        newTab = await ( new Promise((resolve, reject) => {
-            chrome.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}); 
-        }) ) ;
+    var newtab =  await chrome.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}) ;
 }
 
 
@@ -626,7 +553,7 @@ function go_parse_use_other_engine(element, keyword) {
     goEngBtn( element.engine, element.btn , keyword, element.dbname);
 }
 
-function go_full_url(keyword, full_url, charset="UTF-8",referer=false){
+function go_full_url(keyword, full_url, charset="UTF-8",referer=false){ // called from connecting.html in addon, or from above in web
     var iconvd_keyword;
     
     iconvd_keyword = keyword; 
@@ -658,7 +585,7 @@ function go_full_url(keyword, full_url, charset="UTF-8",referer=false){
     a.click();
     //delete a;
 }
-function form_submit(fparams,action,charset="UTF-8",method="get",referer=false){
+function form_submit(fparams,action,charset="UTF-8",method="get",referer=false){  // called from connecting.html in addon, or from above in web
     var form=document.createElement("form");
     form.id="formsubmit";
     form.style="display:none;"
@@ -695,6 +622,42 @@ function form_submit(fparams,action,charset="UTF-8",method="get",referer=false){
             jumper.parentNode.removeChild(jumper);
         }, 500);
     }
+}
+
+async function ajax_set_go(keyword, action, ajax, referer=false ) // called from connecting.html
+{
+    var m = await chrome.runtime.sendMessage ( { 
+        from: "home.html", 
+        to : "background",
+        command: "add_ajax_inject_prepare",
+        ajax: ajax, 
+        keyword: keyword, 
+    });
+    
+    if (!m || m?.r != 'yes') {
+        console.warn("background respose not right");
+        return;
+    } 
+    // await sleep(1);
+    
+    var a = document.createElement("a");
+    a.style = "display:none;";
+    
+    if (window.run_env == "http_web")
+        a.target = "_blank";
+    else
+        a.target = "_top";
+    
+    a.rel = "noopener";
+    a.href = action;
+    if(referer)
+    {
+        ;
+    }else{
+        a.rel += " noreferrer";
+    }
+    
+    a.click();       
 }
 
 function isVisible(obj)

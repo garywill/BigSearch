@@ -42,12 +42,13 @@ async function go()
 {
     if (data.full_url !== undefined)
     {
-     
         set_string_format_prototype();
         
         go_full_url(kw, data.full_url, data.charset, data.allow_referer);
-        
-        return;
+    }
+    else if (data.ajax !== undefined)
+    {
+        await ajax_set_go(kw, data.action, data.ajax, data.allow_referer);
     }
     else
     {

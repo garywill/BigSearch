@@ -25,7 +25,7 @@ async function init_vemHandler() {
         };
         
         R.resetSeq = function() {
-            console.debug("resetSeq()");
+            // console.debug("resetSeq()");
             R.curSeq.N = 0;
             R.curSeq.keys = [];
         };
@@ -173,7 +173,7 @@ async function init_vemHandler() {
         } ;
         
         R.keydown_event_handler = function() {
-            console.debug(event);
+            // console.debug(event);
             
             if (event.key == "Enter" && event.shiftKey === true
                 && !event.ctrlKey && !event.altKey && !event.metaKey
@@ -221,7 +221,7 @@ async function init_vemHandler() {
             )
             {
                 const tKey = event.key.toUpperCase();
-                console.debug(tKey);
+                // console.debug(tKey);
                 
 //                     if (tKey == 'I')
 //                     {
@@ -258,7 +258,7 @@ async function init_vemHandler() {
                 R.curSeq.keys . push(tKey);
                 R.curSeq.N ++ ;
                 
-                console.debug(R.curSeq);
+                // console.debug(R.curSeq);
                 
                 var matchBadges = [];
                 var matchAttrSelector = "";
@@ -268,7 +268,7 @@ async function init_vemHandler() {
                     matchAttrSelector += `[keyseq${n}='${R.curSeq.keys[n-1]}']` ;
                 }
                 
-                console.debug(matchAttrSelector);
+                // console.debug(matchAttrSelector);
                 
                 matchBadges = document.querySelectorAll(`.vemBadge${matchAttrSelector}`) ;
                 if (matchBadges.length > 0)
@@ -290,7 +290,7 @@ async function init_vemHandler() {
                 {
                     R.resetSeq();
                 }
-                console.debug(R.curSeq);
+                // console.debug(R.curSeq);
             }
             
             

@@ -115,19 +115,7 @@ async function cata_onclick(btnobj)
     {
         document.getElementById("div_search_permi").style.display = "none";
         
-        if ( 
-            ( isFirefox && ! await browser.permissions.contains( { permissions: ["search"] } ) )
-            ||
-            ( isChrome && 
-                ! await ( new Promise((resolve, reject) => {
-                    chrome.permissions.contains( { permissions: ["search"] } , function(r) {
-                        if (chrome.runtime.lastError) 
-                            return reject(chrome.runtime.lastError);
-                        resolve(r);
-                    });
-                }) )            
-            )
-        )
+        if (  ! await chrome.permissions.contains( { permissions: ["search"] } ) )
         { 
             document.getElementById("div_search_permi").style.display = "";
             document.getElementById("engines_table").style.visibility = "hidden";

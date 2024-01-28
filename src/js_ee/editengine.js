@@ -86,7 +86,7 @@ onrd.push(function() {
     $("#btn_detect").click(function() {
         bsAddonVersion = null;
         console.log("page: trying to fetch bs addon version..");
-        $("#div_bsAddon_stat").html(`<b style="color:#b47200;"><u>Not detected Big Search extension (requires version >= 2.8.23)... Please grant permission (from toolbar)</u></b>`);
+        $("#div_bsAddon_stat").html(`<b style="color:#b47200;"><u>Not detected Big Search extension (requires version >= 2.8.23)... Please grant permission (from toolbar or addon settings)</u></b>`);
         window.postMessage({
             direction: "page-to-content",
             app: "bigsearch-edit",

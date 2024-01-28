@@ -2,8 +2,8 @@
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
-    "manifest_version": 2,
-    "version": "3.4.0",
+    "manifest_version": 3,
+    "version": "3.5.1",
     "homepage_url": "https://garywill.github.io",
     "developer": {
         "name": "Garywill",
@@ -11,13 +11,16 @@
     },
     "permissions": [
         "storage",
-        "contextMenus",
+        "contextMenus", 
+        "clipboardWrite", 
+        "scripting"
+    ], 
+    "host_permissions": [
         "*://*.acsearch.tk/*", 
-        "*://garywill.github.io/BigSearch/*"
+        "*://garywill.github.io/*"
     ],
     "optional_permissions": [
         "search",
-        "clipboardWrite", 
         "clipboardRead",
         "activeTab",
         "*://*/*"
@@ -36,16 +39,14 @@
         "128": "icon.png"
     },
  
-    "browser_action": {
+    "action": {
         "default_icon": "icon_button.png",
         "default_title": "__MSG_extensionName__",
         "default_popup": "home.html?showas=popup"
     },
     "commands": {
-        "_execute_browser_action": {
-            "suggested_key": {
-                "default": "Ctrl+Alt+S"
-            }
+        "_execute_action": {
+            "suggested_key": { "default": "Ctrl+Alt+S" }
         },
         "_execute_sidebar_action" : {
             "description": "Open sidebar"
@@ -58,9 +59,7 @@
         },
         "selection_as_search_then_open_popup": {
             "description": "Set selected text as search term then open popup UI", 
-            "suggested_key": {
-                "default": "Ctrl+Alt+D"
-            }
+            "suggested_key": { "default": "Ctrl+Alt+D" }
         },
         "selection_as_search_then_open_sidebar": {
             "description": "Set selected text as search term then open sidebar"
@@ -73,16 +72,17 @@
     },
 
     "options_ui": {
-        "page": "options.html"
+        "page": "options.html",
+        "browser_style": false
     },
     "background": {
-        "page": "background.html",
-        "persistent": true
+        "page": "background.html"
     },
     "sidebar_action": {
         "default_title": "__MSG_extensionName__",
         "default_panel": "sidebar_warn.html",
-        "default_icon": "icon.png"
+        "default_icon": "icon.png",
+        "browser_style": false
     },
     "browser_specific_settings": {
         "gecko": {

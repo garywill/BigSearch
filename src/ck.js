@@ -21,76 +21,30 @@ if (window.run_env != "http_web")
 
 const realSidebarUrl = "home.html?showas=sidebar";
 
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function get_addon_setting_local(key) {
     return ( await get_addon_setting(key, true) ) ;
 }
 
 async function get_addon_setting(key, local=false) {
     var storageType;
-    if (isFirefox) {
-        if (local)
-            storageType = browser.storage.local;
-        else
-            storageType = browser.storage.sync;
-    }else if (isChrome) {
-        if (local)
-            storageType = chrome.storage.local;
-        else
-            storageType = chrome.storage.sync;
-    }
+    if (local)
+        storageType = chrome.storage.local;
+    else
+        storageType = chrome.storage.sync;
     
-    function getAllStorageSyncData() { // Chrome only
-    // Immediately return a promise and start asynchronous work
-        return new Promise((resolve, reject) => {
-            // Asynchronously fetch all data from storage.sync.
-            storageType.get(null, (items) => {
-                // Pass any observed errors down the promise chain.
-                if (chrome.runtime.lastError) {
-                    return reject(chrome.runtime.lastError);
-                }
-                // Pass the data retrieved from storage down the promise chain.
-                resolve(items);
-            });
-        });
-    }
-    
-    if (isFirefox)
-        if ( ! key)
-            return (await storageType.get());
-        else
-            return (await storageType.get())[key];
-    else if (isChrome)
-    {
-        if ( ! key)
-            return ( await getAllStorageSyncData() ) ;
-        else
-            return ( await getAllStorageSyncData() ) [key];
-    }
+    if ( ! key)
+        return (await storageType.get());
+    else
+        return (await storageType.get())[key];
 }
 
 
 async function getInstallType(){
-    if (isChrome)
-        return (await chromiumGetInstalltype() ) ;
-
-        
-    if (isFirefox)
-        return (await browser.management.getSelf())['installType']  ;
-
-            
-    async function chromiumGetInstalltype() { // Chrome only
-        // Immediately return a promise and start asynchronous work
-        return new Promise((resolve, reject) => {
-            chrome.management.getSelf( (items) => {
-                // Pass any observed errors down the promise chain.
-                if (chrome.runtime.lastError) {
-                    return reject(chrome.runtime.lastError);
-                }
-                // Pass the data retrieved down the promise chain.
-                resolve(items['installType']);
-            });
-        });
-    }
+    return (await chrome.management.getSelf())['installType']  ;
 }
 
 //========================
@@ -100,9 +54,27 @@ async function get_stored_input_content()
 {
     return await getStor("input_content") ;
 }
-async function set_stored_input_content(str)
+async function set_stored_input_content(str, use_offscreen=false)
 {
-    await setStor("input_content", str) ;
+    if (!use_offscreen) {
+        await setStor("input_content", str) ;
+    }else{
+        await chrome.offscreen.createDocument({
+            url: 'offscreen.html',
+            reasons: ["LOCAL_STORAGE"],
+            justification: 'Write input content to localStorage'
+        });
+        
+        try{ 
+            var r =await chrome.runtime.sendMessage({
+                to: 'offscreen', 
+                command: 'set_stored_input_content', 
+                inputcontent: str, 
+            });
+        }catch(err){console.warn(err);}
+        
+        await chrome.offscreen.closeDocument( ) ;
+    }
 }
 
 

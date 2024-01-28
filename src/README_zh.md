@@ -42,7 +42,6 @@
       * [Vem特性（内置类似Vimium）](#vem特性内置类似vimium)
       * [隐私安全](#隐私安全)
    * [FAQ](#faq)
-         * [Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面](#q-chrome等浏览器中选择文本后点击右键菜单没反应还要点击一下工具栏按钮才打开界面)
          * [Q: 到底什么是「In-page-Ajax-render」?](#q-到底什么是in-page-ajax-render)
    * [已收录引擎](#已收录引擎)
    * [相似工具和方法比较](#相似工具和方法比较)
@@ -104,7 +103,7 @@
   - 唤出界面。Firefox: `Ctrl+Alt+S`  Chrome及其他：`Ctrl+Shift+S` 
   - 将选择文本设定为搜索词（然后再使用“唤出界面”）。Firefox: `Ctrl+Alt+D`  Chrome及其他：`Ctrl+Shift+D`
   > [Firefox更改](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | Chrome更改 `chrome://extensions/shortcuts` 
-- 🖥️ 适配多处：**桌面**（扩展或网页）和**移动**（网页）。扩展在工具栏按钮弹出界面、独立标签、侧边栏（浏览器原生。仅Firefox）多处可用
+- 🖥️ 适配多处：**桌面**（扩展或网页）和**移动**（网页）。扩展在工具栏按钮弹出界面、独立标签、侧边栏（浏览器原生）多处可用
 
 ### 还有更多：特别之处
 
@@ -137,10 +136,6 @@
 - 🛡️ 用户自定义引擎的GUI编辑器为在线使用（减小扩展体积），若追求极致的安全性，也可以将它们之间的通信禁用，采用手动编辑
 
 ## FAQ
-
-#### Q: Chrome等浏览器中，选择文本后点击右键菜单没反应，还要点击一下工具栏按钮才打开界面
-
-A: 这是[仅Chrome内核浏览器有的缺陷](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283)。请在选择了文本后，使用按键组合`Ctrl+Shift+D`然后`Ctrl+Shift+S`(可能需自行修改)来作为暂时的快捷操作
 
 #### Q: 到底什么是「In-page-Ajax-render」?
 

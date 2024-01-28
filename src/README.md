@@ -44,7 +44,6 @@ Search everywhere 🗺️ for everything 👨‍💻. Breadth & Focus.<br>
       * [Vem feature (built-in Vimium-like)](#vem-feature-built-in-vimium-like)
       * [Safety &amp; Privacy](#safety--privacy)
    * [FAQ](#faq)
-         * [Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)](#q-i-selected-text-and-used-context-menu-it-wont-automatically-show-popup-until-i-click-toolbar-button-on-some-browsers-like-chrome)
          * [Q: What is "In-page-Ajax-render" ?](#q-what-is-in-page-ajax-render-)
    * [List of engines](#list-of-engines)
    * [Similar tools &amp; methods comparison](#similar-tools--methods-comparison)
@@ -108,7 +107,7 @@ Ways to use:
   - Open popup. Firefox: `Ctrl+Alt+S`   Chrome & others:`Ctrl+Shift+S` 
   - Set selected text as search term (then use "open popup" key). Firefox: `Ctrl+Alt+D`  Chrome & others:`Ctrl+Shift+D`
   > [change on Firefox](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) | change on Chrome: `chrome://extensions/shortcuts` 
-- 🖥️ UI adapted multiply: **Desktop** (browser extension or web app) and **mobile** (web app only). Extention can show UI in: toolbar button popup UI, standalond tab, or sidebar (browser native. Firefox only)
+- 🖥️ UI adapted multiply: **Desktop** (browser extension or web app) and **mobile** (web app only). Extention can show UI in: toolbar button popup UI, standalond tab, or sidebar (browser native)
 
 ### Even more: What's special about it
 
@@ -153,10 +152,6 @@ Note if new engines added, button sequence may change, so as button key (`A` - `
 - 🛡️ User custom engine GUI editor is used online (to shrink extension size). If you want extreme security, you can choose to disable communication between them, and use manual edit.
 
 ## FAQ
-
-#### Q: I selected text and used context menu, it won't automatically show popup until I click toolbar button (on some browsers like Chrome)
-
-A: It's because of [defect of Chrome browser engine](https://stackoverflow.com/questions/54189283/chrome-extension-open-popup-from-contentscript-file#comment95207111_54189283). Please use key combination `Ctrl+Shift+D` then `Ctrl+Shift+S` (you may want to modify them) as workaround
 
 #### Q: What is "In-page-Ajax-render" ?
 

@@ -2,8 +2,8 @@
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
-    "manifest_version": 2,
-    "version": "3.4.0",
+    "manifest_version": 3,
+    "version": "3.5.1",
     "homepage_url": "https://github.com/garywill/BigSearch",
     "author": {
         "name": "Garywill",
@@ -11,17 +11,24 @@
     },
     "permissions": [
         "storage",
-        "contextMenus",
-        "*://*.acsearch.tk/*", 
-        "*://garywill.github.io/BigSearch/*"
+        "contextMenus", 
+        "clipboardWrite", 
+        "scripting", 
+        "sidePanel", 
+        "offscreen"
     ],
     "optional_permissions": [
         "search",
-        "clipboardWrite", 
         "clipboardRead",
-        "activeTab",
-        "*://*/*"
+        "activeTab"
     ],
+    "host_permissions": [
+        "*://*.acsearch.tk/*", 
+        "*://garywill.github.io/*"
+    ],
+    "optional_host_permissions": [
+        "*://*/*"
+    ], 
     "content_scripts": [
         {
             "matches": [
@@ -37,31 +44,29 @@
         "128": "icon.png"
     },
  
-    "browser_action": {
+    "action": {
         "default_icon": "icon_button.png",
         "default_title": "__MSG_extensionName__",
         "default_popup": "home.html?showas=popup"
     },
     "commands": {
-        "_execute_browser_action": {
+        "_execute_action": {
             "description": "Click toolbar button", 
-            "suggested_key": {
-                "default": "Ctrl+Shift+S"
-            }
+            "suggested_key": { "default": "Ctrl+Shift+S" }
         },
         "open_stab" : {
             "description": "Open Big Search standalone tab"
         },
-
         "selection_as_search": {
-            "description": "Set selected text as search term",
-            "suggested_key": {
-                "default": "Ctrl+Shift+D"
-            }
+            "description": "Set selected text as search term"
         },
         "selection_as_search_then_open_popup": {
-            "description": "Set selected text as search term then open popup UI (Firefox only)"
+            "description": "Set selected text as search term then open popup UI", 
+            "suggested_key": { "default": "Ctrl+Shift+D" }
         },
+        "selection_as_search_then_open_sidebar": {
+            "description": "Set selected text as search term then open sidebar"
+        },        
         "selection_as_search_then_open_stab": {
             "description": "Set selected text as search term then open Big Search standalone tab"
         }
@@ -70,7 +75,9 @@
         "page": "options.html"
     },
     "background": {
-        "page": "background.html",
-        "persistent": true
+        "service_worker": "background_sw.js" 
+    }, 
+    "side_panel" : {
+        "default_path": "home.html"
     }
 } 

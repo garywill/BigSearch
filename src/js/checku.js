@@ -1,33 +1,4 @@
-// var LSHandler = {};
-// 
-// async function init_LSHandler() {
-//     
-//     LSHandler = await LSHandlerClass();
-//     
-//     async function LSHandlerClass () { 
-//         this.storType = mv >= 3 ? "storage.session" : "localStorage" ; // TODO
-//         this.getStor = async function(itemName) {
-//             if (storType === "localStorage")
-//                 return getStor(itemName);
-//         };
-//         this.setStor = async function(itemName, value) {
-//             if (storType === "localStorage")
-//                 return setStor(itemName, value);
-//             
-//         };
-//         this.delStor = async function(itemName) {
-//             if (storType === "localStorage")
-//                 return delStor(itemName);
-//         };
-//          
-//         return this;
-//     }
-// }       
-//         
-        
-        
-        
-        
+  
         
 async function maybe_checkupdate() {
 //     parseGotNewsXml();

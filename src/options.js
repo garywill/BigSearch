@@ -44,7 +44,7 @@ async function on_optionpage_load() {
         var setting_contextMenuBehavior = await get_addon_setting_local('contextMenuBehavior') ;
         
         if (!setting_contextMenuBehavior)
-            setting_contextMenuBehavior = "popup";
+            setting_contextMenuBehavior = 'popup';
         
         document.querySelector(`#form_contextMenuBehavior input[name=contextmenu_behavior][value=${setting_contextMenuBehavior}]`).checked = true;
         
@@ -66,11 +66,6 @@ async function on_optionpage_load() {
         
         document.getElementById("cbox_copyOnContextMenuOrKey").addEventListener("change", function (event) {
             chrome.storage.local.set({"copyOnContextMenuOrKey" : event.target.checked});
-            
-            if (event.target.checked) {
-                // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
-                chrome.permissions.request( { permissions: ['clipboardWrite'] } , r=>console.log(r) );
-            } 
         });
     } ) () ;
     // --------------------------

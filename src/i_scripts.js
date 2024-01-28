@@ -356,25 +356,31 @@ onrd.push(function() {
         }
     };
 });
-onrd.push(function() {
-    if (isFirefox)
+onrd.push(async function() {
+    if (isFirefox){
         document.getElementById("cornerbtn_opensidebar").onclick = function() {
+           // NOTE !!!! NOTICE !!   not allow above have ` await `  
             browser.sidebarAction.open();
         };
-    else if (isChrome)
-        document.getElementById("cornerbtn_opensidebar").style.display = "none";
+    }else if (isChrome) { 
+        document.getElementById("cornerbtn_opensidebar").classList.add('display-none');
+        
+        var tab = ( await chrome.tabs.query({currentWindow:true, active: true}) )[0];
+        var wid = tab.windowId;
+        if (wid) {
+            document.getElementById("cornerbtn_opensidebar").onclick = function() {
+            // NOTE !!!! NOTICE !!   not allow above have ` await `  
+                chrome.sidePanel.open({windowId: wid});
+            };
+            document.getElementById("cornerbtn_opensidebar").classList.remove('display-none');
+        }
+    } 
 });
 onrd.push(function() {
-    if (isFirefox)
-        document.getElementById("cornerbtn_openpopup").onclick = async function() {
-            // NOTE !!!! NOTICE !!  ` openPopup ` not allow above have ` await ` 
-            if (mv>=3) 
-                 chrome.action.openPopup() ; 
-            else 
-                chrome.browserAction.openPopup() ;  
-        };
-    else if (isChrome)
-        document.getElementById("cornerbtn_openpopup").style.display = "none";
+    document.getElementById("cornerbtn_openpopup").onclick = async function() {
+        // NOTE !!!! NOTICE !!  ` openPopup ` not allow above have ` await ` 
+        chrome.action.openPopup() ; 
+    };
 });
 
 
@@ -440,6 +446,32 @@ onrd.push(async function(){
     }
 }); 
 
+onrd.push(async function(){
+    const open_edit_gui_btns = document.getElementsByClassName("btn_open_edit_gui");
+    for (var ele of open_edit_gui_btns) {
+        ele.addEventListener('click', async function (event) {
+            console.log(event.currentTarget);
+            var edit_page_url = event.currentTarget.getAttribute('href');
+            
+            if (isFirefox) {
+                var urls_arr = chrome.runtime.getManifest()['host_permissions'];
+                for (var i=0; i<urls_arr.length; i++) {
+                    spl = urls_arr[i] .split('/');
+                    urls_arr[i] = [ spl[0], spl[1], spl[2] ].join('/') + "/*" ;
+                }
+                console.log(urls_arr);
+                
+                // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
+                console.log(
+                    await chrome.permissions.request({ origins: urls_arr  })
+                ); 
+            } 
+            
+            console.log(edit_page_url);
+            await chrome.tabs.create({url: edit_page_url  });
+        });
+    }
+}); 
 
 onrd.push(function(){
     document.getElementById("btn_input_json").addEventListener('click', function () {
@@ -588,7 +620,6 @@ async function make_cata_btns() {
     document.getElementById("catas_cont").appendChild(createCataBtn("user", "user"));
     
     if (window.run_env != "http_web") {
-//         if (isFirefox )
             document.getElementById("catas_cont").appendChild(createCataBtn("browser", "browser"));
     }
     
