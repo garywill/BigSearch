@@ -15,8 +15,6 @@ async function init()
             event.data.direction && event.data.direction == "page-to-content"
         ) 
         {
-            console.log("Content script received message event:\n" , event);
-            
             const recMessage = event.data.message;
             
             if (recMessage == "getVersion" ) {
@@ -25,7 +23,26 @@ async function init()
                     app: "bigsearch-edit",
                     bsAddonVersion: chrome.runtime.getManifest()['version']
                 }, document.location.href);
+                return;
             }
+            
+            if (recMessage == "getAddonBuildin") {
+                var got_addon_lang = await get_addon_setting("hl");
+                if (got_addon_lang) 
+                    window.lang = got_addon_lang;
+                else
+                    window.lang = "en";
+                init_data();
+                window.postMessage({
+                    direction: "content-to-page",
+                    app: "bigsearch-edit",
+                    addonBuildin: {catas: catas, sEngines:sEngines}, 
+                    lang: window.lang, 
+                }, document.location.href);
+                return;
+            }
+            
+            console.log("Content script received message event:\n" , event);
             
             if (recMessage == "getAddonUsercustom") {
                 window.postMessage({

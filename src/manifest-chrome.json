@@ -3,7 +3,7 @@
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "manifest_version": 3,
-    "version": "3.5.7",
+    "version": "3.6.0",
     "homepage_url": "https://github.com/garywill/BigSearch",
     "author": {
         "name": "Garywill",
@@ -36,7 +36,7 @@
                 "*://garywill.github.io/BigSearch/editengine.html*"
                 
             ],
-            "js": ["ck.js",  "lzutf8.js", "js/contentscript_editgui.js"]
+            "js": ["ck.js",  "lzutf8.js", "js/contentscript_editgui.js", "i_ui.js",  "enginesdata.js"]
         }
     ],
     "incognito": "split",
