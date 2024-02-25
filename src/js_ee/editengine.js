@@ -105,7 +105,7 @@ let timerId_addVerFetcher = null;
 
 function resetAddonVerInfo() {
     bsAddonVersion = null;
-    $("#div_bsAddon_stat").html(`<b style="color:#b47200;"><u>Not detected Big Search extension (need >= 3.6.0)... (If installed, please grant permission from toolbar or extension settings)</u></b> `);
+    $("#div_bsAddon_stat").html(`<b style="color:#b47200;"><u>Not detected Big Search extension (need >= 3.6.2)... (If installed, please grant permission from toolbar or extension settings)</u></b> `);
     
     bs_gui.catas={};
     bs_gui.sEngines={};
@@ -134,7 +134,7 @@ function onGotAddonVersion(ver) {
     clearTimeout(timerId_addVerFetcher);
     if (ver) {
         bsAddonVersion = ver;
-        if (compareVer(ver, '3.6.0')<0)
+        if (compareVer(ver, '3.6.2')<0)
             $("#div_bsAddon_stat").text(`Big Search extension ${bsAddonVersion} installed ✅ ( ⚠️ time to upgrade) `);
         else 
             $("#div_bsAddon_stat").text(`Big Search extension ${bsAddonVersion} installed ✅ `);
@@ -356,7 +356,7 @@ function addTooltip(node, whichText)
         tooltip_text = `
             This row is a link to Big Search built-in engine, but currently it's "unknown".
             Reason can be: <br>
-            1. You didn't enter a right key of a built-in engine <br>
+            1. You didn't enter a valid key of a built-in engine <br>
             2. Extension needs upgrading
         `;
     }

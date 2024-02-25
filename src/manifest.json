@@ -3,7 +3,7 @@
     "description": "__MSG_extensionDescription__",
     "default_locale": "en",
     "manifest_version": 3,
-    "version": "3.6.1",
+    "version": "3.6.2",
     "homepage_url": "https://garywill.github.io",
     "developer": {
         "name": "Garywill",
@@ -17,7 +17,7 @@
         "scripting"
     ], 
     "host_permissions": [
-        "*://*.acsearch.tk/*", 
+        "*://*.acsearch.atwebpages.com/*", 
         "*://garywill.github.io/*"
     ],
     "optional_permissions": [
@@ -28,7 +28,7 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.acsearch.tk/editengine.php*", 
+                "*://*.acsearch.atwebpages.com/editengine.php*", 
                 "*://garywill.github.io/BigSearch/editengine.html*"
 
             ],

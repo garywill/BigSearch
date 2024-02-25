@@ -67,7 +67,7 @@ Ways to use:
    - [Firefox Addon ![](https://img.shields.io/amo/v/big-search?style=flat-square&color=success)](https://addons.mozilla.org/firefox/addon/big-search/)
    - [Chrome Addon ![](https://img.shields.io/chrome-web-store/v/ojcnjeigmgjaiolalpapfnmmhdmpjhfb?style=flat-square&color=success)](https://chrome.google.com/webstore/detail/big-search/ojcnjeigmgjaiolalpapfnmmhdmpjhfb) or [download .crx](https://gitlab.com/garywill/releaseapps-dl/-/tree/main). For: Google Chrome, Microsoft Edge, Brave, Vivaldi, Opera etc.
 
-2. Web App: For demo purpose. Web app can't function fully like extension. Web app can be used on mobile browsers.  [http://acsearch.tk ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.tk)](http://acsearch.tk)
+2. [Web App ![](https://img.shields.io/website?down_message=repairing&style=flat-square&up_color=blue&url=http%3A%2F%2Facsearch.atwebpages.com)](http://acsearch.atwebpages.com): For demo purpose. Web app can't function fully like extension. Web app can be used on mobile browsers.
    
 
 ## Basic Screenshots, Demo, Video
@@ -183,7 +183,7 @@ Experienced users may prefer intuitive horizontal comparison to quickly know wha
 
 ## How to edit search engines (GUI or JSON)
 
-[Online GUI engine-editing tool (link 1)](https://garywill.github.io/BigSearch/editengine.html) ([link 2](http://acsearch.tk/editengine.php)) 
+[Online GUI engine-editing tool (link 1)](https://garywill.github.io/BigSearch/editengine.html) ([link 2](http://acsearch.atwebpages.com/editengine.php)) 
 
 Generally, use above GUI editor. If you don't want to use GUI (e.g. you are advanced user and want to use advanced features), please go on and read below.
 
