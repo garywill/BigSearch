@@ -172,16 +172,21 @@ chrome.commands.onCommand.addListener(async function (command, tab) { // 'tab' i
         
         // NOTE !!!! NOTICE !!  ` permissions.request ` not allow above have ` await ` 
         console.log (
-            await chrome.permissions.request({ permissions: ["activeTab", "scripting"] })
+            await chrome.permissions.request({ permissions: ["activeTab"] })
         );
         
         if (!tab) {
             tab = ( await chrome.tabs.query({currentWindow:true, active: true}) )[0];
         }
-        chrome.scripting.executeScript( {
-            func: getSelectionText, 
-            target: { allFrames: false, tabId: tab.id }, 
-        } , callback__selection_as_search );
+        console.log(tab);
+        (async function () {
+            console.log( "inject getSelectionText, result:", 
+                await chrome.scripting.executeScript( {
+                    func: getSelectionText, 
+                    target: { allFrames: false, tabId: tab.id }, 
+                } , callback__selection_as_search )
+            ); 
+        }) (); 
     }
     
     if (command == "selection_as_search_then_open_stab"
