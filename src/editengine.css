@@ -32,6 +32,10 @@ h1 {
 /*     margin-right: auto; */
 }
 
+#blockquote_bsAddon_stat {
+    min-height: 100px;
+}
+
 #user_json_field {
     width: 95vw;
     max-width: 1000px;

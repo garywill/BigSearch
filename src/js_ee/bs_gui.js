@@ -18,7 +18,7 @@ bs_gui_app = {
     data() {
         return {
             userJsonArr: [],
-            sEngines: sEngines,
+            sEngines: {},
             templatesAdding: {
                 "simple": {
                     keyhead: "e_",
@@ -98,8 +98,8 @@ bs_gui_app = {
 
 
 
-bs_gui_app.methods.refreshBuildin = function() {
-    this.sEngines = sEngines;
+bs_gui_app.methods.refreshBuildin = function(addonBuildin) {
+    this.sEngines = addonBuildin.sEngines;
 }
 
 bs_gui_app.methods.setRindex2add = function(n) {

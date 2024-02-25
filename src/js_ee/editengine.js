@@ -30,9 +30,6 @@ onrd.push(function() {
         
 });
 
-onrd.push(function() {
-    init_data();
-});
 
 async function copy_json() {
     $("#user_json_field").select();
@@ -50,8 +47,7 @@ onrd.push(function() {
         {
             if (event.data.bsAddonVersion) 
             {
-                bsAddonVersion = event.data.bsAddonVersion
-                $("#div_bsAddon_stat").text(`Big Search extension ${bsAddonVersion} installed ✅`);
+                onGotAddonVersion(event.data.bsAddonVersion);
             }
             
             if (event.data.addonUsercustom) {
@@ -60,6 +56,15 @@ onrd.push(function() {
                 $("#user_json_field")[0].dispatchEvent(new Event('input'));
                 $("#json_2_gui").click();
             }
+            
+            if (event.data.addonBuildin) {
+                const addonBuildin = event.data.addonBuildin;
+                const lang = event.data.lang;
+                window.lang = lang;
+                buildin_gui.refreshBuildin(addonBuildin);
+                bs_gui.refreshBuildin(addonBuildin);
+            }
+            
             
             if (event.data.message && event.data.message == "text") {
                 var messageText = "Message from extension: \n\n"
@@ -80,27 +85,99 @@ onrd.push(function() {
     });
 });
 
-var bsAddonVersion ;
+
 onrd.push(function() {
     
-    $("#btn_detect").click(function() {
-        bsAddonVersion = null;
-        console.log("page: trying to fetch bs addon version..");
-        $("#div_bsAddon_stat").html(`<b style="color:#b47200;"><u>Not detected Big Search extension (requires version >= 2.8.23)... Please grant permission (from toolbar or addon settings)</u></b>`);
-        window.postMessage({
-            direction: "page-to-content",
-            app: "bigsearch-edit",
-            message: "getVersion"
-        }, document.location.href);
-    });
     
+    $("#btn_detect").click(function() {
+        fetchAddonVersion();
+    });
 
-    setTimeout( function() { $("#btn_detect").click(); } , 500);
+    setTimeout( function() {
+        resetAddonVerInfo();    
+        fetchAddonVersion();
+    } , 500);
+    setInterval( fetchAddonVersion , 3500);
 });
 
+let bsAddonVersion = null ;
+let timerId_addVerFetcher = null;
+
+function resetAddonVerInfo() {
+    bsAddonVersion = null;
+    $("#div_bsAddon_stat").html(`<b style="color:#b47200;"><u>Not detected Big Search extension (need >= 3.6.0)... (If installed, please grant permission from toolbar or extension settings)</u></b> `);
+    
+    bs_gui.catas={};
+    bs_gui.sEngines={};
+    buildin_gui.catas={};
+    buildin_gui.sEngines={};
+}
+
+function fetchAddonVersion() {
+    timerId_addVerFetcher = setTimeout(function() {
+        onGotAddonVersion(null);
+    }, 700 );
+    // console.log("page: trying to fetch bs addon version..");
+    window.postMessage({
+        direction: "page-to-content",
+        app: "bigsearch-edit",
+        message: "getVersion"
+    }, document.location.href);    
+    
+    window.postMessage({
+        direction: "page-to-content",
+        app: "bigsearch-edit",
+        message: "getAddonBuildin"
+    }, document.location.href);  
+}
+function onGotAddonVersion(ver) {
+    clearTimeout(timerId_addVerFetcher);
+    if (ver) {
+        bsAddonVersion = ver;
+        if (compareVer(ver, '3.6.0')<0)
+            $("#div_bsAddon_stat").text(`Big Search extension ${bsAddonVersion} installed ✅ ( ⚠️ time to upgrade) `);
+        else 
+            $("#div_bsAddon_stat").text(`Big Search extension ${bsAddonVersion} installed ✅ `);
+    }else {
+        resetAddonVerInfo();
+    }
+}
 
 
+// https://stackoverflow.com/a/53387532/10617713
+// Function returns:
+// 0 : a = b
+// 1 : a > b
+// -1 : a < b
+function compareVer(a, b)
+{
+    function prep(t)
+    {
+        return ("" + t)
+        //treat non-numerical characters as lower version
+        //replacing them with a negative number based on charcode of first character
+        .replace(/[^0-9\.]+/g, function(c){return "." + ((c = c.replace(/[\W_]+/, "")) ? c.toLowerCase().charCodeAt(0) - 65536 : "") + "."})
+        //remove trailing "." and "0" if followed by non-numerical characters (1.0.0b);
+        .replace(/(?:\.0+)*(\.-[0-9]+)(\.[0-9]+)?\.*$/g, "$1$2")
+        .split('.');
+    }
+    a = prep(a);
+    b = prep(b);
+    for (var i = 0; i < Math.max(a.length, b.length); i++)
+    {
+        //convert to integer the most efficient way
+        a[i] = ~~a[i];
+        b[i] = ~~b[i];
+        if (a[i] > b[i])
+            return 1;
+        else if (a[i] < b[i])
+            return -1;
+    }
+    return 0;
+}
 
+
+//----------------------------------------
 
 function load_from_ext() {
     var con = false;
@@ -191,29 +268,23 @@ onrd.push(function() {
     buildin_gui_app = {
         data() {
             return {
-                catas: catas,
-                sEngines: sEngines,
-                lang: window.lang,
+                catas: {},
+                sEngines: {},
             }
         },
         methods: {
             isVisible(obj) {
                 return isVisible(obj);
             },
-            refreshBuildin() {
-                this.sEngines = sEngines;
-                this.catas = catas;
+            refreshBuildin(addonBuildin) {
+                this.sEngines = addonBuildin.sEngines;
+                this.catas = addonBuildin.catas;
             },
             onclick_favbtn(engine_name) {
                 bs_gui.addFav(engine_name);
                 toast_addFav.show();
             },
-            onLangRadioChange() {
-                window.lang = this.lang;
-                init_data();
-                this.refreshBuildin();
-                bs_gui.refreshBuildin();
-            },
+
         }
     };
     
@@ -278,6 +349,15 @@ function addTooltip(node, whichText)
             <b>Button(s) : </b> <br>
             Here you write your 'btns' object content of your custom engine's JSON object. <br>
             If you leave it "Default", a common default button labeled "Search" will be shown.
+        `;
+    }
+    else if (whichText == 'fav-unknown')
+    {
+        tooltip_text = `
+            This row is a link to Big Search built-in engine, but currently it's "unknown".
+            Reason can be: <br>
+            1. You didn't enter a right key of a built-in engine <br>
+            2. Extension needs upgrading
         `;
     }
         

@@ -8,17 +8,17 @@
         
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-        <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.staticfile.net/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
 
         <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+        <link href="https://cdn.staticfile.net/bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"  >
         <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+        <script src="https://cdn.staticfile.net/bootstrap/5.1.1/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 
         
         <!--引用Vue.js-->
 <!--         <script type="text/javascript" src="https://vuejs.org/js/vue.js"></script> -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@3.2.45/dist/vue.global.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.staticfile.net/vue/3.2.45/vue.global.min.js" crossorigin="anonymous"></script>
         
         
         <script type="text/javascript">
@@ -27,36 +27,36 @@
         
         <script type='text/javascript' src='ck.js'></script> 
 <script type='text/javascript' src='i_ui.js'></script> 
-<script type='text/javascript' src='enginesdata.js'></script> 
 <script type='text/javascript' src='engine_handle.js'></script> 
 <script type='text/javascript' src='js_ee/editengine.js'></script> 
 <script type='text/javascript' src='js_ee/bs_gui.js'></script> 
 <script type='text/javascript' src='js_ee/makeTemplateTable.js'></script> 
 <script type='text/javascript' src='js_ee/load_example.js'></script> 
 <script type='text/javascript' src='js_ee/codeedit.js'></script> 
+<script type='text/javascript' src='js_ee/cm-resize.min.js'></script> 
 <link rel='stylesheet' type='text/css' href='editengine.css'></link> 
         
         <!--CodeMirrow-->
-        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/lib/codemirror.min.css" rel="stylesheet"  crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/lint/lint.css" rel="stylesheet"  crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/theme/eclipse.css" rel="stylesheet"  crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/theme/idea.css" rel="stylesheet"  crossorigin="anonymous">
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/lib/codemirror.min.js" crossorigin="anonymous"></script>
-<!--         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/display/autorefresh.js" crossorigin="anonymous"></script> -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/edit/matchbrackets.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/mode/javascript/javascript.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsonlint@1.6.3/web/jsonlint.min.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/lint/lint.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/lint/json-lint.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/codemirror@5.65.11/addon/selection/active-line.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cm-resize@1.0.1/dist/cm-resize.min.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.staticfile.net/codemirror/5.65.11/codemirror.min.css" rel="stylesheet"  >
+        <link href="https://cdn.staticfile.net/codemirror/5.65.11/addon/lint/lint.min.css" rel="stylesheet"  >
+        <link href="https://cdn.staticfile.net/codemirror/5.65.11/theme/eclipse.min.css" rel="stylesheet"  >
+        <link href="https://cdn.staticfile.net/codemirror/5.65.11/theme/idea.min.css" rel="stylesheet"  >
+        
+        <script type="text/javascript" src="https://cdn.staticfile.net/jsonlint/1.6.0/jsonlint.min.js" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript" src="https://cdn.staticfile.net/codemirror/5.65.11/codemirror.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.staticfile.net/codemirror/5.65.11/addon/edit/matchbrackets.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.staticfile.net/codemirror/5.65.11/mode/javascript/javascript.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.staticfile.net/codemirror/5.65.11/addon/lint/lint.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.staticfile.net/codemirror/5.65.11/addon/lint/json-lint.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.staticfile.net/codemirror/5.65.11/addon/selection/active-line.min.js" crossorigin="anonymous"></script>
         
     </head>
     <body><div class="container" >
             <div id="webhead">
                 <h1>Big Search - Edit Custom Engine</h1>
                 <br>
-                <blockquote class="blockquote-footer float-end">
+                <blockquote id="blockquote_bsAddon_stat" class="blockquote-footer">
                     <button id="btn_detect" class="float-end">⟳</button>
                     <div id="div_bsAddon_stat" class="float-end"></div>
                 </blockquote>
@@ -191,7 +191,18 @@
                                         'table-light': row.gui_type.startsWith('engine'),
                                         'row-engine': row.gui_type.startsWith('engine'),
                                         'table-info': row.gui_type == 'labelrow',
-                                        'table-warning': row.gui_type == 'fav_engine' }" 
+                                        'table-warning': row.gui_type == 'fav_engine' 
+                                        }" 
+                                    v-bind:title="(function(){
+                                        if ( row.gui_type == 'engine_simple' )
+                                            return 'This row is Engine (simple)';
+                                        else if ( row.gui_type == 'engine_expert' )
+                                            return 'This row is Engine (full format)';
+                                        else if ( row.gui_type == 'labelrow' )
+                                            return 'This row is label row';
+                                        else if ( row.gui_type == 'fav_engine' )
+                                            return 'This row is Fav (link to a Big Search built-in engine)';
+                                    })()"
                                 >
                                     <td  ><button class="btn btn-sm btn-danger" style="padding: 0; margin: 0;" title="Delete this engine (or row)" v-on:click="delRow(index)">X</button>
                                     </td>
@@ -236,7 +247,15 @@
                                             <input type="text" v-bind:rindex="index" class="labelrow_display_name" name=""  v-model="row.bsObj.lstr" />
                                         </template>
                                         <span v-if="row.gui_type == 'fav_engine' ">
-                                            <b>{{ sEngines[row.bsObj.fav] ? sEngines[row.bsObj.fav]['dname'] : ''}}</b>
+                                            <span v-if="sEngines[row.bsObj.fav] "><b>{{sEngines[row.bsObj.fav]['dname']}}</b></span>
+                                            <span v-else 
+                                                data-bs-toggle="tooltip"
+                                                data-bs-animation="false"
+                                                data-bs-html="true"
+                                                data-bs-custom-class="expert_tooltip"
+                                            >Unknown 🤷 
+                                                <img src onerror="addTooltip(this, 'fav-unknown')">
+                                            </span>
                                         </span>
                                     </td>
                                     
@@ -264,7 +283,7 @@
                                             <span v-if="row.gui_type == 'labelrow' " >🏷️ Label row</span>
                                         </div>
                                         <div v-if="row.gui_type == 'fav_engine' ">
-                                            <span  title="Link to a Big Search build-in engine">🔖 </span>
+                                            <span  title="Fav (link to a Big Search built-in engine)">🔖 </span>
                                             <code><input type="text" v-bind:rindex="index" class="" name="" v-model="row.bsObj.fav"  placeholder="" /></code>
                                         </div>
                                         <div v-if="row.gui_type=='engine_expert'">
@@ -362,70 +381,69 @@ makeTemplateTable();
                     
                     
                     <blockquote class="blockquote-footer">
-                        <p>You can also "set as favorite" Big Search's build-in engines (adding their links into custom engines list), by clicking the star⭐ buttons</p>
-                        <p hidden>Below are Big Search's build-in search engines (60+ currently)</p>
+                        <p>Using Big Search extension, you can also "set as favorite" Big Search's build-in engines (adding their links into custom engines list), by clicking the star⭐ buttons below</p>
+                        <p hidden>Below are Big Search's build-in search engines (need extension >= 3.6.0 to show)</p>
                     </blockquote>
                     
-                    <div>
-                        <button class="btn btn-sm btn-outline-primary" onclick="expand_all_buildin_catas(true);">Expand all</button>
-                        <button class="btn btn-sm btn-outline-primary" onclick="expand_all_buildin_catas(false);">Collapse all</button>
-                        
-                        
-                        <form class="btn-group btn-group-sm float-end" role="group">
-                            <input type="radio" id="radio_en" v-on:change="onLangRadioChange" value="en" v-model="lang"  class="btn-check"/><label for="radio_en" class="btn btn-secondary">English</label>
-                            <input type="radio" id="radio_zh" v-on:change="onLangRadioChange" value="zh" v-model="lang"  class="btn-check"/><label for="radio_zh" class="btn btn-secondary">中文</label>
-                        </form>
-                    </div>
-                    
-                    <div class="accordion" id="">
-                        <template v-for="(cata,index) in catas">
-                            <template v-if="isVisible(cata)">
-                                <div class="accordion-item ">
-                                
-                                    <h3 class="accordion-header" id="">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" v-bind:data-bs-target="'#detail_'+index" aria-expanded="false" aria-controls="">
-                                            Catagory: &nbsp; {{ cata.label }}
-                                        </button>
-                                    </h3>
-                                    
-                                    <div v-bind:id="'detail_'+index" class="accordion-collapse collapse buildin-cata-details" aria-labelledby="">
-                                        <table id="buildin_table" class="table table-sm table-bordered table-hover">
-                                            <thead class="table-secondary table-bordered">
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Engine | ID</th>
-                                                    <th>Search buttons (and buttons IDs)</th>
-                                                </tr>
-                                                
-                                            </thead>
-                                            <tbody>
-                                                <tr v-for="row in cata.engines">
-                                                    <template v-if="row.type=='engine' && isVisible(row)">
-                                                        <td><button class="btn btn-secondary btn-sm btn_fav" v-on:click="onclick_favbtn(row.name)">⭐</button></td>
-                                                        <td>
-                                                            <b>{{ sEngines[row.name].dname }} </b> &nbsp;
-                                                            <code v-bind:title="JSON.stringify(sEngines[row.name], null, 4)">{{ row.name }}</code></td>
-                                                        <td class="buildin-btns-td">
-                                                            <template v-for="(btn,btnkey) in sEngines[row.name].btns" > 
-                                                                <template v-if="isVisible(btn)">
-                                                                    <div class="buidin-btn-cont">
-                                                                        <span>{{ btn.label }}</span> <code v-bind:title="JSON.stringify(btn, null, 4)">{{ btnkey }}</code>
-                                                                    </div>
-                                                                </template>
-                                                            </template>
-                                                            <div v-if="! sEngines[row.name].btns"><i>Default</i></div>
-                                                        </td>
-                                                    </template>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                    <div v-if="Object.keys(catas).length > 0"> 
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary" onclick="expand_all_buildin_catas(true);">Expand all</button>
+                            <button class="btn btn-sm btn-outline-primary" onclick="expand_all_buildin_catas(false);">Collapse all</button>
                             
+                        </div>
+                        
+                        <div class="accordion" id="">
+                            <template v-for="(cata,index) in catas">
+                                <template v-if="isVisible(cata)">
+                                    <div class="accordion-item ">
+                                    
+                                        <h3 class="accordion-header" id="">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" v-bind:data-bs-target="'#detail_'+index" aria-expanded="false" aria-controls="">
+                                                Catagory: &nbsp; {{ cata.label }}
+                                            </button>
+                                        </h3>
+                                        
+                                        <div v-bind:id="'detail_'+index" class="accordion-collapse collapse buildin-cata-details" aria-labelledby="">
+                                            <table id="buildin_table" class="table table-sm table-bordered table-hover">
+                                                <thead class="table-secondary table-bordered">
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Engine | ID</th>
+                                                        <th>Search buttons (and buttons IDs)</th>
+                                                    </tr>
+                                                    
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="row in cata.engines">
+                                                        <template v-if="row.type=='engine' && isVisible(row)">
+                                                            <td><button class="btn btn-secondary btn-sm btn_fav" v-on:click="onclick_favbtn(row.name)">⭐</button></td>
+                                                            <td>
+                                                                <b>{{ sEngines[row.name].dname }} </b> &nbsp;
+                                                                <code v-bind:title="JSON.stringify(sEngines[row.name], null, 4)">{{ row.name }}</code></td>
+                                                            <td class="buildin-btns-td">
+                                                                <template v-for="(btn,btnkey) in sEngines[row.name].btns" > 
+                                                                    <template v-if="isVisible(btn)">
+                                                                        <div class="buidin-btn-cont">
+                                                                            <span>{{ btn.label }}</span> <code v-bind:title="JSON.stringify(btn, null, 4)">{{ btnkey }}</code>
+                                                                        </div>
+                                                                    </template>
+                                                                </template>
+                                                                <div v-if="! sEngines[row.name].btns"><i>Default</i></div>
+                                                            </td>
+                                                        </template>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                
+                                </template>
                             </template>
-                        </template>
+                        </div>
                     </div>
-                    
+                    <div v-else>
+                        The list shows empty 🤷 ... Have you installed Big Search? You need Big Search extension >= 3.6.0 to show extension-buildin search engine list
+                    </div>
                 </div><hr>
                 
                 <br><br><br><br><br><br>

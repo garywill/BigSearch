@@ -21,7 +21,7 @@
 
 等...详见下文
 
-视频介绍：特色概括+完整说明：  [Bilibili](https://www.bilibili.com/video/BV1J14y1k7jv/) | [Youtube](https://youtu.be/8xhLpw57ufc) （分章节视频，可直接看某一功能的使用说明）
+**视频介绍**：特色概括+完整说明：  [Bilibili](https://www.bilibili.com/video/BV1J14y1k7jv/) | [Youtube](https://youtu.be/8xhLpw57ufc) （分章节视频，可直接看某一功能的使用说明）
 
 ![signboard](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/signboard.jpg)
 
