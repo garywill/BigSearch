@@ -194,7 +194,7 @@ function splithists(rawstr)
 
 
 
-const hist_num_max=45;
+const hist_num_max=80;
 function add_hist2c(hist2a)
 {
 //parameter string hasn't been escaped
