@@ -3,7 +3,7 @@ name: Deploy static content to Pages
 
 on:
   repository_dispatch:
-    types: run_pages_deploy
+    types: [run_pages_deploy]
     
   workflow_dispatch:
   
