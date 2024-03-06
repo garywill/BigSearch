@@ -2,6 +2,9 @@
 name: Deploy static content to Pages
 
 on:
+  repository_dispatch:
+    types: run_pages_deploy
+    
   workflow_dispatch:
   
   # Runs on pushes targeting the default branch
