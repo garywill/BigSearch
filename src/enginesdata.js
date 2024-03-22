@@ -203,12 +203,14 @@ catas = {
             { type:"engine", name:"wolframalpha"},
             { type:"engine", name:"sogoubaike", visible_lang: "zh"},
             { type:"engine", name:"360baike", visible_lang: "zh"},
+            { type:"engine", name:"zhihu", visible_lang: "zh"},
             { type:"label", lstr:"中阁院府", visible_lang: "zh"},
             { type:"engine", name:"cnki", visible_lang: "zh"},
             { type:"engine", name:"wanfang", visible_lang: "zh"},
             { type:"engine", name:"cssci", visible_lang: "zh"},
             { type:"label", lstr:i18n(["机构国际", "Global Academic"])},
             { type:"engine", name:"webofscience"},
+            { type:"engine", name:"pubmed"},
             { type:"engine", name:"ei"},
             { type:"engine", name:"ieee"},
         ],
@@ -1020,6 +1022,12 @@ sEngines = {
             }
         }
     },
+    "pubmed" :{
+        "dname": "PubMed",
+        "addr": "https://pubmed.ncbi.nlm.nih.gov",
+        "action": "https://pubmed.ncbi.nlm.nih.gov",
+        "kw_key": "term"
+    },
     "ei": {
         "dname": "EI",
         "addr": "https://www.engineeringvillage.com/search/quick.url",
@@ -1224,7 +1232,57 @@ sEngines = {
             }
         }, 
         
-    }, 
+    },
+    "zhihu": {
+        "dname": "知乎",
+        "addr": "https://www.zhihu.com",
+        "action": "https://www.zhihu.com/search",
+        "kw_key": "q",
+        "btns": {
+            "content": {
+                "label": "综合",
+                "params": [
+                    {"key": "type", "val": "content"}
+                ]
+            },
+            "people": {
+                "label": "用户",
+                "params": [
+                    {"key": "type", "val": "people"}
+                ]
+            },
+            "topic": {
+                "label": "话题",
+                "params": [
+                    {"key": "type", "val": "topic"}
+                ]
+            },
+            "zvideo": {
+                "label": "视频",
+                "params": [
+                    {"key": "type", "val": "zvideo"}
+                ]
+            },
+            "column": {
+                "label": "专栏",
+                "params": [
+                    {"key": "type", "val": "column"}
+                ]
+            },
+            "km_general": {
+                "label": "盐选内容",
+                "params": [
+                    {"key": "type", "val": "km_general"}
+                ]
+            },
+            "publication": {
+                "label": "电子书",
+                "params": [
+                    {"key": "type", "val": "publication"}
+                ]
+            }
+        }
+    },
     
     "fdroid": {
         "dname": "F-Droid",
