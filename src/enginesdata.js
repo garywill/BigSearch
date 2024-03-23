@@ -159,6 +159,8 @@ catas = {
             { type:"label", lstr:"中音簿画" , visible_lang: "zh" },
             { type:"engine", name:"baidu_media" , visible_lang: "zh" },
             { type:"engine", name:"bilibili" , visible_lang: "zh" },
+            { type:"engine", name:"xiaohongshu" , visible_lang: "zh" },
+            { type:"engine", name:"douyin" , visible_lang: "zh" },
             { type:"engine", name:"xigua" , visible_lang: "zh" },
             { type:"engine", name:"music163" , visible_lang: "zh" },
             { type:"engine", name:"fsou_img", visible_lang: "zh"},
@@ -2482,6 +2484,34 @@ sEngines = {
             },
         }
     },
+    "xiaohongshu": {
+        dname: "小红书", 
+        addr: "https://www.xiaohongshu.com", 
+        action: "https://www.xiaohongshu.com/search_result", 
+        kw_key: "keyword", 
+    }, 
+    "douyin": {
+        dname: "抖音", 
+        addr: "https://www.douyin.com/", 
+        full_url: "https://www.douyin.com/search/{0}", 
+        btns: {
+            "comp": {
+                label: "搜索", 
+            }, 
+            "video": {
+                label: "视频", 
+                full_url: "https://www.douyin.com/search/{0}?type=video", 
+            }, 
+            "user": {
+                label: "用户", 
+                full_url: "https://www.douyin.com/search/{0}?type=user", 
+            }, 
+            "live": {
+                label: "直播", 
+                full_url: "https://www.douyin.com/search/{0}?type=live", 
+            }, 
+        }
+    }, 
     "xigua": {
         dname: "西瓜视频", 
         addr: "https://www.ixigua.com/", 
