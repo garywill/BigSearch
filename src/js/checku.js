@@ -37,11 +37,8 @@ async function checkNews() {
     
     const news_urls = [
         "https://update.versioncheck.workers.dev/news",
-        "https://acsearch.cf/appnews.php",
-        "https://www.acsearch.ml/news.xml",
         "https://garywill.gitlab.io/releaseapps-dl/news.xml",
         `https://api.allorigins.win/raw?url=${encodeURIComponent('https://gitlab.com/garywill/releaseapps-dl/-/raw/main/news.xml')}`,
-        "https://jsonp.afeld.me/?url=https://gitlab.com/garywill/releaseapps-dl/-/raw/main/news.xml",
     ];
     
     // for real

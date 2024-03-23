@@ -60,7 +60,7 @@ async function init()
                         direction: "content-to-page",
                         app: "bigsearch-edit",
                         message: "text",
-                        messageContent: {status: "success" , text: "Successfully saved to extension"}
+                        messageContent: {status: "success" , text: "Successfully saved to extension\n\nTips: We recommend you to also manually save a copy of your custom engines data JSON in a file in your hard disk"}
                     }, document.location.href);
                 else
                     window.postMessage({
