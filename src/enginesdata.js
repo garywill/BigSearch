@@ -163,6 +163,7 @@ catas = {
             { type:"engine", name:"douyin" , visible_lang: "zh" },
             { type:"engine", name:"xigua" , visible_lang: "zh" },
             { type:"engine", name:"music163" , visible_lang: "zh" },
+            { type:"engine", name:"douban" , visible_lang: "zh" },
             { type:"engine", name:"fsou_img", visible_lang: "zh"},
             { type:"label", lstr:"各处民风" , visible_lang: "zh" },
             { type:"engine", name:"google_media"},
@@ -2557,6 +2558,30 @@ sEngines = {
                 "label": "歌词",
                 "full_url": "https://music.163.com/#/search/m/?s={0}&type=1006"
             },
+        }
+    },
+    "douban": {
+        "dname": "豆瓣",
+        "addr": "https://search.douban.com",
+        "kw_key": "search_text",
+        "btns": {
+            "all": {
+                "label": "全部",
+                "kw_key": "q",
+                "action": "https://www.douban.com/search"
+            },
+            "movie": {
+                "label": "电影",
+                "action": "https://search.douban.com/movie/subject_search"
+            },
+            "book": {
+                "label": "读书",
+                "action": "https://search.douban.com/book/subject_search"
+            },
+            "music": {
+                "label": "音乐",
+                "action": "https://search.douban.com/music/subject_search"
+            }
         }
     },
     "google_media": {
