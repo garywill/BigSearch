@@ -69,6 +69,7 @@ catas = {
             { type:"engine", name:"fsou", visible_lang: "zh"},
             { type:"engine", name:"sogou", visible_lang: "zh"},
             { type:"engine", name:"360so", visible_lang: "zh"},
+            { type: "engine", name: "chinaso", visible_lang: "zh" },
             { type:"label", lstr:"村融四海", visible_lang: "zh"},
             { type:"label", lstr:"General", visible_lang: "en"},
             { type:"engine", name:"bing"},
@@ -333,6 +334,37 @@ sEngines = {
         "addr": "https://www.so.com/",
         "action": "https://www.so.com/s",
         "kw_key": "q"
+    },
+    "chinaso": {
+        "dname": "中国搜索",
+        "addr": "https://www.chinaso.com",
+        "kw_key": "q",
+        "btns": {
+            "all": {
+                "label": "新闻",
+                "action": "https://www.chinaso.com/newssearch/all/allResults"
+            },
+            "social": {
+                "label": "社科",
+                "action": "https://www.chinaso.com/newssearch/social/socialResults"
+            },
+            "image": {
+                "label": "图片",
+                "action": "https://www.chinaso.com/newssearch/image"
+            },
+            "video": {
+                "label": "视频",
+                "action": "https://www.chinaso.com/newssearch/video"
+            },
+            "story": {
+                "label": "好故事",
+                "action": "https://www.chinaso.com/newssearch/story/storyResults"
+            },
+            "china_story": {
+                "label": "China Story",
+                "action": "https://www.chinaso.com/newssearch/chinaStory/chinaStoryResults"
+            }
+        }
     },
     "bing": {
         "dname": i18n(["必应", "Bing"]),
