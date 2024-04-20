@@ -27,6 +27,19 @@ async function on_optionpage_load() {
         }); 
         
     } ) () ;
+    
+    
+    (async () => {
+        var setting_newTabFront = await get_addon_setting_local('newTabFront');
+        
+        if (setting_newTabFront === true)
+            document.getElementById('cbox_newTabFront').checked = true;
+        
+        document.getElementById("cbox_newTabFront").addEventListener("change",function () {
+            chrome.storage.local.set({"newTabFront" : document.getElementById("cbox_newTabFront").checked });
+        }); 
+        
+    } ) () ;
 
     // --------------------------
     (async () => {

@@ -391,6 +391,12 @@ async function calcNewTabIndex() {
     //------------------------------
     return newTabIndex;
 }
+async function ifNewTabFront() {
+    if (await get_addon_setting_local('newTabFront') === true )
+        return true;
+    else 
+        return false;
+}
 
 var newTabBringFront = false;
 var newTabIndex = -1 ;
@@ -400,6 +406,7 @@ async function goEngBtn(engine,btn,keyword,dbname=null)
     
     if ( dbname == "browser" ) {
         newTabIndex = await calcNewTabIndex();
+        newTabBringFront = await ifNewTabFront();
         const newTab =  await chrome.tabs.create({url:"about:blank", active: newTabBringFront, index: newTabIndex}) ;
         if (isFirefox) {
             browser.search.search({
@@ -540,7 +547,7 @@ async function open_connecting_page(dbname, engine, btn, kw, newTabIndex=0)
     
     var url = urlEncoder.href;
 
-        
+    newTabBringFront = await ifNewTabFront();
     var newtab =  await chrome.tabs.create({url: url, active: newTabBringFront, index: newTabIndex}) ;
 }
 

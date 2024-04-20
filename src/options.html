@@ -43,6 +43,12 @@
                 <option value="left-current">Left of current tab</option>
                 <option value="right-current">Right of current tab</option>
             </select>
+            <br>
+            <br>
+            <br>
+            <br>
+            <input type="checkbox" id="cbox_newTabFront">Bring new tab to foreground immediatly</input> <br>
+            <span style="color:gray;"><b>⚠️ Notice</b> that will make our popup UI lose focus. Chrome will even closes popup UI immediatly. If you use Vem, Vem will stop working. </span>
         </div>
         <br>
         <hr>
@@ -56,7 +62,7 @@
                             When <b>context menu clicked</b>, set selection text as search term, then: <span style="text-decoration: underline;">(need restart/reenable)</span><br>
                             <ul>
                                 <li><input type="radio" name="contextmenu_behavior" value="popup">Open popup</input><br></li>
-                                <li><input type="radio" name="contextmenu_behavior" value="sidebar">Open sidebar <span style="color:gray;" >(Firefox only)</span></input><br></li>
+                                <li><input type="radio" name="contextmenu_behavior" value="sidebar">Open sidebar</input><br></li>
                                 <li><input type="radio" name="contextmenu_behavior" value="stab">Open Big Search standalone tab</input><br></li>
                             </ul>
                         </form>
