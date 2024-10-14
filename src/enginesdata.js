@@ -92,6 +92,7 @@ catas = {
         engines: [
             { type:"engine", name:"github"},
             { type:"engine", name:"python"},
+            { type:"engine", name:"rust"},
             { type:"engine", name:"mdn"},
             { type:"engine", name:"chrome_dev"},
             { type:"engine", name:"stackexchange"},
@@ -1666,6 +1667,22 @@ sEngines = {
             }, 
         }
     }, 
+    "rust": {
+        dname: "Rust",
+        addr: "https://www.rust-lang.org",
+        btns: {
+            "doc": {
+                label: "std doc",
+                action: "https://doc.rust-lang.org/std/index.html",
+                kw_key: "search",
+            },
+            "crates": {
+                label: "crates.io",
+                action: "https://crates.io/search",
+                kw_key: "q",
+            },
+        }
+    },
     "mdn": {
         "dname": "MDN",
         "addr": "https://developer.mozilla.org",
