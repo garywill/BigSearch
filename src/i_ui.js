@@ -18,7 +18,7 @@ async function pre_layout() {
     if (window.run_env != "http_web") 
     {
         if (showas == "popup") {
-            document.body.style.width = "800px";
+            document.body.style.width = "780px";
             document.body.style.minHeight = "600px";
         }
     }
