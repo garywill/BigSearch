@@ -78,6 +78,7 @@ catas = {
             { type:"engine", name:"yandex"},
             { type:"label", lstr:"Engines Claiming No-Tracking", visible_lang: "en"},
             { type:"engine", name:"duckduckgo"},
+            { type:"engine", name:"brave"},
             { type:"engine", name:"startpage"},
             { type:"engine", name:"ecosia"},
             { type:"engine", name:"qwant"},
@@ -262,6 +263,16 @@ catas = {
             { type:"engine", name:"newegg"},
         ],
     },
+    "electronics": {
+        label: '🔌' + i18n(["电子物械", "Electronics"]), 
+        visible_lang: "zh",
+        engines: [
+            { type:"engine", name:"jlc"},
+            { type:"engine", name:"hqchip"},
+            { type:"engine", name:"oneyac"},
+            { type:"engine", name:"mouser"},
+        ], 
+    }, 
     "finance": {
         label: '📈' + i18n(["经财起落", "Finance"]),
         engines: [
@@ -430,6 +441,34 @@ sEngines = {
         "action": "https://duckduckgo.com/",
         "kw_key": "q"
     },
+    "brave": {
+        dname: "Brave", 
+        addr: "https://search.brave.com/", 
+        action: "https://search.brave.com/search", 
+        kw_key: "q", 
+        btns: {
+            "search": {
+                label: "All", 
+            }, 
+            "images" : {
+                label: "Images", 
+                action: "https://search.brave.com/images", 
+            }, 
+            "news" : {
+                label: "News", 
+                action: "https://search.brave.com/news", 
+            }, 
+            "videos" : {
+                label: "Videos", 
+                action: "https://search.brave.com/videos", 
+            }, 
+            "goggles" : {
+                label: "Goggles", 
+                action: "https://search.brave.com/goggles", 
+            }, 
+
+        }, 
+    }, 
     "startpage": {
         "dname": "StartPage",
         "addr": "https://www.startpage.com/",
@@ -511,7 +550,7 @@ sEngines = {
         }
     },
     "taobao": {
-        "dname": "淘宝天猫",
+        "dname": "淘宝 等",
         "addr": "https://www.taobao.com/",
         "action": "https://s.taobao.com/search",
         // "d_addi_html": [{ "text": "精品优惠入口", "href": "https://ai.taobao.com/?pid=mm_325950067_1186300468_109886250042" , "tip": "点击进入淘宝官方精品优惠主页面\n要搜索精品及优惠券，输入后点击右列中的“精品优惠”" }],
@@ -550,15 +589,18 @@ sEngines = {
                 "kw_key": "q",
     
             },
+            "goofish": {
+                label: "闲鱼", 
+                dname: "闲鱼",
+                action: "https://www.goofish.com/search", 
+                "kw_key": "q",
+            }, 
+
             "old": {
                 "label": "二手",
                 "dname": "淘宝",
-                "params": [
-                    {
-                        "key": "tab",
-                        "val": "old"
-                    },
-                ]
+                action: "https://2.taobao.com/search", 
+                kw_key: "word", 
             },
             "ali1688": {
                 label: "1688",
@@ -2818,6 +2860,59 @@ sEngines = {
     }, 
     
     
+    "jlc": {
+        "dname": "立创商城",
+        "addr": "https://www.szlcsc.com/",
+        "btns": {
+            "szlcsc": {
+                "label": "立创商城", 
+                "full_url":  "https://so.szlcsc.com/global.html?k={0}",
+            }, 
+            "oshwhub": {
+                "label": "开源硬件", 
+                "full_url": "https://oshwhub.com/search?wd={0}", 
+            }, 
+            "fa": {
+                "label": "FA", 
+                "full_url": "https://www.jlcfa.com/product/search/1?keyWord={0}", 
+            }, 
+        }, 
+    },
+    "hqchip": {
+        dname: "华秋商城", 
+        "addr": "https://www.hqchip.com/",
+        "full_url": "https://www.hqchip.com/search/{0}.html"
+    }, 
+    "oneyac": {
+        dname: "唯样商城", 
+        addr: "https://www.oneyac.com/", 
+        action: "https://www.oneyac.com/search.html", 
+        kw_key: "keyword", 
+    }, 
+    "mouser": {
+        dname: "贸泽电子", 
+        addr: "https://www.mouser.cn/", 
+        kw_key: "q", 
+        btns: {
+            'products': {
+                label: "产品", 
+                action: "https://www.mouser.cn/c/", 
+            }, 
+            'datasheet': {
+                label: "数据表", 
+                action: "https://www.mouser.cn/c/ds/", 
+            }, 
+            'image': {
+                label: "图片", 
+                action: "https://www.mouser.cn/c/i/", 
+            }, 
+            'newproduct': {
+                label: "新品速递", 
+                action: "https://www.mouser.cn/c/n/", 
+            }, 
+            
+        }, 
+    }, 
 };
 
 }
