@@ -118,9 +118,9 @@
 
 ### Vem特性（内置类似Vimium）
 
-若你用过 `!bang` 或 omnibox，它们都要求你背诵代号。
+若你用过 `!bang`（DuckDuckGo的） 或 omnibox 等 快捷键，它们都要求你背诵代号。
 
-而 大术专搜 的 Vem模式 让你 **可视化**、快捷 地 用键盘 (连续)点击不同的搜索引擎的不同按钮。使用`Shift+Enter`进入Vem模式
+而 大术专搜 的 Vem模式 让你 **可视化**、快捷 地 用**键盘** (连续)点击不同的搜索引擎的不同按钮。使用`Shift+Enter`进入Vem模式
 
 ![vem](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/vemgif.gif)
 
@@ -406,7 +406,7 @@ JSON格式。
   Released under the MIT license.
   ```
 
-- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (37kB webp. Default background photo)
+- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (37kB webp. Optional background photo)
   
   by Quang Nguyen Vinh
 

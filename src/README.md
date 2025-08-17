@@ -82,7 +82,7 @@ Ways to use:
 
 ![demo_gif](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/demo.gif)
 
-[Video of full introduction & instructions (Youtube)](https://youtu.be/u_DT7gpliKM) (choose the chapter you want to watch): 
+[Video of full introduction & instructions (Youtube)](https://youtu.be/u_DT7gpliKM) (choose the chapter you want to watch)
 
 ## Features
 
@@ -122,9 +122,9 @@ Ways to use:
 
 ### Vem feature (built-in Vimium-like)
 
-If you've used `!bang` or omnibox, they require you to memorize codes.
+If you've used shortcut keys like`!bang` (by DuckDuckGo) or omnibox, they require you to memorize codes.
 
-While, Big Search's Vem mode **visually** gives you convinience & ability to use keyboard to (uninterruptedly) click different search engines' different buttons. Press `Shift+Enter` to enter Vem mode
+While, Big Search's Vem mode **visually** gives you convinience & ability to use **keyboard** to (uninterruptedly) click different search engines' different buttons. Press `Shift+Enter` to enter Vem mode
 
 ![vem](https://gitlab.com/garywill/bigSearch/-/raw/screenshot/vemgif.gif)
 
@@ -135,10 +135,8 @@ While, Big Search's Vem mode **visually** gives you convinience & ability to use
 | `I` | Quit Vem mode and focus inputbox |
 | `1` - `9` | Switch catagory (in Vem mode) |
 | `A` - `Z` | Press corresponding button (in Vem mode) |
-| `J` & `K` | Scroll table down/up |
+| `J` & `K` | Scroll table down/up (in Vem mode) |
 | more to be added ... |  |
-
-> Above key bindings are not formally determined. May change in the future according to user feedback
 
 Note if new engines added, button sequence may change, so as button key (`A` - `Z`).
   
@@ -419,7 +417,7 @@ This tool still can be improved to do something more:
   Released under the MIT license.
   ```
   
-- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (37kB webp. Default background photo)
+- [Foggy Lake](https://www.pexels.com/photo/foggy-lake-2166695/) (37kB webp. Optional background photo)
   
   by Quang Nguyen Vinh
   
