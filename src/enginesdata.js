@@ -265,13 +265,16 @@ catas = {
         ],
     },
     "electronics": {
-        label: '🔌' + i18n(["电子物械", "Electronics"]), 
-        visible_lang: "zh",
+        label: '🔌' + i18n(["电子物械", "Robotics"]),
         engines: [
-            { type:"engine", name:"jlc"},
-            { type:"engine", name:"hqchip"},
-            { type:"engine", name:"oneyac"},
-            { type:"engine", name:"mouser"},
+            { type:"label", lstr:"电子电路", visible_lang: "zh"},
+            { type:"engine", name:"jlc", visible_lang: "zh"},
+            { type:"engine", name:"hqchip", visible_lang: "zh"},
+            { type:"engine", name:"oneyac", visible_lang: "zh"},
+            { type:"engine", name:"mouser", visible_lang: "zh"},
+            { type:"label", lstr:i18n(["３Ｄ打印", "3D Printing"]) },
+            { type:"engine", name:"thingiverse"},
+            { type:"engine", name:"printables"},
         ], 
     }, 
     "finance": {
@@ -2930,6 +2933,140 @@ sEngines = {
             
         }, 
     }, 
+
+    "thingiverse": {
+        dname: "Thingiverse",
+        addr: "https://www.thingiverse.com",
+        tip: "Ultimaker",
+        action: "https://www.thingiverse.com/search",
+        kw_key: "q",
+        btns:{
+            "search": {
+                label: "All",
+            },
+            "3dprint": {
+                label: "3D Print",
+                params: [{key: 'category_id', val: '73'}],
+            },
+            "art": {
+                label: "Art",
+                params: [{key: 'category_id', val: '63'}],
+            },
+            "fashion": {
+                label: "Fashion",
+                params: [{key: 'category_id', val: '64'}],
+            },
+            "gadget": {
+                label: "Gadget",
+                params: [{key: 'category_id', val: '65'}],
+            },
+            "hobby": {
+                label: "Hobby",
+                params: [{key: 'category_id', val: '66'}],
+            },
+            "household": {
+                label: "Household",
+                params: [{key: 'category_id', val: '67'}],
+            },
+            "learn": {
+                label: "Learn",
+                params: [{key: 'category_id', val: '69'}],
+            },
+            "model": {
+                label: "Model",
+                params: [{key: 'category_id', val: '70'}],
+            },
+            "tool": {
+                label: "Tool",
+                params: [{key: 'category_id', val: '71'}],
+            },
+            "toy": {
+                label: "Toy",
+                params: [{key: 'category_id', val: '72'}],
+            },
+            "other": {
+                label: "Other",
+                params: [{key: 'category_id', val: '0'}],
+            },
+            "makes": {
+                label: "Makes",
+                params: [{key: 'type', val: 'makes'}],
+            },
+            "collections": {
+                label: "Collections",
+                params: [{key: 'type', val: 'collection'}],
+            },
+            "users": {
+                label: "Users",
+                params: [{key: 'type', val: 'users'}],
+            },
+            "groups": {
+                label: "Groups",
+                action: 'https://www.thingiverse.com/groups',
+            },
+        }
+    },
+    "printables": {
+        dname: "Printables",
+        addr: "https://www.printables.com/",
+        action: "https://www.printables.com/search/models",
+        kw_key: "q",
+        tip: "Prusa",
+        btns: {
+            "search": {
+                label: "All",
+            },
+            "artDesign": {
+                label: "Art&Design",
+                params: [{key: 'category', val: '14'}],
+            },
+            "custumeAccessories": {
+                label: "Costumes&Accessories",
+                params: [{key: 'category', val: '76'}],
+            },
+            "fashion": {
+                label: "Fashion",
+                params: [{key: 'category', val: '17'}],
+            },
+            "gadget": {
+                label: "Gadget",
+                params: [{key: 'category', val: '21'}],
+            },
+            "health": {
+                label: "Health",
+                params: [{key: 'category', val: '87'}],
+            },
+            "hobbyMaker": {
+                label: "Hobby&Maker",
+                params: [{key: 'category', val: '48'}],
+            },
+            "household": {
+                label: "Household",
+                params: [{key: 'category', val: '3'}],
+            },
+            "learn": {
+                label: "Learn",
+                params: [{key: 'category', val: '90'}],
+            },
+            "seasonal": {
+                label: "Seasonal",
+                params: [{key: 'category', val: '65'}],
+            },
+            "sportOutdoor": {
+                label: "Sports&Outdoor",
+                params: [{key: 'category', val: '9'}],
+            },
+            "tabletop": {
+                label: "Tabletop",
+                params: [{key: 'category', val: '101'}],
+            },
+            "toy": {
+                label: "Toy",
+                params: [{key: 'category', val: '30'}],
+            },
+
+        },
+    },
 };
 
 }
